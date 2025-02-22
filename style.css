@@ -1,8 +1,33 @@
-body {
-    font-family: Arial;
-    text-align: center;
-    padding: 20px;
+/* Header Styling */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #f0f0f0;
+    border-bottom: 2px solid green;
 }
-h1 {
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
     color: green;
+}
+
+.language {
+    display: flex;
+    gap: 10px;
+}
+
+.lang-btn {
+    padding: 5px 10px;
+    border: 1px solid green;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+}
+
+.wallet {
+    font-size: 14px;
+    color: #666;
 }
