@@ -1,61 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MONEY PLANT</title>
-    <link rel="stylesheet" href="style.css">
+    <title>🌿 MONEY PLANT</title>
+    <style>
+        /* पूरा CSS कोड (आपके डिज़ाइन अनुसार) */
+    </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- हेडर -->
     <div class="header">
         <div class="logo">🌿 MONEY PLANT</div>
-        <div class="right-section">
-            <div class="language">
-                <button class="lang-btn">🇮🇳 हिंदी</button>
-                <button class="lang-btn">🇬🇧 English</button>
-            </div>
-            <button onclick="connectWallet()" class="connect-btn" id="walletBtn">🔗 Connect Wallet</button>
-        </div>
+        <div class="wallet-status" id="walletStatus">🔒 Not Connected</div>
+        <button onclick="toggleLanguage()" class="lang-btn">🇮🇳/🇬🇧</button>
     </div>
 
-    <!-- Beneficiary Wallets -->
+    <!-- एक्टिवेशन सेक्शन -->
     <div class="container">
         <div class="wallets-list">
-            <h2>💰 Beneficiary Wallets</h2>
-            
-            <!-- Admin -->
-            <div class="wallet-item">
-                <div class="wallet-label">Admin (1 USDT)</div>
-                <div class="wallet-address">0xAdminWallet123</div>
-            </div>
-
-            <!-- Upline 1-15 -->
-            <div class="wallet-item">
-                <div class="wallet-label">Upline 1 (1 USDT)</div>
-                <div class="wallet-address">0x...Upline1</div>
-            </div>
-            <!-- Add Upline 2 to 15 similarly -->
-
-            <!-- Refund Pool -->
-            <div class="wallet-item highlight">
-                <div class="wallet-label">Refund Pool (2 USDT)</div>
-                <div class="wallet-address">0x60547abE7550e894e0fcCe43Adf36E4774e22d95</div>
-            </div>
-
-            <!-- Direct Sponsor -->
-            <div class="wallet-item">
-                <div class="wallet-label">Your Direct Sponsor (9 USDT)</div>
-                <input type="text" id="sponsorAddress" placeholder="Enter sponsor's 0x... address">
-            </div>
+            <div class="wallet-item">Admin: 1 USDT (0xAdmin...)</div>
+            <div class="wallet-item">Refund Pool: 2 USDT (0x6054...d95)</div>
+            <!-- 15 Upline के वॉलेट्स -->
         </div>
-
-        <!-- Activate Button -->
-        <button onclick="activateID()" class="activate-btn">Activate Now (27 USDT)</button>
+        <button onclick="startActivation()" class="activate-btn">Activate (27 USDT)</button>
     </div>
 
-    <!-- Web3 & Scripts -->
+    <!-- रेफरल सेक्शन (सक्रिय यूजर्स के लिए) -->
+    <div id="referralSection" class="hidden">
+        <input type="text" id="referralLink" readonly>
+        <button onclick="copyReferral()">📋 Copy</button>
+        <button onclick="joinTelegram()" class="telegram-btn">Join Telegram</button>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
-    <script src="script.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
