@@ -1,4 +1,21 @@
-/* Header Styling */
+/* Connect Button Styling */
+.container {
+    margin-top: 50px;
+}
+
+.connect-btn {
+    padding: 12px 25px;
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.connect-btn:hover {
+    background: darkgreen;
+}/* Header Styling */
 .header {
     display: flex;
     justify-content: space-between;
@@ -30,4 +47,22 @@
 .wallet {
     font-size: 14px;
     color: #666;
+}
+/* Connect Button Styling */
+.container {
+    margin-top: 50px;
+}
+
+.connect-btn {
+    padding: 12px 25px;
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.connect-btn:hover {
+    background: darkgreen;
 }
