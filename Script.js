@@ -1,43 +1,39 @@
+// Wallet Connection
 async function connectWallet() {
     try {
-        // MetaMask/BSC Wallet Connect
-        if (window.ethereum) {
-            const accounts = await window.ethereum.request({ 
-                method: 'eth_requestAccounts' 
-            });
-            const walletAddress = accounts[0];
-            document.getElementById("walletAddress").textContent = 
-                walletAddress.substring(0, 6) + "..." + walletAddress.substring(38);
-            alert("Wallet Connected Successfully! 🎉");
+        if(window.ethereum) {
+            const accounts = await ethereum.request({method: 'eth_requestAccounts'});
+            document.getElementById('walletBtn').textContent = 
+                accounts[0].substring(0,6) + '...' + accounts[0].substring(38);
         } else {
-            alert("Please Install MetaMask Wallet! 🦊");
+            alert('Please install MetaMask!');
         }
-    } catch (error) {
-        console.error(error);
+    } catch(error) {
+        alert('Error: ' + error.message);
     }
 }
+
+// Activation Function
 async function activateID() {
-    const sponsorAddress = document.getElementById("sponsorAddress").value;
-    if (!sponsorAddress) {
-        alert("Please enter sponsor address!");
-        return;
-    }
-    
+    const sponsorAddress = document.getElementById('sponsorAddress').value;
+    if(!sponsorAddress) return alert('Please enter sponsor address!');
+
     try {
         const web3 = new Web3(window.ethereum);
         const accounts = await web3.eth.getAccounts();
-        const amount = web3.utils.toWei("27", "ether"); // 27 USDT (BSC पर 1 USDT = 1e18 wei)
         
-        // Transaction भेजें
-        await web3.eth.sendTransaction({
+        // Smart Contract Interaction
+        const contractAddress = "YOUR_CONTRACT_ADDRESS";
+        const contractABI = [...]; // Your Contract ABI
+        
+        const contract = new web3.eth.Contract(contractABI, contractAddress);
+        await contract.methods.activate(sponsorAddress).send({
             from: accounts[0],
-            to: "ADMIN_WALLET_ADDRESS", // अपना Admin Wallet डालें
-            value: amount,
-            data: web3.utils.asciiToHex(sponsorAddress) // Sponsor Address पास करें
+            value: web3.utils.toWei('27', 'ether')
         });
         
-        alert("Activation Successful! 🎉");
-    } catch (error) {
-        alert("Error: " + error.message);
+        alert('Activation Successful!');
+    } catch(error) {
+        alert('Error: ' + error.message);
     }
 }
