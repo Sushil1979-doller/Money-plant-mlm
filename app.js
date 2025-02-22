@@ -20,6 +20,3 @@ async function activate() {
     await contract.methods.activate(sponsor).send({from: userAddress[0], value: '27000000000000000000'});
     alert("Activated! Referral Link: " + window.location.href + "?ref=" + userAddress[0]);
 }
-function joinTelegram() {
-      window.open("https://t.me/YourChannel");
-}
