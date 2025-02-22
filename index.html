@@ -1,62 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MONEY PLANT</title>
     <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <!-- Header Section -->
+    <!-- Header -->
     <div class="header">
-        <div class="header">
-    <div class="logo">🌿 MONEY PLANT</div>
-    <div class="right-section">
-        <!-- Language Toggle -->
-        <div class="language">
-            <button class="lang-btn">🇮🇳 हिंदी</button>
-            <button class="lang-btn">🇬🇧 English</button>
-        </div>
-        <!-- Connect Wallet Button -->
-        <button onclick="connectWallet()" class="connect-btn">🔗 Connect</button>
-    </div>
-        </div>
-        <!-- Logo -->
-        <div class="logo">
-            🌿 MONEY PLANT
-        </div>
-        
-        <!-- Language Toggle -->
-        <div class="language">
-            <button class="lang-btn">🇮🇳 हिंदी</button>
-            <button class="lang-btn">🇬🇧 English</button>
-        </div>
-        
-        <!-- Wallet Address -->
-        <div class="wallet">
-            Your Wallet: <span id="walletAddress">0x... (Connect Wallet)</span>
+        <div class="logo">🌿 MONEY PLANT</div>
+        <div class="right-section">
+            <div class="language">
+                <button class="lang-btn">🇮🇳 हिंदी</button>
+                <button class="lang-btn">🇬🇧 English</button>
+            </div>
+            <button onclick="connectWallet()" class="connect-btn" id="walletBtn">🔗 Connect Wallet</button>
         </div>
     </div>
 
-    <!-- Rest of the page (अभी खाली) -->
-</<!-- Connect Wallet Button -->
-<div class="container">
-    <!-- Activation Form -->
-<div class="activation-form" id="activationForm">
-    <h2>Activate Your ID (27 USDT)</h2>
-    <label>Direct Sponsor Wallet Address:</label>
-    <input type="text" id="sponsorAddress" placeholder="0x...">
-    <button onclick="activateID()" class="activate-btn">Activate Now</button>
-</div>
-    <button onclick="connectWallet()" class="connect-btn">
-        🔗 Connect Wallet
-    </button>
-</div>
+    <!-- Beneficiary Wallets -->
+    <div class="container">
+        <div class="wallets-list">
+            <h2>💰 Beneficiary Wallets</h2>
+            
+            <!-- Admin -->
+            <div class="wallet-item">
+                <div class="wallet-label">Admin (1 USDT)</div>
+                <div class="wallet-address">0xAdminWallet123</div>
+            </div>
 
-<!-- Web3.js लाइब्रेरी जोड़ें (BSC के लिए जरूरी) -->
-<script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
-<script src="script.js"></script>>
+            <!-- Upline 1-15 -->
+            <div class="wallet-item">
+                <div class="wallet-label">Upline 1 (1 USDT)</div>
+                <div class="wallet-address">0x...Upline1</div>
+            </div>
+            <!-- Add Upline 2 to 15 similarly -->
+
+            <!-- Refund Pool -->
+            <div class="wallet-item highlight">
+                <div class="wallet-label">Refund Pool (2 USDT)</div>
+                <div class="wallet-address">0x60547abE7550e894e0fcCe43Adf36E4774e22d95</div>
+            </div>
+
+            <!-- Direct Sponsor -->
+            <div class="wallet-item">
+                <div class="wallet-label">Your Direct Sponsor (9 USDT)</div>
+                <input type="text" id="sponsorAddress" placeholder="Enter sponsor's 0x... address">
+            </div>
+        </div>
+
+        <!-- Activate Button -->
+        <button onclick="activateID()" class="activate-btn">Activate Now (27 USDT)</button>
+    </div>
+
+    <!-- Web3 & Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>
-<div class="refund-pool">
-    <h3>Refund Pool Wallet:</h3>
-    <p>0x60547abE7550e894e0fcCe43Adf36E4774e22d95</p>
-</div>
