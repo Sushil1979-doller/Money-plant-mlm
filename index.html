@@ -3,54 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Money Plant MLM</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Money Plant 🌿</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .language-buttons button {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .container {
+            padding: 20px;
+        }
+        .welcome-note {
+            border: 3px solid green;
+            padding: 15px;
+            margin: 20px auto;
+            width: 80%;
+            font-size: 18px;
+            background-color: white;
+        }
+        .join-button {
+            background-color: #27ae60;
+            color: white;
+            padding: 15px 30px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .bottom-text {
+            margin-top: 30px;
+            font-weight: bold;
+            color: #27ae60;
+        }
+    </style>
 </head>
 <body>
+
     <header>
-        <div class="logo">
-            <img src="logo.png" alt="Money Plant Logo">
-            <h1>Money Plant MLM</h1>
-        </div>
-        <div class="language-switch">
+        <div class="logo">Money Plant 🌿</div>
+        <div class="language-buttons">
             <button onclick="changeLanguage('en')">English</button>
             <button onclick="changeLanguage('hi')">हिन्दी</button>
         </div>
     </header>
 
-    <main>
-        <section class="welcome-section">
-            <p id="welcome-text">
-                Welcome to Money Plant MLM system, this is your own money plant. 
-                It's a fully decentralized system where ownership is renounced, and only users are the real owners. 
-                Money Plant is a scam-free project, designed for hard-working networkers who lost money in past scam projects. 
-                The developer felt their pain and decided to bring Money Plant into existence to set an example that MLM can be scam-free. 
-                Thanks to your sponsor! Start your financial freedom journey from here. Grow your Money Plant, build your team without fear, and get financial freedom.
-            </p>
-        </section>
-
-        <div class="center">
-            <button class="join-btn">Join</button>
+    <div class="container">
+        <div class="welcome-note" id="welcome-text">
+            🌿 Welcome to Money Plant MLM System 🌿<br><br>
+            This is your own money plant. It's a fully decentralized system where ownership is renounced, and only users are the owners. <br>
+            Money Plant is a scam-free project specially designed for hardworking networkers who lost their hard-earned money in past scams.<br>
+            The developer felt the pain of victims and decided to bring Money Plant into existence to set an example of how MLM can grow without scams. <br>
+            Thanks to your sponsor! Start your financial freedom journey from here. Grow your money plant, which is already planted in your garden forever. <br>
+            Build your team without liability, without fear, and get financial freedom. 🌿
         </div>
 
-        <div class="content">
-            <div class="faq-section">
-                <h2>FAQs</h2>
-                <p>Coming Soon...</p>
-            </div>
-            <div class="plan-section">
-                <h2>Plan Details</h2>
-                <p>Download PDF & Watch Video</p>
-                <button>Download PDF</button>
-                <button>Watch Video</button>
-            </div>
+        <button class="join-button">Join</button>
+
+        <div class="bottom-text">
+            100% Scam-Free Project, Your Today's Decision Can Change Your Tomorrow
         </div>
-    </main>
+    </div>
 
-    <footer>
-        <p>100% Scam Free Project</p>
-    </footer>
+    <script>
+        function changeLanguage(lang) {
+            const welcomeText = document.getElementById("welcome-text");
+            if (lang === "hi") {
+                welcomeText.innerHTML = `🌿 मनी प्लांट एमएलएम सिस्टम में आपका स्वागत है 🌿<br><br>
+                यह आपका अपना मनी प्लांट है। यह पूरी तरह से विकेंद्रीकृत सिस्टम है जहां मालिकाना हक छोड़ा जा चुका है, और केवल उपयोगकर्ता ही मालिक हैं। <br>
+                मनी प्लांट एक स्कैम-फ्री प्रोजेक्ट है, जो उन मेहनती नेटवर्कर्स के लिए डिज़ाइन किया गया है जिन्होंने पहले घोटालों में अपनी मेहनत की कमाई गंवाई थी।<br>
+                डेवलपर ने पीड़ितों का दर्द महसूस किया और यह दिखाने के लिए मनी प्लांट को अस्तित्व में लाने का फैसला किया कि एमएलएम उद्योग बिना घोटाले के भी विकसित हो सकता है। <br>
+                आपके स्पॉन्सर को धन्यवाद! यहाँ से अपनी वित्तीय स्वतंत्रता की यात्रा शुरू करें। अपने मनी प्लांट को बढ़ाएँ, जो हमेशा के लिए आपके बगीचे में लगाया जा चुका है। <br>
+                बिना किसी देनदारी, बिना डर के अपनी टीम बनाएं और वित्तीय स्वतंत्रता प्राप्त करें। 🌿`;
+            } else {
+                welcomeText.innerHTML = `🌿 Welcome to Money Plant MLM System 🌿<br><br>
+                This is your own money plant. It's a fully decentralized system where ownership is renounced, and only users are the owners. <br>
+                Money Plant is a scam-free project specially designed for hardworking networkers who lost their hard-earned money in past scams.<br>
+                The developer felt the pain of victims and decided to bring Money Plant into existence to set an example of how MLM can grow without scams. <br>
+                Thanks to your sponsor! Start your financial freedom journey from here. Grow your money plant, which is already planted in your garden forever. <br>
+                Build your team without liability, without fear, and get financial freedom. 🌿`;
+            }
+        }
+    </script>
 
-    <script src="script.js"></script>
 </body>
 </html>
