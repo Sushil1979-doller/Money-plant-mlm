@@ -1,84 +1,56 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌿 MONEY PLANT</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* CSS नीचे दिया गया है */
-    </style>
+    <title>Money Plant MLM</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- हेडर -->
-    <header class="glass-header">
+    <header>
         <div class="logo">
-            <span class="plant-icon">🌿</span>
-            <span>MONEY PLANT</span>
+            <img src="logo.png" alt="Money Plant Logo">
+            <h1>Money Plant MLM</h1>
         </div>
-        
-        <div class="header-right">
-            <button class="lang-btn gradient-btn">🇮🇳/🇬🇧</button>
-            <div class="wallet-status gradient-border">
-                <i class="fas fa-wallet"></i>
-                <span id="walletText">Connect Wallet</span>
-            </div>
+        <div class="language-switch">
+            <button onclick="changeLanguage('en')">English</button>
+            <button onclick="changeLanguage('hi')">हिन्दी</button>
         </div>
     </header>
 
-    <!-- मेन्यू -->
-    <nav class="glass-nav">
-        <button class="nav-btn active" onclick="showSection('home')"><i class="fas fa-home"></i> Home</button>
-        <button class="nav-btn" onclick="showSection('tree')"><i class="fas fa-network-wired"></i> Team</button>
-        <button class="nav-btn" onclick="showSection('earnings')"><i class="fas fa-coins"></i> Earnings</button>
-        <button class="nav-btn" onclick="showSection('bonus')"><i class="fas fa-gift"></i> Bonus</button>
-    </nav>
-
-    <!-- मुख्य कंटेंट -->
-    <main class="container">
-        <!-- होम सेक्शन -->
-        <section id="home" class="active">
-            <div class="welcome-box glass-card">
-                <h2>Welcome to Money Plant 🌱</h2>
-                <p>Your Decentralized Financial Freedom Platform</p>
-            </div>
-
-            <div class="activation-box glass-card">
-                <h3 class="section-title"><i class="fas fa-wallet"></i> Activation (27 USDT)</h3>
-                <div class="beneficiary-list">
-                    <div class="beneficiary-item">
-                        <span class="wallet-role">Admin</span>
-                        <span class="amount-badge">1 USDT</span>
-                        <span class="wallet-address">0xAdmin123...</span>
-                    </div>
-                    <div class="beneficiary-item highlight">
-                        <span class="wallet-role">Refund Pool</span>
-                        <span class="amount-badge">2 USDT</span>
-                        <span class="wallet-address">0x60547abE...</span>
-                    </div>
-                </div>
-                <button class="activate-btn gradient-btn"><i class="fas fa-bolt"></i> Activate Now</button>
-            </div>
+    <main>
+        <section class="welcome-section">
+            <p id="welcome-text">
+                Welcome to Money Plant MLM system, this is your own money plant. 
+                It's a fully decentralized system where ownership is renounced, and only users are the real owners. 
+                Money Plant is a scam-free project, designed for hard-working networkers who lost money in past scam projects. 
+                The developer felt their pain and decided to bring Money Plant into existence to set an example that MLM can be scam-free. 
+                Thanks to your sponsor! Start your financial freedom journey from here. Grow your Money Plant, build your team without fear, and get financial freedom.
+            </p>
         </section>
 
-        <!-- रेफरल सेक्शन -->
-        <div class="referral-box glass-card">
-            <h3 class="section-title"><i class="fas fa-link"></i> Your Referral Link</h3>
-            <div class="input-group">
-                <input type="text" id="referralLink" value="https://..." readonly>
-                <button class="copy-btn gradient-btn"><i class="fas fa-copy"></i></button>
+        <div class="center">
+            <button class="join-btn">Join</button>
+        </div>
+
+        <div class="content">
+            <div class="faq-section">
+                <h2>FAQs</h2>
+                <p>Coming Soon...</p>
             </div>
-            <button class="telegram-btn gradient-btn"><i class="fab fa-telegram"></i> Join Telegram</button>
+            <div class="plan-section">
+                <h2>Plan Details</h2>
+                <p>Download PDF & Watch Video</p>
+                <button>Download PDF</button>
+                <button>Watch Video</button>
+            </div>
         </div>
     </main>
 
-    <script>
-        // Basic JS Functions
-        function showSection(sectionId) {
-            document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
-            document.getElementById(sectionId).classList.add('active');
-        }
-    </script>
+    <footer>
+        <p>100% Scam Free Project</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
