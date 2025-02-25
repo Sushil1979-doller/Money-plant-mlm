@@ -73,7 +73,14 @@
             justify-content: space-between;
             align-items: center;
         }
-        .wallet-name {
+        .wallet input {
+            width: 60%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            text-align: center;
+        }
+        .wallet-label {
             font-weight: bold;
             flex: 1;
             text-align: left;
@@ -92,29 +99,6 @@
             cursor: pointer;
             border-radius: 5px;
             margin-top: 15px;
-        }
-        .user-chart {
-            margin-top: 30px;
-            background-color: white;
-            padding: 15px;
-            width: 80%;
-            margin: auto;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        th, td {
-            border: 1px solid black;
-            padding: 10px;
-            text-align: center;
-        }
-        th {
-            background-color: #27ae60;
-            color: white;
         }
     </style>
 </head>
@@ -150,43 +134,34 @@
         <div class="section-header">Beneficiary List</div>
         <div class="beneficiary-section">
             <div class="wallet-list">
-                <div class="wallet"><span class="wallet-name">Refund Pool Wallet</span><span class="wallet-amount">2 USDT 🌿</span></div>
-                <div class="wallet"><span class="wallet-name">Admin Wallet</span><span class="wallet-amount">1 USDT 🌿</span></div>
-                <div class="wallet"><span class="wallet-name">Upline 15</span><span class="wallet-amount">1 USDT 🌿</span></div>
-                <div class="wallet"><span class="wallet-name">Upline 1</span><span class="wallet-amount">1 USDT 🌿</span></div>
-                <div class="wallet"><span class="wallet-name">Direct Sponsor</span><span class="wallet-amount">9 USDT 🌿</span></div>
+                <div class="wallet">
+                    <input type="text" placeholder="Refund Pool Wallet">
+                    <span class="wallet-label">Refund Pool Wallet</span>
+                    <span class="wallet-amount">2 USDT 🌿</span>
+                </div>
+                <div class="wallet">
+                    <input type="text" placeholder="Admin Wallet">
+                    <span class="wallet-label">Admin Wallet</span>
+                    <span class="wallet-amount">1 USDT 🌿</span>
+                </div>
+                <div class="wallet">
+                    <input type="text" placeholder="Upline 15">
+                    <span class="wallet-label">Upline 15</span>
+                    <span class="wallet-amount">1 USDT 🌿</span>
+                </div>
+                <div class="wallet">
+                    <input type="text" placeholder="Upline 14">
+                    <span class="wallet-label">Upline 14</span>
+                    <span class="wallet-amount">1 USDT 🌿</span>
+                </div>
+                <div class="wallet">
+                    <input type="text" placeholder="Direct Sponsor">
+                    <span class="wallet-label">Direct Sponsor</span>
+                    <span class="wallet-amount">9 USDT 🌿</span>
+                </div>
                 
                 <button class="distribute-button">Distribute Now</button>
             </div>
-        </div>
-
-        <div class="section-header">Activated Users Page</div>
-
-        <div class="user-chart">
-            <h2>User Growth Chart</h2>
-            <table>
-                <tr>
-                    <th>Level</th>
-                    <th>Users</th>
-                </tr>
-                <tr><td>1st Level</td><td id="level1">0</td></tr>
-                <tr><td>2nd Level</td><td id="level2">0</td></tr>
-                <tr><td>3rd Level</td><td id="level3">0</td></tr>
-                <tr><td>4th Level</td><td id="level4">0</td></tr>
-                <tr><td>5th Level</td><td id="level5">0</td></tr>
-                <tr><td>6th Level</td><td id="level6">0</td></tr>
-                <tr><td>7th Level</td><td id="level7">0</td></tr>
-                <tr><td>8th Level</td><td id="level8">0</td></tr>
-                <tr><td>9th Level</td><td id="level9">0</td></tr>
-                <tr><td>10th Level</td><td id="level10">0</td></tr>
-                <tr><td>11th Level</td><td id="level11">0</td></tr>
-                <tr><td>12th Level</td><td id="level12">0</td></tr>
-                <tr><td>13th Level</td><td id="level13">0</td></tr>
-                <tr><td>14th Level</td><td id="level14">0</td></tr>
-                <tr><td>15th Level</td><td id="level15">0</td></tr>
-                <tr><td>16th Level</td><td id="level16">0</td></tr>
-                <tr><th>Total Users</th><th id="totalUsers">0</th></tr>
-            </table>
         </div>
 
         <div class="section-header">100% Scam-Free Project, Your Today's Decision Can Change Your Tomorrow</div>
