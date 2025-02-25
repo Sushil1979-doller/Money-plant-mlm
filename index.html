@@ -19,18 +19,6 @@
             font-size: 20px;
             font-weight: bold;
         }
-        .logo {
-            font-size: 24px;
-        }
-        .language-buttons button {
-            background-color: #27ae60;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            margin: 5px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
         .container {
             padding: 20px;
         }
@@ -83,9 +71,17 @@
             box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
-        .wallet span {
+        .wallet-name {
             font-weight: bold;
+            flex: 1;
+            text-align: left;
+        }
+        .wallet-amount {
+            font-weight: bold;
+            flex: 1;
+            text-align: right;
         }
         .distribute-button {
             background-color: #e74c3c;
@@ -124,13 +120,7 @@
 </head>
 <body>
 
-    <header>
-        <div class="logo">Money Plant 🌿</div>
-        <div class="language-buttons">
-            <button onclick="changeLanguage('en')">English</button>
-            <button onclick="changeLanguage('hi')">हिन्दी</button>
-        </div>
-    </header>
+    <header>Money Plant 🌿</header>
 
     <div class="container">
         <div class="welcome-note">
@@ -145,7 +135,6 @@
         <div class="faq-plan-section">
             <div class="faq">
                 <h2>FAQ Section</h2>
-                <p>यहाँ आपके सभी सवालों के जवाब होंगे...</p>
             </div>
             <div class="plan">
                 <h2>Plan Video & PDF</h2>
@@ -158,27 +147,21 @@
 
         <button class="connect-wallet-button">Connect Wallet</button>
 
-        <div class="section-header">Beneficiary</div>
+        <div class="section-header">Beneficiary List</div>
         <div class="beneficiary-section">
             <div class="wallet-list">
-                <div class="wallet"><span>Refund Pool Wallet</span> <span>2 USDT 🌿</span></div>
-                <div class="wallet"><span>Admin Wallet</span> <span>1 USDT 🌿</span></div>
-                <div class="wallet"><span>Upline 15</span> <span>1 USDT 🌿</span></div>
-                <div class="wallet"><span>Upline 14</span> <span>1 USDT 🌿</span></div>
-                <div class="wallet"><span>Upline 13</span> <span>1 USDT 🌿</span></div>
-                <div class="wallet"><span>Upline 12</span> <span>1 USDT 🌿</span></div>
-                <div class="wallet"><span>Upline 11</span> <span>1 USDT 🌿</span></div>
-                <div class="wallet"><span>Upline 10</span> <span>1 USDT 🌿</span></div>
-                <div class="wallet"><span>Upline 1</span> <span>1 USDT 🌿</span></div>
-                <div class="wallet"><span>Direct Sponsor</span> <span>9 USDT 🌿</span></div>
+                <div class="wallet"><span class="wallet-name">Refund Pool Wallet</span><span class="wallet-amount">2 USDT 🌿</span></div>
+                <div class="wallet"><span class="wallet-name">Admin Wallet</span><span class="wallet-amount">1 USDT 🌿</span></div>
+                <div class="wallet"><span class="wallet-name">Upline 15</span><span class="wallet-amount">1 USDT 🌿</span></div>
+                <div class="wallet"><span class="wallet-name">Upline 1</span><span class="wallet-amount">1 USDT 🌿</span></div>
+                <div class="wallet"><span class="wallet-name">Direct Sponsor</span><span class="wallet-amount">9 USDT 🌿</span></div>
                 
-                <button class="distribute-button">Distribute</button>
+                <button class="distribute-button">Distribute Now</button>
             </div>
         </div>
 
-        <div class="section-header">100% Scam-Free Project, Your Today's Decision Can Change Your Tomorrow</div>
+        <div class="section-header">Activated Users Page</div>
 
-        <div class="section-header">Activated Users</div>
         <div class="user-chart">
             <h2>User Growth Chart</h2>
             <table>
@@ -196,8 +179,18 @@
                 <tr><td>8th Level</td><td id="level8">0</td></tr>
                 <tr><td>9th Level</td><td id="level9">0</td></tr>
                 <tr><td>10th Level</td><td id="level10">0</td></tr>
+                <tr><td>11th Level</td><td id="level11">0</td></tr>
+                <tr><td>12th Level</td><td id="level12">0</td></tr>
+                <tr><td>13th Level</td><td id="level13">0</td></tr>
+                <tr><td>14th Level</td><td id="level14">0</td></tr>
+                <tr><td>15th Level</td><td id="level15">0</td></tr>
+                <tr><td>16th Level</td><td id="level16">0</td></tr>
+                <tr><th>Total Users</th><th id="totalUsers">0</th></tr>
             </table>
         </div>
+
+        <div class="section-header">100% Scam-Free Project, Your Today's Decision Can Change Your Tomorrow</div>
+
     </div>
 
 </body>
