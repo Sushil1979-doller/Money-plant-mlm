@@ -54,10 +54,59 @@
             border-radius: 5px;
             margin-top: 20px;
         }
+        .faq-plan-section {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+        .faq, .plan {
+            width: 45%;
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
         .bottom-text {
             margin-top: 30px;
             font-weight: bold;
             color: #27ae60;
+        }
+        .beneficiary-section {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .beneficiary-section h2 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .wallet-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .wallet {
+            background-color: white;
+            padding: 10px;
+            margin: 5px;
+            width: 50%;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+        }
+        .wallet span {
+            font-weight: bold;
+        }
+        .distribute-button {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 15px;
         }
     </style>
 </head>
@@ -83,31 +132,50 @@
 
         <button class="join-button">Join</button>
 
+        <div class="faq-plan-section">
+            <div class="faq">
+                <h2>FAQ Section</h2>
+                <p>यहाँ आपके सभी सवालों के जवाब होंगे...</p>
+            </div>
+            <div class="plan">
+                <h2>Plan Video & PDF</h2>
+                <p>Plan video:</p>
+                <input type="file" accept="video/*">
+                <p>Plan PDF:</p>
+                <input type="file" accept="application/pdf">
+            </div>
+        </div>
+
+        <div class="beneficiary-section">
+            <h2>Beneficiary</h2>
+            <div class="wallet-list">
+                <div class="wallet"><span>Refund Pool Wallet</span> <span>2 USDT</span></div>
+                <div class="wallet"><span>Admin Wallet</span> <span>1 USDT</span></div>
+                <div class="wallet"><span>Upline 15</span> <span>1 USDT</span></div>
+                <div class="wallet"><span>Upline 14</span> <span>1 USDT</span></div>
+                <div class="wallet"><span>Upline 13</span> <span>1 USDT</span></div>
+                <div class="wallet"><span>Upline 12</span> <span>1 USDT</span></div>
+                <div class="wallet"><span>Upline 11</span> <span>1 USDT</span></div>
+                <div class="wallet"><span>Upline 10</span> <span>1 USDT</span></div>
+                <div class="wallet"><span>Upline 9</span> <span>1 USDT</span></div>
+                <div class="wallet"><span>Upline 8</span> <span>1 USDT</span></div>
+                <div class="wallet"><span>Upline 7</span> <span>1 USDT</span></div>
+                <div class="wallet"><span>Upline 6</span> <span>1 USDT</span></div>
+                <div class="wallet"><span>Upline 5</span> <span>1 USDT</span></div>
+                <div class="wallet"><span>Upline 4</span> <span>1 USDT</span></div>
+                <div class="wallet"><span>Upline 3</span> <span>1 USDT</span></div>
+                <div class="wallet"><span>Upline 2</span> <span>1 USDT</span></div>
+                <div class="wallet"><span>Upline 1</span> <span>1 USDT</span></div>
+                <div class="wallet"><span>Direct Sponsor</span> <span>9 USDT</span></div>
+                
+                <button class="distribute-button">Distribute</button>
+            </div>
+        </div>
+
         <div class="bottom-text">
             100% Scam-Free Project, Your Today's Decision Can Change Your Tomorrow
         </div>
     </div>
-
-    <script>
-        function changeLanguage(lang) {
-            const welcomeText = document.getElementById("welcome-text");
-            if (lang === "hi") {
-                welcomeText.innerHTML = `🌿 मनी प्लांट एमएलएम सिस्टम में आपका स्वागत है 🌿<br><br>
-                यह आपका अपना मनी प्लांट है। यह पूरी तरह से विकेंद्रीकृत सिस्टम है जहां मालिकाना हक छोड़ा जा चुका है, और केवल उपयोगकर्ता ही मालिक हैं। <br>
-                मनी प्लांट एक स्कैम-फ्री प्रोजेक्ट है, जो उन मेहनती नेटवर्कर्स के लिए डिज़ाइन किया गया है जिन्होंने पहले घोटालों में अपनी मेहनत की कमाई गंवाई थी।<br>
-                डेवलपर ने पीड़ितों का दर्द महसूस किया और यह दिखाने के लिए मनी प्लांट को अस्तित्व में लाने का फैसला किया कि एमएलएम उद्योग बिना घोटाले के भी विकसित हो सकता है। <br>
-                आपके स्पॉन्सर को धन्यवाद! यहाँ से अपनी वित्तीय स्वतंत्रता की यात्रा शुरू करें। अपने मनी प्लांट को बढ़ाएँ, जो हमेशा के लिए आपके बगीचे में लगाया जा चुका है। <br>
-                बिना किसी देनदारी, बिना डर के अपनी टीम बनाएं और वित्तीय स्वतंत्रता प्राप्त करें। 🌿`;
-            } else {
-                welcomeText.innerHTML = `🌿 Welcome to Money Plant MLM System 🌿<br><br>
-                This is your own money plant. It's a fully decentralized system where ownership is renounced, and only users are the owners. <br>
-                Money Plant is a scam-free project specially designed for hardworking networkers who lost their hard-earned money in past scams.<br>
-                The developer felt the pain of victims and decided to bring Money Plant into existence to set an example of how MLM can grow without scams. <br>
-                Thanks to your sponsor! Start your financial freedom journey from here. Grow your money plant, which is already planted in your garden forever. <br>
-                Build your team without liability, without fear, and get financial freedom. 🌿`;
-            }
-        }
-    </script>
 
 </body>
 </html>
