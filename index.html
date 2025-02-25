@@ -12,17 +12,15 @@
             padding: 0;
             background-color: #f4f4f4;
         }
-        header {
+        header, .section-header {
             background-color: #2c3e50;
             color: white;
             padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
         }
         .logo {
             font-size: 24px;
-            font-weight: bold;
         }
         .language-buttons button {
             background-color: #27ae60;
@@ -44,16 +42,6 @@
             font-size: 18px;
             background-color: white;
         }
-        .join-button {
-            background-color: #27ae60;
-            color: white;
-            padding: 15px 30px;
-            font-size: 20px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
         .faq-plan-section {
             display: flex;
             justify-content: space-around;
@@ -66,19 +54,20 @@
             border-radius: 5px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
-        .bottom-text {
-            margin-top: 30px;
-            font-weight: bold;
-            color: #27ae60;
+        .connect-wallet-button {
+            background-color: #27ae60;
+            color: white;
+            padding: 15px 30px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: block;
+            margin: 20px auto;
         }
         .beneficiary-section {
             margin-top: 40px;
-            text-align: center;
-        }
-        .beneficiary-section h2 {
-            font-size: 22px;
-            font-weight: bold;
-            margin-bottom: 10px;
         }
         .wallet-list {
             display: flex;
@@ -108,6 +97,29 @@
             border-radius: 5px;
             margin-top: 15px;
         }
+        .user-chart {
+            margin-top: 30px;
+            background-color: white;
+            padding: 15px;
+            width: 80%;
+            margin: auto;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #27ae60;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -121,7 +133,7 @@
     </header>
 
     <div class="container">
-        <div class="welcome-note" id="welcome-text">
+        <div class="welcome-note">
             🌿 Welcome to Money Plant MLM System 🌿<br><br>
             This is your own money plant. It's a fully decentralized system where ownership is renounced, and only users are the owners. <br>
             Money Plant is a scam-free project specially designed for hardworking networkers who lost their hard-earned money in past scams.<br>
@@ -129,8 +141,6 @@
             Thanks to your sponsor! Start your financial freedom journey from here. Grow your money plant, which is already planted in your garden forever. <br>
             Build your team without liability, without fear, and get financial freedom. 🌿
         </div>
-
-        <button class="join-button">Join</button>
 
         <div class="faq-plan-section">
             <div class="faq">
@@ -146,34 +156,47 @@
             </div>
         </div>
 
+        <button class="connect-wallet-button">Connect Wallet</button>
+
+        <div class="section-header">Beneficiary</div>
         <div class="beneficiary-section">
-            <h2>Beneficiary</h2>
             <div class="wallet-list">
-                <div class="wallet"><span>Refund Pool Wallet</span> <span>2 USDT</span></div>
-                <div class="wallet"><span>Admin Wallet</span> <span>1 USDT</span></div>
-                <div class="wallet"><span>Upline 15</span> <span>1 USDT</span></div>
-                <div class="wallet"><span>Upline 14</span> <span>1 USDT</span></div>
-                <div class="wallet"><span>Upline 13</span> <span>1 USDT</span></div>
-                <div class="wallet"><span>Upline 12</span> <span>1 USDT</span></div>
-                <div class="wallet"><span>Upline 11</span> <span>1 USDT</span></div>
-                <div class="wallet"><span>Upline 10</span> <span>1 USDT</span></div>
-                <div class="wallet"><span>Upline 9</span> <span>1 USDT</span></div>
-                <div class="wallet"><span>Upline 8</span> <span>1 USDT</span></div>
-                <div class="wallet"><span>Upline 7</span> <span>1 USDT</span></div>
-                <div class="wallet"><span>Upline 6</span> <span>1 USDT</span></div>
-                <div class="wallet"><span>Upline 5</span> <span>1 USDT</span></div>
-                <div class="wallet"><span>Upline 4</span> <span>1 USDT</span></div>
-                <div class="wallet"><span>Upline 3</span> <span>1 USDT</span></div>
-                <div class="wallet"><span>Upline 2</span> <span>1 USDT</span></div>
-                <div class="wallet"><span>Upline 1</span> <span>1 USDT</span></div>
-                <div class="wallet"><span>Direct Sponsor</span> <span>9 USDT</span></div>
+                <div class="wallet"><span>Refund Pool Wallet</span> <span>2 USDT 🌿</span></div>
+                <div class="wallet"><span>Admin Wallet</span> <span>1 USDT 🌿</span></div>
+                <div class="wallet"><span>Upline 15</span> <span>1 USDT 🌿</span></div>
+                <div class="wallet"><span>Upline 14</span> <span>1 USDT 🌿</span></div>
+                <div class="wallet"><span>Upline 13</span> <span>1 USDT 🌿</span></div>
+                <div class="wallet"><span>Upline 12</span> <span>1 USDT 🌿</span></div>
+                <div class="wallet"><span>Upline 11</span> <span>1 USDT 🌿</span></div>
+                <div class="wallet"><span>Upline 10</span> <span>1 USDT 🌿</span></div>
+                <div class="wallet"><span>Upline 1</span> <span>1 USDT 🌿</span></div>
+                <div class="wallet"><span>Direct Sponsor</span> <span>9 USDT 🌿</span></div>
                 
                 <button class="distribute-button">Distribute</button>
             </div>
         </div>
 
-        <div class="bottom-text">
-            100% Scam-Free Project, Your Today's Decision Can Change Your Tomorrow
+        <div class="section-header">100% Scam-Free Project, Your Today's Decision Can Change Your Tomorrow</div>
+
+        <div class="section-header">Activated Users</div>
+        <div class="user-chart">
+            <h2>User Growth Chart</h2>
+            <table>
+                <tr>
+                    <th>Level</th>
+                    <th>Users</th>
+                </tr>
+                <tr><td>1st Level</td><td id="level1">0</td></tr>
+                <tr><td>2nd Level</td><td id="level2">0</td></tr>
+                <tr><td>3rd Level</td><td id="level3">0</td></tr>
+                <tr><td>4th Level</td><td id="level4">0</td></tr>
+                <tr><td>5th Level</td><td id="level5">0</td></tr>
+                <tr><td>6th Level</td><td id="level6">0</td></tr>
+                <tr><td>7th Level</td><td id="level7">0</td></tr>
+                <tr><td>8th Level</td><td id="level8">0</td></tr>
+                <tr><td>9th Level</td><td id="level9">0</td></tr>
+                <tr><td>10th Level</td><td id="level10">0</td></tr>
+            </table>
         </div>
     </div>
 
