@@ -12,12 +12,8 @@
     <header>
         <div class="logo">Money Plant 🌿</div>
         <div class="language-buttons">
-            <button onclick="changeLanguage('en')">
-                <img src="uk-flag.png" alt="English" width="25" onerror="this.onerror=null; this.innerText='English'">
-            </button>
-            <button onclick="changeLanguage('hi')">
-                <img src="india-flag.png" alt="हिन्दी" width="25" onerror="this.onerror=null; this.innerText='हिन्दी'">
-            </button>
+            <img src="india-flag.png" alt="🇮🇳" onclick="changeLanguage('hi')" style="width: 30px; cursor: pointer;">
+            <img src="uk-flag.png" alt="🇬🇧" onclick="changeLanguage('en')" style="width: 30px; cursor: pointer;">
         </div>
     </header>
 
@@ -25,16 +21,11 @@
     <section class="welcome">
         <div class="border-symbol">🌿🌿🌿🌿🌿</div>
         <p>
-            Welcome to <b>Money Plant MLM System</b>. This is your own money plant, it's a fully decentralized system where the owner is renounced and only users are the owner.  
-            <br>Here you can grow your money securely and get financial freedom!
-            <br><br>
-            This system works on a <b>smart contract</b> that automatically distributes rewards among participants in a fair and transparent way. Once you register, you will start earning commissions from direct and indirect referrals.
-            <br><br>
-            🌟 <b>100% Safe & Secure</b> - No Admin Control, Fully Decentralized.  
-            🌟 <b>Instant Payments</b> - No Waiting, Get Paid Instantly.  
-            🌟 <b>Unlimited Earnings</b> - Grow Your Network, Increase Your Income.  
-            <br>
-            Don't miss this golden opportunity to achieve <b>financial freedom</b>.  
+            Welcome to Money Plant MLM System. This is your own money plant, it's a fully decentralized system where the owner is renounced and only users are the owner.  
+            <br><br> Money Plant is a scam-free project specially designed for hardworking networkers who lost their hard-earned money in the past due to scam projects. 
+            <br><br> The developer felt the pain of victims and decided to bring Money Plant into existence to set an example of how the MLM industry can grow without scams. 
+            <br><br> Thanks to your sponsor! Start your financial freedom journey from here. Grow your money plant, which is already planted in your garden forever. 
+            <br><br> Build your team without liability, without fear, and get financial freedom.
         </p>
         <div class="border-symbol">🌿🌿🌿🌿🌿</div>
     </section>
@@ -60,73 +51,79 @@
     <section class="beneficiary">
         <h2>Beneficiary List</h2>
         <div class="wallet-list">
-            <p>💰 Refund Pool Wallet - <b>2 USDT</b> 🌿 <input type="text" placeholder="Wallet Address"></p>
-            <p>Admin - <b>1 USDT</b> <input type="text" placeholder="Wallet Address"></p>
-            <!-- Upline 1 to Upline 15 -->
+            <p>Refund Pool Wallet - 2 USDT 🌿 <input type="text" placeholder="Wallet Address"></p>
+            <p>Admin - 1 USDT <input type="text" placeholder="Wallet Address"></p>
+            <!-- Upline 1 to Upline 16 -->
             <script>
-                for (let i = 1; i <= 15; i++) {
-                    document.write(`<p>🌿 Upline ${i} - <b>1 USDT</b> <input type="text" placeholder="Wallet Address"></p>`);
+                for (let i = 16; i >= 1; i--) {
+                    document.write(`<p>Upline ${i} - 1 USDT 🌿 <input type="text" placeholder="Wallet Address"></p>`);
                 }
             </script>
-            <p>🤝 Direct Sponsor - <b>9 USDT</b> 🌿 <input type="text" placeholder="Wallet Address"></p>
+            <p>Direct Sponsor - 9 USDT 🌿 <input type="text" placeholder="Wallet Address"></p>
         </div>
         <button class="distribute">Distribute Now</button>
     </section>
 
     <!-- 100% Scam Free -->
-    <div class="scam-free">🚀 100% Scam Free Project, Your Today's Decision Can Change Your Tomorrow</div>
+    <div class="scam-free">100% Scam Free Project, Your Today's Decision Can Change Your Tomorrow</div>
 
-    <!-- Income Sections -->
-    <section class="income">
-        <div class="income-box">
-            <h3>📅 Today's Income</h3>
-            <p id="todays-income"><b>0 USDT</b></p>
-        </div>
-        <div class="income-box">
-            <h3>💰 Total Income</h3>
-            <p id="total-income"><b>0 USDT</b></p>
-        </div>
-    </section>
+    <!-- Quit & Replace Me Buttons -->
+    <div class="center">
+        <button class="quit-button" style="background-color: red; color: white; font-size: 16px;">Quit</button>
+        <button class="replace-button" style="background-color: yellow; color: black; font-size: 16px;">Replace Me</button>
+    </div>
 
     <!-- Activated Users Chart -->
     <section class="activated-users">
-        <h2>🌱 Your Plant Growth</h2>
+        <h2>Your Plant Growth</h2>
         <table>
             <tr><th>Level</th><th>Users</th></tr>
             <!-- Level 1 to Level 16 -->
             <script>
-                for (let i = 1; i <= 16; i++) {
-                    document.write(`<tr><td>${i} Level</td><td>0</td></tr>`);
+                function updateTreeGrowth() {
+                    let usersData = [5, 8, 15, 22, 30, 40, 55, 65, 80, 100, 120, 140, 160, 180, 200, 220]; // Example user growth
+                    let tableHTML = "";
+                    let totalUsers = 0;
+                    
+                    for (let i = 0; i < 16; i++) {
+                        totalUsers += usersData[i];
+                        tableHTML += `<tr><td>${i + 1} Level</td><td>${usersData[i]}</td></tr>`;
+                    }
+                    tableHTML += `<tr><td><b>Total Users</b></td><td>${totalUsers}</td></tr>`;
+                    
+                    document.getElementById("growthTable").innerHTML = tableHTML;
                 }
+
+                setInterval(updateTreeGrowth, 5000); // Updates every 5 seconds
             </script>
-            <tr><td><b>🌎 Total Users</b></td><td>0</td></tr>
+            <tbody id="growthTable"></tbody>
         </table>
     </section>
 
-    <!-- Quit & Replace Me Buttons -->
-    <div class="action-buttons">
-        <button class="quit" style="background-color: red; color: white; font-size: 18px; padding: 10px 20px; border-radius: 5px;">Quit</button>
-        <button class="replace-me" style="background-color: yellow; color: black; font-size: 18px; padding: 10px 20px; border-radius: 5px;">Replace Me</button>
-    </div>
-
-    <!-- Footer Message -->
-    <footer class="footer-message">
-        <h3>Trust yourself, trust the system, follow your upline, help your team members, you will be the winner.</h3>
-    </footer>
+    <!-- Today's Income & Total Income -->
+    <section class="income-section">
+        <h2>Income Details</h2>
+        <p>Today's Income: <span id="todayIncome">0 USDT</span></p>
+        <p>Total Income: <span id="totalIncome">0 USDT</span></p>
+    </section>
 
     <script>
-        // Function to update income in real time (Simulation)
         function updateIncome() {
-            let todaysIncome = Math.floor(Math.random() * 100); // Replace this with real data from backend
-            let totalIncome = Math.floor(Math.random() * 1000); // Replace this with real data from backend
-            
-            document.getElementById("todays-income").innerHTML = `<b>${todaysIncome} USDT</b>`;
-            document.getElementById("total-income").innerHTML = `<b>${totalIncome} USDT</b>`;
+            let today = Math.floor(Math.random() * 50) + 10; // Random today's income
+            let total = Math.floor(Math.random() * 1000) + 100; // Random total income
+
+            document.getElementById("todayIncome").innerText = today + " USDT";
+            document.getElementById("totalIncome").innerText = total + " USDT";
         }
 
-        // Simulating real-time income update every 5 seconds
-        setInterval(updateIncome, 5000);
+        setInterval(updateIncome, 5000); // Updates every 5 seconds
     </script>
 
+    <!-- Trust Message Section -->
+    <div class="trust-message" style="background-color: green; color: white; text-align: center; padding: 10px; font-size: 18px; font-weight: bold;">
+        ✅ Trust yourself, trust the system, follow your upline, help your team members, you will be the winner.
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
