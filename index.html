@@ -12,8 +12,12 @@
     <header>
         <div class="logo">Money Plant 🌿</div>
         <div class="language-buttons">
-            <button onclick="changeLanguage('en')"><img src="uk-flag.png" alt="English" width="25"></button>
-            <button onclick="changeLanguage('hi')"><img src="india-flag.png" alt="हिन्दी" width="25"></button>
+            <button onclick="changeLanguage('en')">
+                <img src="uk-flag.png" alt="English" width="25" onerror="this.onerror=null; this.innerText='English'">
+            </button>
+            <button onclick="changeLanguage('hi')">
+                <img src="india-flag.png" alt="हिन्दी" width="25" onerror="this.onerror=null; this.innerText='हिन्दी'">
+            </button>
         </div>
     </header>
 
@@ -57,11 +61,11 @@
         <h2>Beneficiary List</h2>
         <div class="wallet-list">
             <p>💰 Refund Pool Wallet - <b>2 USDT</b> 🌿 <input type="text" placeholder="Wallet Address"></p>
-            <p>👑 Admin - <b>1 USDT</b> 🌿 <input type="text" placeholder="Wallet Address"></p>
+            <p>Admin - <b>1 USDT</b> <input type="text" placeholder="Wallet Address"></p>
             <!-- Upline 1 to Upline 15 -->
             <script>
                 for (let i = 1; i <= 15; i++) {
-                    document.write(`<p>⬆ Upline ${i} - <b>1 USDT</b> 🌿 <input type="text" placeholder="Wallet Address"></p>`);
+                    document.write(`<p>🌿 Upline ${i} - <b>1 USDT</b> <input type="text" placeholder="Wallet Address"></p>`);
                 }
             </script>
             <p>🤝 Direct Sponsor - <b>9 USDT</b> 🌿 <input type="text" placeholder="Wallet Address"></p>
@@ -74,19 +78,19 @@
 
     <!-- Quit & Replace Me Buttons -->
     <div class="action-buttons">
-        <button class="quit">Quit</button>
-        <button class="replace-me">Replace Me</button>
+        <button class="quit" style="background-color: red; color: white; font-size: 18px; padding: 10px 20px; border-radius: 5px;">Quit</button>
+        <button class="replace-me" style="background-color: yellow; color: black; font-size: 18px; padding: 10px 20px; border-radius: 5px;">Replace Me</button>
     </div>
 
     <!-- Income Sections -->
     <section class="income">
         <div class="income-box">
             <h3>📅 Today's Income</h3>
-            <p><b>0 USDT</b></p>
+            <p id="todays-income"><b>0 USDT</b></p>
         </div>
         <div class="income-box">
             <h3>💰 Total Income</h3>
-            <p><b>0 USDT</b></p>
+            <p id="total-income"><b>0 USDT</b></p>
         </div>
     </section>
 
@@ -105,6 +109,19 @@
         </table>
     </section>
 
-    <script src="script.js"></script>
+    <script>
+        // Function to update income in real time (Simulation)
+        function updateIncome() {
+            let todaysIncome = Math.floor(Math.random() * 100); // Replace this with real data from backend
+            let totalIncome = Math.floor(Math.random() * 1000); // Replace this with real data from backend
+            
+            document.getElementById("todays-income").innerHTML = `<b>${todaysIncome} USDT</b>`;
+            document.getElementById("total-income").innerHTML = `<b>${totalIncome} USDT</b>`;
+        }
+
+        // Simulating real-time income update every 5 seconds
+        setInterval(updateIncome, 5000);
+    </script>
+
 </body>
 </html>
