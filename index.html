@@ -4,79 +4,144 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Money Plant 🌿</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+        }
+        .welcome {
+            border: 2px solid green;
+            padding: 15px;
+            font-size: 18px;
+            margin: 20px;
+            background-color: white;
+        }
+        .beneficiary-list, .chart {
+            width: 80%;
+            margin: auto;
+            text-align: left;
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .faq-plan {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .faq, .plan {
+            width: 45%;
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Header Section -->
-    <header>
-        <div class="logo">Money Plant 🌿</div>
-        <div class="language-buttons">
-            <button onclick="changeLanguage('en')">English</button>
-            <button onclick="changeLanguage('hi')">हिन्दी</button>
-        </div>
-    </header>
+    <!-- Header -->
+    <div class="header">
+        🌿 Money Plant 🌿 
+        <span style="float: right;">
+            <img src="flag_en.png" alt="English" width="30">
+            <img src="flag_in.png" alt="Hindi" width="30">
+        </span>
+    </div>
 
-    <!-- Welcome Section -->
-    <section class="welcome">
-        <div class="border-symbol">🌿🌿🌿🌿🌿</div>
-        <p>Welcome to Money Plant MLM System. This is your own money plant, it's a fully decentralized system where the owner is renounced and only users are the owner.  
-        <br>Here you can grow your money securely and get financial freedom!</p>
-        <div class="border-symbol">🌿🌿🌿🌿🌿</div>
-    </section>
-
-    <!-- Connect Wallet Button -->
-    <div class="center">
-        <button class="connect-wallet">Connect Wallet</button>
+    <!-- Welcome Note -->
+    <div class="welcome">
+        🌿 Welcome to Money Plant MLM System 🌿 <br>
+        This is your own money plant. It's a fully decentralized system where the owner is re-announced, and only users are the owners. <br><br>
+        Money Plant is a scam-free project specially designed for hardworking networkers who lost their hard-earned money in the past due to scam projects. <br><br>
+        The developer felt the pain of victims and decided to bring Money Plant into existence to set an example of how the MLM industry can grow without scams. <br><br>
+        Thanks to your sponsor! Start your financial freedom journey from here. Grow your money plant, which is already planted in your garden forever. <br><br>
+        Build your team without liability, without fear, and get financial freedom. 🌿
     </div>
 
     <!-- FAQ & Plan Section -->
-    <section class="faq-plan">
+    <div class="faq-plan">
         <div class="faq">
-            <h2>FAQ Section</h2>
+            <h3>FAQ</h3>
+            <p>Here will be FAQ content...</p>
         </div>
         <div class="plan">
-            <h2>Plan Video & PDF</h2>
-            <button>Upload Video</button>
-            <button>Upload PDF</button>
+            <h3>Plan Video & PDF</h3>
+            <p>Upload video and PDF here...</p>
         </div>
-    </section>
+    </div>
 
     <!-- Beneficiary List -->
-    <section class="beneficiary">
-        <h2>Beneficiary List</h2>
-        <div class="wallet-list">
-            <p>Refund Pool Wallet - 2 USDT 🌿 <input type="text" placeholder="Wallet Address"></p>
-            <p>Admin - 1 USDT 🌿 <input type="text" placeholder="Wallet Address"></p>
-            <!-- Upline 1 to Upline 15 -->
-            <script>
-                for (let i = 15; i >= 1; i--) {
-                    document.write(`<p>Upline ${i} - 1 USDT 🌿 <input type="text" placeholder="Wallet Address"></p>`);
-                }
-            </script>
-            <p>Direct Sponsor - 9 USDT 🌿 <input type="text" placeholder="Wallet Address"></p>
-        </div>
-        <button class="distribute">Distribute Now</button>
-    </section>
+    <h3>🌿 Beneficiary List 🌿</h3>
+    <div class="beneficiary-list">
+        <p>Refund Pool Wallet: ______ 2 USDT 🌿</p>
+        <p>Admin Wallet: ______ 1 USDT 🌿</p>
+        <p>Upline 15: ______ 1 USDT 🌿</p>
+        <p>Upline 14: ______ 1 USDT 🌿</p>
+        <p>Upline 13: ______ 1 USDT 🌿</p>
+        <p>Upline 12: ______ 1 USDT 🌿</p>
+        <p>Upline 11: ______ 1 USDT 🌿</p>
+        <p>Upline 10: ______ 1 USDT 🌿</p>
+        <p>Upline 9: ______ 1 USDT 🌿</p>
+        <p>Upline 8: ______ 1 USDT 🌿</p>
+        <p>Upline 7: ______ 1 USDT 🌿</p>
+        <p>Upline 6: ______ 1 USDT 🌿</p>
+        <p>Upline 5: ______ 1 USDT 🌿</p>
+        <p>Upline 4: ______ 1 USDT 🌿</p>
+        <p>Upline 3: ______ 1 USDT 🌿</p>
+        <p>Upline 2: ______ 1 USDT 🌿</p>
+        <p>Upline 1: ______ 1 USDT 🌿</p>
+        <p>Direct Sponsor Wallet: ______ 9 USDT 🌿</p>
+    </div>
 
-    <!-- 100% Scam Free -->
-    <div class="scam-free">100% Scam Free Project, Your Today's Decision Can Change Your Tomorrow</div>
+    <!-- Distribute Now Button -->
+    <button class="button">Distribute Now</button>
 
-    <!-- Activated Users Chart -->
-    <section class="activated-users">
-        <h2>Network Growth Chart</h2>
-        <table>
+    <!-- 100% Scam Free Project -->
+    <h2>🌿 100% Scam Free Project 🌿</h2>
+    <p>Your today's decision can change your tomorrow.</p>
+
+    <!-- Network Growth Chart -->
+    <h3>🌿 Network Growth Chart 🌿</h3>
+    <div class="chart">
+        <table border="1" width="100%">
             <tr><th>Level</th><th>Users</th></tr>
-            <!-- Level 1 to Level 16 -->
-            <script>
-                for (let i = 1; i <= 16; i++) {
-                    document.write(`<tr><td>${i} Level</td><td>0</td></tr>`);
-                }
-            </script>
-            <tr><td><b>Total Users</b></td><td>0</td></tr>
+            <tr><td>1st Level</td><td>______</td></tr>
+            <tr><td>2nd Level</td><td>______</td></tr>
+            <tr><td>3rd Level</td><td>______</td></tr>
+            <tr><td>4th Level</td><td>______</td></tr>
+            <tr><td>5th Level</td><td>______</td></tr>
+            <tr><td>6th Level</td><td>______</td></tr>
+            <tr><td>7th Level</td><td>______</td></tr>
+            <tr><td>8th Level</td><td>______</td></tr>
+            <tr><td>9th Level</td><td>______</td></tr>
+            <tr><td>10th Level</td><td>______</td></tr>
+            <tr><td>11th Level</td><td>______</td></tr>
+            <tr><td>12th Level</td><td>______</td></tr>
+            <tr><td>13th Level</td><td>______</td></tr>
+            <tr><td>14th Level</td><td>______</td></tr>
+            <tr><td>15th Level</td><td>______</td></tr>
+            <tr><td>16th Level</td><td>______</td></tr>
+            <tr><td><b>Total Users</b></td><td>______</td></tr>
         </table>
-    </section>
+    </div>
 
-    <script src="script.js"></script>
 </body>
 </html>
