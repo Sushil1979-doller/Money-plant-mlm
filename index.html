@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Money Plant ☘️</title>
+    <title>Money Plant 🌿</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <!-- Header Section -->
     <header>
-        <div class="logo">Money Plant ☘️</div>
+        <div class="logo">Money Plant 🌿</div>
         <div class="language-buttons">
             <button onclick="changeLanguage('en')">English</button>
             <button onclick="changeLanguage('hi')">हिन्दी</button>
@@ -19,9 +19,10 @@
 
     <!-- Welcome Section -->
     <section class="welcome">
-        <div class="border-symbol">☘️☘️☘️☘️☘️</div>
-        <p>Welcome to Money Plant MLM System. This is your own money plant, it's a fully decentralized system where the owner is renounced and only users are the owner...</p>
-        <div class="border-symbol">☘️☘️☘️☘️☘️</div>
+        <div class="border-symbol">🌿🌿🌿🌿🌿</div>
+        <p>Welcome to Money Plant MLM System. This is your own money plant, it's a fully decentralized system where the owner is renounced and only users are the owner.  
+        <br>Here you can grow your money securely and get financial freedom!</p>
+        <div class="border-symbol">🌿🌿🌿🌿🌿</div>
     </section>
 
     <!-- Connect Wallet Button -->
@@ -47,9 +48,12 @@
         <div class="wallet-list">
             <p>Refund Pool Wallet - 2 USDT 🌿 <input type="text" placeholder="Wallet Address"></p>
             <p>Admin - 1 USDT 🌿 <input type="text" placeholder="Wallet Address"></p>
-            <p>Upline 15 - 1 USDT 🌿 <input type="text" placeholder="Wallet Address"></p>
-            <p>Upline 14 - 1 USDT 🌿 <input type="text" placeholder="Wallet Address"></p>
-            <!-- Repeat till Upline 1 -->
+            <!-- Upline 1 to Upline 15 -->
+            <script>
+                for (let i = 15; i >= 1; i--) {
+                    document.write(`<p>Upline ${i} - 1 USDT 🌿 <input type="text" placeholder="Wallet Address"></p>`);
+                }
+            </script>
             <p>Direct Sponsor - 9 USDT 🌿 <input type="text" placeholder="Wallet Address"></p>
         </div>
         <button class="distribute">Distribute Now</button>
@@ -63,10 +67,13 @@
         <h2>Network Growth Chart</h2>
         <table>
             <tr><th>Level</th><th>Users</th></tr>
-            <tr><td>1st Level</td><td>0</td></tr>
-            <tr><td>2nd Level</td><td>0</td></tr>
-            <!-- Repeat till 16th level -->
-            <tr><td>Total Users</td><td>0</td></tr>
+            <!-- Level 1 to Level 16 -->
+            <script>
+                for (let i = 1; i <= 16; i++) {
+                    document.write(`<tr><td>${i} Level</td><td>0</td></tr>`);
+                }
+            </script>
+            <tr><td><b>Total Users</b></td><td>0</td></tr>
         </table>
     </section>
 
