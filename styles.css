@@ -1,79 +1,13 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #008000;
-    padding: 15px;
-    color: white;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo img {
-    height: 50px;
-    margin-right: 10px;
-}
-
-.language-switch button {
-    margin: 5px;
-    padding: 10px;
-    background-color: white;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-main {
-    padding: 20px;
-}
-
-.welcome-section {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px auto;
-    width: 80%;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-.join-btn {
-    background-color: #ff9900;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.content {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-}
-
-.faq-section, .plan-section {
-    width: 45%;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-footer {
-    background-color: #008000;
-    color: white;
-    padding: 10px;
-    margin-top: 20px;
-}
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; text-align: center; background-color: #f4f4f4; }
+header { background-color: #008000; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 24px; font-weight: bold; }
+.language-buttons button { margin: 5px; padding: 8px; }
+.welcome { background-color: white; margin: 20px; padding: 15px; border-radius: 10px; box-shadow: 0 0 10px gray; }
+.center { margin: 20px; }
+.connect-wallet, .distribute { padding: 10px 20px; background-color: #008000; color: white; border: none; cursor: pointer; border-radius: 5px; }
+.faq-plan { display: flex; justify-content: space-around; padding: 20px; }
+.beneficiary { background-color: white; padding: 20px; margin: 20px; border-radius: 10px; box-shadow: 0 0 10px gray; }
+.wallet-list input { margin-left: 10px; padding: 5px; }
+.scam-free { background-color: #008000; color: white; padding: 10px; font-weight: bold; margin-top: 20px; }
+.activated-users table { width: 50%; margin: auto; border-collapse: collapse; }
+.activated-users th, td { border: 1px solid black; padding: 8px; }
