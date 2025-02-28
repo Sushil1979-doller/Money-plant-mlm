@@ -1,122 +1,191 @@
-<!-- Header Section -->
-<header>
-    <div class="logo">Money Plant 🌿</div>
-    <div class="language-buttons">
-        <span onclick="changeLanguage('hi')">🇮🇳 Hindi</span> |
-        <span onclick="changeLanguage('en')">🇬🇧 English</span>
-    </div>
-</header>
-
-<!-- Welcome Section -->
-<section class="welcome">
-    <div class="border-symbol">🌿🌿🌿</div>
-    <p>
-        Welcome to <b>Money Plant MLM System</b>. This is your own money plant, it's a fully decentralized system where the owner is renounced and only users are the owner.
-        <br><br>
-        <b>Here you can grow your money securely and get financial freedom!</b>
-        <br><br>
-        This system works on a <b>smart contract</b> that automatically distributes rewards among participants in a fair and transparent way. Once you register, you will start earning commissions from direct and indirect referrals.
-        <br><br>
-        🌟 <b>100% Safe & Secure</b> - No Admin Control, Fully Decentralized.  
-        🌟 <b>Instant Payments</b> - No Waiting, Get Paid Instantly.  
-        🌟 <b>Unlimited Earnings</b> - Grow Your Network, Increase Your Income.  
-        <br><br>
-        Don't miss this golden opportunity to achieve <b>financial freedom</b>.
-    </p>
-    <div class="border-symbol">🌿🌿🌿</div>
-</section>
-
-<!-- Connect Wallet Button -->
-<div class="center">
-    <button class="connect-wallet">Connect Wallet</button>
-</div>
-
-<!-- FAQ & Plan Section -->
-<section class="faq-plan">
-    <div class="faq">
-        <h2>FAQ Section</h2>
-    </div>
-    <div class="plan">
-        <h2>Plan Video & PDF</h2>
-        <button>Upload Video</button>
-        <button>Upload PDF</button>
-    </div>
-</section>
-
-<!-- Beneficiary List -->
-<section class="beneficiary">
-    <h2>Beneficiary List</h2>
-    <div class="wallet-list">
-        <p>Refund Pool Wallet - 2 USDT 🌿 <input type="text" placeholder="Wallet Address"></p>
-        <p>Admin - 1 USDT 🌿 <input type="text" placeholder="Wallet Address"></p>
-        <script>
-            for (let i = 16; i >= 1; i--) {
-                document.write(`<p>Upline ${i} - 1 USDT 🌿 <input type="text" placeholder="Wallet Address"></p>`);
-            }
-        </script>
-        <p>Direct Sponsor - 9 USDT 👑 <input type="text" placeholder="Wallet Address"></p>
-    </div>
-    <button class="distribute">Distribute Your Fund Now</button>
-</section>
-
-<!-- Income & Refund History -->
-<div class="center">
-    <button class="history-button">📊 Income History</button>
-    <button class="history-button">💸 Refund History</button>
-</div>
-
-<!-- Income Placeholders -->
-<div class="income-box">
-    <div>Today's Income: <span id="todaysIncome">0 USDT</span></div>
-    <div>Total Income: <span id="totalIncome">0 USDT</span></div>
-</div>
-
-<!-- Activated Users Chart -->
-<section class="activated-users">
-    <h2>Your Plant Growth</h2>
-    <table>
-        <tr><th>Level</th><th>Users</th></tr>
-        <tbody id="growthTable"></tbody>
-    </table>
-</section>
-
-<script>
-    function updateTreeGrowth() {
-        let usersData = [5, 8, 15, 22, 30, 40, 55, 65, 80, 100, 120, 140, 160, 180, 200, 220];
-        let tableHTML = "";
-        let totalUsers = 0;
-
-        for (let i = 0; i < 16; i++) {
-            totalUsers += usersData[i];
-            tableHTML += `<tr><td>👑 Level ${i + 1}</td><td>${usersData[i]}</td></tr>`;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Plant 🌿</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f4;
         }
-        tableHTML += `<tr><td><b>👑 Total Users</b></td><td>${totalUsers}</td></tr>`;
+        .border-symbol {
+            font-size: 20px;
+            color: green;
+            margin: 10px 0;
+        }
+        .center {
+            text-align: center;
+            margin: 20px;
+        }
+        button {
+            font-size: 16px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .connect-wallet, .history-button, .quit-button, .replace-button {
+            background-color: #007bff;
+            color: white;
+            font-size: 14px;
+        }
+        .history-button {
+            background-color: #007bff;
+            padding: 10px 15px;
+        }
+        .quit-button {
+            background-color: red;
+        }
+        .replace-button {
+            background-color: gold;
+            color: black;
+        }
+        .income-box {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .income-box div {
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
 
-        document.getElementById("growthTable").innerHTML = tableHTML;
-    }
+    <!-- Header Section -->
+    <header>
+        <div class="logo">Money Plant 🌿</div>
+        <div class="language-buttons">
+            <span onclick="changeLanguage('hi')">🇮🇳 Hindi</span> |
+            <span onclick="changeLanguage('en')">🇬🇧 English</span>
+        </div>
+    </header>
 
-    function updateIncome() {
-        document.getElementById("todaysIncome").textContent = (Math.random() * 10 + 5).toFixed(2) + " USDT";
-        document.getElementById("totalIncome").textContent = (Math.random() * 500 + 100).toFixed(2) + " USDT";
-    }
+    <!-- Welcome Section -->
+    <section class="welcome">
+        <div class="border-symbol">🌿🌿🌿</div>
+        <p>
+            Welcome to <b>Money Plant MLM System</b>. This is your own money plant, it's a fully decentralized system where the owner is renounced and only users are the owner.
+            <br><br>
+            <b>Here you can grow your money securely and get financial freedom!</b>
+            <br><br>
+            This system works on a <b>smart contract</b> that automatically distributes rewards among participants in a fair and transparent way. Once you register, you will start earning commissions from direct and indirect referrals.
+            <br><br>
+            🌟 <b>100% Safe & Secure</b> - No Admin Control, Fully Decentralized.  
+            🌟 <b>Instant Payments</b> - No Waiting, Get Paid Instantly.  
+            🌟 <b>Unlimited Earnings</b> - Grow Your Network, Increase Your Income.  
+            <br><br>
+            Don't miss this golden opportunity to achieve <b>financial freedom</b>.
+        </p>
+        <div class="border-symbol">🌿🌿🌿</div>
+    </section>
 
-    setInterval(updateTreeGrowth, 5000);
-    setInterval(updateIncome, 5000);
-</script>
+    <!-- Connect Wallet Button -->
+    <div class="center">
+        <button class="connect-wallet">Connect Wallet</button>
+    </div>
 
-<!-- Quit & Replace Me Buttons -->
-<div class="center">
-    <button class="quit-button">❌ Quit</button>
-    <button class="replace-button">🔄 Replace Me</button>
-</div>
+    <!-- FAQ & Plan Section -->
+    <section class="faq-plan">
+        <div class="faq">
+            <h2>FAQ Section</h2>
+        </div>
+        <div class="plan">
+            <h2>Plan Video & PDF</h2>
+            <button>Upload Video</button>
+            <button>Upload PDF</button>
+        </div>
+    </section>
 
-<!-- Trust Message Section -->
-<div class="trust-message" style="background-color: green; color: white; text-align: center; padding: 10px; font-size: 18px; font-weight: bold;">
-    ✅ खुद पर विश्वास करें, सिस्टम पर विश्वास करें, अपने अपलाइन का अनुसरण करें, अपनी टीम की मदद करें, आप विजेता बनेंगे।
-</div>
+    <!-- Beneficiary List -->
+    <section class="beneficiary">
+        <h2>Beneficiary List</h2>
+        <div class="wallet-list">
+            <p>Refund Pool Wallet - 2 USDT 🌿 <input type="text" placeholder="Wallet Address"></p>
+            <p>Admin - 1 USDT 🌿 <input type="text" placeholder="Wallet Address"></p>
+            <script>
+                for (let i = 16; i >= 1; i--) {
+                    document.write(`<p>Upline ${i} - 1 USDT 🌿 <input type="text" placeholder="Wallet Address"></p>`);
+                }
+            </script>
+            <p>Direct Sponsor - 9 USDT 👑 <input type="text" placeholder="Wallet Address"></p>
+        </div>
+        <button class="distribute">Distribute Your Fund Now</button>
+    </section>
 
-<script>
-    function changeLanguage(lang) {
-        alert("Language changed to " + (lang === "hi" ? "Hindi" : "English"));
-    }
-</script>
+    <!-- Income & Refund History -->
+    <div class="center">
+        <button class="history-button">📊 Income History</button>
+        <button class="history-button">💸 Refund History</button>
+    </div>
+
+    <!-- Income Placeholders -->
+    <div class="income-box">
+        <div>Today's Income: <span id="todaysIncome">0 USDT</span></div>
+        <div>Total Income: <span id="totalIncome">0 USDT</span></div>
+    </div>
+
+    <!-- Activated Users Chart -->
+    <section class="activated-users">
+        <h2>Your Plant Growth</h2>
+        <table>
+            <tr><th>Level</th><th>Users</th></tr>
+            <tbody id="growthTable"></tbody>
+        </table>
+    </section>
+
+    <script>
+        function updateTreeGrowth() {
+            let usersData = [5, 8, 15, 22, 30, 40, 55, 65, 80, 100, 120, 140, 160, 180, 200, 220];
+            let tableHTML = "";
+            let totalUsers = 0;
+            
+            for (let i = 0; i < 16; i++) {
+                totalUsers += usersData[i];
+                tableHTML += `<tr><td>${i + 1} Level</td><td>${usersData[i]} 🌿</td></tr>`;
+            }
+            tableHTML += `<tr><td><b>Total Users</b></td><td>${totalUsers} 👑</td></tr>`;
+            
+            document.getElementById("growthTable").innerHTML = tableHTML;
+        }
+
+        function updateIncome() {
+            document.getElementById("todaysIncome").textContent = (Math.random() * 10 + 5).toFixed(2) + " USDT";
+            document.getElementById("totalIncome").textContent = (Math.random() * 500 + 100).toFixed(2) + " USDT";
+        }
+
+        setInterval(updateTreeGrowth, 5000);
+        setInterval(updateIncome, 5000);
+    </script>
+
+    <!-- Quit & Replace Me Buttons -->
+    <div class="center">
+        <button class="quit-button">❌ Quit</button>
+        <button class="replace-button">🔄 Replace Me</button>
+    </div>
+
+    <!-- Trust Message Section -->
+    <div class="trust-message" style="background-color: green; color: white; text-align: center; padding: 10px; font-size: 18px; font-weight: bold;">
+        ✅ खुद पर विश्वास करें, सिस्टम पर विश्वास करें, अपने अपलाइन का अनुसरण करें, अपनी टीम की मदद करें, आप विजेता बनेंगे।
+    </div>
+
+    <script>
+        function changeLanguage(lang) {
+            alert("Language changed to " + (lang === "hi" ? "Hindi" : "English"));
+        }
+    </script>
+
+</body>
+</html>
