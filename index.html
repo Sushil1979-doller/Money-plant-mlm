@@ -3,125 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
-        }
-        .container {
-            max-width: 600px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            box-shadow: 0px 0px 10px gray;
-            border-radius: 10px;
-        }
-
-        /* Multi-color Text */
-        .multi-color {
-            font-weight: bold;
-            background: linear-gradient(45deg, #ff0000, #ff7300, #ffeb00, #47ff00, #00aaff, #8a2be2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-size: 20px;
-        }
-
-        /* Buttons */
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: none;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .btn-blue { background: blue; color: white; }
-        .btn-red { background: red; color: white; }
-        .btn-yellow { background: #FFD700; color: black; } /* गहरा येलो */
-
-        /* Icon Styles */
-        .crown::before { content: "👑 "; }
-        .money::before { content: "💰 "; }
-
-        /* Flag Styles */
-        .flag {
-            cursor: pointer;
-            font-size: 24px;
-        }
-    </style>
-    <script>
-        function toggleLanguage() {
-            let currentLang = document.getElementById("lang-text").innerText;
-            document.getElementById("lang-text").innerText = currentLang === "🇬🇧 English" ? "🇮🇳 हिंदी" : "🇬🇧 English";
-        }
-    </script>
+    <title>Money Plant 🌿</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Language Toggle -->
-    <div class="flag" onclick="toggleLanguage()">
-        <span id="lang-text">🇬🇧 English</span>
-    </div>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">Money Plant 🌿</div>
+        <div class="language-buttons">
+            <span onclick="changeLanguage('hi')">🇮🇳 Hindi</span> |
+            <span onclick="changeLanguage('en')">🇬🇧 English</span>
+        </div>
+    </header>
 
     <!-- Welcome Section -->
     <section class="welcome">
-        <div class="border-symbol">🌿🌿🌿</div>
+        <div class="border-symbol">🌿🌿🌿🌿🌿</div>
         <p>
-            Welcome to <b>Money Plant MLM System</b>. This is your own money plant, it's a fully decentralized system where the owner is renounced and only users are the owner.
-            <br><br>
-            <b>Here you can grow your money securely and get financial freedom!</b>
-            <br><br>
-            This system works on a <b>smart contract</b> that automatically distributes rewards among participants in a fair and transparent way. Once you register, you will start earning commissions from direct and indirect referrals.
-            <br><br>
-            ⭐ <b>100% Safe & Secure</b> - No Admin Control, Fully Decentralized. <br>
-            ⭐ <b>Instant Payments</b> - No Waiting, Get Paid Instantly. <br>
-            ⭐ <b>Unlimited Earnings</b> - Grow Your Network, Increase Your Income.
-            <br><br>
-            Don't miss this golden opportunity to achieve <b>financial freedom</b>.
+            Welcome to Money Plant MLM System! This is your own money plant, a fully decentralized system where the owner is renounced, and only users are the real owners.  
+            <br><br> Money Plant is a **100% scam-free** project, designed for hardworking networkers who have suffered losses in scam projects. 
+            <br><br> The developer understands the pain of such victims and has created Money Plant to set an example of a **transparent MLM system**.  
+            <br><br> Thank your sponsor! Begin your financial freedom journey today. **Grow your money plant, which is already planted in your garden forever.**  
+            <br><br> **Build your team, grow your wealth, and achieve financial independence.**
         </p>
-        <div class="border-symbol">🌿🌿🌿</div>
+        <div class="border-symbol">🌿🌿🌿🌿🌿</div>
     </section>
 
-    <div class="container">
-        <h2 class="multi-color">Benifisary List</h2>
-        <h2 class="multi-color">Your Tree Growth</h2>
-
-        <!-- Upline List with Crown Icon -->
-        <p class="crown">Direct Sponsor</p>
-        <p class="crown">Upline Level 1</p>
-        <p class="crown">Upline Level 2</p>
-        <p class="crown">Upline Level 3</p>
-        <p class="crown">Upline Level 4</p>
-        <p class="crown">Upline Level 5</p>
-        <p class="crown">Upline Level 6</p>
-        <p class="crown">Upline Level 7</p>
-        <p class="crown">Upline Level 8</p>
-        <p class="crown">Upline Level 9</p>
-        <p class="crown">Upline Level 10</p>
-        <p class="crown">Upline Level 11</p>
-        <p class="crown">Upline Level 12</p>
-        <p class="crown">Upline Level 13</p>
-        <p class="crown">Upline Level 14</p>
-        <p class="crown">Upline Level 15</p>
-        <p class="crown">Upline Level 16</p>
-
-        <!-- Refund Wallet -->
-        <p class="money">Refund Wallet</p>
-
-        <!-- Functional Buttons -->
-        <button class="btn btn-red">Quit</button>
-        <button class="btn btn-yellow">Replace Me</button>
-        <button class="btn btn-blue">Income History</button>
-        <button class="btn btn-blue">Refund History</button>
-        <button class="btn btn-green">Distribute Your Fund Now</button>
-
+    <!-- Connect Wallet Button -->
+    <div class="center">
+        <button class="connect-wallet">Connect Wallet</button>
     </div>
+
+    <!-- FAQ & Plan Section -->
+    <section class="faq-plan">
+        <div class="faq">
+            <h2>FAQ Section</h2>
+        </div>
+        <div class="plan">
+            <h2>Plan Video & PDF</h2>
+            <button>Upload Video</button>
+            <button>Upload PDF</button>
+        </div>
+    </section>
+
+    <!-- Beneficiary List -->
+    <section class="beneficiary">
+        <h2>Beneficiary List</h2>
+        <div class="wallet-list">
+            <p>Refund Pool Wallet - 2 USDT 🌿 <input type="text" placeholder="Wallet Address"></p>
+            <p>Admin - 1 USDT <input type="text" placeholder="Wallet Address"></p>
+            <!-- Upline 1 to Upline 16 -->
+            <script>
+                for (let i = 16; i >= 1; i--) {
+                    document.write(`<p>Upline ${i} - 1 USDT 🌿 <input type="text" placeholder="Wallet Address"></p>`);
+                }
+            </script>
+            <p>Direct Sponsor - 9 USDT 🌿 <input type="text" placeholder="Wallet Address"></p>
+        </div>
+        <button class="distribute">Distribute Your Fund Now</button>
+    </section>
+
+    <!-- 100% Scam Free -->
+    <div class="scam-free">100% Scam Free Project, Your Today's Decision Can Change Your Tomorrow</div>
+
+    <!-- Income Section -->
+    <section class="income-section">
+        <h2>Income Details</h2>
+        <p>Today's Income: <span id="todayIncome">0 USDT</span></p>
+        <p>Total Income: <span id="totalIncome">0 USDT</span></p>
+    </section>
+
+    <script>
+        function updateIncome() {
+            let today = Math.floor(Math.random() * 50) + 10;
+            let total = Math.floor(Math.random() * 1000) + 100;
+
+            document.getElementById("todayIncome").innerText = today + " USDT";
+            document.getElementById("totalIncome").innerText = total + " USDT";
+        }
+        setInterval(updateIncome, 5000);
+    </script>
+
+    <!-- Activated Users Chart -->
+    <section class="activated-users">
+        <h2>Your Plant Growth</h2>
+        <table>
+            <tr><th>Level</th><th>Users</th></tr>
+            <tbody id="growthTable"></tbody>
+        </table>
+    </section>
+
+    <script>
+        function updateTreeGrowth() {
+            let usersData = [5, 8, 15, 22, 30, 40, 55, 65, 80, 100, 120, 140, 160, 180, 200, 220];
+            let tableHTML = "";
+            let totalUsers = 0;
+            
+            for (let i = 0; i < 16; i++) {
+                totalUsers += usersData[i];
+                tableHTML += `<tr><td>${i + 1} Level</td><td>${usersData[i]}</td></tr>`;
+            }
+            tableHTML += `<tr><td><b>Total Users</b></td><td>${totalUsers}</td></tr>`;
+            
+            document.getElementById("growthTable").innerHTML = tableHTML;
+        }
+        setInterval(updateTreeGrowth, 5000);
+    </script>
+
+    <!-- Quit & Replace Me Buttons -->
+    <div class="center">
+        <button class="quit-button" style="background-color: red; color: white; font-size: 16px; padding: 10px 20px;">❌ Quit</button>
+        <button class="replace-button" style="background-color: yellow; color: black; font-size: 16px; padding: 10px 20px;">🔄 Replace Me</button>
+    </div>
+
+    <!-- Trust Message Section -->
+    <div class="trust-message" style="background-color: green; color: white; text-align: center; padding: 10px; font-size: 18px; font-weight: bold;">
+        ✅ Trust yourself, trust the system, follow your upline, help your team members, you will be the winner.
+    </div>
+
+    <script>
+        function changeLanguage(lang) {
+            alert("Language changed to " + (lang === "hi" ? "Hindi" : "English"));
+        }
+    </script>
 
 </body>
 </html>
