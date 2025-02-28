@@ -12,20 +12,20 @@
     <header>
         <div class="logo">Money Plant 🌿</div>
         <div class="language-buttons">
-            <img src="india-flag.png" alt="🇮🇳" onclick="changeLanguage('hi')" style="width: 30px; cursor: pointer;">
-            <img src="uk-flag.png" alt="🇬🇧" onclick="changeLanguage('en')" style="width: 30px; cursor: pointer;">
+            <span onclick="changeLanguage('hi')">🇮🇳 Hindi</span> |
+            <span onclick="changeLanguage('en')">🇬🇧 English</span>
         </div>
     </header>
 
-    <!-- Welcome Section -->
+    <!-- Welcome Section (ईश से पहले वाला) -->
     <section class="welcome">
         <div class="border-symbol">🌿🌿🌿🌿🌿</div>
         <p>
-            Welcome to Money Plant MLM System. This is your own money plant, it's a fully decentralized system where the owner is renounced and only users are the owner.  
-            <br><br> Money Plant is a scam-free project specially designed for hardworking networkers who lost their hard-earned money in the past due to scam projects. 
-            <br><br> The developer felt the pain of victims and decided to bring Money Plant into existence to set an example of how the MLM industry can grow without scams. 
-            <br><br> Thanks to your sponsor! Start your financial freedom journey from here. Grow your money plant, which is already planted in your garden forever. 
-            <br><br> Build your team without liability, without fear, and get financial freedom.
+            Welcome to Money Plant MLM System! This is your own money plant, a fully decentralized system where the owner is renounced, and only users are the real owners.  
+            <br><br> Money Plant is a **100% scam-free** project, designed for hardworking networkers who have suffered losses in scam projects. 
+            <br><br> The developer understands the pain of such victims and has created Money Plant to set an example of a **transparent MLM system**.  
+            <br><br> Thank your sponsor! Begin your financial freedom journey today. **Grow your money plant, which is already planted in your garden forever.**  
+            <br><br> **Build your team, grow your wealth, and achieve financial independence.**
         </p>
         <div class="border-symbol">🌿🌿🌿🌿🌿</div>
     </section>
@@ -61,27 +61,38 @@
             </script>
             <p>Direct Sponsor - 9 USDT 🌿 <input type="text" placeholder="Wallet Address"></p>
         </div>
-        <button class="distribute">Distribute Now</button>
+        <button class="distribute">Distribute Your Fund Now</button>
     </section>
 
     <!-- 100% Scam Free -->
     <div class="scam-free">100% Scam Free Project, Your Today's Decision Can Change Your Tomorrow</div>
 
-    <!-- Quit & Replace Me Buttons -->
-    <div class="center">
-        <button class="quit-button" style="background-color: red; color: white; font-size: 16px;">Quit</button>
-        <button class="replace-button" style="background-color: yellow; color: black; font-size: 16px;">Replace Me</button>
-    </div>
+    <!-- Income Section (Your Plant Growth के ऊपर) -->
+    <section class="income-section">
+        <h2>Income Details</h2>
+        <p>Today's Income: <span id="todayIncome">0 USDT</span></p>
+        <p>Total Income: <span id="totalIncome">0 USDT</span></p>
+    </section>
+
+    <script>
+        function updateIncome() {
+            let today = Math.floor(Math.random() * 50) + 10;
+            let total = Math.floor(Math.random() * 1000) + 100;
+
+            document.getElementById("todayIncome").innerText = today + " USDT";
+            document.getElementById("totalIncome").innerText = total + " USDT";
+        }
+        setInterval(updateIncome, 5000);
+    </script>
 
     <!-- Activated Users Chart -->
     <section class="activated-users">
         <h2>Your Plant Growth</h2>
         <table>
             <tr><th>Level</th><th>Users</th></tr>
-            <!-- Level 1 to Level 16 -->
             <script>
                 function updateTreeGrowth() {
-                    let usersData = [5, 8, 15, 22, 30, 40, 55, 65, 80, 100, 120, 140, 160, 180, 200, 220]; // Example user growth
+                    let usersData = [5, 8, 15, 22, 30, 40, 55, 65, 80, 100, 120, 140, 160, 180, 200, 220];
                     let tableHTML = "";
                     let totalUsers = 0;
                     
@@ -93,37 +104,28 @@
                     
                     document.getElementById("growthTable").innerHTML = tableHTML;
                 }
-
-                setInterval(updateTreeGrowth, 5000); // Updates every 5 seconds
+                setInterval(updateTreeGrowth, 5000);
             </script>
             <tbody id="growthTable"></tbody>
         </table>
     </section>
 
-    <!-- Today's Income & Total Income -->
-    <section class="income-section">
-        <h2>Income Details</h2>
-        <p>Today's Income: <span id="todayIncome">0 USDT</span></p>
-        <p>Total Income: <span id="totalIncome">0 USDT</span></p>
-    </section>
-
-    <script>
-        function updateIncome() {
-            let today = Math.floor(Math.random() * 50) + 10; // Random today's income
-            let total = Math.floor(Math.random() * 1000) + 100; // Random total income
-
-            document.getElementById("todayIncome").innerText = today + " USDT";
-            document.getElementById("totalIncome").innerText = total + " USDT";
-        }
-
-        setInterval(updateIncome, 5000); // Updates every 5 seconds
-    </script>
+    <!-- Quit & Replace Me Buttons (ईश से पहले वाला डिजाइन) -->
+    <div class="center">
+        <button class="quit-button" style="background-color: red; color: white; font-size: 16px; padding: 10px 20px;">❌ Quit</button>
+        <button class="replace-button" style="background-color: yellow; color: black; font-size: 16px; padding: 10px 20px;">🔄 Replace Me</button>
+    </div>
 
     <!-- Trust Message Section -->
     <div class="trust-message" style="background-color: green; color: white; text-align: center; padding: 10px; font-size: 18px; font-weight: bold;">
         ✅ Trust yourself, trust the system, follow your upline, help your team members, you will be the winner.
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function changeLanguage(lang) {
+            alert("Language changed to " + (lang === "hi" ? "Hindi" : "English"));
+        }
+    </script>
+
 </body>
 </html>
