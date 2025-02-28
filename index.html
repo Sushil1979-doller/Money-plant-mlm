@@ -5,6 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Money Plant 🌿</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        .border-symbol {
+            font-size: 20px;
+            color: green;
+            margin: 10px 0;
+        }
+        .center {
+            text-align: center;
+            margin: 20px;
+        }
+        button {
+            font-size: 16px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .connect-wallet, .history-button, .quit-button, .replace-button {
+            background-color: #007bff;
+            color: white;
+            font-size: 14px;
+        }
+        .history-button {
+            background-color: #007bff;
+            padding: 10px 15px;
+        }
+        .quit-button {
+            background-color: red;
+        }
+        .replace-button {
+            background-color: gold;
+            color: black;
+        }
+        .income-box {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .income-box div {
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
@@ -19,14 +75,21 @@
 
     <!-- Welcome Section -->
     <section class="welcome">
-        <div class="border-symbol">🌿🌿🌿🌿🌿</div>
+        <div class="border-symbol">🌿🌿🌿</div>
         <p>
-            आपका स्वागत है Money Plant MLM System में! <br><br>
-            यह पूरी तरह से **विकेन्द्रीकृत प्रणाली** है, जहां **मालिक त्याग दिया गया है** और केवल उपयोगकर्ता ही असली मालिक हैं।  
-            <br><br> Money Plant एक **100% स्कैम-फ्री** प्रोजेक्ट है, जो मेहनती नेटवर्कर्स के लिए बनाया गया है।  
-            <br><br> आपका **वित्तीय स्वतंत्रता यात्रा** आज से शुरू करें!  
+            Welcome to <b>Money Plant MLM System</b>. This is your own money plant, it's a fully decentralized system where the owner is renounced and only users are the owner.
+            <br><br>
+            <b>Here you can grow your money securely and get financial freedom!</b>
+            <br><br>
+            This system works on a <b>smart contract</b> that automatically distributes rewards among participants in a fair and transparent way. Once you register, you will start earning commissions from direct and indirect referrals.
+            <br><br>
+            🌟 <b>100% Safe & Secure</b> - No Admin Control, Fully Decentralized.  
+            🌟 <b>Instant Payments</b> - No Waiting, Get Paid Instantly.  
+            🌟 <b>Unlimited Earnings</b> - Grow Your Network, Increase Your Income.  
+            <br><br>
+            Don't miss this golden opportunity to achieve <b>financial freedom</b>.
         </p>
-        <div class="border-symbol">🌿🌿🌿🌿🌿</div>
+        <div class="border-symbol">🌿🌿🌿</div>
     </section>
 
     <!-- Connect Wallet Button -->
@@ -50,11 +113,11 @@
     <section class="beneficiary">
         <h2>Beneficiary List</h2>
         <div class="wallet-list">
-            <p>Refund Pool Wallet - 2 USDT 💰 <input type="text" placeholder="Wallet Address"></p>
-            <p>Admin - 1 USDT <input type="text" placeholder="Wallet Address"></p>
+            <p>Refund Pool Wallet - 2 USDT 🌿 <input type="text" placeholder="Wallet Address"></p>
+            <p>Admin - 1 USDT 🌿 <input type="text" placeholder="Wallet Address"></p>
             <script>
                 for (let i = 16; i >= 1; i--) {
-                    document.write(`<p>Upline ${i} - 1 USDT 👑 <input type="text" placeholder="Wallet Address"></p>`);
+                    document.write(`<p>Upline ${i} - 1 USDT 🌿 <input type="text" placeholder="Wallet Address"></p>`);
                 }
             </script>
             <p>Direct Sponsor - 9 USDT 👑 <input type="text" placeholder="Wallet Address"></p>
@@ -64,8 +127,14 @@
 
     <!-- Income & Refund History -->
     <div class="center">
-        <button class="history-button" style="background-color: blue; color: white;">📊 Income History</button>
-        <button class="history-button" style="background-color: blue; color: white;">💸 Refund History</button>
+        <button class="history-button">📊 Income History</button>
+        <button class="history-button">💸 Refund History</button>
+    </div>
+
+    <!-- Income Placeholders -->
+    <div class="income-box">
+        <div>Today's Income: <span id="todaysIncome">0 USDT</span></div>
+        <div>Total Income: <span id="totalIncome">0 USDT</span></div>
     </div>
 
     <!-- Activated Users Chart -->
@@ -85,19 +154,26 @@
             
             for (let i = 0; i < 16; i++) {
                 totalUsers += usersData[i];
-                tableHTML += `<tr><td>${i + 1} Level</td><td>${usersData[i]}</td></tr>`;
+                tableHTML += `<tr><td>${i + 1} Level</td><td>${usersData[i]} 🌿</td></tr>`;
             }
-            tableHTML += `<tr><td><b>Total Users</b></td><td>${totalUsers}</td></tr>`;
+            tableHTML += `<tr><td><b>Total Users</b></td><td>${totalUsers} 👑</td></tr>`;
             
             document.getElementById("growthTable").innerHTML = tableHTML;
         }
+
+        function updateIncome() {
+            document.getElementById("todaysIncome").textContent = (Math.random() * 10 + 5).toFixed(2) + " USDT";
+            document.getElementById("totalIncome").textContent = (Math.random() * 500 + 100).toFixed(2) + " USDT";
+        }
+
         setInterval(updateTreeGrowth, 5000);
+        setInterval(updateIncome, 5000);
     </script>
 
     <!-- Quit & Replace Me Buttons -->
     <div class="center">
-        <button class="quit-button" style="background-color: red; color: white; font-size: 16px; padding: 10px 20px;">❌ Quit</button>
-        <button class="replace-button" style="background-color: gold; color: black; font-size: 16px; padding: 10px 20px;">🔄 Replace Me</button>
+        <button class="quit-button">❌ Quit</button>
+        <button class="replace-button">🔄 Replace Me</button>
     </div>
 
     <!-- Trust Message Section -->
