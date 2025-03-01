@@ -189,3 +189,93 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Plant</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header Design */
+        header {  
+            background-color: #008000;  
+            color: white;  
+            padding: 15px;  
+            display: flex;  
+            justify-content: space-between;  
+            align-items: center;  
+            font-size: 24px;  
+            font-weight: bold;  
+        }  
+
+        /* Logo Design */
+        .logo {
+            font-size: 26px;
+        }
+
+        /* Language Switcher */
+        .language-buttons span {
+            cursor: pointer;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+
+        /* Welcome Note */
+        .welcome {  
+            background-color: white;  
+            margin: 20px;  
+            padding: 15px;  
+            border-radius: 10px;  
+            box-shadow: 0 0 10px gray;  
+            font-size: 18px;  
+            border: 2px solid green; /* बॉर्डर */
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>  
+        <div class="logo">Money Plant 🌿</div>  
+        <div class="language-buttons">  
+            <span onclick="changeLanguage('hi')">🇮🇳 Hindi</span> |  
+            <span onclick="changeLanguage('en')">🇬🇧 English</span>  
+        </div>  
+    </header>
+
+    <!-- Welcome Note -->
+    <div class="welcome" id="welcomeNote">
+        Welcome to Money Plant! Grow your wealth smartly.
+    </div>
+
+    <script>
+        function changeLanguage(lang) {
+            let welcomeText = document.getElementById("welcomeNote");
+
+            if (lang === 'hi') {
+                welcomeText.innerHTML = "मनी प्लांट में आपका स्वागत है! अपनी संपत्ति को स्मार्ट तरीके से बढ़ाएं।";
+            } else {
+                welcomeText.innerHTML = "Welcome to Money Plant! Grow your wealth smartly.";
+            }
+        }
+    </script>
+
+</body>
+</html>
