@@ -1,14 +1,15 @@
 // Wallet Connection
 let isConnected = false;
-document.getElementById('connectWalletBtn').addEventListener('click', async () => {
-    if (window.ethereum) {
+const connectWalletBtn = document.getElementById('connectWalletBtn');
+
+connectWalletBtn.addEventListener('click', async () => {
+    if (typeof window.ethereum !== 'undefined') {
         try {
             const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
             isConnected = true;
-            document.getElementById('connectWalletBtn').textContent = 
-                `Connected: ${accounts[0].substring(0,6)}...${accounts[0].substring(38)}`;
+            connectWalletBtn.textContent = `Connected: ${accounts[0].slice(0, 6)}...${accounts[0].slice(-4)}`;
         } catch (error) {
-            alert('Error connecting wallet!');
+            alert('Failed to connect wallet!');
         }
     } else {
         alert('Please install MetaMask!');
@@ -16,44 +17,47 @@ document.getElementById('connectWalletBtn').addEventListener('click', async () =
 });
 
 // Language Toggle
+const languageBtn = document.getElementById('languageBtn');
+const welcomeText = document.getElementById('welcomeText');
 let isEnglish = true;
-document.getElementById('languageBtn').addEventListener('click', () => {
+
+const hindiContent = `<b>मनी प्लांट एमएलएम सिस्टम</b> में आपका स्वागत है। यह एक पूरी तरह से विकेंद्रीकृत प्रणाली है जहां मालिक का नियंत्रण नहीं है और केवल उपयोगकर्ता मालिक हैं।<br><br><b>यहां आप अपने पैसे को सुरक्षित रूप से बढ़ा सकते हैं और वित्तीय स्वतंत्रता प्राप्त कर सकते हैं!</b><br><br>यह प्रणाली एक <b>स्मार्ट कॉन्ट्रैक्ट</b> पर काम करती है जो पारदर्शी तरीके से पुरस्कार वितरित करती है।`;
+
+languageBtn.addEventListener('click', () => {
     isEnglish = !isEnglish;
-    document.getElementById('languageBtn').textContent = isEnglish ? 'English / हिंदी' : 'हिंदी / English';
-    // Add Hindi text for all elements here
+    languageBtn.textContent = isEnglish ? 'English / हिंदी' : 'हिंदी / English';
+    welcomeText.innerHTML = isEnglish ? 
+        'Welcome to <b>Money Plant MLM System</b>... (Original English Text)' : 
+        hindiContent;
 });
 
 // Modals
 function openModal(type) {
     document.getElementById(`${type}Modal`).style.display = 'block';
 }
+
 function closeModal() {
-    document.querySelectorAll('.modal').forEach(modal => modal.style.display = 'none');
+    document.querySelectorAll('.modal').forEach(modal => {
+        modal.style.display = 'none';
+    });
 }
 
-// Activate Function
+// Activate Funds Distribution
 function distributeFunds() {
     alert('Funds distributed successfully!');
-    document.getElementById('activateModal').innerHTML += `
-        <div class="congrats-msg">
+    const activateModal = document.getElementById('activateModal');
+    activateModal.innerHTML += `
+        <div class="congrats">
             <h3>🎉 Congratulations! You're Activated!</h3>
-            <p>Your Referral Link: <b>https://moneyplant.com/ref?user=YOUR_ADDRESS</b></p>
+            <p>Your Referral Link: <b>https://moneyplant.com/ref?user=USER_ADDRESS</b></p>
         </div>
     `;
 }
 
 // Quit Me Function
-function quitMe() {
+function handleQuit() {
     if (confirm('Are you sure? You will get refunds daily.')) {
-        alert('You will receive 0.27 USDT every day at 4 AM IST.');
+        alert('You will receive 0.27 USDT daily at 4 AM IST.');
         document.getElementById('quitBtn').style.display = 'none';
     }
-}
-
-// Replace Me Function
-function replaceUser() {
-    const newAddress = document.getElementById('newUserAddress').value;
-    const sponsorLink = document.getElementById('sponsorLink').value;
-    alert(`Replaced with ${newAddress}!`);
-    closeModal();
 }
