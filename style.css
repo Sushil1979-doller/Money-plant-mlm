@@ -1,188 +1,46 @@
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    background: #f0f9f0;
-    color: #333;
-    line-height: 1.6;
-    padding: 20px;
-}
-
 /* Header */
 header {
     background: #1a6b3a;
     padding: 15px 20px;
-    border-radius: 10px;
-    margin-bottom: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-radius: 10px;
 }
 
 .header-title h1 {
+    font-size: 26px;
+    font-weight: 700;
     color: #fff;
-    font-size: 24px;
-    margin-bottom: 5px;
+    margin: 0;
 }
 
-.header-title p {
-    color: #e8f5e9;
-    font-size: 14px;
-}
-
-.header-buttons button {
-    background: #e67e22;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 10px;
-}
-
-/* Welcome Section */
-.welcome {
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.border-symbol {
-    font-size: 24px;
-    text-align: center;
-    margin: 20px 0;
-    color: #2ECC71;
-}
-
-.welcome p {
-    font-size: 16px;
-    line-height: 1.8;
-    color: #444;
-}
-
-/* Buttons */
-.button-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
-    margin-bottom: 30px;
-}
-
-.button-container button {
-    padding: 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    color: white;
-    font-weight: bold;
-}
-
-.btn-activate { background: #2ECC71; }  /* Green */
-.btn-team    { background: #3498db; }  /* Blue */
-.btn-income  { background: #9b59b6; }  /* Purple */
-.btn-refund  { background: #f1c40f; }  /* Yellow */
-.btn-quit    { background: #e74c3c; }  /* Red */
-.btn-replace { background: #e67e22; }  /* Orange */
-
-/* Modals */
-.modal {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 600px;
-    z-index: 1000;
-    box-shadow: 0 0 20px rgba(0,0,0,0.2);
-}
-
-.modal::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.5);
-    z-index: -1;
-}
-
-.modal-content {
-    max-height: 70vh;
-    overflow-y: auto;
-}
-
-.beneficiary-item {
+.header-buttons {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px 0;
-    padding: 10px;
-    background: #e8f5e9;
-    border-radius: 5px;
+    gap: 15px;
 }
 
-.beneficiary-item span {
-    width: 40%;
-    font-size: 14px;
-}
-
-.beneficiary-item input {
-    width: 45%;
-    padding: 8px;
-    font-size: 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.distribute-btn {
-    background: #2ECC71;
-    margin-top: 20px;
+/* Replace Modal Inputs */
+#replaceModal input {
     width: 100%;
-    padding: 12px;
-}
-
-/* Team View */
-.team-levels {
-    max-height: 300px;
-    overflow-y: auto;
-    margin: 20px 0;
-}
-
-.team-levels div {
-    display: flex;
-    justify-content: space-between;
     padding: 10px;
-    margin: 5px 0;
-    background: #f8f9fa;
+    margin: 10px 0;
+    border: 1px solid #ddd;
     border-radius: 5px;
 }
 
-.income-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+/* Referral Link */
+.referral-link {
+    color: #3498db;
+    text-decoration: underline;
+    word-break: break-all;
 }
 
-.stat-box {
+/* Team Total */
+.team-total {
     background: #e8f5e9;
     padding: 15px;
+    margin: 20px 0;
     border-radius: 5px;
     text-align: center;
-}
-
-.close-btn {
-    background: #95a5a6;
-    margin-top: 15px;
 }
