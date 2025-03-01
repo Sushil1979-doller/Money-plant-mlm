@@ -61,6 +61,12 @@ header {
     color: white;
 }
 
+/* Language Button */
+#languageBtn {
+    background: #9b59b6; /* Purple Color */
+    color: white;
+}
+
 /* Welcome Section */
 .welcome {
     background: white;
@@ -199,8 +205,18 @@ header {
     text-align: center;
 }
 
-.referral-link {
-    color: #3498db;
-    text-decoration: underline;
-    word-break: break-all;
+/* Referral Actions */
+.referral-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.copy-btn {
+    background: #3498db !important;
+    white-space: nowrap;
+}
+
+.telegram-btn {
+    background: #0088cc !important;
 }
