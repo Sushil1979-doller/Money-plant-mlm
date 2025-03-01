@@ -63,7 +63,7 @@ header {
 
 /* Language Button */
 #languageBtn {
-    background: #9b59b6; /* Purple Color */
+    background: #9b59b6;
     color: white;
 }
 
@@ -84,8 +84,8 @@ header {
 }
 
 .welcome p {
-    font-size: 16px;
-    line-height: 1.8;
+    font-size: 15px;
+    line-height: 1.7;
     color: #444;
 }
 
