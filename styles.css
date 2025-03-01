@@ -1,14 +1,18 @@
-body { font-family: Arial, sans-serif; margin: 0; padding: 0; text-align: center; background-color: #f4f4f4; }
-header { background-color: #008000; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
-.logo { font-size: 24px; font-weight: bold; }
-.language-buttons button { margin: 5px; padding: 8px; }
-.welcome { background-color: white; margin: 20px; padding: 15px; border-radius: 10px; box-shadow: 0 0 10px gray; font-size: 18px; }
-.border-symbol { font-size: 22px; margin-bottom: 5px; }
-.center { margin: 20px; }
-.connect-wallet, .distribute { padding: 10px 20px; background-color: #008000; color: white; border: none; cursor: pointer; border-radius: 5px; }
-.faq-plan { display: flex; justify-content: space-around; padding: 20px; }
-.beneficiary { background-color: white; padding: 20px; margin: 20px; border-radius: 10px; box-shadow: 0 0 10px gray; }
-.wallet-list input { margin-left: 10px; padding: 5px; width: 200px; }
-.scam-free { background-color: #008000; color: white; padding: 10px; font-weight: bold; margin-top: 20px; font-size: 18px; }
-.activated-users table { width: 60%; margin: auto; border-collapse: collapse; font-size: 16px; }
-.activated-users th, td { border: 1px solid black; padding: 8px; text-align: center; }
+.copy-referral {
+    padding: 10px 15px;
+    background-color: #ffa500;
+    color: black;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: none;
+}
+
+.join-telegram {
+    padding: 10px 15px;
+    background-color: #0088cc;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
