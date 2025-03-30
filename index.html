@@ -6,6 +6,36 @@
     <title>Money Plant MLM</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+    <style>
+        /* FAQ सेक्शन के लिए स्टाइल */
+        .faq-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .faq-container h2 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .faq-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .faq-question {
+            cursor: pointer;
+            font-weight: bold;
+            margin: 0;
+        }
+        .faq-answer {
+            display: none;
+            padding-top: 5px;
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -27,70 +57,80 @@
         <div class="border-symbol">🌿🌿🌿</div>
     </section>
 
-    <!-- Main Buttons -->
-    <div class="button-container">
-        <button class="btn-activate" onclick="openModal('activateModal')">Activate</button>
-        <button class="btn-team" onclick="openModal('teamModal')">Team View</button>
-        <button class="btn-income" onclick="window.open('https://bscscan.com')">Income History</button>
-        <button class="btn-refund" onclick="window.open('https://bscscan.com')">Refund History</button>
-        <button class="btn-quit" id="quitBtn" onclick="handleQuit()">Quit Me</button>
-        <button class="btn-replace" onclick="openReplaceModal()">Replace Me</button>
-    </div>
-
-    <!-- Activate Modal -->
-    <div id="activateModal" class="modal">
-        <div class="modal-content">
-            <h2>💰 Beneficiary List</h2>
-            <div class="beneficiary-item">
-                <span>🌝 Admin</span>
-                <input type="text" value="0x80e4CbEffc6D76E516FFe60392C39Af42132602A" readonly>
-                <span class="amount">1 USDT</span>
-            </div>
-            <div class="beneficiary-item">
-                <span>💰 Refund Pool</span>
-                <input type="text" value="0x60547abE7550e894e0fcCe43Adf36E4774e22d95" readonly>
-                <span class="amount">2 USDT</span>
-            </div>
-            <div id="uplineList"></div>
-            <div class="beneficiary-item">
-                <span>🧛🏻 Direct Sponsor</span>
-                <input type="text" id="directSponsor" readonly>
-                <span class="amount">9 USDT</span>
-            </div>
-            <button class="distribute-btn" onclick="distributeFunds()">Distribute Funds</button>
-            <button class="close-btn" onclick="closeModal()">Back</button>
+    <!-- FAQ Section (Welcome Section के नीचे और Main Buttons से ऊपर) -->
+    <div class="faq-container">
+        <h2>Money Plant MLM System - FAQ</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">Money Plant MLM System क्या है?</div>
+            <div class="faq-answer">Money Plant एक पूरी तरह से decentralized MLM सिस्टम है जो डोनेशन और distribution पर आधारित है।</div>
         </div>
-    </div>
-
-    <!-- Team View Modal -->
-    <div id="teamModal" class="modal">
-        <div class="modal-content">
-            <h2>🌿 Team Structure</h2>
-            <div class="team-levels"></div>
-            <div class="team-total">
-                <span>Total Members:</span> 
-                <b id="totalMembers">0</b>
-            </div>
-            <div class="income-stats">
-                <div class="stat-box"><span>Today's Income:</span> <b>0 USDT</b></div>
-                <div class="stat-box"><span>Total Income:</span> <b>0 USDT</b></div>
-                <div class="stat-box"><span>Bonus:</span> <b>0 USDT</b></div>
-            </div>
-            <button class="close-btn" onclick="closeModal()">Back</button>
+        
+        <div class="faq-item">
+            <div class="faq-question">Money Plant MLM System किस तरह से काम करता है?</div>
+            <div class="faq-answer">यह सिस्टम referral और direct user-to-user fund distribution पर आधारित है।</div>
         </div>
-    </div>
-
-    <!-- Replace Me Modal -->
-    <div id="replaceModal" class="modal">
-        <div class="modal-content">
-            <h2>🔁 Replace Account</h2>
-            <input type="text" placeholder="New User Wallet" id="newAddress">
-            <input type="text" id="sponsorLink" readonly>
-            <button class="submit-btn" onclick="replaceUser()">Submit</button>
-            <button class="close-btn" onclick="closeModal()">Back</button>
+        
+        <div class="faq-item">
+            <div class="faq-question">मेरा पैसा कंपनी के पास जाता है या direct users के पास जाता है?</div>
+            <div class="faq-answer">आपका पैसा सीधे users के बीच distribute होता है, कंपनी के पास नहीं जाता।</div>
         </div>
-    </div>
 
-    <script src="script.js"></script>
-</body>
-</html>
+        <div class="faq-item">
+            <div class="faq-question">Admin किसी भी प्रकार का scam या rugpull क्यों नहीं कर सकता?</div>
+            <div class="faq-answer">System पूरी तरह से decentralized है और admin को सिर्फ 1 USDT royalty fee मिलती है।</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Money Plant MLM System कब तक चलेगी?</div>
+            <div class="faq-answer">जब तक नए users जुड़ते रहेंगे, सिस्टम चलता रहेगा।</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">मैं अपनी ID activate कैसे कर सकता हूँ?</div>
+            <div class="faq-answer">आपको अपने sponsor से referral लेना होगा और 27 USDT अपने wallet में जमा करने होंगे।</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">क्या Money Plant पूरी तरह से decentralized है?</div>
+            <div class="faq-answer">हाँ, यह पूरी तरह से smart contract पर आधारित है और admin के पास कोई control नहीं है।</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">क्या किसी user का पैसा डूब सकता है?</div>
+            <div class="faq-answer">नहीं, अगर user 3 referrals करता है तो उसकी पूरी 27 USDT वापस हो जाती है।</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Quit Me बटन क्या है?</div>
+            <div class="faq-answer">अगर कोई user 1 भी referral नहीं जोड़ पाता है, तो वह quit me बटन का उपयोग कर सकता है और refund pool से पैसे प्राप्त कर सकता है।</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Replace Me बटन क्या है?</div>
+            <div class="faq-answer">कोई user अपनी ID को बेच सकता है और किसी नए user को अपनी जगह पर जोड़ सकता है।</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">अपना रेफरल लिंक कैसे कॉपी करें?</div>
+            <div class="faq-answer">सिस्टम में लॉगिन करने के बाद अपने प्रोफाइल सेक्शन में जाकर रेफरल लिंक कॉपी कर सकते हैं।</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">किसी नए user को अपनी टीम में कैसे जोड़ें?</div>
+            <div class="faq-answer">अपने रेफरल लिंक को शेयर करके नए user को जोड़ा जा सकता है।</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">क्या Money Plant एक scam-free project है?</div>
+            <div class="faq-answer">हाँ, क्योंकि यह पूरी तरह से ब्लॉकचेन आधारित और decentralized प्रणाली है।</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">क्या जिसने Quit कर लिया है वह दुबारा अपनी नई ID बना सकता है?</div>
+            <div class="faq-answer">हाँ, Quit करने के बाद कोई भी user नए रेफरल लिंक से दुबारा अपनी नई ID बना सकता है।</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">क्या जिसने खुद को Replace कर लिया था वह दुबारा अपनी नई ID बना सकता है?</div>
+            <div class="faq-answer">हाँ,
