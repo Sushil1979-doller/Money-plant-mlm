@@ -1,220 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Money Plant MLM</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
-    <style>
-        /* FAQ सेक्शन के लिए स्टाइल */
-        .faq-container {
-            width: 90%;
-            max-width: 800px;
-            margin: 20px auto;
-            border: 1px solid #ccc;
-            padding: 10px;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-        }
-        .faq-container h2 {
-            text-align: center;
-            margin-bottom: 15px;
-        }
-        .faq-item {
-            border-bottom: 1px solid #ddd;
-            padding: 10px 0;
-        }
-        .faq-question {
-            cursor: pointer;
-            font-weight: bold;
-            margin: 0;
-        }
-        .faq-answer {
-            display: none;
-            padding-top: 5px;
-            margin: 0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Money Plant MLM</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+  <style>
+    /* FAQ सेक्शन के लिए स्टाइल */
+    .faq-container {
+      width: 90%;
+      max-width: 800px;
+      margin: 20px auto;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    .faq-container h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .faq-item {
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+    }
+    .faq-question {
+      cursor: pointer;
+      font-weight: bold;
+      margin: 0;
+    }
+    .faq-answer {
+      display: none;
+      padding-top: 5px;
+      margin: 0;
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-title">
-            <h1>🌿 Money Plant 🌿</h1>
-            <p>100% Scam Free Project - Build Your Team Confidently</p>
-        </div>
-        <div class="header-buttons">
-            <button id="connectWalletBtn" class="disconnected">Connect Wallet</button>
-            <button id="languageBtn">English / हिंदी</button>
-        </div>
-    </header>
+  <!-- Header -->
+  <header>
+    <div class="header-title">
+      <h1>🌿 Money Plant 🌿</h1>
+      <p>100% Scam Free Project - Build Your Team Confidently</p>
+    </div>
+    <div class="header-buttons">
+      <button id="connectWalletBtn" class="disconnected">Connect Wallet</button>
+      <button id="languageBtn">English / हिंदी</button>
+    </div>
+  </header>
 
-    <!-- Welcome Section -->
-    <section class="welcome">
-        <div class="border-symbol">🌿🌿🌿</div>
-        <p id="welcomeText">Welcome to <b>Money Plant MLM System</b>. This is your own money plant, it's a fully decentralized system where the owner is renounced and only users are the owner.<br><br><b>Here you can grow your money securely and get financial freedom!</b><br><br>This system works on a <b>smart contract</b> that automatically distributes rewards among participants in a fair and transparent way. Once you register, you will start earning commissions from direct and indirect referrals.<br><br>🌟 <b>100% Safe & Secure</b> - No Admin Control, Fully Decentralized.<br>🌟 <b>Instant Payments</b> - No Waiting, Get Paid Instantly.<br>🌟 <b>Unlimited Earnings</b> - Grow Your Network, Increase Your Income.<br><br><b>Transparency:</b> Funds are distributed directly user-to-user without any mediator. Money Plant is a liability-free project and will remain forever with you all.</p>
-        <div class="border-symbol">🌿🌿🌿</div>
-    </section>
+  <!-- Welcome Section -->
+  <section class="welcome">
+    <div class="border-symbol">🌿🌿🌿</div>
+    <p id="welcomeText">
+      Welcome to <b>Money Plant MLM System</b>. This is your own money plant, it's a fully decentralized system where the owner is renounced and only users are the owner.<br><br>
+      <b>Here you can grow your money securely and get financial freedom!</b><br><br>
+      This system works on a <b>smart contract</b> that automatically distributes rewards among participants in a fair and transparent way. Once you register, you will start earning commissions from direct and indirect referrals.<br><br>
+      🌟 <b>100% Safe & Secure</b> - No Admin Control, Fully Decentralized.<br>
+      🌟 <b>Instant Payments</b> - No Waiting, Get Paid Instantly.<br>
+      🌟 <b>Unlimited Earnings</b> - Grow Your Network, Increase Your Income.<br><br>
+      <b>Transparency:</b> Funds are distributed directly user-to-user without any mediator. Money Plant is a liability-free project and will remain forever with you all.
+    </p>
+    <div class="border-symbol">🌿🌿🌿</div>
+  </section>
 
-    <!-- FAQ Section (Welcome Section के नीचे) -->
-    <div class="faq-container">
+  <!-- FAQ Section Placeholder -->
+  <div id="faqContainer"></div>
+
+  <!-- Main Buttons -->
+  <div class="button-container">
+    <button class="btn-activate" onclick="openModal('activateModal')">Activate</button>
+    <button class="btn-team" onclick="openModal('teamModal')">Team View</button>
+    <button class="btn-income" onclick="window.open('https://bscscan.com')">Income History</button>
+    <button class="btn-refund" onclick="window.open('https://bscscan.com')">Refund History</button>
+    <button class="btn-quit" id="quitBtn" onclick="handleQuit()">Quit Me</button>
+    <button class="btn-replace" onclick="openReplaceModal()">Replace Me</button>
+  </div>
+
+  <!-- Activate Modal -->
+  <div id="activateModal" class="modal">
+    <div class="modal-content">
+      <h2>💰 Beneficiary List</h2>
+      <div class="beneficiary-item">
+        <span>🌝 Admin</span>
+        <input type="text" value="0x80e4CbEffc6D76E516FFe60392C39Af42132602A" readonly>
+        <span class="amount">1 USDT</span>
+      </div>
+      <div class="beneficiary-item">
+        <span>💰 Refund Pool</span>
+        <input type="text" value="0x60547abE7550e894e0fcCe43Adf36E4774e22d95" readonly>
+        <span class="amount">2 USDT</span>
+      </div>
+      <div id="uplineList"></div>
+      <div class="beneficiary-item">
+        <span>🧛🏻 Direct Sponsor</span>
+        <input type="text" id="directSponsor" readonly>
+        <span class="amount">9 USDT</span>
+      </div>
+      <button class="distribute-btn" onclick="distributeFunds()">Distribute Funds</button>
+      <button class="close-btn" onclick="closeModal()">Back</button>
+    </div>
+  </div>
+
+  <!-- Team View Modal -->
+  <div id="teamModal" class="modal">
+    <div class="modal-content">
+      <h2>🌿 Team Structure</h2>
+      <div class="team-levels"></div>
+      <div class="team-total">
+        <span>Total Members:</span> 
+        <b id="totalMembers">0</b>
+      </div>
+      <div class="income-stats">
+        <div class="stat-box"><span>Today's Income:</span> <b>0 USDT</b></div>
+        <div class="stat-box"><span>Total Income:</span> <b>0 USDT</b></div>
+        <div class="stat-box"><span>Bonus:</span> <b>0 USDT</b></div>
+      </div>
+      <button class="close-btn" onclick="closeModal()">Back</button>
+    </div>
+  </div>
+
+  <!-- Replace Me Modal -->
+  <div id="replaceModal" class="modal">
+    <div class="modal-content">
+      <h2>🔁 Replace Account</h2>
+      <input type="text" placeholder="New User Wallet" id="newAddress">
+      <input type="text" id="sponsorLink" readonly>
+      <button class="submit-btn" onclick="replaceUser()">Submit</button>
+      <button class="close-btn" onclick="closeModal()">Back</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    /* Language Toggle for Welcome Text and FAQ Section */
+    const englishWelcomeText = document.getElementById('welcomeText').innerHTML;
+    const hindiWelcomeText = `
+      <b>मनी प्लांट एमएलएम</b> में आपका स्वागत है। यह एक पूरी तरह विकेंद्रीकृत प्रणाली है जहां मालिक का कोई नियंत्रण नहीं है और सिर्फ उपयोगकर्ता ही मालिक हैं। 
+      <br><br>
+      <b>यहां आप अपने पैसे को सुरक्षित रूप से बढ़ा सकते हैं और वित्तीय स्वतंत्रता प्राप्त कर सकते हैं!</b>
+      <br><br>
+      यह प्रणाली एक <b>स्मार्ट कॉन्ट्रैक्ट</b> पर काम करती है जो पारदर्शी तरीके से सीधे यूजर से यूजर भुगतान करती है। एक बार पंजीकरण करने के बाद, आप सीधे और अप्रत्यक्ष रेफरल से कमीशन कमाना शुरू कर देंगे।
+      <br><br>
+      🌟 <b>100% सुरक्षित</b> - कोई एडमिन नियंत्रण नहीं, पूरी तरह विकेंद्रीकृत।<br>
+      🌟 <b>तुरंत भुगतान</b> - प्रतीक्षा नहीं, तुरंत पैसा प्राप्त करें।<br>
+      🌟 <b>असीमित कमाई</b> - अपना नेटवर्क बढ़ाएं, आय बढ़ाएं।
+      <br><br>
+      <b>पारदर्शिता:</b> फंड बिना किसी बिचौलिए के सीधे यूजर-टू-यूजर वितरित किए जाते हैं। मनी प्लांट एक दायित्व-मुक्त परियोजना है और हमेशा आपके साथ रहेगी।
+    `;
+    
+    const faqEnglish = `
+      <div class="faq-container">
         <h2>Money Plant MLM System - FAQ</h2>
-        
         <div class="faq-item">
-            <p class="faq-question">Money Plant MLM System क्या है?</p>
-            <p class="faq-answer">Money Plant एक पूरी तरह से decentralized MLM सिस्टम है जो डोनेशन और distribution पर आधारित है।</p>
+          <p class="faq-question">1. What is Money Plant MLM System?</p>
+          <p class="faq-answer">
+            Money Plant is a fully decentralized MLM system based on donations and distribution. Every user gets an opportunity to activate their ID using a referral from their sponsor.
+          </p>
         </div>
-        
         <div class="faq-item">
-            <p class="faq-question">Money Plant MLM System किस तरह से काम करता है?</p>
-            <p class="faq-answer">यह सिस्टम referral और direct user-to-user fund distribution पर आधारित है।</p>
+          <p class="faq-question">2. How does Money Plant MLM System work?</p>
+          <p class="faq-answer">
+            Users deposit 27 USDT in their wallet and distribute this amount across 18 designated wallet addresses. Once done, their ID is activated, allowing them to build their team and earn rewards.
+          </p>
         </div>
-        
         <div class="faq-item">
-            <p class="faq-question">मेरा पैसा कंपनी के पास जाता है या direct users के पास जाता है?</p>
-            <p class="faq-answer">आपका पैसा सीधे users के बीच distribute होता है, कंपनी के पास नहीं जाता।</p>
+          <p class="faq-question">3. Does my money go to the company or directly to users?</p>
+          <p class="faq-answer">
+            All funds are distributed directly among users. No money is held by the company except a minimal 1 USDT royalty to the admin.
+          </p>
         </div>
-        
         <div class="faq-item">
-            <p class="faq-question">Admin किसी भी प्रकार का scam या rugpull क्यों नहीं कर सकता?</p>
-            <p class="faq-answer">System पूरी तरह से decentralized है और admin को सिर्फ 1 USDT royalty fee मिलती है।</p>
+          <p class="faq-question">4. Why can’t the admin scam or rugpull?</p>
+          <p class="faq-answer">
+            The system is entirely based on smart contracts and blockchain technology, ensuring complete transparency and security.
+          </p>
         </div>
-        
         <div class="faq-item">
-            <p class="faq-question">Money Plant MLM System कब तक चलेगी?</p>
-            <p class="faq-answer">जब तक नए users जुड़ते रहेंगे, सिस्टम चलता रहेगा।</p>
+          <p class="faq-question">5. How long will Money Plant MLM System run?</p>
+          <p class="faq-answer">
+            The system will run indefinitely as new users keep joining, providing continuous economic opportunities.
+          </p>
         </div>
-        
         <div class="faq-item">
-            <p class="faq-question">मैं अपनी ID activate कैसे कर सकता हूँ?</p>
-            <p class="faq-answer">आपको अपने sponsor से referral लेना होगा और 27 USDT अपने wallet में जमा करने होंगे।</p>
+          <p class="faq-question">6. How do I activate my ID?</p>
+          <p class="faq-answer">
+            Obtain a referral link from your sponsor, deposit 27 USDT, and distribute it across the 18 designated wallet addresses to activate your ID.
+          </p>
         </div>
-        
         <div class="faq-item">
-            <p class="faq-question">क्या Money Plant पूरी तरह से decentralized है?</p>
-            <p class="faq-answer">हाँ, यह पूरी तरह से smart contract पर आधारित है और admin के पास कोई control नहीं है।</p>
+          <p class="faq-question">7. How do I distribute my funds?</p>
+          <p class="faq-answer">
+            Simply distribute 27 USDT across the 18 wallet addresses as defined by the system, which is fully automated via smart contract.
+          </p>
         </div>
-        
         <div class="faq-item">
-            <p class="faq-question">क्या किसी user का पैसा डूब सकता है?</p>
-            <p class="faq-answer">नहीं, अगर user 3 referrals करता है तो उसकी पूरी 27 USDT वापस हो जाती है।</p>
+          <p class="faq-question">8. Is Money Plant completely decentralized?</p>
+          <p class="faq-answer">
+            Yes, the entire system operates on blockchain, ensuring complete decentralization and user control.
+          </p>
         </div>
-        
         <div class="faq-item">
-            <p class="faq-question">Quit Me बटन क्या है?</p>
-            <p class="faq-answer">अगर कोई user 1 भी referral नहीं जोड़ पाता है, तो वह quit me बटन का उपयोग कर सकता है और refund pool से पैसे प्राप्त कर सकता है।</p>
+          <p class="faq-question">9. Can the creator run away with funds?</p>
+          <p class="faq-answer">
+            No. The system is automated by smart contracts, leaving no room for fund manipulation.
+          </p>
         </div>
-        
         <div class="faq-item">
-            <p class="faq-question">Replace Me बटन क्या है?</p>
-            <p class="faq-answer">कोई user अपनी ID को बेच सकता है और किसी नए user को अपनी जगह पर जोड़ सकता है।</p>
+          <p class="faq-question">10. Can a user's money be lost?</p>
+          <p class="faq-answer">
+            Not at all. With just 3 direct referrals, you recover your full principal of 27 USDT, and further referrals multiply your earnings.
+          </p>
         </div>
-        
         <div class="faq-item">
-            <p class="faq-question">अपना रेफरल लिंक कैसे कॉपी करें?</p>
-            <p class="faq-answer">सिस्टम में लॉगिन करने के बाद अपने प्रोफाइल सेक्शन में जाकर रेफरल लिंक कॉपी कर सकते हैं।</p>
+          <p class="faq-question">11. Can any ID be blocked or restricted?</p>
+          <p class="faq-answer">
+            No, the decentralized nature of the system ensures that every user enjoys equal rights without any restrictions.
+          </p>
         </div>
-        
         <div class="faq-item">
-            <p class="faq-question">किसी नए user को अपनी टीम में कैसे जोड़ें?</p>
-            <p class="faq-answer">अपने रेफरल लिंक को शेयर करके नए user को जोड़ा जा सकता है।</p>
+          <p class="faq-question">12. How many direct referrals can one make?</p>
+          <p class="faq-answer">
+            There is no limit. You can make unlimited direct referrals, increasing your earnings exponentially.
+          </p>
         </div>
-        
         <div class="faq-item">
-            <p class="faq-question">क्या Money Plant एक scam-free project है?</p>
-            <p class="faq-answer">हाँ, क्योंकि यह पूरी तरह से ब्लॉकचेन आधारित और decentralized प्रणाली है।</p>
+          <p class="faq-question">13. How much income do I get from a direct referral?</p>
+          <p class="faq-answer">
+            Every direct referral rewards you with 9 USDT. By referring just 3 users, your principal of 27 USDT is automatically returned, and additional referrals multiply your earnings rapidly. 9 USDT is an excellent reward!
+          </p>
         </div>
-        
         <div class="faq-item">
-            <p class="faq-question">क्या जिसने Quit कर लिया है वह दुबारा अपनी नई ID बना सकता है?</p>
-            <p class="faq-answer">हाँ, Quit करने के बाद कोई भी user नए रेफरल लिंक से दुबारा अपनी नई ID बना सकता है।</p>
+          <p class="faq-question">14. How much income do I get from indirect referrals and up to what levels?</p>
+          <p class="faq-answer">
+            For each new user, every one of your 15 uplines receives 1 USDT, providing you with continuous income as your team grows.
+          </p>
         </div>
-        
         <div class="faq-item">
-            <p class="faq-question">क्या जिसने खुद को Replace कर लिया था वह दुबारा अपनी नई ID बना सकता है?</p>
-            <p class="faq-answer">हाँ, Replace करने के बाद भी कोई user नई ID से फिर से जॉइन कर सकता है।</p>
+          <p class="faq-question">15. What is the "Quit Me" button?</p>
+          <p class="faq-answer">
+            The "Quit Me" button is available for users who haven’t secured any referrals and wish to exit the system. It allows you to safely recover your full principal of 27 USDT via the refund pool, which distributes funds daily (capped at 0.27 USDT per day) until you are fully refunded.
+          </p>
         </div>
-    </div>
+        <div class="faq-item">
+          <p class="faq-question">16. What is the "Replace Me" button?</p>
+          <p class="faq-answer">
+            The "Replace Me" button lets users who haven't gained any referrals—and prefer not to receive gradual refunds—sell their ID to a new user, instantly recovering their full principal of 27 USDT. Your direct sponsor remains unchanged, ensuring a seamless transition.
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-question">17. How can I quit and what are the conditions?</p>
+          <p class="faq-answer">
+            You can quit only if you haven’t secured any referrals. Once you quit, your 27 USDT principal will start getting refunded from the next day, distributed equally among quitters (max 0.27 USDT per day) until your full amount is returned.
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-question">18. Who can use the "Replace Me" button and what are its conditions?</p>
+          <p class="faq-answer">
+            Only users without any referrals under them—and who prefer not to withdraw funds gradually—can use the "Replace Me" button. This option allows you to transfer your ID to a new user by providing their wallet address, instantly reclaiming your full principal while your direct sponsor remains the same.
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-question">19. How do I get my principal of 27 USDT back if I secure no referrals?</p>
+          <p class="faq-answer">
+            If you’re unable to secure any referrals, you have two options: use the "Quit Me" button to gradually receive refunds from the pool, or use "Replace Me" to immediately reclaim your full principal. This ensures that you never suffer a loss.
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-question">20. How can I sell my ID if I no longer wish to participate?</p>
+          <p class="faq-answer">
+            You can use the "Replace Me" button to transfer your ID to a new user, instantly receiving your full principal of 27 USDT. This provides a risk-free exit option.
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-question">21. How do I copy my referral link?</p>
+          <p class="faq-answer">
+            Simply log in and navigate to your profile section where you can easily copy your referral link to invite new users.
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-question">22. How do I add a new user to my team?</p>
+          <p class="faq-answer">
+            Share your referral link to invite new users, thereby expanding your team and increasing your earning opportunities.
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-question">23. Is Money Plant a scam-free project?</p>
+          <p class="faq-answer">
+            Absolutely! Money Plant is a transparent, secure, and fully blockchain-based project ensuring your investment remains safe.
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-question">24. Can a user who quits rejoin with a new ID?</p>
+          <p class="faq-answer">
+            Yes, after quitting, you can easily rejoin with a new referral link and activate a new ID.
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-question">25. Can a user who replaces their ID rejoin later?</p>
+          <p class="faq-answer">
+            Certainly! Even after using the "Replace Me" option, you can rejoin with a new ID and continue enjoying the benefits.
+          </p>
+        </div>
+      </div>
+    `;
 
-    <!-- FAQ Toggle Script -->
-    <script>
-        document.querySelectorAll('.faq-question').forEach(function(item) {
-            item.addEventListener('click', function() {
-                var answer = this.nextElementSibling;
-                if (answer.style.display === 'block') {
-                    answer.style.display = 'none';
-                } else {
-                    answer.style.display = 'block';
-                }
-            });
-        });
-    </script>
-
-    <!-- Main Buttons -->
-    <div class="button-container">
-        <button class="btn-activate" onclick="openModal('activateModal')">Activate</button>
-        <button class="btn-team" onclick="openModal('teamModal')">Team View</button>
-        <button class="btn-income" onclick="window.open('https://bscscan.com')">Income History</button>
-        <button class="btn-refund" onclick="window.open('https://bscscan.com')">Refund History</button>
-        <button class="btn-quit" id="quitBtn" onclick="handleQuit()">Quit Me</button>
-        <button class="btn-replace" onclick="openReplaceModal()">Replace Me</button>
-    </div>
-
-    <!-- Activate Modal -->
-    <div id="activateModal" class="modal">
-        <div class="modal-content">
-            <h2>💰 Beneficiary List</h2>
-            <div class="beneficiary-item">
-                <span>🌝 Admin</span>
-                <input type="text" value="0x80e4CbEffc6D76E516FFe60392C39Af42132602A" readonly>
-                <span class="amount">1 USDT</span>
-            </div>
-            <div class="beneficiary-item">
-                <span>💰 Refund Pool</span>
-                <input type="text" value="0x60547abE7550e894e0fcCe43Adf36E4774e22d95" readonly>
-                <span class="amount">2 USDT</span>
-            </div>
-            <div id="uplineList"></div>
-            <div class="beneficiary-item">
-                <span>🧛🏻 Direct Sponsor</span>
-                <input type="text" id="directSponsor" readonly>
-                <span class="amount">9 USDT</span>
-            </div>
-            <button class="distribute-btn" onclick="distributeFunds()">Distribute Funds</button>
-            <button class="close-btn" onclick="closeModal()">Back</button>
+    const faqHindi = `
+      <div class="faq-container">
+        <h2>Money Plant MLM System - FAQ</h2>
+        <div class="faq-item">
+          <p class="faq-question">1. Money Plant MLM System क्या है?</p>
+          <p class="faq-answer">
+            Money Plant एक पूरी तरह से विकेंद्रीकृत (Decentralized) MLM सिस्टम है जो डोनेशन और डिस्ट्रिब्यूशन पर आधारित है। यहाँ हर यूजर को अपनी ID एक्टिवेट करने का सुनहरा अवसर मिलता है।
+          </p>
         </div>
-    </div>
-
-    <!-- Team View Modal -->
-    <div id="teamModal" class="modal">
-        <div class="modal-content">
-            <h2>🌿 Team Structure</h2>
-            <div class="team-levels"></div>
-            <div class="team-total">
-                <span>Total Members:</span> 
-                <b id="totalMembers">0</b>
-            </div>
-            <div class="income-stats">
-                <div class="stat-box"><span>Today's Income:</span> <b>0 USDT</b></div>
-                <div class="stat-box"><span>Total Income:</span> <b>0 USDT</b></div>
-                <div class="stat-box"><span>Bonus:</span> <b>0 USDT</b></div>
-            </div>
-            <button class="close-btn" onclick="closeModal()">Back</button>
+        <div class="faq-item">
+          <p class="faq-question">2. Money Plant MLM System किस तरह से काम करता है?</p>
+          <p class="faq-answer">
+            यूजर अपने वॉलेट में 27 USDT जमा करते हैं और निर्धारित 18 वॉलेट एड्रेस पर राशि वितरित करते हैं। इसके बाद उनकी ID सक्रिय हो जाती है और वे अपनी टीम बनाकर कमाई कर सकते हैं।
+          </p>
         </div>
-    </div>
-
-    <!-- Replace Me Modal -->
-    <div id="replaceModal" class="modal">
-        <div class="modal-content">
-            <h2>🔁 Replace Account</h2>
-            <input type="text" placeholder="New User Wallet" id="newAddress">
-            <input type="text" id="sponsorLink" readonly>
-            <button class="submit-btn" onclick="replaceUser()">Submit</button>
-            <button class="close-btn" onclick="closeModal()">Back</button>
+        <div class="faq-item">
+          <p class="faq-question">3. मेरा पैसा कंपनी के पास जाता है या डायरेक्ट यूजर्स के पास?</p>
+          <p class="faq-answer">
+            आपका पैसा पूरी तरह से यूजर्स के बीच वितरित होता है, केवल एडमिन को मामूली 1 USDT रॉयल्टी के रूप में प्राप्त होता है।
+          </p>
         </div>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+        <div class="faq-item">
+          <p class="faq-question">4. एडमिन किसी भी प्रकार का स्कैम या रगपुल क्यों नहीं कर सकता?</p>
+          <p class="faq-answer">
+            सिस्टम स्मार्ट कॉन्ट्रैक्ट और ब्लॉकचेन पर आधारित है, जिससे सभी लेन-देन पारदर्शी और सुरक्षित रहते हैं।
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-question">5. Money Plant MLM System कब तक चलेगी?</p>
+          <p class="faq-answer">
+            सिस्टम अनंत काल तक चलेगा क्योंकि नए यूजर्स के जुड़ते रहने से यह निरंतर विकसित होता रहता है।
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-question">6. मैं अपनी ID एक्टिवेट कैसे कर सकता हूँ?</p>
+          <p class="faq-answer">
+            अपने स्पॉन्सर से रेफरल लिंक प्राप्त करें, 27 USDT जमा करें और निर्धारित 18 वॉलेट एड्रेस पर राशि वितरित करें। आपकी ID तुरंत एक्टिव हो जाएगी।
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-question">7. मैं अपना फंड कैसे डिस्ट्रीब्यूट करूँ?</p>
+          <p class="faq-answer">
+            27 USDT को 18 वॉलेट एड्रेस पर बांट दें। यह प्रक्रिया पूरी तरह से स्मार्ट कॉन्ट्रैक्ट द्वारा ऑटोमेटिकली संचालित होती है।
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-question">8. क्या Money Plant पूरी तरह से विकेंद्रीकृत है?</p>
+          <p class="faq-answer">
+            बिल्कुल! यह सिस्टम ब्लॉकचेन पर आधारित है और सभी लेन-देन सीधे यूजर्स के बीच होते हैं।
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-question">9. क्या क्रिएटर किसी के फंड को लेकर भाग सकता है?</p>
+          <p class="faq-answer">
+            नहीं, पूरा सिस्टम स्मार्ट कॉन्ट्रैक्ट द्वारा नियंत्रित होता है जिससे आपके फंड की सुरक्षा सुनिश्चित होती है।
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-question">10. क्या किसी यूजर का पैसा डूब सकता है?</p>
+          <p class="faq-answer">
+            बिल्कुल नहीं! यदि आप 3 डायरेक्ट रेफरल करते हैं तो आपका मूलधन (27 USDT) तुरंत वापस हो जाता है, और अतिरिक्त रेफरल से आपकी कमाई कई गुना बढ़ जाती है।
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-question">11. क्या किसी की ID को ब्लॉक या रिस्ट्रिक्ट किया जा सकता है?</p>
+          <p class="faq-answer">
+            नहीं, विकेंद्रीकृत सिस्टम होने के कारण हर यूजर को समान अधिकार प्राप्त हैं।
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-question">12. कोई यूजर कितना डायरेक्ट रेफरल कर सकता है?</p>
+          <p class="faq-answer">
+            कोई भी यूजर बिना सीमा के डायरेक्ट रेफरल कर सकता है, जिससे उसकी कमाई के अवसर अनंत हो जाते हैं।
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-question">13. Direct रेफरल से कितनी इनकम होती है?</p>
+          <p class="faq-answer">
+            हर डायरेक्ट रेफरल से आपको 9 USDT प्राप्त होती है। 3 डायरेक्ट रेफरल से आपका 27 USDT मूलधन स्वतः वापस हो जाता है और अधिक रेफरल करने से आपकी कमाई तेजी से कई गुना बढ़ जाती है। 9 USDT का इनाम एक शानदार मौका है।
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-question">14. InDirect रेफरल से कितने लेवल तक इनकम मिलेगी और कितनी?</p>
+          <p class="faq-answer">
+            आपके द्वारा जुड़े गए प्रत्येक नए यूजर के 15 अपलाइन में से हर एक को 1 USDT प्राप्त होती है, जिससे आपकी टीम बढ़ने पर आपको निरंतर आय प्राप्त होती रहती है।
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-question">15. Quit Me बटन क्या है?</p>
+          <p class="faq-answer">
+            यह बटन उन यूजर्स के लिए है जो अगर 1 भी रेफरल नहीं कर पाते हैं और सिस्टम से बाहर निकलना चाहते हैं, तो बिना किसी नुकसान के अपना पूरा मूलधन (27 USDT) सुरक्षित रूप से वापस पा सकते हैं। Refund pool में राशि रोज़ बराबर बाट दी जाती है (24 घंटे में अधिकतम 0.27 USDT), जब तक आपका पूरा मूलधन वापस न हो जाए।
+   
