@@ -220,3 +220,6 @@ header {
 .telegram-btn {
   background: #0088cc !important;
 }
+
+/* FAQ Specific Styles (if needed, can override here) */
+/* Example: .faq-container, .faq-item, etc. already defined in index.html inline style */
