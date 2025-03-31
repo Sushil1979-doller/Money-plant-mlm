@@ -22,22 +22,7 @@ async function connectWallet() {
 }
 document.getElementById('connectWalletBtn').addEventListener('click', connectWallet);
 
-// Language Toggle for Welcome Text and FAQ Section
-const englishWelcomeText = document.getElementById("welcomeText").innerHTML;
-const hindiWelcomeText = `
-  <b>मनी प्लांट एमएलएम</b> में आपका स्वागत है। यह एक पूरी तरह विकेंद्रीकृत प्रणाली है जहां मालिक का कोई नियंत्रण नहीं है और सिर्फ उपयोगकर्ता ही मालिक हैं। 
-  <br><br>
-  <b>यहां आप अपने पैसे को सुरक्षित रूप से बढ़ा सकते हैं और वित्तीय स्वतंत्रता प्राप्त कर सकते हैं!</b>
-  <br><br>
-  यह प्रणाली एक <b>स्मार्ट कॉन्ट्रैक्ट</b> पर काम करती है जो पारदर्शी तरीके से सीधे यूजर से यूजर भुगतान करती है। एक बार पंजीकरण करने के बाद, आप सीधे और अप्रत्यक्ष रेफरल से कमीशन कमाना शुरू कर देंगे।
-  <br><br>
-  🌟 <b>100% सुरक्षित</b> - कोई एडमिन नियंत्रण नहीं, पूरी तरह विकेंद्रीकृत।<br>
-  🌟 <b>तुरंत भुगतान</b> - प्रतीक्षा नहीं, तुरंत पैसा प्राप्त करें।<br>
-  🌟 <b>असीमित कमाई</b> - अपना नेटवर्क बढ़ाएं, आय बढ़ाएं।
-  <br><br>
-  <b>पारदर्शिता:</b> फंड बिना किसी बिचौलिए के सीधे यूजर-टू-यूजर वितरित किए जाते हैं। मनी प्लांट एक दायित्व-मुक्त परियोजना है और हमेशा आपके साथ रहेगी।
-`;
-
+// FAQ Content (English & Hindi)
 const faqEnglish = `
   <div class="faq-container">
     <h2>Money Plant MLM System - FAQ</h2>
@@ -254,7 +239,7 @@ const faqHindi = `
     <div class="faq-item">
       <p class="faq-question">5. Money Plant MLM System कब तक चलेगा?</p>
       <p class="faq-answer">
-        यह सिस्टम अनिश्चितकाल तक चलेगा क्योंकि नए यूजर्स के जुड़ते रहने से यह निरंतर विकसित होता रहेगा।
+        यह सिस्टम अनिश्चितकाल तक चल सकता है क्योंकि नए यूजर्स के जुड़ते रहने से यह निरंतर विकसित होता रहता है।
       </p>
     </div>
     <!-- 6 -->
@@ -400,16 +385,12 @@ const faqHindi = `
   </div>
 `;
 
-    // ----------------------------------------
     // Set default language to English
-    // ----------------------------------------
     let currentLanguage = "en";
     document.getElementById("faqContainer").innerHTML =
       currentLanguage === "en" ? faqEnglish : faqHindi;
 
-    // ----------------------------------------
-    // Language Toggle
-    // ----------------------------------------
+    // Language Toggle Functionality
     document.getElementById("languageBtn").addEventListener("click", function () {
       // Toggle language
       currentLanguage = currentLanguage === "en" ? "hi" : "en";
@@ -420,3 +401,31 @@ const faqHindi = `
       
       // Update language button text
       document.getElementById("languageBtn").textContent =
+        currentLanguage === "en" ? "English / हिंदी" : "हिंदी / English";
+      
+      // Update FAQ container content
+      document.getElementById("faqContainer").innerHTML =
+        currentLanguage === "en" ? faqEnglish : faqHindi;
+      
+      // Reattach toggle functionality for FAQ items
+      document.querySelectorAll(".faq-question").forEach(function (item) {
+        item.addEventListener("click", function () {
+          const answer = this.nextElementSibling;
+          answer.style.display =
+            answer.style.display === "block" ? "none" : "block";
+        });
+      });
+    });
+
+    // Attach toggle functionality on initial load for FAQ items
+    document.querySelectorAll(".faq-question").forEach(function (item) {
+      item.addEventListener("click", function () {
+        const answer = this.nextElementSibling;
+        answer.style.display =
+          answer.style.display === "block" ? "none" : "block";
+      });
+    });
+
+    // Note: Other functions like loadUplines, loadTeamLevels, distributeFunds, copyReferral, openReplaceModal, replaceUser, handleQuit are assumed to be defined below or in this file.
+    
+    // Dummy impl
