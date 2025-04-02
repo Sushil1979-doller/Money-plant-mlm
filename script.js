@@ -3,14 +3,14 @@ let web3;
 let userAccount;
 let currentSponsor = "0x80e4CbEffc6D76E516FFe60392C39Af42132602A";
 
-// Wallet Connection function remains as before
+// Wallet Connection
 async function connectWallet() {
   if (window.ethereum) {
     try {
       const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
       userAccount = accounts[0];
       const connectBtn = document.getElementById("connectWalletBtn");
-      connectBtn.textContent = `Connected: ${userAccount.substring(0, 6)}...${userAccount.slice(-4)}`;
+      connectBtn.textContent = `Connected: ${userAccount.substring(0,6)}...${userAccount.slice(-4)}`;
       connectBtn.classList.replace("disconnected", "connected");
       const dsElement = document.getElementById("directSponsor");
       if (dsElement) { dsElement.value = currentSponsor; }
@@ -35,7 +35,7 @@ const hindiWelcomeText = `
   <b>पारदर्शिता:</b> फंड बिना किसी बिचौलिए के सीधे यूजर-टू-यूजर वितरित किए जाते हैं। मनी प्लांट एक दायित्व-मुक्त परियोजना है और हमेशा आपके साथ रहेगी।
 `;
 
-// Function to load FAQ based on selected language
+// Function to load FAQ content from external file based on language
 function loadFAQ(language) {
   const faqContainer = document.getElementById("faqContainer");
   const faqFile = language === "en" ? "faq-en.html" : "faq-hi.html";
@@ -53,10 +53,10 @@ function loadFAQ(language) {
 
 // Attach toggle functionality for FAQ items
 function attachFAQToggle() {
-  document.querySelectorAll(".faq-question").forEach(function(item) {
-    item.addEventListener("click", function() {
+  document.querySelectorAll(".faq-question").forEach(function (item) {
+    item.addEventListener("click", function () {
       const answer = this.nextElementSibling;
-      answer.style.display = (answer.style.display === "block") ? "none" : "block";
+      answer.style.display = answer.style.display === "block" ? "none" : "block";
     });
   });
 }
@@ -73,10 +73,11 @@ document.getElementById("languageBtn").addEventListener("click", function () {
   loadFAQ(currentLanguage);
 });
 
-// Dummy implementations for other functions (adjust as needed)
+// Dummy implementations for modals and other functions
+
 function openModal(modalId) {
   document.body.classList.add("modal-open");
-  document.getElementById(modalId).style.display = "block";
+  document.getElementById(modalId).style.display = "flex"; // Using flex to center modal content
 }
 
 function closeModal() {
@@ -120,7 +121,7 @@ function distributeFunds() {
   const btn = document.querySelector(".distribute-btn");
   if (btn) { btn.style.display = "none"; }
   alert("Funds distributed! Referral link and Telegram join button will now appear.");
-  // Here you can add code to display referral link copy and join Telegram buttons.
+  // यहां आप referral link copy और Telegram join बटन दिखाने का कोड जोड़ सकते हैं।
 }
 
 function copyReferral() {
@@ -138,7 +139,7 @@ function replaceUser() {
   if (newAddress) {
     currentSponsor = userAccount;
     userAccount = newAddress;
-    document.getElementById("connectWalletBtn").textContent = `Connected: ${newAddress.slice(0, 6)}...${newAddress.slice(-4)}`;
+    document.getElementById("connectWalletBtn").textContent = `Connected: ${newAddress.slice(0,6)}...${newAddress.slice(-4)}`;
     document.getElementById("directSponsor").value = currentSponsor;
     alert(`Replaced! New Link: https://moneyplant.com/ref?user=${newAddress}`);
     closeModal();
@@ -151,5 +152,28 @@ function handleQuit() {
   if (confirm("You will get 0.27 USDT daily. Confirm?")) {
     alert("Refunds start tomorrow at 4 AM IST.");
     document.getElementById("quitBtn").style.display = "none";
+  }
+}
+
+/* Video & PDF Upload Functions */
+function uploadVideo() {
+  const videoInput = document.getElementById("videoUpload");
+  const videoDisplay = document.getElementById("videoDisplay");
+  if (videoInput.files.length > 0) {
+    // यहाँ आप अपना वीडियो अपलोड लॉजिक जोड़ सकते हैं।
+    videoDisplay.innerHTML = `<p>Uploaded Video: ${videoInput.files[0].name}</p>`;
+  } else {
+    alert("Please select a video file.");
+  }
+}
+
+function uploadPDF() {
+  const pdfInput = document.getElementById("pdfUpload");
+  const pdfDisplay = document.getElementById("pdfDisplay");
+  if (pdfInput.files.length > 0) {
+    // यहाँ आप अपना PDF अपलोड लॉजिक जोड़ सकते हैं।
+    pdfDisplay.innerHTML = `<p>Uploaded PDF: ${pdfInput.files[0].name}</p>`;
+  } else {
+    alert("Please select a PDF file.");
   }
 }
