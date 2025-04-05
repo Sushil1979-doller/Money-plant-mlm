@@ -15,7 +15,7 @@ body {
 /* Header */
 header {
   background: #1a6b3a;
-  padding: 15px 20px;
+  padding: 25px 30px; /* बढ़ा हुआ padding */
   border-radius: 10px;
   margin-bottom: 30px;
   display: flex;
@@ -25,8 +25,8 @@ header {
   gap: 15px;
 }
 .header-title h1 {
-  font-size: 26px;
-  font-weight: 700;
+  font-size: 28px; /* बड़ा फॉन्ट साइज */
+  font-weight: 800; /* मोटा फॉन्ट */
   color: #fff;
 }
 .header-title p {
