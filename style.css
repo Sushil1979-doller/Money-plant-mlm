@@ -4,7 +4,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: 'Arial', sans-serif;
   background: #f0f9f0;
@@ -16,59 +15,47 @@ body {
 /* Header */
 header {
   background: #1a6b3a;
-  padding: 35px 40px; /* और बड़ा padding */
+  padding: 35px 40px; /* बड़ा padding */
   border-radius: 10px;
   margin-bottom: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 15px;
 }
-
 .header-title h1 {
-  font-size: 38px;  /* बड़ा फॉन्ट साइज */
-  font-weight: 900; /* बहुत मोटा */
+  font-size: 42px;       /* बड़ा फॉन्ट साइज */
+  font-weight: 900;       /* बहुत मोटा */
   color: #fff;
   text-align: center;
 }
-
 .header-title p {
   color: #e8f5e9;
-  font-size: 14px;
+  font-size: 16px;
 }
-
 .header-buttons {
   display: flex;
   gap: 10px;
 }
-
-#connectWalletBtn {
+#connectWalletBtn,
+#languageBtn {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
 }
-
 #connectWalletBtn.disconnected {
   background: #e74c3c;
   color: white;
 }
-
 #connectWalletBtn.connected {
   background: #3498db;
   color: white;
 }
-
-/* Language Button */
 #languageBtn {
   background: #9b59b6;
   color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
 }
 
 /* Welcome Section */
@@ -79,16 +66,14 @@ header {
   margin-bottom: 30px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-
 .border-symbol {
   font-size: 24px;
   text-align: center;
   margin: 20px 0;
   color: #2ECC71;
 }
-
 .welcome p {
-  font-size: 16px; /* थोड़ा बड़ा */
+  font-size: 16px; /* थोड़ा बड़ा टेक्स्ट */
   line-height: 1.7;
   color: #444;
 }
@@ -100,7 +85,6 @@ header {
   gap: 10px;
   margin-bottom: 30px;
 }
-
 .button-container button {
   padding: 15px;
   border: none;
@@ -109,7 +93,6 @@ header {
   color: white;
   font-weight: bold;
 }
-
 .btn-activate { background: #2ECC71; }
 .btn-team    { background: #3498db; }
 .btn-income  { background: #9b59b6; }
@@ -125,14 +108,13 @@ header {
   left: 50%;
   transform: translate(-50%, -50%);
   background: white;
-  padding: 25px;
+  padding: 30px;
   border-radius: 10px;
   width: 90%;
-  max-width: 900px; /* और बड़ा max-width */
-  z-index: 9999; /* बड़ा z-index */
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  max-width: 900px; /* बड़ा modal */
+  z-index: 9999;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
-
 .modal::before {
   content: "";
   position: fixed;
@@ -140,22 +122,20 @@ header {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.7); /* गहरा बैकग्राउंड */
+  background: rgba(0,0,0,0.7); /* गहरा overlay */
   z-index: -1;
 }
-
 .modal-content {
-  font-size: 17px; /* अंदर का टेक्स्ट बड़ा */
-  line-height: 1.5;
+  font-size: 18px; /* बड़ा टेक्स्ट */
+  line-height: 1.6;
   max-height: 80vh;
   overflow-y: auto;
 }
-
-/* Disable body scroll when modal open */
 body.modal-open {
   overflow: hidden;
 }
 
+/* Beneficiary Items in Modal */
 .beneficiary-item {
   display: flex;
   justify-content: space-between;
@@ -165,27 +145,23 @@ body.modal-open {
   background: #e8f5e9;
   border-radius: 5px;
 }
-
 .beneficiary-item span {
   width: 40%;
   font-size: 15px;
 }
-
 .beneficiary-item input {
   width: 45%;
   padding: 8px;
-  font-size: 13px;
+  font-size: 14px;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
-
 .distribute-btn {
   background: #2ECC71;
   margin-top: 20px;
   width: 100%;
   padding: 12px;
 }
-
 .close-btn {
   background: #2ECC71 !important;
   color: white !important;
@@ -198,7 +174,6 @@ body.modal-open {
   overflow-y: auto;
   margin: 20px 0;
 }
-
 .team-levels div {
   display: flex;
   justify-content: space-between;
@@ -207,7 +182,6 @@ body.modal-open {
   background: #f8f9fa;
   border-radius: 5px;
 }
-
 .team-total {
   background: #e8f5e9;
   padding: 15px;
@@ -215,7 +189,6 @@ body.modal-open {
   border-radius: 5px;
   text-align: center;
 }
-
 .income-stats .stat-box {
   margin-bottom: 10px;
 }
@@ -226,12 +199,10 @@ body.modal-open {
   gap: 10px;
   margin-top: 15px;
 }
-
 .copy-btn {
   background: #3498db !important;
   white-space: nowrap;
 }
-
 .telegram-btn {
   background: #0088cc !important;
 }
@@ -244,43 +215,38 @@ body.modal-open {
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-
 #faq-plan-section h2,
 #faq-plan-section h3 {
   color: #2ECC71;
   margin-bottom: 15px;
+  font-size: 22px;
 }
-
-/* FAQ items styling */
 #faq-plan-section details {
   margin-bottom: 10px;
 }
-
 #faq-plan-section summary {
   font-weight: bold;
-  color: #FF9800; /* ऑरेंज कलर */
+  color: #FF9800; /* bright orange */
   cursor: pointer;
   padding: 10px;
   background: #f9f9f9;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 16px;
 }
-
 #faq-plan-section p {
   padding: 10px 15px;
   color: #555;
   margin: 0;
   border-left: 3px solid #2ECC71;
   background: #fff;
-  font-size: 15px;
+  font-size: 16px;
 }
-
 #plan-download {
   margin-top: 20px;
   padding-top: 15px;
   border-top: 1px solid #ddd;
 }
-
 #plan-download a {
   background: #3498db;
   color: #fff;
@@ -289,7 +255,6 @@ body.modal-open {
   text-decoration: none;
   margin-right: 15px;
 }
-
 #plan-download a:nth-child(2) {
   background: #9b59b6;
-}
+  }
