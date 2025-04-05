@@ -16,7 +16,7 @@ body {
 /* Header */
 header {
   background: #1a6b3a;
-  padding: 15px 20px;
+  padding: 25px 30px; /* बढ़ा हुआ padding */
   border-radius: 10px;
   margin-bottom: 30px;
   display: flex;
@@ -27,10 +27,10 @@ header {
 }
 
 .header-title h1 {
-  font-size: 26px;
-  font-weight: 700;
+  font-size: 32px;        /* बड़ा फॉन्ट साइज */
+  font-weight: 900;         /* बहुत मोटा */
   color: #fff;
-  margin: 0;
+  text-align: center;
 }
 
 .header-title p {
@@ -65,6 +65,10 @@ header {
 #languageBtn {
   background: #9b59b6;
   color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 /* Welcome Section */
@@ -124,7 +128,7 @@ header {
   padding: 25px;
   border-radius: 10px;
   width: 90%;
-  max-width: 600px;
+  max-width: 800px;  /* बढ़ा हुआ max-width */
   z-index: 1000;
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
 }
@@ -141,10 +145,11 @@ header {
 }
 
 .modal-content {
-  max-height: 70vh;
+  max-height: 80vh; /* थोड़ा बड़ा */
   overflow-y: auto;
 }
 
+/* Beneficiary Items & Buttons in Modal */
 .beneficiary-item {
   display: flex;
   justify-content: space-between;
@@ -236,13 +241,14 @@ header {
   margin-bottom: 15px;
 }
 
+/* FAQ items styling */
 #faq-plan-section details {
   margin-bottom: 10px;
 }
 
 #faq-plan-section summary {
   font-weight: bold;
-  color: #2ECC71;
+  color: yellow;  /* Changed to yellow */
   cursor: pointer;
   padding: 10px;
   background: #f9f9f9;
@@ -275,4 +281,4 @@ header {
 
 #plan-download a:nth-child(2) {
   background: #9b59b6;
-}
+  }
