@@ -1,9 +1,10 @@
-/* Reset & Global Styles */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: 'Arial', sans-serif;
   background: #f0f9f0;
@@ -15,7 +16,7 @@ body {
 /* Header */
 header {
   background: #1a6b3a;
-  padding: 25px 30px; /* बढ़ा हुआ padding */
+  padding: 15px 20px;
   border-radius: 10px;
   margin-bottom: 30px;
   display: flex;
@@ -24,30 +25,43 @@ header {
   flex-wrap: wrap;
   gap: 15px;
 }
+
 .header-title h1 {
-  font-size: 28px; /* बड़ा फॉन्ट साइज */
-  font-weight: 800; /* मोटा फॉन्ट */
+  font-size: 26px;
+  font-weight: 700;
   color: #fff;
+  margin: 0;
 }
+
 .header-title p {
   color: #e8f5e9;
   font-size: 14px;
 }
-.header-buttons button {
+
+.header-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+#connectWalletBtn {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
 }
+
 #connectWalletBtn.disconnected {
   background: #e74c3c;
   color: white;
 }
+
 #connectWalletBtn.connected {
   background: #3498db;
   color: white;
 }
+
+/* Language Button */
 #languageBtn {
   background: #9b59b6;
   color: white;
@@ -61,10 +75,150 @@ header {
   margin-bottom: 30px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+
+.border-symbol {
+  font-size: 24px;
+  text-align: center;
+  margin: 20px 0;
+  color: #2ECC71;
+}
+
 .welcome p {
   font-size: 15px;
   line-height: 1.7;
   color: #444;
+}
+
+/* Button Container */
+.button-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.button-container button {
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+.btn-activate { background: #2ECC71; }
+.btn-team    { background: #3498db; }
+.btn-income  { background: #9b59b6; }
+.btn-refund  { background: #f1c40f; }
+.btn-quit    { background: #e74c3c; }
+.btn-replace { background: #e67e22; }
+
+/* Modals */
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  z-index: 1000;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.modal::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: -1;
+}
+
+.modal-content {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.beneficiary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  padding: 10px;
+  background: #e8f5e9;
+  border-radius: 5px;
+}
+
+.beneficiary-item span {
+  width: 40%;
+  font-size: 14px;
+}
+
+.beneficiary-item input {
+  width: 45%;
+  padding: 8px;
+  font-size: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.distribute-btn {
+  background: #2ECC71;
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+}
+
+.close-btn {
+  background: #2ECC71 !important;
+  color: white !important;
+  margin-top: 15px;
+}
+
+/* Team View */
+.team-levels {
+  max-height: 300px;
+  overflow-y: auto;
+  margin: 20px 0;
+}
+
+.team-levels div {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 5px 0;
+  background: #f8f9fa;
+  border-radius: 5px;
+}
+
+.team-total {
+  background: #e8f5e9;
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* Referral Actions */
+.referral-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.copy-btn {
+  background: #3498db !important;
+  white-space: nowrap;
+}
+
+.telegram-btn {
+  background: #0088cc !important;
 }
 
 /* FAQ & Plan Section */
@@ -75,14 +229,17 @@ header {
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+
 #faq-plan-section h2,
 #faq-plan-section h3 {
   color: #2ECC71;
   margin-bottom: 15px;
 }
+
 #faq-plan-section details {
   margin-bottom: 10px;
 }
+
 #faq-plan-section summary {
   font-weight: bold;
   color: #2ECC71;
@@ -92,6 +249,7 @@ header {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
 #faq-plan-section p {
   padding: 10px 15px;
   color: #555;
@@ -99,11 +257,13 @@ header {
   border-left: 3px solid #2ECC71;
   background: #fff;
 }
+
 #plan-download {
   margin-top: 20px;
   padding-top: 15px;
   border-top: 1px solid #ddd;
 }
+
 #plan-download a {
   background: #3498db;
   color: #fff;
@@ -112,28 +272,7 @@ header {
   text-decoration: none;
   margin-right: 15px;
 }
+
 #plan-download a:nth-child(2) {
   background: #9b59b6;
 }
-
-/* Button Container (Existing 6 Buttons) */
-.button-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 10px;
-  margin-bottom: 30px;
-}
-.button-container button {
-  padding: 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  color: white;
-  font-weight: bold;
-}
-.btn-activate { background: #2ECC71; }
-.btn-team    { background: #3498db; }
-.btn-income  { background: #9b59b6; }
-.btn-refund  { background: #f1c40f; }
-.btn-quit    { background: #e74c3c; }
-.btn-replace { background: #e67e22; }
