@@ -68,7 +68,7 @@ const faqData = [
     hi: { question: "7. मैं अपना फंड कैसे डिस्ट्रीब्यूट करूँ?", answer: "स्मार्ट कॉन्ट्रैक्ट 27 USDT को 18 एड्रेस में बांटता है।" }
   },
   {
-    en: { question: "8. Is Money Plant completely decentralized?", answer: "Yes, it is built on blockchain and is fully decentralized." },
+    en: { question: "8. Is Money Plant completely decentralized?", answer: "Yes, it is built on blockchain, and all funds are distributed among users." },
     hi: { question: "8. क्या Money Plant पूरी तरह से विकेंद्रीकृत है?", answer: "हाँ, यह ब्लॉकचेन पर आधारित है और पूरी तरह विकेंद्रीकृत है।" }
   },
   {
@@ -174,7 +174,7 @@ document.getElementById('languageBtn').addEventListener('click', () => {
   renderFAQ();
 });
 
-// Modals
+// Modals: Fullscreen
 function openModal(modalId) {
   document.body.classList.add('modal-open');
   document.getElementById(modalId).style.display = 'block';
