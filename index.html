@@ -79,12 +79,12 @@
         <span class="amount">9 USDT</span>
       </div>
       <button class="distribute-btn" onclick="distributeFunds()">Distribute Funds</button>
-      <!-- Referral Link Copy & Join Telegram Buttons -->
+      <!-- Activate Modal में Referral Link Copy और Join Telegram बटन -->
       <div class="referral-actions-container">
         <button class="copy-btn" onclick="copyReferral()">Copy Referral Link</button>
         <button class="telegram-btn" onclick="window.open('https://t.me/+CeJkEHpoTWthZDVl')">Join Telegram</button>
       </div>
-      <button class="close-btn">Back</button>
+      <button class="close-btn" onclick="closeModal()">Back</button>
     </div>
   </div>
 
@@ -102,7 +102,7 @@
         <div class="stat-box"><span>Total Income:</span> <b>0 USDT</b></div>
         <div class="stat-box"><span>Bonus:</span> <b>0 USDT</b></div>
       </div>
-      <button class="close-btn">Back</button>
+      <button class="close-btn" onclick="closeModal()">Back</button>
     </div>
   </div>
 
@@ -110,13 +110,18 @@
   <div id="replaceModal" class="modal">
     <div class="modal-content">
       <h2>🔁 Replace Account</h2>
+      <!-- ऊपर Direct Sponsor की ID -->
+      <p class="sponsor-id">Direct Sponsor: <span id="replaceSponsorId"></span></p>
+      <!-- Centered Placeholder Input -->
       <input type="text" placeholder="New User Wallet" id="newAddress">
       <input type="text" id="sponsorLink" readonly>
-      <button class="submit-btn" onclick="replaceUser()">Submit</button>
-      <button class="close-btn">Back</button>
+      <div class="replace-buttons">
+        <button class="submit-btn" onclick="replaceUser()">Submit</button>
+        <button class="close-btn" onclick="closeModal()">Back</button>
+      </div>
     </div>
   </div>
 
   <script src="script.js"></script>
 </body>
-</html>
+          </html>
