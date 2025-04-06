@@ -333,6 +333,13 @@ function openModal(modalId) {
   if(modalId === 'teamModal'){
     loadTeamLevels();
   }
+  if(modalId === 'replaceModal'){
+    // Set sponsor id in Replace Me modal above placeholder
+    const sponsorElem = document.getElementById('replaceSponsorId');
+    if(sponsorElem) {
+      sponsorElem.textContent = currentSponsor;
+    }
+  }
 }
 function closeModal() {
   document.body.classList.remove('modal-open');
@@ -425,4 +432,4 @@ function handleQuit() {
     const quitBtn = document.getElementById('quitBtn');
     if(quitBtn) quitBtn.style.display = 'none';
   }
-    }
+}
