@@ -425,4 +425,4 @@ function handleQuit() {
     const quitBtn = document.getElementById('quitBtn');
     if(quitBtn) quitBtn.style.display = 'none';
   }
-}
+    }
