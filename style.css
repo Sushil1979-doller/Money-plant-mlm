@@ -31,7 +31,7 @@ header {
   text-align: center;
 }
 .header-subtitle {
-  font-size: 22px;  /* 100% Scam Free Project - Build Your Team Confidently एक लाइन में */
+  font-size: 22px;  /* 100% Scam Free Project - Build Your Team Confidently एक ही लाइन में */
   color: #e8f5e9;
   font-weight: 700;
   white-space: nowrap;
@@ -80,7 +80,7 @@ header {
   font-size: 18px;
   line-height: 1.8;
   color: #444;
-  /* 100% Scam Free Project लाइन वैसे ही रहे */
+  /* 100% Scam Free Project लाइन वैसा ही रहे */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -133,7 +133,7 @@ header {
   background: rgba(0,0,0,0.7);
   z-index: -1;
 }
-/* Activate & Team modals: Text 3x larger */
+/* Activate & Team Modals: 3x बड़ा टेक्स्ट */
 #activateModal .modal-content,
 #teamModal .modal-content {
   font-size: 60px;
@@ -170,6 +170,8 @@ body.modal-open {
   font-size: 28px;
   border: 1px solid #ddd;
   border-radius: 4px;
+  /* सुनिश्चित करें कि amount के लिए अलग जगह हो */
+  margin-left: 10px;
 }
 .distribute-btn {
   background: #2ECC71;
@@ -192,7 +194,7 @@ body.modal-open {
 
 /* Back Button (close-btn) */
 .close-btn {
-  background: #2ECC71 !important;
+  background: red !important;
   color: white !important;
   margin-top: 25px;
   font-size: 30px;
@@ -229,7 +231,7 @@ body.modal-open {
   font-size: 60px;
 }
 
-/* Referral Actions */
+/* Referral Actions in Activate Modal */
 .referral-actions {
   display: flex;
   gap: 15px;
@@ -296,10 +298,42 @@ body.modal-open {
   background: #9b59b6;
 }
 
-/* Replace Me Modal - Placeholder styling */
+/* Replace Me Modal */
+#replaceModal .modal-content {
+  font-size: 60px;
+  padding: 50px;
+  line-height: 1.6;
+  text-align: center;
+}
 #replaceModal #newAddress {
   font-size: 30px;
   font-weight: bold;
   text-align: center;
   padding: 15px;
+  margin: 20px auto;
+  display: block;
+  width: 80%;
 }
+#replaceModal .replace-buttons {
+  margin-top: 25px;
+}
+#replaceModal .submit-btn {
+  background: blue;
+  color: white;
+  padding: 20px 40px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-right: 20px;
+}
+#replaceModal .close-btn {
+  background: red !important;
+  color: white !important;
+  padding: 20px 40px !important;
+  font-size: 30px;
+  font-weight: bold;
+  display: inline-block;
+}
+#replaceModal .sponsor-id {
+  font-size: 30px;
+  margin-bottom: 20px;
+  }
