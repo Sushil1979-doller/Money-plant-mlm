@@ -79,7 +79,12 @@
         <span class="amount">9 USDT</span>
       </div>
       <button class="distribute-btn" onclick="distributeFunds()">Distribute Funds</button>
-      <button class="close-btn" onclick="closeModal()">Back</button>
+      <!-- Referral Link Copy & Join Telegram Buttons -->
+      <div class="referral-actions-container">
+        <button class="copy-btn" onclick="copyReferral()">Copy Referral Link</button>
+        <button class="telegram-btn" onclick="window.open('https://t.me/+CeJkEHpoTWthZDVl')">Join Telegram</button>
+      </div>
+      <button class="close-btn">Back</button>
     </div>
   </div>
 
@@ -97,7 +102,7 @@
         <div class="stat-box"><span>Total Income:</span> <b>0 USDT</b></div>
         <div class="stat-box"><span>Bonus:</span> <b>0 USDT</b></div>
       </div>
-      <button class="close-btn" onclick="closeModal()">Back</button>
+      <button class="close-btn">Back</button>
     </div>
   </div>
 
@@ -108,7 +113,7 @@
       <input type="text" placeholder="New User Wallet" id="newAddress">
       <input type="text" id="sponsorLink" readonly>
       <button class="submit-btn" onclick="replaceUser()">Submit</button>
-      <button class="close-btn" onclick="closeModal()">Back</button>
+      <button class="close-btn">Back</button>
     </div>
   </div>
 
