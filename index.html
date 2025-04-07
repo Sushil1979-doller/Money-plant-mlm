@@ -46,6 +46,7 @@
       <h3>Plan Video & PDF</h3>
       <p>Click the links below to download the plan video and PDF:</p>
       <div>
+        <!-- अपने वीडियो और PDF के सही पाथ डालें -->
         <a href="path_to_video.mp4" download>Download Video</a>
         <a href="path_to_plan.pdf" download>Download PDF</a>
       </div>
@@ -84,9 +85,8 @@
       </div>
       <!-- Distribute Button -->
       <button class="distribute-btn" onclick="distributeFunds()">Distribute Funds</button>
-
-      <!-- Referral Link & Telegram Buttons अब यहाँ से हटा दिए गए (JS में add होंगे) -->
-
+      <!-- Referral Link & Telegram Buttons (will appear after distribution) -->
+      <div class="referral-actions-container"></div>
       <!-- Back Button -->
       <button class="close-btn" onclick="closeModal()">Back</button>
     </div>
@@ -114,7 +114,7 @@
   <div id="replaceModal" class="modal">
     <div class="modal-content">
       <h2>🔁 Replace Account</h2>
-      <!-- पहले sponsorLink, फिर newAddress -->
+      <!-- sponsorLink placeholder appears above newAddress -->
       <input type="text" id="sponsorLink" readonly>
       <input type="text" placeholder="New User Wallet" id="newAddress">
       <div class="replace-buttons">
