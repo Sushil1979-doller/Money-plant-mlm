@@ -19,28 +19,33 @@ header {
   border-radius: 10px;
   margin-bottom: 30px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 15px;
+  justify-content: space-between;
+}
+.header-title {
+  text-align: center;
+  flex: 1;
 }
 .header-title h1 {
-  font-size: 52px;
+  font-size: 72px; /* बड़ा फॉन्ट */
   font-weight: 900;
   color: #fff;
-  text-align: center;
+  margin-bottom: 10px;
 }
 .header-subtitle {
-  font-size: 22px;
+  font-size: 26px; /* बड़ा फॉन्ट */
   color: #e8f5e9;
   font-weight: 700;
   white-space: nowrap;
+  text-align: center;
 }
 .header-buttons {
-  margin-left: auto; /* Right aligned */
   display: flex;
   gap: 10px;
+  margin-left: auto; /* दाहिनी ओर */
 }
+
+/* Buttons in Header */
 #connectWalletBtn,
 #languageBtn {
   padding: 12px 25px;
@@ -331,4 +336,4 @@ body.modal-open {
   font-size: 34px;
   font-weight: bold;
   margin-right: 20px;
-}
+  }
