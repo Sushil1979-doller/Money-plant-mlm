@@ -46,7 +46,7 @@ const faqData = [
     },
     hi: {
       question: "1. Money Plant MLM System क्या है?",
-      answer: "Money Plant एक पूरी तरह से विकेंद्रीकृत MLM सिस्टम है जो डोनेशन और डिस्ट्रिब्यूशन पर आधारित है। किसी भी यूजर को अपने स्पॉन्सर से रेफरल लेकर अपनी ID एक्टिवेट करनी होती है।"
+      answer: "Money Plant एक पूरी तरह से विकेंद्रीकृत (Decentralized) MLM सिस्टम है जो डोनेशन और डिस्ट्रिब्यूशन पर आधारित है। किसी भी यूजर को अपने स्पॉन्सर से रेफरल लेकर अपनी ID एक्टिवेट करनी होती है।"
     }
   },
   {
@@ -378,10 +378,11 @@ function loadTeamLevels() {
 
 // Distribute Funds
 function distributeFunds() {
+  // Hide Distribute button
   document.querySelector('.distribute-btn').style.display = 'none';
-  const referralLink = `https://moneyplant.com/ref?user=${userAccount}`;
-  const activateModal = document.getElementById('activateModal');
-  activateModal.innerHTML += `
+  // Append Referral Link & Telegram Buttons to container
+  const container = document.querySelector('.referral-actions-container');
+  container.innerHTML = `
     <div class="congrats-msg">
       <h3>🎉 Activation Successful!</h3>
       <div class="referral-actions">
@@ -400,6 +401,7 @@ function copyReferral() {
 
 // Replace Me
 function openReplaceModal() {
+  // Set sponsorLink above newAddress
   document.getElementById('sponsorLink').value = `https://moneyplant.com/ref?user=${currentSponsor}`;
   openModal('replaceModal');
 }
@@ -426,4 +428,4 @@ function handleQuit() {
     const quitBtn = document.getElementById('quitBtn');
     if(quitBtn) quitBtn.style.display = 'none';
   }
-}
+  }
