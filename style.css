@@ -15,7 +15,7 @@ body {
 /* Header */
 header {
   background: #1a6b3a;
-  padding: 50px 50px; /* बड़ा padding */
+  padding: 50px 50px;
   border-radius: 10px;
   margin-bottom: 30px;
   display: flex;
@@ -25,18 +25,19 @@ header {
   gap: 15px;
 }
 .header-title h1 {
-  font-size: 52px;  /* Money Plant बड़ा */
+  font-size: 52px;
   font-weight: 900;
   color: #fff;
   text-align: center;
 }
 .header-subtitle {
-  font-size: 22px;  /* 100% Scam Free Project - Build Your Team Confidently एक लाइन में */
+  font-size: 22px;
   color: #e8f5e9;
   font-weight: 700;
   white-space: nowrap;
 }
 .header-buttons {
+  margin-left: auto; /* Right aligned */
   display: flex;
   gap: 10px;
 }
@@ -80,7 +81,6 @@ header {
   font-size: 18px;
   line-height: 1.8;
   color: #444;
-  /* जैसा पुराना, बिना छेड़छाड़ */
 }
 
 /* Button Container */
@@ -136,6 +136,7 @@ header {
   font-size: 60px;
   padding: 50px;
   line-height: 1.6;
+  text-align: center;
 }
 .modal-content {
   width: 100%;
@@ -147,19 +148,19 @@ body.modal-open {
   overflow: hidden;
 }
 
-/* Beneficiary Items in Modal - फोंट और बड़ा, amount अलग */
+/* Beneficiary Items in Modal */
 .beneficiary-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20px 0; /* थोड़ा और space */
+  margin: 20px 0;
   padding: 20px;
   background: #e8f5e9;
   border-radius: 5px;
 }
 .beneficiary-item span {
   width: 40%;
-  font-size: 36px; /* और बड़ा */
+  font-size: 36px;
 }
 .beneficiary-item input {
   width: 45%;
@@ -167,10 +168,10 @@ body.modal-open {
   font-size: 34px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  margin-left: 15px; /* amount से दूर */
+  margin-left: 15px;
 }
 .amount {
-  margin-left: 15px; /* ensure spacing */
+  margin-left: 15px;
   font-size: 36px;
 }
 
@@ -182,6 +183,31 @@ body.modal-open {
   padding: 20px;
   font-size: 34px;
   font-weight: bold;
+}
+
+/* Referral Actions in Activate Modal */
+.referral-actions-container {
+  margin-top: 25px;
+}
+.referral-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+.copy-btn,
+.telegram-btn {
+  padding: 15px 25px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-right: 20px;
+}
+.copy-btn {
+  background: #3498db;
+  color: white;
+}
+.telegram-btn {
+  background: #0088cc;
+  color: white;
 }
 
 /* Back Button (close-btn) */
