@@ -14,12 +14,12 @@
       <p class="header-subtitle">100% Scam Free Project - Build Your Team Confidently</p>
     </div>
     <div class="header-buttons">
-      <button id="connectWalletBtn" class="disconnected">Connect Wallet</button>
-      <button id="languageBtn">English / हिंदी</button>
+      <button id="languageBtn" class="header-btn">English / हिंदी</button>
+      <button id="connectWalletBtn" class="header-btn disconnected">Connect Wallet</button>
     </div>
   </header>
 
-  <!-- Welcome Section (जैसा पुराना) -->
+  <!-- Welcome Section -->
   <section class="welcome">
     <div class="border-symbol">🌿🌿🌿</div>
     <p id="welcomeText">
@@ -38,7 +38,7 @@
   <section id="faq-plan-section">
     <h2>FAQ Section</h2>
     <div id="faq-items">
-      <!-- FAQ items will be rendered here by script.js -->
+      <!-- FAQs will be rendered by script.js -->
     </div>
     
     <!-- Plan Video & PDF Download Section -->
@@ -46,7 +46,6 @@
       <h3>Plan Video & PDF</h3>
       <p>Click the links below to download the plan video and PDF:</p>
       <div>
-        <!-- अपने वीडियो और PDF के सही पाथ डालें -->
         <a href="path_to_video.mp4" download>Download Video</a>
         <a href="path_to_plan.pdf" download>Download PDF</a>
       </div>
@@ -57,8 +56,7 @@
   <div class="button-container">
     <button class="btn-activate" onclick="openModal('activateModal')">Activate</button>
     <button class="btn-team" onclick="openModal('teamModal')">Team View</button>
-    <button class="btn-income" onclick="window.open('https://bscscan.com')">Income History</button>
-    <button class="btn-refund" onclick="window.open('https://bscscan.com')">Refund History</button>
+    <button class="btn-income" onclick="window.open('https://bscscan.com')">Income/Refund History</button>
     <button class="btn-quit" id="quitBtn" onclick="handleQuit()">Quit Me</button>
     <button class="btn-replace" onclick="openReplaceModal()">Replace Me</button>
   </div>
@@ -83,11 +81,9 @@
         <input type="text" id="directSponsor" readonly>
         <span class="amount">9 USDT</span>
       </div>
-      <!-- Distribute Button -->
       <button class="distribute-btn" onclick="distributeFunds()">Distribute Funds</button>
       <!-- Referral Actions will appear here after distribution -->
       <div class="referral-actions-container"></div>
-      <!-- Back Button -->
       <button class="close-btn" onclick="closeModal()">Back</button>
     </div>
   </div>
@@ -114,7 +110,7 @@
   <div id="replaceModal" class="modal">
     <div class="modal-content">
       <h2>🔁 Replace Account</h2>
-      <!-- Above New User Wallet input, sponsorLink will show the direct sponsor referral link -->
+      <!-- sponsorLink shows the direct sponsor referral link -->
       <input type="text" id="sponsorLink" readonly>
       <input type="text" placeholder="New User Wallet" id="newAddress">
       <div class="replace-buttons">
