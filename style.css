@@ -19,21 +19,21 @@ header {
   border-radius: 10px;
   margin-bottom: 30px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  gap: 15px;
 }
 .header-title {
   text-align: center;
-  flex: 1;
 }
 .header-title h1 {
-  font-size: 72px; /* बड़ा फॉन्ट */
+  font-size: 72px;   /* बड़ा और double */
   font-weight: 900;
   color: #fff;
   margin-bottom: 10px;
 }
 .header-subtitle {
-  font-size: 26px; /* बड़ा फॉन्ट */
+  font-size: 26px;   /* बड़ा */
   color: #e8f5e9;
   font-weight: 700;
   white-space: nowrap;
@@ -41,18 +41,19 @@ header {
 }
 .header-buttons {
   display: flex;
+  flex-direction: column;
   gap: 10px;
-  margin-left: auto; /* दाहिनी ओर */
+  margin-top: 10px;
 }
 
 /* Buttons in Header */
 #connectWalletBtn,
 #languageBtn {
-  padding: 12px 25px;
+  padding: 16px 30px;
   border: none;
-  border-radius: 5px;
+  border-radius: 50px;  /* smooth */
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
 }
 #connectWalletBtn.disconnected {
@@ -98,7 +99,7 @@ header {
 .button-container button {
   padding: 18px;
   border: none;
-  border-radius: 5px;
+  border-radius: 50px;  /* cylindrical shape */
   cursor: pointer;
   color: white;
   font-weight: bold;
@@ -107,7 +108,7 @@ header {
 .btn-activate { background: #2ECC71; }
 .btn-team    { background: #3498db; }
 .btn-income  { background: #9b59b6; }
-.btn-refund  { background: #f1c40f; color: #333; }
+.btn-refund  { /* मर्ज कर दिया गया, अब Income/Refund History बटन है */ }
 .btn-quit    { background: #e74c3c; }
 .btn-replace { background: #e67e22; }
 
@@ -135,7 +136,7 @@ header {
   background: rgba(0,0,0,0.7);
   z-index: -1;
 }
-/* Activate & Team Modals: 3x बड़ा टेक्स्ट */
+/* Activate & Team Modals: Text 3x larger */
 #activateModal .modal-content,
 #teamModal .modal-content {
   font-size: 60px;
@@ -161,7 +162,7 @@ body.modal-open {
   margin: 20px 0;
   padding: 20px;
   background: #e8f5e9;
-  border-radius: 5px;
+  border-radius: 50px;
 }
 .beneficiary-item span {
   width: 40%;
@@ -172,7 +173,7 @@ body.modal-open {
   padding: 12px;
   font-size: 34px;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 50px;
   margin-left: 15px;
 }
 .amount {
@@ -188,6 +189,7 @@ body.modal-open {
   padding: 20px;
   font-size: 34px;
   font-weight: bold;
+  border-radius: 50px;
 }
 
 /* Referral Actions in Activate Modal */
@@ -198,12 +200,14 @@ body.modal-open {
   display: flex;
   gap: 15px;
   margin-top: 15px;
+  justify-content: center;
 }
 .copy-btn,
 .telegram-btn {
   padding: 15px 25px;
   font-size: 30px;
   font-weight: bold;
+  border-radius: 50px;
   margin-right: 20px;
 }
 .copy-btn {
@@ -215,13 +219,14 @@ body.modal-open {
   color: white;
 }
 
-/* Back Button (close-btn) */
+/* Back Button */
 .close-btn {
   background: red !important;
   color: white !important;
   margin-top: 25px;
   font-size: 34px;
   padding: 20px 40px !important;
+  border-radius: 50px;
   display: block;
   text-align: center;
   margin-left: auto;
@@ -238,14 +243,14 @@ body.modal-open {
   padding: 20px;
   margin: 5px 0;
   background: #f8f9fa;
-  border-radius: 5px;
+  border-radius: 50px;
   font-size: 60px;
 }
 .team-total {
   background: #e8f5e9;
   padding: 30px;
   margin: 20px 0;
-  border-radius: 5px;
+  border-radius: 50px;
   text-align: center;
   font-size: 60px;
 }
@@ -278,7 +283,7 @@ body.modal-open {
   padding: 15px;
   background: #f9f9f9;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 50px;
   font-size: 18px;
 }
 #faq-plan-section p {
@@ -298,7 +303,7 @@ body.modal-open {
   background: #3498db;
   color: #fff;
   padding: 12px 20px;
-  border-radius: 4px;
+  border-radius: 50px;
   text-decoration: none;
   margin-right: 15px;
   font-size: 16px;
@@ -324,7 +329,7 @@ body.modal-open {
   text-align: center;
   font-weight: bold;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 50px;
 }
 .replace-buttons {
   margin-top: 25px;
@@ -335,5 +340,6 @@ body.modal-open {
   padding: 20px 40px;
   font-size: 34px;
   font-weight: bold;
+  border-radius: 50px;
   margin-right: 20px;
-  }
+    }
