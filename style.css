@@ -27,13 +27,13 @@ header {
   text-align: center;
 }
 .header-title h1 {
-  font-size: 72px;   /* बड़ा और double */
+  font-size: 72px;  /* double font size */
   font-weight: 900;
   color: #fff;
   margin-bottom: 10px;
 }
 .header-subtitle {
-  font-size: 26px;   /* बड़ा */
+  font-size: 26px;
   color: #e8f5e9;
   font-weight: 700;
   white-space: nowrap;
@@ -41,9 +41,9 @@ header {
 }
 .header-buttons {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   gap: 10px;
-  margin-top: 10px;
 }
 
 /* Buttons in Header */
@@ -51,7 +51,7 @@ header {
 #languageBtn {
   padding: 16px 30px;
   border: none;
-  border-radius: 50px;  /* smooth */
+  border-radius: 50px;  /* smooth cylindrical shape */
   cursor: pointer;
   font-size: 18px;
   font-weight: bold;
@@ -99,7 +99,7 @@ header {
 .button-container button {
   padding: 18px;
   border: none;
-  border-radius: 50px;  /* cylindrical shape */
+  border-radius: 50px;
   cursor: pointer;
   color: white;
   font-weight: bold;
@@ -108,7 +108,6 @@ header {
 .btn-activate { background: #2ECC71; }
 .btn-team    { background: #3498db; }
 .btn-income  { background: #9b59b6; }
-.btn-refund  { /* मर्ज कर दिया गया, अब Income/Refund History बटन है */ }
 .btn-quit    { background: #e74c3c; }
 .btn-replace { background: #e67e22; }
 
@@ -136,7 +135,7 @@ header {
   background: rgba(0,0,0,0.7);
   z-index: -1;
 }
-/* Activate & Team Modals: Text 3x larger */
+/* Activate & Team Modal content: 3x larger */
 #activateModal .modal-content,
 #teamModal .modal-content {
   font-size: 60px;
@@ -154,7 +153,7 @@ body.modal-open {
   overflow: hidden;
 }
 
-/* Beneficiary Items in Modal */
+/* Beneficiary Items in Activate Modal */
 .beneficiary-item {
   display: flex;
   justify-content: space-between;
@@ -342,4 +341,4 @@ body.modal-open {
   font-weight: bold;
   border-radius: 50px;
   margin-right: 20px;
-    }
+}
