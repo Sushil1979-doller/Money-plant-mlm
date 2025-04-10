@@ -21,13 +21,13 @@ header {
 }
 .header-title { text-align:center; }
 .header-title h1 {
-  font-size:72px; /* double size */
+  font-size:72px;  /* बड़ा, double font */
   font-weight:900;
   color:#fff;
   margin-bottom:10px;
 }
 .header-subtitle {
-  font-size:26px;
+  font-size:26px;  /* बड़ा */
   color:#e8f5e9;
   font-weight:700;
   white-space:nowrap;
@@ -42,7 +42,7 @@ header {
 .header-btn {
   padding:16px 30px;
   border:none;
-  border-radius:50px;
+  border-radius:50px; /* smooth cylindrical shape */
   cursor:pointer;
   font-size:18px;
   font-weight:bold;
@@ -113,6 +113,7 @@ header {
   background:rgba(0,0,0,0.7);
   z-index:-1;
 }
+/* Activate & Team Modal content: 3x larger */
 #activateModal .modal-content,
 #teamModal .modal-content {
   font-size:60px;
@@ -297,4 +298,4 @@ body.modal-open { overflow:hidden; }
   font-weight:bold;
   border-radius:50px;
   margin-right:20px;
-  }
+}
