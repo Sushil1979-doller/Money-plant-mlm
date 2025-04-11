@@ -1,12 +1,44 @@
-// English और हिंदी Welcome Text
-const englishWelcomeText = "<p>Welcome to <strong>Money Plant MLM System</strong>. This is your own money plant, it's a fully decentralized system where the owner is renounced and only users are the owner. <strong>Here you can grow your money securely and get financial freedom!</strong> This system works on a <strong>smart contract</strong> that automatically distributes rewards among participants in a fair and transparent way. Once you register, you will start earning commissions from direct and indirect referrals. <br /><br />🌟 <strong>100% Safe & Secure</strong> - No Admin Control, Fully Decentralized.<br />🌟 <strong>Instant Payments</strong> - No Waiting, Get Paid Instantly.<br />🌟 <strong>Unlimited Earnings</strong> - Grow Your Network, Increase Your Income.<br /><strong>Transparency:</strong> Funds are distributed directly from user to user without any mediator. Money Plant is a liability-free project and will remain forever with you all.</p>";
-const hindiWelcomeText = "<p>Money Plant MLM System में आपका स्वागत है। यह आपका अपना Money Plant है, जो पूरी तरह से विकेंद्रीकृत है – इसमें मालिकाना हक छोड़ दिया गया है और केवल यूज़र्स ही मालिक हैं। <strong>यहाँ आप सुरक्षित रूप से अपनी कमाई बढ़ा सकते हैं और आर्थिक आज़ादी प्राप्त कर सकते हैं!</strong> यह सिस्टम एक <strong>स्मार्ट कॉन्ट्रैक्ट</strong> पर आधारित है जो उपयोगकर्ताओं के बीच पारदर्शिता से इनाम वितरित करता है। एक बार रजिस्टर करने के बाद, आप डायरेक्ट और इनडायरेक्ट रेफरल से कमीशन कमाना शुरू कर देंगे।<br /><br />🌟 <strong>100% Safe & Secure</strong> - कोई एडमिन कंट्रोल नहीं, पूरी तरह विकेंद्रीकृत।<br />🌟 <strong>Instant Payments</strong> - बिना किसी देरी के, तुरंत भुगतान।<br />🌟 <strong>Unlimited Earnings</strong> - अपनी टीम बढ़ाएं, अपनी इनकम बढ़ाएं।<br /><strong>पारदर्शिता:</strong> फंड सीधे यूज़र्स के बीच वितरित होते हैं। Money Plant एक liability-free प्रोजेक्ट है और हमेशा के लिए आपके साथ रहेगा।</p>";
+// Global Variables
+let web3;
+let userAccount;
+let currentSponsor = "0x80e4CbEffc6D76E516FFe60392C39Af42132602A";
 
-// डिफ़ॉल्ट भाषा English सेट करें
-document.getElementById("welcomeText").innerHTML = englishWelcomeText;
-let currentLanguage = "en";
+// Wallet Connection
+async function connectWallet() {
+  if (window.ethereum) {
+    try {
+      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+      userAccount = accounts[0];
+      const connectBtn = document.getElementById('connectWalletBtn');
+      connectBtn.textContent = `Connected: ${userAccount.substring(0,6)}...${userAccount.slice(-4)}`;
+      connectBtn.classList.replace('disconnected', 'connected');
+      if(document.getElementById('directSponsor')){
+         document.getElementById('directSponsor').value = currentSponsor;
+      }
+    } catch (error) {
+      alert("Approve in MetaMask!");
+    }
+  } else {
+    alert("Install MetaMask!");
+  }
+}
+document.getElementById('connectWalletBtn').addEventListener('click', connectWallet);
 
-// FAQ डेटा: कुल 25 सवाल, लेकिन केवल निम्नलिखित (9,10,11,13,14,16,17,19,21,23,24) के जवाब अपडेट किए गए हैं।
+// Default language is English
+let currentLanguage = 'en';
+const englishWelcomeText = document.getElementById('welcomeText').innerHTML;
+const hindiWelcomeText = `
+  <b>मनी प्लांट एमएलएम</b> में आपका स्वागत है। यह एक पूरी तरह विकेंद्रीकृत प्रणाली है जहां मालिक का कोई नियंत्रण नहीं है और सिर्फ उपयोगकर्ता ही मालिक हैं।<br><br>
+  <b>यहां आप अपने पैसे को सुरक्षित रूप से बढ़ा सकते हैं और वित्तीय स्वतंत्रता प्राप्त कर सकते हैं!</b><br><br>
+  यह प्रणाली एक <b>स्मार्ट कॉन्ट्रैक्ट</b> पर काम करती है जो पारदर्शी तरीके से सीधे यूजर से यूजर भुगतान करती है। एक बार पंजीकरण करने के बाद, आप सीधे और अप्रत्यक्ष रेफरल से कमीशन कमाना शुरू कर देंगे।<br><br>
+  🌟 <b>100% सुरक्षित</b> - कोई एडमिन नियंत्रण नहीं, पूरी तरह विकेंद्रीकृत।<br>
+  🌟 <b>तुरंत भुगतान</b> - प्रतीक्षा नहीं, तुरंत पैसा प्राप्त करें।<br>
+  🌟 <b>असीमित कमाई</b> - अपना नेटवर्क बढ़ाएं, आय बढ़ाएं।<br><br>
+  <b>पारदर्शिता:</b> फंड बिना किसी बिचौलिए के सीधे यूजर-टू-यूजर वितरित किए जाते हैं। मनी प्लांट एक दायित्व-मुक्त परियोजना है और हमेशा आपके साथ रहेगी।
+`;
+
+/* FAQ Data: 25 Questions */
+// केवल FAQ आइटम्स में निम्नलिखित सवाल (9,10,11,13,14,16,17,19,21,23,24) का कंटेंट अपडेट किया गया है।
 const faqData = [
   {
     en: {
@@ -15,7 +47,7 @@ const faqData = [
     },
     hi: {
       question: "1. Money Plant MLM System क्या है?",
-      answer: "Money Plant एक पूरी तरह से विकेंद्रीकृत (Decentralized) MLM सिस्टम है जो डोनेशन और डिस्ट्रिब्यूशन पर आधारित है।"
+      answer: "Money Plant एक पूरी तरह से विकेंद्रीकृत (Decentralized) MLM सिस्टम है जो डोनेशन और डिस्ट्रिब्यूशन पर आधारित है। किसी भी यूजर को अपने स्पॉन्सर से रेफरल लेकर अपनी ID एक्टिवेट करनी होती है।"
     }
   },
   {
@@ -24,8 +56,8 @@ const faqData = [
       answer: "Deposit 27 USDT in your wallet and distribute it to 18 wallet addresses. Then you become active and earn from referrals."
     },
     hi: {
-      question: "2. Money Plant MLM System कैसे काम करता है?",
-      answer: "- नया यूज़र अपनी ID सक्रिय करने के लिए अपने वॉलेट में 27 USDT जमा करता है।<br />- यह राशि 18 लाभार्थी वॉलेट एड्रेस में वितरित कर दी जाती है, जिससे ID सक्रिय हो जाती है।<br />- सक्रिय यूज़र अपने रेफरल लिंक के माध्यम से नए यूज़र्स को जोड़ता है।<br />- हर डायरेक्ट रेफरल पर 9 USDT मिलते हैं और टीम के 16 वे लेवल तक 1 USDT रॉयल्टी के रूप में प्राप्त होता है।<br />- यदि कोई यूज़र रेफरल नहीं कर पाता, तो Replace Me या Quit Me के विकल्प का उपयोग कर अपना 100% मूलधन वापस पा सकता है।"
+      question: "2. Money Plant MLM System किस तरह से काम करता है?",
+      answer: "अपने वॉलेट में 27 USDT जमा करें और 18 वॉलेट एड्रेस में वितरित करें। फिर आप सक्रिय हो जाते हैं और रेफरल से कमाई करते हैं।"
     }
   },
   {
@@ -34,8 +66,8 @@ const faqData = [
       answer: "All funds are distributed directly among users. The company gets only a 1 USDT royalty."
     },
     hi: {
-      question: "3. मेरा पैसा कंपनी के पास जाता है या सीधे यूज़र्स के पास?",
-      answer: "आपका फंड कंपनी के पास नहीं जाता। जमा राशि स्मार्ट कॉन्ट्रैक्ट के अनुसार सीधे यूज़र्स में विभाजित की जाती है, जिसमें एडमिन को केवल 1 USDT रॉयल्टी मिलती है।"
+      question: "3. मेरा पैसा कंपनी के पास जाता है या डायरेक्ट यूजर्स के पास?",
+      answer: "सभी फंड सीधे यूजर्स के बीच वितरित होते हैं। कंपनी को केवल 1 USDT रॉयल्टी मिलती है।"
     }
   },
   {
@@ -44,8 +76,8 @@ const faqData = [
       answer: "Smart contracts and blockchain ensure the admin has no control over funds."
     },
     hi: {
-      question: "4. Admin किसी भी प्रकार का Scam क्यों नहीं कर सकता?",
-      answer: "Money Plant पूरी तरह से विकेंद्रीकृत है। सोर्स कोड वेरिफाइड है और स्मार्ट कॉन्ट्रैक्ट द्वारा चलता है, जिससे एडमिन के पास फंड्स पर कोई नियंत्रण नहीं रहता।"
+      question: "4. एडमिन किसी भी प्रकार का स्कैम क्यों नहीं कर सकता?",
+      answer: "स्मार्ट कॉन्ट्रैक्ट और ब्लॉकचेन के कारण एडमिन के पास फंड पर नियंत्रण नहीं है।"
     }
   },
   {
@@ -55,235 +87,235 @@ const faqData = [
     },
     hi: {
       question: "5. Money Plant MLM System कब तक चलेगा?",
-      answer: "यह सिस्टम तब तक चलता रहेगा जब तक नए यूज़र जुड़ते रहेंगे।"
+      answer: "जब तक नए यूजर्स जुड़ते हैं, यह अनिश्चितकाल तक चलेगा।"
     }
   },
   {
     en: {
       question: "6. How can I activate my ID?",
-      answer: "To activate your ID, obtain a referral link from an activated user, paste it in your wallet's browser, and then deposit 27 USDT (including gas fee) to the 18 designated wallet addresses. Your ID will be activated instantly and you'll receive your referral code."
+      answer: "Deposit 27 USDT and distribute it to 18 wallet addresses to activate your ID."
     },
     hi: {
       question: "6. मैं अपनी ID एक्टिवेट कैसे कर सकता हूँ?",
-      answer: "सक्रिय होने के लिए, आपको किसी एक्टिवेटेड यूज़र से रेफरल लिंक लेना होगा, उसे अपने वॉलेट में पेस्ट करना होगा और 27 USDT जमा करने होंगे (गैस फीस समेत) ताकि आपकी ID तुरंत एक्टिव हो जाए।"
+      answer: "27 USDT जमा करें और इसे 18 वॉलेट एड्रेस में वितरित करें, फिर आपकी ID एक्टिव हो जाएगी।"
     }
   },
   {
     en: {
       question: "7. How do I distribute my funds?",
-      answer: "First, deposit 27 USDT into your wallet. Then, open the Money Plant dApp and click on the Activate button. Scroll down to view the 18 wallet addresses and click on the 'Distribute Fund' button. Your funds will be automatically sent to the 18 addresses by the smart contract. You can also verify the transaction on the blockchain."
+      answer: "The smart contract splits 27 USDT among 18 addresses."
     },
     hi: {
-      question: "7. मैं अपना फंड कैसे डिस्ट्रिब्यूट करूँगा?",
-      answer: "- सबसे पहले अपने वॉलेट में 27 USDT जमा करें।<br />- Money Plant dApp खोलें और Activate बटन पर क्लिक करें।<br />- नीचे स्क्रॉल करें जहाँ 18 वॉलेट एड्रेस दिखें, और 'Distribute Fund' बटन पर क्लिक करें।<br />- आपका फंड स्मार्ट कॉन्ट्रैक्ट द्वारा 18 एड्रेस में वितरित हो जाएगा।"
+      question: "7. मैं अपना फंड कैसे डिस्ट्रीब्यूट करूँ?",
+      answer: "स्मार्ट कॉन्ट्रैक्ट 27 USDT को 18 एड्रेस में बांटता है।"
     }
   },
   {
     en: {
-      question: "8. Can the creator ever perform a rugpull?",
-      answer: "No, because funds are deposited directly to beneficiary users via an automated, verified smart contract, making any rugpull impossible."
+      question: "8. Is Money Plant completely decentralized?",
+      answer: "Yes, it is built on blockchain, and all funds are distributed among users."
     },
     hi: {
-      question: "8. क्या Creator कभी भी फंड लेकर (Rugpull) भाग सकता है?",
-      answer: "नहीं, क्योंकि फंड सीधे बेनिफिशरी यूज़र्स में वितरित होते हैं और स्मार्ट कॉन्ट्रैक्ट द्वारा सुरक्षित रहते हैं।"
+      question: "8. क्या Money Plant पूरी तरह से विकेंद्रीकृत है?",
+      answer: "हाँ, यह ब्लॉकचेन पर आधारित है और पूरी तरह विकेंद्रीकृत है।"
     }
   },
   {
-    // [अपडेट किया गया]
+    // FAQ #9 (updated)
     en: {
-      question: "9. Is there any time limit for building the team?",
-      answer: "No, users can build their team at their convenience. Once your ID is activated, it remains valid forever, and you continue earning rewards as your team grows."
+      question: "9. Is there any time limit for building your team?",
+      answer: "No, users can build their team at their convenience. Once your ID is activated, it remains valid forever. Even if you start building your team after years of inactivity, your income and indirect earnings for your upline will commence from that day. Money Plant will remain live indefinitely even if there are no users."
     },
     hi: {
       question: "9. टीम बनाने के लिए कोई समय सीमा निर्धारित है?",
-      answer: "नहीं, यूज़र अपनी सुविधा और समय के अनुसार टीम बना सकते हैं। एक बार ID एक्टिव हो जाने के बाद, वह हमेशा के लिए वैध रहती है।"
+      answer: "नहीं, यूज़र अपनी सुविधा और समय के अनुसार टीम बना सकते हैं। एक बार ID एक्टिव हो जाने के बाद, वह हमेशा के लिए वैध रहती है। यदि बहुत समय बाद भी टीम बनाना शुरू कर देते हैं, तो उसी दिन से इनकम और अपलाइन टीम को इनडायरेक्ट इनकम मिलने लगेगी। Money Plant यूज़र्स के साथ अनन्तकाल तक रहेगी, और यूज़र्स न होने पर भी वेबसाइट live रहेगी।"
     }
   },
   {
-    // [अपडेट किया गया]
+    // FAQ #10 (updated)
     en: {
-      question: "10. Can a user lose their money?",
-      answer: "Not at all. With three direct referrals (each 9 USDT), your entire principal is returned. Additionally, if you don’t get any referrals, you can either use Quit Me or Replace Me."
+      question: "10. Can a user's money be lost?",
+      answer: "Absolutely not. The creator has provided several options; if three direct referrals (each earning 9 USDT) are secured, your entire principal is returned. If no referral is obtained, you can choose Quit Me or Replace Me. Additionally, if you do not wish to withdraw gradually from the refund pool, using Replace Me will immediately give you your full principal of 27 USDT from a new user. Measures ensure no loss occurs."
     },
     hi: {
-      question: "10. क्या किसी यूज़र का पैसा खो सकता है?",
-      answer: "बिल्कुल नहीं। तीन डायरेक्ट रेफरल (प्रत्येक 9 USDT) से आपका पूरा मूलधन वापस मिल जाता है। यदि कोई रेफरल नहीं मिलता, तो Quit Me या Replace Me के विकल्प उपलब्ध हैं।"
+      question: "10. क्या किसी यूज़र का पैसा loss हो सकता है?",
+      answer: "बिल्कुल नहीं। क्रिएटर ने कई विकल्प रखे हैं; यदि तीन डायरेक्ट रेफरल (प्रत्येक से 9 USDT) मिलते हैं, तो आपका पूरा मूलधन वापस आ जाता है। यदि कोई रेफरल नहीं मिलता, तो Quit Me या Replace Me का विकल्प है। अगर आप धीरे-धीरे refund pool से पैसे नहीं लेना चाहते हैं, तो Replace Me के जरिए तुरंत 27 USDT प्राप्त कर सकते हैं। Loss न हो, इसका पूरा ध्यान रखा गया है।"
     }
   },
   {
-    // [अपडेट किया गया]
+    // FAQ #11 (updated)
     en: {
-      question: "11. Can any user's ID be blocked or restricted?",
-      answer: "No, the system is completely decentralized so no user's ID can be blocked."
+      question: "11. Can a user's ID be blacklisted or blocked?",
+      answer: "No, because the system is fully decentralized. No user's ID can be blacklisted or blocked."
     },
     hi: {
       question: "11. क्या किसी यूज़र की ID को ब्लैकलिस्ट या ब्लॉक किया जा सकता है?",
-      answer: "नहीं, क्योंकि सिस्टम पूरी तरह विकेंद्रीकृत है।"
+      answer: "नहीं, क्योंकि सिस्टम पूरी तरह विकेंद्रीकृत है। किसी की भी ID को ब्लैकलिस्ट या ब्लॉक नहीं किया जा सकता।"
     }
   },
   {
     en: {
       question: "12. How many direct referrals can a user have?",
-      answer: "There is no limit to the number of direct referrals."
+      answer: "Unlimited direct referrals are allowed."
     },
     hi: {
-      question: "12. कोई यूज़र कितना डायरेक्ट रेफरल कर सकता है?",
-      answer: "कोई भी यूज़र असीमित डायरेक्ट रेफरल कर सकता है।"
+      question: "12. कोई यूजर कितना डायरेक्ट रेफरल कर सकता है?",
+      answer: "यूजर के पास असीमित डायरेक्ट रेफरल हो सकते हैं।"
     }
   },
   {
-    // [अपडेट किया गया]
+    // FAQ #13 (updated)
     en: {
-      question: "13. How much income is earned per direct referral?",
-      answer: "Each direct referral earns 9 USDT."
+      question: "13. What is the income from direct and indirect referrals?",
+      answer: "Each direct referral earns 9 USDT, and for indirect referrals up to 16 levels, you earn 1 USDT per level."
     },
     hi: {
-      question: "13. डायरेक्ट रेफरल से कितनी इनकम होती है?",
-      answer: "हर डायरेक्ट रेफरल से 9 USDT मिलते हैं।"
+      question: "13. डायरेक्ट और इनडायरेक्ट रेफरल से कितनी इनकम होती है?",
+      answer: "हर डायरेक्ट रेफरल से 9 USDT मिलते हैं, और 16 स्तर तक के इनडायरेक्ट रेफरल से प्रति स्तर 1 USDT मिलते हैं।"
     }
   },
   {
-    // [अपडेट किया गया]
+    // FAQ #14 (updated)
     en: {
-      question: "14. How many levels and how much income from indirect referrals?",
-      answer: "Each of the 15 uplines receives 1 USDT per new user."
+      question: "14. What are direct and indirect referrals?",
+      answer: "Direct referrals are the users who join directly through your referral link. Indirect referrals are the remaining team members (up to 16 levels) who join via your team."
     },
     hi: {
-      question: "14. इनडायरेक्ट रेफरल क्या है?",
-      answer: "- सीधे आपकी रेफरल लिंक से जुड़े डायरेक्ट रेफरल होते हैं।<br />- आपकी टीम में शामिल बाक़ी यूज़र्स (16 लेवल तक) इनडायरेक्ट रेफरल माने जाते हैं, जिनसे प्रति यूज़र 1 USDT रॉयल्टी प्राप्त होती है।"
+      question: "14. डायरेक्ट और इनडायरेक्ट रेफरल क्या हैं?",
+      answer: "सीधे आपकी रेफरल लिंक से जुड़ने वाले डायरेक्ट रेफरल होते हैं, और आपकी टीम में शामिल बाकी यूज़र्स (16 लेवल तक) को इनडायरेक्ट रेफरल माना जाता है।"
     }
   },
   {
     en: {
       question: "15. What is the Quit Me button?",
-      answer: "The Quit Me button allows users to exit the system and gradually receive their entire principal (27 USDT) back from the Refund Pool."
+      answer: "It allows users to exit the system and receive a refund."
     },
     hi: {
       question: "15. Quit Me बटन क्या है?",
-      answer: "Quit Me बटन उन यूज़र्स के लिए है जो रेफरल नहीं जोड़ पाते और सिस्टम से बाहर निकलकर अपना पूरा मूलधन (27 USDT) धीरे-धीरे वापस प्राप्त करना चाहते हैं।"
+      answer: "यह बटन यूजर को सिस्टम छोड़कर रिफंड लेने की अनुमति देता है।"
     }
   },
   {
-    // [अपडेट किया गया]
+    // FAQ #16 (updated)
     en: {
       question: "16. What is the Replace Me button?",
-      answer: "It allows users with no referrals to transfer their ID to a new user and immediately receive their 27 USDT back."
+      answer: "If a user fails to secure any referrals, they can use the Replace Me button to transfer their ID to a new user and immediately receive their full principal of 27 USDT."
     },
     hi: {
       question: "16. Replace Me बटन क्या है?",
-      answer: "यदि कोई यूज़र रेफरल नहीं जोड़ पाता है, तो Replace Me बटन का उपयोग कर अपनी ID किसी नए यूज़र को ट्रांसफर करके तुरंत 27 USDT प्राप्त कर सकता है।"
+      answer: "यदि कोई यूज़र कोई रेफरल नहीं जोड़ पाता है, तो Replace Me बटन का उपयोग कर अपनी ID किसी नए यूज़र को ट्रांसफर करके तुरंत अपना मूलधन 27 USDT प्राप्त कर सकता है।"
     }
   },
   {
-    // [अपडेट किया गया]
+    // FAQ #17 (updated)
     en: {
-      question: "17. What are the conditions for quitting?",
-      answer: "If no referrals are added, users can quit using the Quit Me button. After quitting, your principal is gradually returned from the Refund Pool at up to 0.27 USDT per day until the full 27 USDT is recovered."
+      question: "17. How can one quit and what are the conditions?",
+      answer: "If a user fails to secure any referrals, they can use the Quit Me button. After quitting, the refund pool disburses up to 27 USDT gradually every 24 hours with a maximum cap of 0.27 USDT per withdrawal, calculated by dividing the total pool among quitters. This process is fully automated via the smart contract."
     },
     hi: {
       question: "17. किस तरह से Quit किया जा सकता है और इसकी शर्तें क्या हैं?",
-      answer: "यदि कोई रेफरल नहीं जुड़ते, तो Quit Me का उपयोग करें। Quit करने के बाद Refund Pool से धीरे-धीरे 27 USDT तक का भुगतान होता है।"
+      answer: "यदि कोई यूज़र रेफरल नहीं जोड़ पाता है, तो Quit Me बटन का उपयोग करें। Quit करने के बाद refund pool से रोज़ाना 24 घंटे में 1 बार अधिकतम 0.27 USDT तक का भुगतान होता है, जो कुल pool को quit करने वालों की संख्या से विभाजित करके तय किया जाता है। यह वितरण भी स्मार्ट कॉन्ट्रैक्ट द्वारा स्वचालित रूप से होता है।"
     }
   },
   {
-    // (प्रश्न 18 – बिना बदलाव)
+    // FAQ #18
     en: {
-      question: "18. Who can use the Replace Me button and what are its conditions?",
-      answer: "Only users with no referrals can use Replace Me to immediately recover 27 USDT by transferring their ID to a new user."
+      question: "18. Who can use the Replace Me button?",
+      answer: "Only active users can transfer their ID using it."
     },
     hi: {
-      question: "18. Replace Me बटन कौन उपयोग कर सकता है और इसकी शर्तें क्या हैं?",
-      answer: "Replace Me बटन केवल उन यूज़र्स के लिए है जिनके पास कोई रेफरल नहीं है और जो तुरंत अपना 27 USDT प्राप्त करना चाहते हैं।"
+      question: "18. Replace Me बटन कौन उपयोग कर सकता है?",
+      answer: "केवल सक्रिय यूजर इसका उपयोग कर सकते हैं।"
     }
   },
   {
-    // [अपडेट किया गया]
+    // FAQ #19 (updated)
     en: {
-      question: "19. If I don't add any user, how do I get my capital back?",
-      answer: "You have two options: Quit Me to gradually receive your 27 USDT back from the Refund Pool, or Replace Me to immediately recover 27 USDT."
+      question: "19. If I do not secure any referrals, how do I get back my principal of 27 USDT?",
+      answer: "Users have two options: (i) Quit Me – gradually receive 27 USDT from the refund pool, or (ii) Replace Me – immediately obtain 27 USDT from a new user."
     },
     hi: {
       question: "19. यदि मैं एक भी रेफरल नहीं जोड़ पाता हूँ तो मुझे मेरा मूलधन 27 USDT कैसे वापस मिलेगा?",
-      answer: "यूज़र्स के पास दो विकल्प हैं: (i) Quit Me – धीरे-धीरे Refund Pool से 27 USDT प्राप्त करें, या (ii) Replace Me – तुरंत 27 USDT प्राप्त करें।"
+      answer: "यूज़र्स के पास दो विकल्प हैं: (i) Quit Me – धीरे-धीरे refund pool से 27 USDT प्राप्त करें, या (ii) Replace Me – तुरंत नए यूज़र से 27 USDT प्राप्त करें।"
     }
   },
   {
-    // [अपडेट किया गया]
+    // FAQ #20
     en: {
-      question: "20. How can I sell my ID if I don't want to work with Money Plant?",
-      answer: "If you choose not to continue with the system, use Replace Me to transfer or sell your ID to a new user. Your ID is then removed and replaced by the new user."
+      question: "20. How can I sell my ID?",
+      answer: "Transfer your ID to another user using the Replace Me button."
     },
     hi: {
-      question: "20. अगर मैं Money Plant में काम नहीं करना चाहता तो अपनी ID कैसे किसी नए यूज़र को बेच सकता हूँ?",
-      answer: "यदि आप आगे काम नहीं करना चाहते, तो Replace Me बटन का उपयोग करें और अपनी ID को किसी नए यूज़र को ट्रांसफर या बेच दें।"
+      question: "20. अपनी ID कैसे बेच सकते हैं?",
+      answer: "Replace Me बटन का उपयोग करके अपनी ID दूसरे यूजर को ट्रांसफर करें।"
     }
   },
   {
-    // [अपडेट किया गया]
+    // FAQ #21 (updated)
     en: {
       question: "21. How do I copy my referral link?",
-      answer: "Only activated users can copy their referral link. Click Activate and, after fund distribution, copy the displayed link."
+      answer: "Only activated users can copy their referral link. Click the Activate button and then the Distribute Funds button to display the option for copying your referral link."
     },
     hi: {
       question: "21. अपना रेफरल लिंक कैसे कॉपी करें?",
-      answer: "केवल एक्टिवेटेड यूज़र अपना रेफरल लिंक कॉपी कर सकते हैं। Activate बटन पर क्लिक करें और फंड डिस्ट्रिब्यूशन के बाद दिखाई देने वाले लिंक को कॉपी करें।"
+      answer: "केवल एक्टिवेटेड यूज़र अपना रेफरल लिंक कॉपी कर सकते हैं। Activate बटन पर क्लिक करें और फिर Distribute Funds बटन पर, जिससे रेफरल लिंक कॉपी करने का विकल्प दिखाई देगा।"
     }
   },
   {
+    // FAQ #22
     en: {
       question: "22. How do I add a new user to my team?",
-      answer: "Contact the new user, explain the system, and if they agree, share your referral link so they can join your team."
+      answer: "Share your referral link with others to add new users."
     },
     hi: {
-      question: "22. किसी नए यूज़र को अपनी टीम में कैसे जोड़ें?",
-      answer: "सबसे पहले नए यूज़र से संपर्क करें, सिस्टम की जानकारी दें, और यदि सहमति हो, तो अपना रेफरल लिंक शेयर करें।"
+      question: "22. अपनी टीम में नया यूजर कैसे जोड़ें?",
+      answer: "अपने रेफरल लिंक को शेयर करें।"
     }
   },
   {
-    // [अपडेट किया गया]
+    // FAQ #23 (updated)
     en: {
-      question: "23. Is Money Plant scam-free?",
-      answer: "Yes, Money Plant is 100% scam-free as it is completely based on blockchain and decentralized. All funds are distributed directly among users."
+      question: "23. Is Money Plant a scam-free project?",
+      answer: "Yes, Money Plant is 100% scam-free as it is entirely based on blockchain and decentralized. All funds are distributed directly among users, leaving no room for scam."
     },
     hi: {
-      question: "23. क्या Money Plant एक स्कैम-फ्री प्रोजेक्ट है?",
-      answer: "हाँ, Money Plant 100% स्कैम-फ्री है क्योंकि यह पूरी तरह ब्लॉकचेन पर आधारित और विकेंद्रीकृत है। सभी फंड सीधे यूज़र्स के बीच वितरित होते हैं।"
+      question: "23. क्या Money Plant स्कैम-फ्री प्रोजेक्ट है?",
+      answer: "हाँ, Money Plant 100% स्कैम-फ्री है क्योंकि यह पूरी तरह ब्लॉकचेन पर आधारित और विकेंद्रीकृत है। सभी फंड सीधे यूज़र्स के बीच वितरित होते हैं जिससे scam की कोई गुंजाइश नहीं रहती।"
     }
   },
   {
-    // [अपडेट किया गया]
+    // FAQ #24 (updated)
     en: {
-      question: "24. Can a user who quit join again?",
-      answer: "Yes, after quitting, a user can rejoin with a new referral link."
+      question: "24. Can a user who has quit rejoin with a new ID?",
+      answer: "Yes, after quitting, a user can join again with a new ID at any time."
     },
     hi: {
       question: "24. क्या जिसने Quit कर लिया है वह दुबारा अपनी नई ID बना सकता है?",
-      answer: "हाँ, Quit Me के बाद भी यूज़र नए रेफरल लिंक से दुबारा जुड़ सकता है।"
+      answer: "हाँ, Quit करने के बाद यूज़र नई ID लेकर कभी भी दुबारा जुड़ सकता है।"
     }
   },
   {
     en: {
       question: "25. Can a user who replaced themselves join again?",
-      answer: "Yes, even after using Replace Me, a user can join again with a new ID."
+      answer: "Yes, even after replacing, they can join again with a new ID."
     },
     hi: {
-      question: "25. क्या जिसने Replace कर लिया है वह दुबारा अपनी नई ID बना सकता है?",
-      answer: "हाँ, Replace Me के बाद भी यूज़र नई ID से फिर से जुड़ सकता है।"
+      question: "25. क्या Replace करने वाला फिर से जुड़ सकता है?",
+      answer: "हाँ, Replace करने के बाद भी नया ID लेकर जुड़ सकता है।"
     }
   }
 ];
 
-// FAQ रेंडर करने का फंक्शन
 function renderFAQ() {
-  const faqContainer = document.getElementById("faq-items");
-  faqContainer.innerHTML = "";
-  faqData.forEach((item) => {
-    const langData = currentLanguage === "en" ? item.en : item.hi;
-    const details = document.createElement("details");
-    const summary = document.createElement("summary");
-    summary.innerHTML = `<strong>${langData.question}</strong>`;
-    const p = document.createElement("p");
-    p.innerHTML = langData.answer;
+  const faqContainer = document.getElementById('faq-items');
+  faqContainer.innerHTML = '';
+  faqData.forEach(item => {
+    const langData = currentLanguage === 'en' ? item.en : item.hi;
+    const details = document.createElement('details');
+    const summary = document.createElement('summary');
+    summary.textContent = langData.question;
+    const p = document.createElement('p');
+    p.textContent = langData.answer;
     details.appendChild(summary);
     details.appendChild(p);
     faqContainer.appendChild(details);
@@ -291,19 +323,124 @@ function renderFAQ() {
 }
 renderFAQ();
 
-// भाषा बदलने पर Welcome Text और FAQ अपडेट करें
-document.getElementById("languageBtn").addEventListener("click", () => {
-  const isEnglish = document.getElementById("languageBtn").textContent.includes("English");
+// Language Toggle
+document.getElementById('languageBtn').addEventListener('click', () => {
+  const isEnglish = document.getElementById('languageBtn').textContent.includes('English');
   if (isEnglish) {
-    currentLanguage = "hi";
-    document.getElementById("welcomeText").innerHTML = hindiWelcomeText;
-    document.getElementById("languageBtn").textContent = "हिंदी / English";
+    currentLanguage = 'hi';
+    document.getElementById('welcomeText').innerHTML = hindiWelcomeText;
+    document.getElementById('languageBtn').textContent = 'हिंदी / English';
   } else {
-    currentLanguage = "en";
-    document.getElementById("welcomeText").innerHTML = englishWelcomeText;
-    document.getElementById("languageBtn").textContent = "English / हिंदी";
+    currentLanguage = 'en';
+    document.getElementById('welcomeText').innerHTML = englishWelcomeText;
+    document.getElementById('languageBtn').textContent = 'English / हिंदी';
   }
   renderFAQ();
 });
 
-// (अन्य JavaScript फंक्शंस जैसे connectWallet, distributeFunds, replaceUser, handleQuit, openModal, closeModal, loadUplines, loadTeamLevels, copyReferral आदि आपके मौजूदा कोड के अनुसार वही रहें)
+// Modals: Fullscreen
+function openModal(modalId) {
+  document.body.classList.add('modal-open');
+  document.getElementById(modalId).style.display = 'block';
+  if(modalId === 'activateModal'){
+    loadUplines();
+  }
+  if(modalId === 'teamModal'){
+    loadTeamLevels();
+  }
+}
+function closeModal() {
+  document.body.classList.remove('modal-open');
+  document.querySelectorAll('.modal').forEach(modal => modal.style.display = 'none');
+}
+
+// Load Uplines for Activate Modal
+function loadUplines() {
+  const uplineList = document.getElementById('uplineList');
+  if(uplineList){
+    uplineList.innerHTML = '';
+    for (let i = 15; i >= 1; i--) {
+      uplineList.innerHTML += `
+        <div class="beneficiary-item">
+          <span>🤠 Upline ${i}</span>
+          <input type="text" placeholder="Address pending..." readonly>
+          <span class="amount">1 USDT</span>
+        </div>
+      `;
+    }
+  }
+}
+
+// Load Team Levels for Team Modal
+function loadTeamLevels() {
+  const teamLevels = document.querySelector('.team-levels');
+  if(teamLevels){
+    let total = 0;
+    teamLevels.innerHTML = "";
+    for (let i = 1; i <= 16; i++) {
+      const members = Math.floor(Math.random() * 5);
+      total += members;
+      teamLevels.innerHTML += `
+        <div class="level">
+          <span>Level ${i}:</span>
+          <span>${members} Members</span>
+        </div>
+      `;
+    }
+    document.getElementById('totalMembers').textContent = total;
+  }
+}
+
+// Distribute Funds
+function distributeFunds() {
+  // Hide Distribute button
+  document.querySelector('.distribute-btn').style.display = 'none';
+  // Append Referral Link & Telegram Buttons to container
+  const container = document.querySelector('.referral-actions-container');
+  container.innerHTML = `
+    <div class="congrats-msg">
+      <h3>🎉 Activation Successful!</h3>
+      <div class="referral-actions">
+        <button class="copy-btn" onclick="copyReferral()">Copy Referral Link</button>
+        <button class="telegram-btn" onclick="window.open('https://t.me/+CeJkEHpoTWthZDVl')">Join Telegram</button>
+      </div>
+    </div>
+  `;
+}
+
+// Copy Referral Link
+function copyReferral() {
+  navigator.clipboard.writeText(`https://moneyplant.com/ref?user=${userAccount}`);
+  alert('Link Copied!');
+}
+
+// Replace Me
+function openReplaceModal() {
+  // Set sponsorLink above newAddress
+  document.getElementById('sponsorLink').value = `https://moneyplant.com/ref?user=${currentSponsor}`;
+  openModal('replaceModal');
+}
+function replaceUser() {
+  const newAddress = document.getElementById('newAddress').value;
+  if (newAddress) {
+    currentSponsor = userAccount;
+    userAccount = newAddress;
+    document.getElementById('connectWalletBtn').textContent = `Connected: ${newAddress.slice(0,6)}...${newAddress.slice(-4)}`;
+    if(document.getElementById('directSponsor')){
+      document.getElementById('directSponsor').value = currentSponsor;
+    }
+    alert(`Replaced! New Link: https://moneyplant.com/ref?user=${newAddress}`);
+    closeModal();
+  } else {
+    alert("Enter New Wallet!");
+  }
+}
+
+// Quit Me
+function handleQuit() {
+  if (confirm('You will get 0.27 USDT daily. Confirm?')) {
+    alert('Refunds start tomorrow at 4 AM IST.');
+    const quitBtn = document.getElementById('quitBtn');
+    if(quitBtn) quitBtn.style.display = 'none';
+  }
+      }
