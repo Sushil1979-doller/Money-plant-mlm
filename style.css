@@ -19,21 +19,21 @@ header {
   border-radius: 10px;
   margin-bottom: 30px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 15px;
+  justify-content: space-between;
 }
 .header-title {
   text-align: center;
+  flex: 1;
 }
 .header-title h1 {
-  font-size: 72px; /* बड़ा, double font */
+  font-size: 72px; /* बड़ा फॉन्ट */
   font-weight: 900;
   color: #fff;
   margin-bottom: 10px;
 }
 .header-subtitle {
-  font-size: 26px; /* बड़ा */
+  font-size: 26px; /* बड़ा फॉन्ट */
   color: #e8f5e9;
   font-weight: 700;
   white-space: nowrap;
@@ -41,17 +41,18 @@ header {
 }
 .header-buttons {
   display: flex;
-  flex-direction: row;
   gap: 10px;
-  margin-top: 10px;
+  margin-left: auto; /* दाहिनी ओर */
 }
-/* Connect Wallet & Language Button: मूल padding (16px 30px) तथा font-size (18px) का दोगुना */
-.header-btn {
-  padding: 32px 60px;
+
+/* Buttons in Header (size doubled) */
+#connectWalletBtn,
+#languageBtn {
+  padding: 24px 50px; /* doubled padding */
   border: none;
-  border-radius: 50px; /* smooth cylindrical shape */
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 36px;
+  font-size: 32px;  /* doubled font size from 16px */
   font-weight: bold;
 }
 #connectWalletBtn.disconnected {
@@ -75,13 +76,19 @@ header {
   margin-bottom: 30px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+.border-symbol {
+  font-size: 24px;
+  text-align: center;
+  margin: 20px 0;
+  color: #2ECC71;
+}
 .welcome p {
   font-size: 18px;
   line-height: 1.8;
   color: #444;
 }
 
-/* Button Container (for Activate, Team View, etc.) */
+/* Button Container - Increase font size for main buttons */
 .button-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -91,26 +98,160 @@ header {
 .button-container button {
   padding: 18px;
   border: none;
-  border-radius: 50px;
+  border-radius: 5px;
   cursor: pointer;
   color: white;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 36px; /* doubled font size from 18px */
 }
-.btn-activate {
-  background: #2ecc71;
+.btn-activate { background: #2ECC71; }
+.btn-team    { background: #3498db; }
+.btn-income  { background: #9b59b6; }
+.btn-refund  { background: #f1c40f; color: #333; }
+.btn-quit    { background: #e74c3c; }
+.btn-replace { background: #e67e22; }
+
+/* Modals: Full Page */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  z-index: 9999;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
-.btn-team {
+.modal::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.7);
+  z-index: -1;
+}
+/* Activate & Team Modals: 3x बड़ा टेक्स्ट */
+#activateModal .modal-content,
+#teamModal .modal-content {
+  font-size: 60px;
+  padding: 50px;
+  line-height: 1.6;
+  text-align: center;
+}
+.modal-content {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Beneficiary Items in Modal */
+.beneficiary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  padding: 20px;
+  background: #e8f5e9;
+  border-radius: 5px;
+}
+.beneficiary-item span {
+  width: 40%;
+  font-size: 36px;
+}
+.beneficiary-item input {
+  width: 45%;
+  padding: 12px;
+  font-size: 34px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-left: 15px;
+}
+.amount {
+  margin-left: 15px;
+  font-size: 36px;
+}
+
+/* Distribute Funds Button (green same as padding green color) */
+.distribute-btn {
+  background: #2ECC71;
+  margin-top: 25px;
+  width: 100%;
+  padding: 20px;
+  font-size: 34px;
+  font-weight: bold;
+}
+
+/* Referral Actions in Activate Modal */
+.referral-actions-container {
+  margin-top: 25px;
+}
+.referral-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+.copy-btn,
+.telegram-btn {
+  padding: 15px 25px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-right: 20px;
+}
+.copy-btn {
   background: #3498db;
+  color: white;
 }
-.btn-income {
-  background: #9b59b6;
+.telegram-btn {
+  background: #0088cc;
+  color: white;
 }
-.btn-quit {
-  background: #e74c3c;
+
+/* Back Button (close-btn) */
+.close-btn {
+  background: red !important;
+  color: white !important;
+  margin-top: 25px;
+  font-size: 34px;
+  padding: 20px 40px !important;
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
-.btn-replace {
-  background: #e67e22;
+
+/* Team View */
+.team-levels {
+  margin: 20px 0;
+}
+.team-levels div {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 5px 0;
+  background: #f8f9fa;
+  border-radius: 5px;
+  font-size: 60px;
+}
+.team-total {
+  background: #e8f5e9;
+  padding: 30px;
+  margin: 20px 0;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 60px;
+}
+.income-stats .stat-box {
+  margin-bottom: 20px;
+  font-size: 60px;
 }
 
 /* FAQ & Plan Section */
@@ -123,7 +264,7 @@ header {
 }
 #faq-plan-section h2,
 #faq-plan-section h3 {
-  color: #2ecc71;
+  color: #2ECC71;
   margin-bottom: 15px;
   font-size: 24px;
 }
@@ -132,19 +273,19 @@ header {
 }
 #faq-plan-section summary {
   font-weight: bold;
-  color: #ff9800;
+  color: #FF9800;
   cursor: pointer;
   padding: 15px;
   background: #f9f9f9;
   border: 1px solid #ccc;
-  border-radius: 50px;
+  border-radius: 4px;
   font-size: 18px;
 }
 #faq-plan-section p {
   padding: 15px 20px;
   color: #555;
   margin: 0;
-  border-left: 3px solid #2ecc71;
+  border-left: 3px solid #2ECC71;
   background: #fff;
   font-size: 18px;
 }
@@ -157,7 +298,7 @@ header {
   background: #3498db;
   color: #fff;
   padding: 12px 20px;
-  border-radius: 50px;
+  border-radius: 4px;
   text-decoration: none;
   margin-right: 15px;
   font-size: 16px;
@@ -166,17 +307,33 @@ header {
   background: #9b59b6;
 }
 
-/* Distribute Funds Button */
-.distribute-btn {
-  background: #2ecc71;  /* हरा रंग */
+/* Replace Me Modal */
+#replaceModal .modal-content {
+  font-size: 60px;
+  padding: 50px;
+  line-height: 1.6;
+  text-align: center;
+}
+#replaceModal #sponsorLink,
+#replaceModal #newAddress {
+  display: block;
+  margin: 20px auto;
+  width: 80%;
+  padding: 15px;
+  font-size: 34px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.replace-buttons {
   margin-top: 25px;
-  width: 100%;
-  padding: 20px;
+}
+.submit-btn {
+  background: blue;
+  color: white;
+  padding: 20px 40px;
   font-size: 34px;
   font-weight: bold;
-  border-radius: 50px;
-  border: none;
-  cursor: pointer;
-}
-
-/* (अन्य मॉडलों, Beneficiary List, Team Structure, आदि के CSS आपके मौजूदा कोड के अनुसार वही रहें) */
+  margin-right: 20px;
+  }
