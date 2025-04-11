@@ -12,6 +12,17 @@ body {
   padding: 20px;
 }
 
+/* सामान्य बटन स्टाइल: सभी बटनों को cylindrical आकार और raised effect */
+button {
+  border-radius: 50px !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
 /* Header */
 header {
   background: #1a6b3a;
@@ -50,7 +61,6 @@ header {
 #languageBtn {
   padding: 24px 50px;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
   font-size: 32px;
   font-weight: bold;
@@ -98,7 +108,6 @@ header {
 .button-container button {
   padding: 18px;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
   color: white;
   font-weight: bold;
@@ -106,10 +115,37 @@ header {
 }
 .btn-activate { background: #2ECC71; }
 .btn-team    { background: #3498db; }
-/* BSC Scan बटन (refund button) – केवल एक ही बटन */
-.btn-refund  { background: #f1c40f; color: #333; }
 .btn-quit    { background: #e74c3c; }
 .btn-replace { background: #e67e22; }
+
+/* Download Links Section (in FAQ & Plan) */
+.download-links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+.download-links a,
+.download-links .btn-income-refund {
+  padding: 12px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+.download-links a:nth-child(1) {
+  background: #3498db;
+}
+.download-links a:nth-child(2) {
+  background: #9b59b6;
+}
+.download-links .btn-income-refund {
+  background: #f1c40f;
+  border: none;
+  cursor: pointer;
+}
 
 /* Modals: Full Page */
 .modal {
@@ -135,7 +171,7 @@ header {
   background: rgba(0,0,0,0.7);
   z-index: -1;
 }
-/* Activate, Team, Replace Modals: ensure modal-content covers full viewport */
+/* For all modals, ensure modal-content can scroll when needed */
 #activateModal .modal-content,
 #teamModal .modal-content,
 #replaceModal .modal-content {
@@ -143,13 +179,13 @@ header {
   padding: 50px;
   line-height: 1.6;
   text-align: center;
-  min-height: 100vh;
+  max-height: 100vh;
   background: white;
+  overflow-y: auto;
 }
 .modal-content {
   width: 100%;
   height: auto;
-  overflow-y: auto;
   box-sizing: border-box;
 }
 body.modal-open {
@@ -164,7 +200,7 @@ body.modal-open {
   margin: 20px 0;
   padding: 20px;
   background: #e8f5e9;
-  border-radius: 5px;
+  border-radius: 50px;
 }
 .beneficiary-item span {
   width: 40%;
@@ -175,7 +211,7 @@ body.modal-open {
   padding: 12px;
   font-size: 34px;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 50px;
   margin-left: 15px;
 }
 .amount {
@@ -218,17 +254,20 @@ body.modal-open {
   color: white;
 }
 
-/* Back Button (close-btn) */
+/* Modal Actions Container (for back button) */
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Back Button */
 .close-btn {
   background: red !important;
   color: white !important;
-  margin-top: 25px;
   font-size: 34px;
   padding: 20px 40px !important;
-  display: block;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+  cursor: pointer;
 }
 
 /* Team View */
@@ -241,14 +280,14 @@ body.modal-open {
   padding: 20px;
   margin: 5px 0;
   background: #f8f9fa;
-  border-radius: 5px;
+  border-radius: 50px;
   font-size: 60px;
 }
 .team-total {
   background: #e8f5e9;
   padding: 30px;
   margin: 20px 0;
-  border-radius: 5px;
+  border-radius: 50px;
   text-align: center;
   font-size: 60px;
 }
@@ -281,7 +320,7 @@ body.modal-open {
   padding: 15px;
   background: #f9f9f9;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 50px;
   font-size: 18px;
 }
 #faq-plan-section p {
@@ -297,17 +336,9 @@ body.modal-open {
   padding-top: 15px;
   border-top: 1px solid #ddd;
 }
-#plan-download a {
-  background: #3498db;
-  color: #fff;
-  padding: 12px 20px;
-  border-radius: 4px;
-  text-decoration: none;
+#plan-download a,
+#plan-download .btn-income-refund {
   margin-right: 15px;
-  font-size: 16px;
-}
-#plan-download a:nth-child(2) {
-  background: #9b59b6;
 }
 
 /* Replace Me Modal */
@@ -316,6 +347,9 @@ body.modal-open {
   padding: 50px;
   line-height: 1.6;
   text-align: center;
+  max-height: 100vh;
+  background: white;
+  overflow-y: auto;
 }
 #replaceModal #sponsorLink,
 #replaceModal #newAddress {
@@ -327,16 +361,21 @@ body.modal-open {
   text-align: center;
   font-weight: bold;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 50px;
 }
 .replace-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
   margin-top: 25px;
 }
 .submit-btn {
-  background: blue;
+  background: green; /* submit button को हरा किया गया */
   color: white;
   padding: 20px 40px;
   font-size: 34px;
   font-weight: bold;
-  margin-right: 20px;
-  }
+  border: none;
+  cursor: pointer;
+    }
