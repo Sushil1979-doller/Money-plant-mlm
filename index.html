@@ -12,14 +12,15 @@
     <div class="header-title">
       <h1>🌿 Money Plant 🌿</h1>
       <p class="header-subtitle">100% Scam Free Project - Build Your Team Confidently</p>
-    </div>
-    <div class="header-buttons">
-      <button id="connectWalletBtn" class="disconnected">Connect Wallet</button>
-      <button id="languageBtn">English / हिंदी</button>
+      <!-- Header Buttons अब header-title के अंदर टेक्स्ट के नीचे -->
+      <div class="header-buttons">
+        <button id="connectWalletBtn" class="disconnected">Connect Wallet</button>
+        <button id="languageBtn">English / हिंदी</button>
+      </div>
     </div>
   </header>
 
-  <!-- Welcome Section (जैसा पुराना) -->
+  <!-- Welcome Section -->
   <section class="welcome">
     <div class="border-symbol">🌿🌿🌿</div>
     <p id="welcomeText">
@@ -57,8 +58,8 @@
   <div class="button-container">
     <button class="btn-activate" onclick="openModal('activateModal')">Activate</button>
     <button class="btn-team" onclick="openModal('teamModal')">Team View</button>
-    <button class="btn-income" onclick="window.open('https://bscscan.com')">Income History</button>
-    <button class="btn-refund" onclick="window.open('https://bscscan.com')">Refund History</button>
+    <!-- Income History बटन को हटा दिया गया है, Refund History बटन का लेबल बदलकर BSC Scan कर दिया गया है -->
+    <button class="btn-refund" onclick="window.open('https://bscscan.com')">BSC Scan</button>
     <button class="btn-quit" id="quitBtn" onclick="handleQuit()">Quit Me</button>
     <button class="btn-replace" onclick="openReplaceModal()">Replace Me</button>
   </div>
