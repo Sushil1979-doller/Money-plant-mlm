@@ -12,7 +12,7 @@
     <div class="header-title">
       <h1>🌿 Money Plant 🌿</h1>
       <p class="header-subtitle">100% Scam Free Project - Build Your Team Confidently</p>
-      <!-- Header Buttons अब header-title के अंदर टेक्स्ट के नीचे -->
+      <!-- Header Buttons अब header-title के अंदर subtitle के ठीक नीचे -->
       <div class="header-buttons">
         <button id="connectWalletBtn" class="disconnected">Connect Wallet</button>
         <button id="languageBtn">English / हिंदी</button>
@@ -46,10 +46,12 @@
     <div id="plan-download">
       <h3>Plan Video & PDF</h3>
       <p>Click the links below to download the plan video and PDF:</p>
-      <div>
+      <div class="download-links">
         <!-- अपने वीडियो और PDF के सही पाथ डालें -->
         <a href="path_to_video.mp4" download>Download Video</a>
         <a href="path_to_plan.pdf" download>Download PDF</a>
+        <!-- खाली जगह में Income/Refund History बटन सेट -->
+        <button class="btn-income-refund" onclick="window.open('https://bscscan.com')">Income/Refund History</button>
       </div>
     </div>
   </section>
@@ -58,8 +60,7 @@
   <div class="button-container">
     <button class="btn-activate" onclick="openModal('activateModal')">Activate</button>
     <button class="btn-team" onclick="openModal('teamModal')">Team View</button>
-    <!-- Income History बटन को हटा दिया गया है, Refund History बटन का लेबल बदलकर BSC Scan कर दिया गया है -->
-    <button class="btn-refund" onclick="window.open('https://bscscan.com')">BSC Scan</button>
+    <!-- अब Income/Refund History बटन PDF सेक्शन के पास होगा -->
     <button class="btn-quit" id="quitBtn" onclick="handleQuit()">Quit Me</button>
     <button class="btn-replace" onclick="openReplaceModal()">Replace Me</button>
   </div>
@@ -89,7 +90,9 @@
       <!-- Referral Actions will appear here after distribution -->
       <div class="referral-actions-container"></div>
       <!-- Back Button -->
-      <button class="close-btn" onclick="closeModal()">Back</button>
+      <div class="modal-actions">
+        <button class="close-btn" onclick="closeModal()">Back</button>
+      </div>
     </div>
   </div>
 
@@ -115,9 +118,10 @@
   <div id="replaceModal" class="modal">
     <div class="modal-content">
       <h2>🔁 Replace Account</h2>
-      <!-- Above New User Wallet input, sponsorLink will show the direct sponsor referral link -->
+      <!-- Sponsor referral link display -->
       <input type="text" id="sponsorLink" readonly>
       <input type="text" placeholder="New User Wallet" id="newAddress">
+      <!-- Replace Buttons: Submit (green) and Back in a single line -->
       <div class="replace-buttons">
         <button class="submit-btn" onclick="replaceUser()">Submit</button>
         <button class="close-btn" onclick="closeModal()">Back</button>
