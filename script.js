@@ -38,7 +38,7 @@ const hindiWelcomeText = `
 `;
 
 /* FAQ Data: 25 Questions */
-// केवल FAQ आइटम्स में निम्नलिखित सवाल (9,10,11,13,14,16,17,19,21,23,24) का कंटेंट अपडेट किया गया है।
+// FAQ आइटम्स में उन 11 सवालों को अपडेट किया गया है जिनका कंटेंट बदलना था।
 const faqData = [
   {
     en: {
@@ -218,7 +218,6 @@ const faqData = [
     }
   },
   {
-    // FAQ #18
     en: {
       question: "18. Who can use the Replace Me button?",
       answer: "Only active users can transfer their ID using it."
@@ -240,7 +239,6 @@ const faqData = [
     }
   },
   {
-    // FAQ #20
     en: {
       question: "20. How can I sell my ID?",
       answer: "Transfer your ID to another user using the Replace Me button."
@@ -262,7 +260,6 @@ const faqData = [
     }
   },
   {
-    // FAQ #22
     en: {
       question: "22. How do I add a new user to my team?",
       answer: "Share your referral link with others to add new users."
@@ -438,9 +435,9 @@ function replaceUser() {
 
 // Quit Me
 function handleQuit() {
-  if (confirm('You will get 0.27 USDT daily. Confirm?')) {
+  if (confirm('You will get up to 0.27 USDT daily. Confirm?')) {
     alert('Refunds start tomorrow at 4 AM IST.');
     const quitBtn = document.getElementById('quitBtn');
-    if(quitBtn) quitBtn.style.display = 'none';
+    if (quitBtn) quitBtn.style.display = 'none';
   }
-      }
+}
