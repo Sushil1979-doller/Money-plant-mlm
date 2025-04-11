@@ -1,69 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Money Plant MLM System</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <!-- Header & Welcome Section -->
-    <header>
-      <div class="header-title">
-        <h1>Money Plant MLM System</h1>
-        <!-- डिफ़ॉल्ट Welcome Text (English) -->
-        <p id="welcomeText">
-          Welcome to <strong>Money Plant MLM System</strong>. This is your own money plant, it's a fully decentralized system where the owner is renounced and only users are the owner. <strong>Here you can grow your money securely and get financial freedom!</strong> This system works on a <strong>smart contract</strong> that automatically distributes rewards among participants in a fair and transparent way. Once you register, you will start earning commissions from direct and indirect referrals. <br /><br />
-          🌟 <strong>100% Safe & Secure</strong> - No Admin Control, Fully Decentralized.<br />
-          🌟 <strong>Instant Payments</strong> - No Waiting, Get Paid Instantly.<br />
-          🌟 <strong>Unlimited Earnings</strong> - Grow Your Network, Increase Your Income.<br />
-          <strong>Transparency:</strong> Funds are distributed directly from user to user without any mediator. Money Plant is a liability-free project and will remain forever with you all.
-        </p>
+<head>
+  <meta charset="UTF-8">
+  <title>Money Plant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <div class="header-title">
+      <h1>🌿 Money Plant 🌿</h1>
+      <p class="header-subtitle">100% Scam Free Project - Build Your Team Confidently</p>
+    </div>
+    <div class="header-buttons">
+      <button id="connectWalletBtn" class="disconnected">Connect Wallet</button>
+      <button id="languageBtn">English / हिंदी</button>
+    </div>
+  </header>
+
+  <!-- Welcome Section (जैसा पुराना) -->
+  <section class="welcome">
+    <div class="border-symbol">🌿🌿🌿</div>
+    <p id="welcomeText">
+      Welcome to <b>Money Plant MLM System</b>. This is your own money plant, it's a fully decentralized system where the owner is renounced and only users are the owner.<br><br>
+      <b>Here you can grow your money securely and get financial freedom!</b><br><br>
+      This system works on a <b>smart contract</b> that automatically distributes rewards among participants in a fair and transparent way. Once you register, you will start earning commissions from direct and indirect referrals.<br><br>
+      🌟 <b>100% Safe & Secure</b> - No Admin Control, Fully Decentralized.<br>
+      🌟 <b>Instant Payments</b> - No Waiting, Get Paid Instantly.<br>
+      🌟 <b>Unlimited Earnings</b> - Grow Your Network, Increase Your Income.<br><br>
+      <b>Transparency:</b> Funds are distributed directly user-to-user without any mediator. Money Plant is a liability-free project and will remain forever with you all.
+    </p>
+    <div class="border-symbol">🌿🌿🌿</div>
+  </section>
+
+  <!-- FAQ & Plan Section -->
+  <section id="faq-plan-section">
+    <h2>FAQ Section</h2>
+    <div id="faq-items">
+      <!-- FAQ items will be rendered here by script.js -->
+    </div>
+    
+    <!-- Plan Video & PDF Download Section -->
+    <div id="plan-download">
+      <h3>Plan Video & PDF</h3>
+      <p>Click the links below to download the plan video and PDF:</p>
+      <div>
+        <!-- अपने वीडियो और PDF के सही पाथ डालें -->
+        <a href="path_to_video.mp4" download>Download Video</a>
+        <a href="path_to_plan.pdf" download>Download PDF</a>
       </div>
-      <div class="header-buttons">
-        <!-- बटनों का साइज़ CSS में दोगुना किया जाएगा -->
-        <button id="connectWalletBtn" class="header-btn disconnected">Connect Wallet</button>
-        <button id="languageBtn" class="header-btn">English / हिंदी</button>
+    </div>
+  </section>
+
+  <!-- Main Buttons -->
+  <div class="button-container">
+    <button class="btn-activate" onclick="openModal('activateModal')">Activate</button>
+    <button class="btn-team" onclick="openModal('teamModal')">Team View</button>
+    <button class="btn-income" onclick="window.open('https://bscscan.com')">Income History</button>
+    <button class="btn-refund" onclick="window.open('https://bscscan.com')">Refund History</button>
+    <button class="btn-quit" id="quitBtn" onclick="handleQuit()">Quit Me</button>
+    <button class="btn-replace" onclick="openReplaceModal()">Replace Me</button>
+  </div>
+
+  <!-- Activate Modal -->
+  <div id="activateModal" class="modal">
+    <div class="modal-content">
+      <h2>💰 Beneficiary List</h2>
+      <div class="beneficiary-item">
+        <span>🌝 Admin</span>
+        <input type="text" value="0x80e4CbEffc6D76E516FFe60392C39Af42132602A" readonly>
+        <span class="amount">1 USDT</span>
       </div>
-    </header>
-
-    <!-- अन्य अनुभाग जैसे Activate, Team View, Income/Refund History, Quit Me, Replace Me आदि -->
-    <!-- (यहां आपके मौजूदा कोड के हिस्से जो पहले थे, वैसे ही रहें) -->
-
-    <!-- FAQ Section -->
-    <section id="faq-plan-section">
-      <h2>FAQs</h2>
-      
-      <!-- Plan Video & PDF -->
-      <div id="plan-download">
-        <a href="#" download>Download Video</a>
-        <a href="#" download>Download PDF</a>
+      <div class="beneficiary-item">
+        <span>💰 Refund Pool</span>
+        <input type="text" value="0x60547abE7550e894e0fcCe43Adf36E4774e22d95" readonly>
+        <span class="amount">2 USDT</span>
       </div>
-      
-      <!-- अन्य बटन Activate, Team View, आदि -->
-      <!-- Example buttons, जैसा कि आपके पुराने कोड में था -->
-      <div class="button-container">
-        <button class="btn-activate">Activate</button>
-        <button class="btn-team">Team View</button>
-        <button class="btn-income">Income/Refund History</button>
-        <button class="btn-quit">Quit Me</button>
-        <button class="btn-replace">Replace Me</button>
+      <div id="uplineList"></div>
+      <div class="beneficiary-item">
+        <span>🧛🏻 Direct Sponsor</span>
+        <input type="text" id="directSponsor" readonly>
+        <span class="amount">9 USDT</span>
       </div>
-      
-      <!-- FAQ आइटम्स -->
-      <div id="faq-items">
-        <!-- JavaScript द्वारा render किये जाएंगे -->
+      <!-- Distribute Button -->
+      <button class="distribute-btn" onclick="distributeFunds()">Distribute Funds</button>
+      <!-- Referral Actions will appear here after distribution -->
+      <div class="referral-actions-container"></div>
+      <!-- Back Button -->
+      <button class="close-btn" onclick="closeModal()">Back</button>
+    </div>
+  </div>
+
+  <!-- Team View Modal -->
+  <div id="teamModal" class="modal">
+    <div class="modal-content">
+      <h2>🌿 Team Structure</h2>
+      <div class="team-levels"></div>
+      <div class="team-total">
+        <span>Total Members:</span>
+        <b id="totalMembers">0</b>
       </div>
-    </section>
+      <div class="income-stats">
+        <div class="stat-box"><span>Today's Income:</span> <b>0 USDT</b></div>
+        <div class="stat-box"><span>Total Income:</span> <b>0 USDT</b></div>
+        <div class="stat-box"><span>Bonus:</span> <b>0 USDT</b></div>
+      </div>
+      <button class="close-btn" onclick="closeModal()">Back</button>
+    </div>
+  </div>
 
-    <!-- Beneficiary List & Team Structure Sections (जैसा आपके पुराने कोड में था) -->
-    <!-- ... -->
+  <!-- Replace Me Modal -->
+  <div id="replaceModal" class="modal">
+    <div class="modal-content">
+      <h2>🔁 Replace Account</h2>
+      <!-- Above New User Wallet input, sponsorLink will show the direct sponsor referral link -->
+      <input type="text" id="sponsorLink" readonly>
+      <input type="text" placeholder="New User Wallet" id="newAddress">
+      <div class="replace-buttons">
+        <button class="submit-btn" onclick="replaceUser()">Submit</button>
+        <button class="close-btn" onclick="closeModal()">Back</button>
+      </div>
+    </div>
+  </div>
 
-    <!-- Distribute Fund Button -->
-    <button class="distribute-btn">Distribute Funds</button>
-
-    <!-- Replace Account Section (यदि मौजूद हो) -->
-    <!-- ... -->
-
-    <script src="script.js"></script>
-  </body>
+  <script src="script.js"></script>
+</body>
 </html>
