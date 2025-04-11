@@ -20,39 +20,39 @@ header {
   margin-bottom: 30px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 .header-title {
   text-align: center;
   flex: 1;
 }
 .header-title h1 {
-  font-size: 72px; /* बड़ा फॉन्ट */
+  font-size: 72px;
   font-weight: 900;
   color: #fff;
   margin-bottom: 10px;
 }
 .header-subtitle {
-  font-size: 26px; /* बड़ा फॉन्ट */
+  font-size: 26px;
   color: #e8f5e9;
   font-weight: 700;
   white-space: nowrap;
-  text-align: center;
+  margin-bottom: 20px;
 }
 .header-buttons {
   display: flex;
   gap: 10px;
-  margin-left: auto; /* दाहिनी ओर */
+  justify-content: center;
 }
 
-/* Buttons in Header (size doubled) */
+/* Buttons in Header (doubled size) */
 #connectWalletBtn,
 #languageBtn {
-  padding: 24px 50px; /* doubled padding */
+  padding: 24px 50px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 32px;  /* doubled font size from 16px */
+  font-size: 32px;
   font-weight: bold;
 }
 #connectWalletBtn.disconnected {
@@ -88,7 +88,7 @@ header {
   color: #444;
 }
 
-/* Button Container - Increase font size for main buttons */
+/* Button Container */
 .button-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -102,11 +102,11 @@ header {
   cursor: pointer;
   color: white;
   font-weight: bold;
-  font-size: 36px; /* doubled font size from 18px */
+  font-size: 36px;
 }
 .btn-activate { background: #2ECC71; }
 .btn-team    { background: #3498db; }
-.btn-income  { background: #9b59b6; }
+/* BSC Scan बटन (refund button) – केवल एक ही बटन */
 .btn-refund  { background: #f1c40f; color: #333; }
 .btn-quit    { background: #e74c3c; }
 .btn-replace { background: #e67e22; }
@@ -135,17 +135,20 @@ header {
   background: rgba(0,0,0,0.7);
   z-index: -1;
 }
-/* Activate & Team Modals: 3x बड़ा टेक्स्ट */
+/* Activate, Team, Replace Modals: ensure modal-content covers full viewport */
 #activateModal .modal-content,
-#teamModal .modal-content {
+#teamModal .modal-content,
+#replaceModal .modal-content {
   font-size: 60px;
   padding: 50px;
   line-height: 1.6;
   text-align: center;
+  min-height: 100vh;
+  background: white;
 }
 .modal-content {
   width: 100%;
-  height: 100%;
+  height: auto;
   overflow-y: auto;
   box-sizing: border-box;
 }
@@ -180,9 +183,9 @@ body.modal-open {
   font-size: 36px;
 }
 
-/* Distribute Funds Button (green same as padding green color) */
+/* Distribute Funds Button */
 .distribute-btn {
-  background: #2ECC71;
+  background: #1a6b3a;
   margin-top: 25px;
   width: 100%;
   padding: 20px;
