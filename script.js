@@ -121,7 +121,6 @@ const faqData = [
     }
   },
   {
-    // FAQ #9 (updated)
     en: {
       question: "9. Is there any time limit for building your team?",
       answer: "No, users can build their team at their convenience. Once your ID is activated, it remains valid forever. Even if you start building your team after years of inactivity, your income and indirect earnings for your upline will commence from that day. Money Plant will remain live indefinitely even if there are no users."
@@ -132,7 +131,6 @@ const faqData = [
     }
   },
   {
-    // FAQ #10 (updated)
     en: {
       question: "10. Can a user's money be lost?",
       answer: "Absolutely not. The creator has provided several options; if three direct referrals (each earning 9 USDT) are secured, your entire principal is returned. If no referral is obtained, you can choose Quit Me or Replace Me. Additionally, if you do not wish to withdraw gradually from the refund pool, using Replace Me will immediately give you your full principal of 27 USDT from a new user. Measures ensure no loss occurs."
@@ -143,7 +141,6 @@ const faqData = [
     }
   },
   {
-    // FAQ #11 (updated)
     en: {
       question: "11. Can a user's ID be blacklisted or blocked?",
       answer: "No, because the system is fully decentralized. No user's ID can be blacklisted or blocked."
@@ -164,7 +161,6 @@ const faqData = [
     }
   },
   {
-    // FAQ #13 (updated)
     en: {
       question: "13. What is the income from direct and indirect referrals?",
       answer: "Each direct referral earns 9 USDT, and for indirect referrals up to 16 levels, you earn 1 USDT per level."
@@ -175,7 +171,6 @@ const faqData = [
     }
   },
   {
-    // FAQ #14 (updated)
     en: {
       question: "14. What are direct and indirect referrals?",
       answer: "Direct referrals are the users who join directly through your referral link. Indirect referrals are the remaining team members (up to 16 levels) who join via your team."
@@ -196,7 +191,6 @@ const faqData = [
     }
   },
   {
-    // FAQ #16 (updated)
     en: {
       question: "16. What is the Replace Me button?",
       answer: "If a user fails to secure any referrals, they can use the Replace Me button to transfer their ID to a new user and immediately receive their full principal of 27 USDT."
@@ -207,7 +201,6 @@ const faqData = [
     }
   },
   {
-    // FAQ #17 (updated)
     en: {
       question: "17. How can one quit and what are the conditions?",
       answer: "If a user fails to secure any referrals, they can use the Quit Me button. After quitting, the refund pool disburses up to 27 USDT gradually every 24 hours with a maximum cap of 0.27 USDT per withdrawal, calculated by dividing the total pool among quitters. This process is fully automated via the smart contract."
@@ -228,7 +221,6 @@ const faqData = [
     }
   },
   {
-    // FAQ #19 (updated)
     en: {
       question: "19. If I do not secure any referrals, how do I get back my principal of 27 USDT?",
       answer: "Users have two options: (i) Quit Me – gradually receive 27 USDT from the refund pool, or (ii) Replace Me – immediately obtain 27 USDT from a new user."
@@ -249,7 +241,6 @@ const faqData = [
     }
   },
   {
-    // FAQ #21 (updated)
     en: {
       question: "21. How do I copy my referral link?",
       answer: "Only activated users can copy their referral link. Click the Activate button and then the Distribute Funds button to display the option for copying your referral link."
@@ -270,7 +261,6 @@ const faqData = [
     }
   },
   {
-    // FAQ #23 (updated)
     en: {
       question: "23. Is Money Plant a scam-free project?",
       answer: "Yes, Money Plant is 100% scam-free as it is entirely based on blockchain and decentralized. All funds are distributed directly among users, leaving no room for scam."
@@ -281,7 +271,6 @@ const faqData = [
     }
   },
   {
-    // FAQ #24 (updated)
     en: {
       question: "24. Can a user who has quit rejoin with a new ID?",
       answer: "Yes, after quitting, a user can join again with a new ID at any time."
@@ -440,4 +429,4 @@ function handleQuit() {
     const quitBtn = document.getElementById('quitBtn');
     if (quitBtn) quitBtn.style.display = 'none';
   }
-}
+      }
