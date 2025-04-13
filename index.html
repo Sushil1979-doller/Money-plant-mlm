@@ -47,10 +47,10 @@
       <h3>Plan Video & PDF</h3>
       <p>Click the links below to download the plan video and PDF:</p>
       <div class="download-links">
-        <!-- अपने वीडियो और PDF के सही पाथ डालें -->
+        <!-- सही पाथ डालें -->
         <a href="path_to_video.mp4" download>Download Video</a>
         <a href="path_to_plan.pdf" download>Download PDF</a>
-        <!-- खाली जगह में Income/Refund History बटन सेट -->
+        <!-- Income/Refund History बटन सेट, जैसा कि पहले निर्दिष्ट था -->
         <button class="btn-income-refund" onclick="window.open('https://bscscan.com')">Income/Refund History</button>
       </div>
     </div>
@@ -60,9 +60,10 @@
   <div class="button-container">
     <button class="btn-activate" onclick="openModal('activateModal')">Activate</button>
     <button class="btn-team" onclick="openModal('teamModal')">Team View</button>
-    <!-- अब Income/Refund History बटन PDF सेक्शन के पास होगा -->
     <button class="btn-quit" id="quitBtn" onclick="handleQuit()">Quit Me</button>
     <button class="btn-replace" onclick="openReplaceModal()">Replace Me</button>
+    <!-- नया Add Partner बटन -->
+    <button class="btn-add-partner" onclick="openModal('addPartnerModal')">Add Partner</button>
   </div>
 
   <!-- Activate Modal -->
@@ -87,7 +88,7 @@
       </div>
       <!-- Distribute Button -->
       <button class="distribute-btn" onclick="distributeFunds()">Distribute Funds</button>
-      <!-- Referral Actions will appear here after distribution -->
+      <!-- Referral Actions -->
       <div class="referral-actions-container"></div>
       <!-- Back Button -->
       <div class="modal-actions">
@@ -121,9 +122,22 @@
       <!-- Sponsor referral link display -->
       <input type="text" id="sponsorLink" readonly>
       <input type="text" placeholder="New User Wallet" id="newAddress">
-      <!-- Replace Buttons: Submit (green) and Back in a single line -->
+      <!-- Replace Buttons: Submit (green) and Back in one line -->
       <div class="replace-buttons">
         <button class="submit-btn" onclick="replaceUser()">Submit</button>
+        <button class="close-btn" onclick="closeModal()">Back</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Partner Modal -->
+  <div id="addPartnerModal" class="modal">
+    <div class="modal-content">
+      <h2>Add a Partner</h2>
+      <input type="text" id="partnerAddress" placeholder="Enter Partner Wallet Address">
+      <!-- Partner Buttons: Pay 3 USDT (green) and Back (red) in a single line -->
+      <div class="partner-buttons">
+        <button class="submit-btn" onclick="addPartner()">Pay 3 USDT</button>
         <button class="close-btn" onclick="closeModal()">Back</button>
       </div>
     </div>
