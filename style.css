@@ -12,7 +12,7 @@ body {
   padding: 20px;
 }
 
-/* सामान्य बटन स्टाइल: सभी बटनों को cylindrical आकार और raised effect */
+/* सभी बटनों के लिए सामान्य स्टाइल: cylindrical आकार और raised effect */
 button {
   border-radius: 50px !important;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
@@ -56,7 +56,7 @@ header {
   justify-content: center;
 }
 
-/* Buttons in Header (doubled size) */
+/* Header Buttons (doubled size) */
 #connectWalletBtn,
 #languageBtn {
   padding: 24px 50px;
@@ -117,8 +117,9 @@ header {
 .btn-team    { background: #3498db; }
 .btn-quit    { background: #e74c3c; }
 .btn-replace { background: #e67e22; }
+.btn-add-partner { background: #8e44ad; }  /* Add Partner बटन का कलर (एसे आप चाहें तो बदल सकते हैं) */
 
-/* Download Links Section (in FAQ & Plan) */
+/* Download Links Section */
 .download-links {
   display: flex;
   align-items: center;
@@ -171,10 +172,11 @@ header {
   background: rgba(0,0,0,0.7);
   z-index: -1;
 }
-/* For all modals, ensure modal-content can scroll when needed */
+/* सभी modals में modal-content को scrollable बनाने के लिए */
 #activateModal .modal-content,
 #teamModal .modal-content,
-#replaceModal .modal-content {
+#replaceModal .modal-content,
+#addPartnerModal .modal-content {
   font-size: 60px;
   padding: 50px;
   line-height: 1.6;
@@ -254,7 +256,7 @@ body.modal-open {
   color: white;
 }
 
-/* Modal Actions Container (for back button) */
+/* Modal Actions Container */
 .modal-actions {
   display: flex;
   justify-content: center;
@@ -371,11 +373,20 @@ body.modal-open {
   margin-top: 25px;
 }
 .submit-btn {
-  background: green; /* submit button को हरा किया गया */
+  background: green;
   color: white;
   padding: 20px 40px;
   font-size: 34px;
   font-weight: bold;
   border: none;
   cursor: pointer;
-    }
+}
+
+/* Add Partner Modal Buttons */
+.partner-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 25px;
+}
