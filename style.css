@@ -15,12 +15,12 @@ body {
 /* सभी बटनों के लिए सामान्य स्टाइल: cylindrical आकार और raised effect */
 button {
   border-radius: 50px !important;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 8px rgba(0,0,0,0.3);
 }
 
 /* Header */
@@ -423,4 +423,4 @@ body.modal-open {
   align-items: center;
   gap: 15px;
   margin-top: 25px;
-}
+  }
