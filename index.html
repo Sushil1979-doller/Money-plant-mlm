@@ -12,7 +12,7 @@
     <div class="header-title">
       <h1>🌿 Money Plant 🌿</h1>
       <p class="header-subtitle">100% Scam Free Project - Build Your Team Confidently</p>
-      <!-- Header Buttons: Subtitle के ठीक नीचे -->
+      <!-- Header Buttons: subtitle के ठीक नीचे -->
       <div class="header-buttons">
         <button id="connectWalletBtn" class="disconnected">Connect Wallet</button>
         <button id="languageBtn">English / हिंदी</button>
@@ -39,7 +39,7 @@
   <section id="faq-plan-section">
     <h2>FAQ Section</h2>
     <div id="faq-items">
-      <!-- All 25 FAQ items will be rendered by script.js -->
+      <!-- सभी 25 FAQ items script.js से render होंगे -->
     </div>
     
     <!-- Plan Video & PDF Download Section -->
@@ -47,20 +47,23 @@
       <h3>Plan Video & PDF</h3>
       <p>Click the links below to download the plan video and PDF:</p>
       <div class="download-links">
+        <!-- सही पाथ डालें -->
         <a href="path_to_video.mp4" download>Download Video</a>
         <a href="path_to_plan.pdf" download>Download PDF</a>
+        <!-- Income/Refund History बटन -->
         <button class="btn-income-refund" onclick="window.open('https://bscscan.com')">Income/Refund History</button>
       </div>
     </div>
   </section>
 
-  <!-- Main Buttons (Order: Activate Me, My Team, Add Partner, Replace Me, Quit Me) -->
-  <div class="button-container" id="mainButtons">
-    <button class="btn-activate" onclick="openModal('activateModal')">Activate Me</button>
-    <button class="btn-team" onclick="openModal('teamModal')">My Team</button>
-    <button class="btn-add-partner" onclick="openModal('addPartnerModal')">Add Partner</button>
-    <button class="btn-replace" onclick="openReplaceModal()">Replace Me</button>
+  <!-- Main Buttons -->
+  <div class="button-container">
+    <button class="btn-activate" onclick="openModal('activateModal')">Activate</button>
+    <button class="btn-team" onclick="openModal('teamModal')">Team View</button>
     <button class="btn-quit" id="quitBtn" onclick="handleQuit()">Quit Me</button>
+    <button class="btn-replace" onclick="openReplaceModal()">Replace Me</button>
+    <!-- नया Add Partner बटन -->
+    <button class="btn-add-partner" onclick="openModal('addPartnerModal')">Add Partner</button>
   </div>
 
   <!-- Activate Modal -->
@@ -83,15 +86,18 @@
         <input type="text" id="directSponsor" readonly>
         <span class="amount">9 USDT</span>
       </div>
+      <!-- Distribute Button -->
       <button class="distribute-btn" onclick="distributeFunds()">Distribute Funds</button>
+      <!-- Referral Actions -->
       <div class="referral-actions-container"></div>
+      <!-- Back Button -->
       <div class="modal-actions">
         <button class="close-btn" onclick="closeModal()">Back</button>
       </div>
     </div>
   </div>
 
-  <!-- Team Modal -->
+  <!-- Team View Modal -->
   <div id="teamModal" class="modal">
     <div class="modal-content">
       <h2>🌿 Team Structure</h2>
@@ -109,12 +115,14 @@
     </div>
   </div>
 
-  <!-- Replace Modal -->
+  <!-- Replace Me Modal -->
   <div id="replaceModal" class="modal">
     <div class="modal-content">
       <h2>🔁 Replace Account</h2>
+      <!-- Sponsor referral link display -->
       <input type="text" id="sponsorLink" readonly>
       <input type="text" placeholder="New User Wallet" id="newAddress">
+      <!-- Replace Buttons: Submit (green) and Back in one line -->
       <div class="replace-buttons">
         <button class="submit-btn" onclick="replaceUser()">Submit</button>
         <button class="close-btn" onclick="closeModal()">Back</button>
@@ -126,15 +134,11 @@
   <div id="addPartnerModal" class="modal">
     <div class="modal-content">
       <h2>Add a Partner</h2>
-      <!-- Your wallet (read-only) -->
+      <!-- Display current user's wallet (from which 3 USDT will be deducted) -->
       <input type="text" id="yourWallet" readonly placeholder="Your Wallet Address">
-      <!-- Input for partner wallet address -->
+      <!-- Input for partner's wallet address (placeholder enlarged via CSS class) -->
       <input type="text" id="partnerAddress" class="large-placeholder" placeholder="Enter Partner Wallet Address">
-      <!-- Section to display added partner info with Remove option -->
-      <div id="partnerInfo" style="display: none;">
-        <p class="partner-text">Current Partner: <span id="currentPartner"></span></p>
-        <button class="close-btn" onclick="removePartner()">Remove Partner</button>
-      </div>
+      <!-- Partner Buttons: Pay 3 USDT (green) and Back (red) in one line -->
       <div class="partner-buttons">
         <button class="submit-btn" onclick="addPartner()">Pay 3 USDT</button>
         <button class="close-btn" onclick="closeModal()">Back</button>
