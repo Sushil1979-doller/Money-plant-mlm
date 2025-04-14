@@ -12,7 +12,7 @@ body {
   padding: 20px;
 }
 
-/* सभी बटनों के लिए सामान्य स्टाइल: cylindrical आकार और raised effect */
+/* General Button Style: Cylindrical and Raised */
 button {
   border-radius: 50px !important;
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
@@ -56,7 +56,7 @@ header {
   justify-content: center;
 }
 
-/* Header Buttons (doubled size) */
+/* Header Buttons */
 #connectWalletBtn,
 #languageBtn {
   padding: 24px 50px;
@@ -113,7 +113,7 @@ header {
   font-weight: bold;
   font-size: 36px;
 }
-/* बटन क्रम के अनुसार स्टाइल */
+/* Button Order Styles */
 .btn-activate { background: #2ECC71; }
 .btn-team    { background: #3498db; }
 .btn-add-partner { background: #8e44ad; }
@@ -137,17 +137,9 @@ header {
   font-size: 16px;
   font-weight: bold;
 }
-.download-links a:nth-child(1) {
-  background: #3498db;
-}
-.download-links a:nth-child(2) {
-  background: #9b59b6;
-}
-.download-links .btn-income-refund {
-  background: #f1c40f;
-  border: none;
-  cursor: pointer;
-}
+.download-links a:nth-child(1) { background: #3498db; }
+.download-links a:nth-child(2) { background: #9b59b6; }
+.download-links .btn-income-refund { background: #f1c40f; border: none; cursor: pointer; }
 
 /* Modals: Full Page */
 .modal {
@@ -173,7 +165,7 @@ header {
   background: rgba(0,0,0,0.7);
   z-index: -1;
 }
-/* सभी modals में modal-content को scrollable बनाने के लिए */
+/* Scrollable Modal Content */
 #activateModal .modal-content,
 #teamModal .modal-content,
 #replaceModal .modal-content,
@@ -191,9 +183,7 @@ header {
   height: auto;
   box-sizing: border-box;
 }
-body.modal-open {
-  overflow: hidden;
-}
+body.modal-open { overflow: hidden; }
 
 /* Beneficiary Items in Modal */
 .beneficiary-item {
@@ -205,10 +195,7 @@ body.modal-open {
   background: #e8f5e9;
   border-radius: 50px;
 }
-.beneficiary-item span {
-  width: 40%;
-  font-size: 36px;
-}
+.beneficiary-item span { width: 40%; font-size: 36px; }
 .beneficiary-item input {
   width: 45%;
   padding: 12px;
@@ -217,10 +204,7 @@ body.modal-open {
   border-radius: 50px;
   margin-left: 15px;
 }
-.amount {
-  margin-left: 15px;
-  font-size: 36px;
-}
+.amount { margin-left: 15px; font-size: 36px; }
 
 /* Distribute Funds Button */
 .distribute-btn {
@@ -233,9 +217,7 @@ body.modal-open {
 }
 
 /* Referral Actions in Modal */
-.referral-actions-container {
-  margin-top: 25px;
-}
+.referral-actions-container { margin-top: 25px; }
 .referral-actions {
   display: flex;
   gap: 15px;
@@ -248,21 +230,11 @@ body.modal-open {
   font-weight: bold;
   margin-right: 20px;
 }
-.copy-btn {
-  background: #3498db;
-  color: white;
-}
-.telegram-btn {
-  background: #0088cc;
-  color: white;
-}
+.copy-btn { background: #3498db; color: white; }
+.telegram-btn { background: #0088cc; color: white; }
 
-/* Modal Actions Container */
-.modal-actions {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
+/* Modal Actions */
+.modal-actions { display: flex; justify-content: center; margin-top: 20px; }
 
 /* Back Button */
 .close-btn {
@@ -273,10 +245,8 @@ body.modal-open {
   cursor: pointer;
 }
 
-/* Team View */
-.team-levels {
-  margin: 20px 0;
-}
+/* Team Modal */
+.team-levels { margin: 20px 0; }
 .team-levels div {
   display: flex;
   justify-content: space-between;
@@ -294,10 +264,7 @@ body.modal-open {
   text-align: center;
   font-size: 60px;
 }
-.income-stats .stat-box {
-  margin-bottom: 20px;
-  font-size: 60px;
-}
+.income-stats .stat-box { margin-bottom: 20px; font-size: 60px; }
 
 /* FAQ & Plan Section */
 #faq-plan-section {
@@ -313,9 +280,7 @@ body.modal-open {
   margin-bottom: 15px;
   font-size: 24px;
 }
-#faq-plan-section details {
-  margin-bottom: 15px;
-}
+#faq-plan-section details { margin-bottom: 15px; }
 #faq-plan-section summary {
   font-weight: bold;
   color: #FF9800;
@@ -340,9 +305,7 @@ body.modal-open {
   border-top: 1px solid #ddd;
 }
 #plan-download a,
-#plan-download .btn-income-refund {
-  margin-right: 15px;
-}
+#plan-download .btn-income-refund { margin-right: 15px; }
 
 /* Replace Modal */
 #replaceModal .modal-content {
@@ -393,7 +356,7 @@ body.modal-open {
   background: white;
   overflow-y: auto;
 }
-/* Style for inputs in Add Partner Modal */
+/* Inputs in Add Partner Modal */
 #partnerAddress, #yourWallet {
   width: 80%;
   padding: 20px;
@@ -416,11 +379,11 @@ body.modal-open {
   font-size: 34px;
   font-weight: bold;
 }
-/* Partner Buttons in Modal */
+/* Partner Buttons */
 .partner-buttons {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 15px;
   margin-top: 25px;
-  }
+}
