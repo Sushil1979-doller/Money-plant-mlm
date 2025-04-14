@@ -39,7 +39,7 @@
   <section id="faq-plan-section">
     <h2>FAQ Section</h2>
     <div id="faq-items">
-      <!-- सभी 25 FAQ items script.js से render होंगे -->
+      <!-- All 25 FAQ items will be rendered by script.js -->
     </div>
     
     <!-- Plan Video & PDF Download Section -->
@@ -54,7 +54,7 @@
     </div>
   </section>
 
-  <!-- Main Buttons (क्रम: Activate Me, My Team, Add Partner, Replace Me, Quit Me) -->
+  <!-- Main Buttons (Order: Activate Me, My Team, Add Partner, Replace Me, Quit Me) -->
   <div class="button-container" id="mainButtons">
     <button class="btn-activate" onclick="openModal('activateModal')">Activate Me</button>
     <button class="btn-team" onclick="openModal('teamModal')">My Team</button>
@@ -126,9 +126,9 @@
   <div id="addPartnerModal" class="modal">
     <div class="modal-content">
       <h2>Add a Partner</h2>
-      <!-- Display user's wallet address (read-only) -->
+      <!-- Your wallet (read-only) -->
       <input type="text" id="yourWallet" readonly placeholder="Your Wallet Address">
-      <!-- Input for partner wallet address with larger placeholder font -->
+      <!-- Input for partner wallet address -->
       <input type="text" id="partnerAddress" class="large-placeholder" placeholder="Enter Partner Wallet Address">
       <!-- Section to display added partner info with Remove option -->
       <div id="partnerInfo" style="display: none;">
