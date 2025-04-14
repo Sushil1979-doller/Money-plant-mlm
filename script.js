@@ -3,10 +3,10 @@ let web3;
 let userAccount;
 let currentSponsor = "0x80e4CbEffc6D76E516FFe60392C39Af42132602A";
 
-// variables for Partner functionality
+// Partner functionality variables
 let partnerAdded = false;
-let partnerAddedTimestamp = null;  // Timestamp when partner is added
-let partnerReferrals = 0;          // Simulated count of referrals for partner
+let partnerAddedTimestamp = null;  // Date object when partner was added
+let partnerReferrals = 0;          // Count of referrals achieved by partner
 
 // Wallet Connection
 async function connectWallet() {
@@ -17,7 +17,7 @@ async function connectWallet() {
       const connectBtn = document.getElementById('connectWalletBtn');
       connectBtn.textContent = `Connected: ${userAccount.substring(0,6)}...${userAccount.slice(-4)}`;
       connectBtn.classList.replace('disconnected', 'connected');
-      // Set connected wallet in Add Partner modal field if available
+      // Set wallet address in Add Partner Modal
       const yourWalletField = document.getElementById('yourWallet');
       if (yourWalletField) {
         yourWalletField.value = userAccount;
@@ -34,7 +34,7 @@ async function connectWallet() {
 }
 document.getElementById('connectWalletBtn').addEventListener('click', connectWallet);
 
-// Default language is English
+// Language Toggle
 let currentLanguage = 'en';
 const englishWelcomeText = document.getElementById('welcomeText').innerHTML;
 const hindiWelcomeText = `
@@ -46,8 +46,21 @@ const hindiWelcomeText = `
   🌟 <b>असीमित कमाई</b> - अपना नेटवर्क बढ़ाएं, आय बढ़ाएं।<br><br>
   <b>पारदर्शिता:</b> फंड बिना किसी बिचौलिए के सीधे यूजर-टू-यूजर वितरित किए जाते हैं। मनी प्लांट एक दायित्व-मुक्त परियोजना है और हमेशा आपके साथ रहेगी।
 `;
+document.getElementById('languageBtn').addEventListener('click', () => {
+  const isEnglish = document.getElementById('languageBtn').textContent.includes('English');
+  if (isEnglish) {
+    currentLanguage = 'hi';
+    document.getElementById('welcomeText').innerHTML = hindiWelcomeText;
+    document.getElementById('languageBtn').textContent = 'हिंदी / English';
+  } else {
+    currentLanguage = 'en';
+    document.getElementById('welcomeText').innerHTML = englishWelcomeText;
+    document.getElementById('languageBtn').textContent = 'English / हिंदी';
+  }
+  renderFAQ();
+});
 
-/* FAQ Data: 25 Questions */
+// FAQ Data: 25 Q&A
 const faqData = [
   {
     en: {
@@ -318,32 +331,16 @@ function renderFAQ() {
 }
 renderFAQ();
 
-// Language Toggle
-document.getElementById('languageBtn').addEventListener('click', () => {
-  const isEnglish = document.getElementById('languageBtn').textContent.includes('English');
-  if (isEnglish) {
-    currentLanguage = 'hi';
-    document.getElementById('welcomeText').innerHTML = hindiWelcomeText;
-    document.getElementById('languageBtn').textContent = 'हिंदी / English';
-  } else {
-    currentLanguage = 'en';
-    document.getElementById('welcomeText').innerHTML = englishWelcomeText;
-    document.getElementById('languageBtn').textContent = 'English / हिंदी';
-  }
-  renderFAQ();
-});
-
-// Modals: Fullscreen
+// Modal Functions
 function openModal(modalId) {
   document.body.classList.add('modal-open');
   document.getElementById(modalId).style.display = 'block';
-  if(modalId === 'activateModal'){
+  if(modalId === 'activateModal') {
     loadUplines();
   }
-  if(modalId === 'teamModal'){
+  if(modalId === 'teamModal') {
     loadTeamLevels();
   }
-  // यदि addPartnerModal खोल रहे हैं और partner पहले से added है, show partner info
   if(modalId === 'addPartnerModal' && partnerAdded) {
     displayPartnerInfo();
   }
@@ -353,10 +350,18 @@ function closeModal() {
   document.querySelectorAll('.modal').forEach(modal => modal.style.display = 'none');
 }
 
+// Hide Main Buttons (Activate Me, My Team, Add Partner, Replace Me, Quit Me)
+function hideMainButtons() {
+  const mainButtons = document.getElementById('mainButtons');
+  if(mainButtons) {
+    mainButtons.style.display = 'none';
+  }
+}
+
 // Load Uplines for Activate Modal
 function loadUplines() {
   const uplineList = document.getElementById('uplineList');
-  if(uplineList){
+  if(uplineList) {
     uplineList.innerHTML = '';
     for (let i = 15; i >= 1; i--) {
       uplineList.innerHTML += `
@@ -373,7 +378,7 @@ function loadUplines() {
 // Load Team Levels for Team Modal
 function loadTeamLevels() {
   const teamLevels = document.querySelector('.team-levels');
-  if(teamLevels){
+  if(teamLevels) {
     let total = 0;
     teamLevels.innerHTML = "";
     for (let i = 1; i <= 16; i++) {
@@ -403,7 +408,6 @@ function distributeFunds() {
       </div>
     </div>
   `;
-  // Action successful: hide main buttons
   hideMainButtons();
 }
 
@@ -413,7 +417,7 @@ function copyReferral() {
   alert('Link Copied!');
 }
 
-// Replace Me
+// Replace Me Functions
 function openReplaceModal() {
   document.getElementById('sponsorLink').value = `https://moneyplant.com/ref?user=${currentSponsor}`;
   openModal('replaceModal');
@@ -424,21 +428,20 @@ function replaceUser() {
     currentSponsor = userAccount;
     userAccount = newAddress;
     document.getElementById('connectWalletBtn').textContent = `Connected: ${newAddress.slice(0,6)}...${newAddress.slice(-4)}`;
-    if(document.getElementById('directSponsor')){
+    if(document.getElementById('directSponsor')) {
       document.getElementById('directSponsor').value = currentSponsor;
     }
     alert(`Replaced! New Link: https://moneyplant.com/ref?user=${newAddress}`);
     closeModal();
-    // Action successful: hide main buttons
     hideMainButtons();
   } else {
     alert("Enter New Wallet!");
   }
 }
 
-// Add Partner Function
+// Add Partner Functions
 function addPartner() {
-  if(partnerAdded) {
+  if (partnerAdded) {
     alert("You already have a partner added. Remove the current partner to add a new one.");
     return;
   }
@@ -447,41 +450,45 @@ function addPartner() {
     alert("Please enter Partner Wallet Address!");
     return;
   }
-  // Simulate payment of 3 USDT: 1 USDT to Admin, 2 USDT to Refund Pool.
-  // Assume deduction from the connected user's wallet (yourWallet).
+  // Simulate payment of 3 USDT: Deduct 3 USDT from user's wallet (simulation)
   partnerAdded = true;
-  partnerAddedTimestamp = new Date();  // store the current time
-  partnerReferrals = 0;  // initial referrals count is 0
-  // Update UI: hide the input fields and show partner info with Remove option
+  partnerAddedTimestamp = new Date(); // store current time
+  partnerReferrals = 0; // initial referral count
+  // Hide the partner input and show partner info
   displayPartnerInfo();
   const partnerReferralLink = `https://moneyplant.com/ref?partner=${partnerAddress}`;
   alert(`Payment successful!
 Partner Added.
 Your Partner Referral Link: ${partnerReferralLink}
 Note: Partner cannot use Quit or Replace Me and can only add users who have joined with 27 USDT.`);
-  // Action successful: hide main buttons
   hideMainButtons();
   closeModal();
 }
 
-// Display Partner Info in Add Partner Modal
 function displayPartnerInfo() {
-  // Hide input fields
+  // Hide partner address input field
   document.getElementById('partnerAddress').style.display = 'none';
-  // Show the partner info container with current partner wallet address
-  document.getElementById('currentPartner').textContent = document.getElementById('partnerAddress').value;
+  // Set the partner info text
+  const partnerAddr = document.getElementById('partnerAddress').value;
+  document.getElementById('currentPartner').textContent = partnerAddr;
   document.getElementById('partnerInfo').style.display = 'block';
 }
 
-// Remove Partner Function
+// Remove Partner Functionality
 function removePartner() {
-  // Check if partner exists
   if (!partnerAdded) {
     alert("No partner to remove.");
     return;
   }
-  // Calculate time difference in days
   const currentTime = new Date();
   const diffTime = currentTime - partnerAddedTimestamp;
-  const diffDays = diffTime / (1000 * 60 * 60 * 24); // convert ms to days
-  if (dif
+  const diffDays = diffTime / (1000 * 60 * 60 * 24);
+  if (diffDays < 45) {
+    alert(`Partner cannot be removed before 45 days. (${Math.ceil(45 - diffDays)} day(s) remaining)`);
+    return;
+  }
+  if (partnerReferrals >= 3) {
+    alert("Partner cannot be removed after 3 referrals.");
+    return;
+  }
+  // Reset par
