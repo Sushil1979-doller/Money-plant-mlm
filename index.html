@@ -47,23 +47,20 @@
       <h3>Plan Video & PDF</h3>
       <p>Click the links below to download the plan video and PDF:</p>
       <div class="download-links">
-        <!-- सही पाथ डालें -->
         <a href="path_to_video.mp4" download>Download Video</a>
         <a href="path_to_plan.pdf" download>Download PDF</a>
-        <!-- Income/Refund History बटन -->
         <button class="btn-income-refund" onclick="window.open('https://bscscan.com')">Income/Refund History</button>
       </div>
     </div>
   </section>
 
-  <!-- Main Buttons -->
+  <!-- Main Buttons in the required order -->
   <div class="button-container">
-    <button class="btn-activate" onclick="openModal('activateModal')">Activate</button>
-    <button class="btn-team" onclick="openModal('teamModal')">Team View</button>
-    <button class="btn-quit" id="quitBtn" onclick="handleQuit()">Quit Me</button>
-    <button class="btn-replace" onclick="openReplaceModal()">Replace Me</button>
-    <!-- नया Add Partner बटन -->
+    <button class="btn-activate" onclick="openModal('activateModal')">Activate me</button>
+    <button class="btn-team" onclick="openModal('teamModal')">My team</button>
     <button class="btn-add-partner" onclick="openModal('addPartnerModal')">Add Partner</button>
+    <button class="btn-replace" onclick="openModal('replaceModal')">Replace Me</button>
+    <button class="btn-quit" id="quitBtn" onclick="handleQuit()">Quit Me</button>
   </div>
 
   <!-- Activate Modal -->
@@ -136,12 +133,15 @@
       <h2>Add a Partner</h2>
       <!-- Display current user's wallet (from which 3 USDT will be deducted) -->
       <input type="text" id="yourWallet" readonly placeholder="Your Wallet Address">
-      <!-- Input for partner's wallet address (placeholder enlarged via CSS class) -->
+      <!-- Input for partner's wallet address -->
       <input type="text" id="partnerAddress" class="large-placeholder" placeholder="Enter Partner Wallet Address">
-      <!-- Partner Buttons: Pay 3 USDT (green) and Back (red) in one line -->
       <div class="partner-buttons">
         <button class="submit-btn" onclick="addPartner()">Pay 3 USDT</button>
         <button class="close-btn" onclick="closeModal()">Back</button>
+      </div>
+      <!-- Remove Partner Button -->
+      <div class="partner-remove">
+        <button class="remove-btn" onclick="removePartner()">Remove Partner</button>
       </div>
     </div>
   </div>
