@@ -6,7 +6,7 @@ let currentSponsor = "0x80e4CbEffc6D76E516FFe60392C39Af42132602A";
 // Partner functionality variables
 let partnerAdded = false;
 let partnerAddedTimestamp = null;  // Date object when partner was added
-let partnerReferrals = 0;          // Count of referrals achieved by partner
+let partnerReferrals = 0;          // Count of referrals achieved by the partner
 
 // Wallet Connection
 async function connectWallet() {
@@ -17,12 +17,10 @@ async function connectWallet() {
       const connectBtn = document.getElementById('connectWalletBtn');
       connectBtn.textContent = `Connected: ${userAccount.substring(0,6)}...${userAccount.slice(-4)}`;
       connectBtn.classList.replace('disconnected', 'connected');
-      // Set wallet address in Add Partner Modal
+      // Set wallet address in Add Partner Modal field
       const yourWalletField = document.getElementById('yourWallet');
-      if (yourWalletField) {
-        yourWalletField.value = userAccount;
-      }
-      if(document.getElementById('directSponsor')){
+      if (yourWalletField) yourWalletField.value = userAccount;
+      if(document.getElementById('directSponsor')) {
          document.getElementById('directSponsor').value = currentSponsor;
       }
     } catch (error) {
@@ -331,31 +329,21 @@ function renderFAQ() {
 }
 renderFAQ();
 
-// Modal Functions
+// Modal Handling Functions
 function openModal(modalId) {
   document.body.classList.add('modal-open');
   document.getElementById(modalId).style.display = 'block';
-  if(modalId === 'activateModal') {
-    loadUplines();
-  }
-  if(modalId === 'teamModal') {
-    loadTeamLevels();
-  }
-  if(modalId === 'addPartnerModal' && partnerAdded) {
-    displayPartnerInfo();
-  }
+  if (modalId === 'activateModal') loadUplines();
+  if (modalId === 'teamModal') loadTeamLevels();
+  if (modalId === 'addPartnerModal' && partnerAdded) displayPartnerInfo();
 }
 function closeModal() {
   document.body.classList.remove('modal-open');
   document.querySelectorAll('.modal').forEach(modal => modal.style.display = 'none');
 }
-
-// Hide Main Buttons (Activate Me, My Team, Add Partner, Replace Me, Quit Me)
 function hideMainButtons() {
   const mainButtons = document.getElementById('mainButtons');
-  if(mainButtons) {
-    mainButtons.style.display = 'none';
-  }
+  if(mainButtons) mainButtons.style.display = 'none';
 }
 
 // Load Uplines for Activate Modal
@@ -395,7 +383,7 @@ function loadTeamLevels() {
   }
 }
 
-// Distribute Funds
+// Distribute Funds Function
 function distributeFunds() {
   document.querySelector('.distribute-btn').style.display = 'none';
   const container = document.querySelector('.referral-actions-container');
@@ -424,7 +412,7 @@ function openReplaceModal() {
 }
 function replaceUser() {
   const newAddress = document.getElementById('newAddress').value;
-  if (newAddress) {
+  if(newAddress) {
     currentSponsor = userAccount;
     userAccount = newAddress;
     document.getElementById('connectWalletBtn').textContent = `Connected: ${newAddress.slice(0,6)}...${newAddress.slice(-4)}`;
@@ -441,20 +429,19 @@ function replaceUser() {
 
 // Add Partner Functions
 function addPartner() {
-  if (partnerAdded) {
+  if(partnerAdded) {
     alert("You already have a partner added. Remove the current partner to add a new one.");
     return;
   }
   const partnerAddress = document.getElementById('partnerAddress').value.trim();
-  if (partnerAddress === "") {
+  if(partnerAddress === "") {
     alert("Please enter Partner Wallet Address!");
     return;
   }
-  // Simulate payment of 3 USDT: Deduct 3 USDT from user's wallet (simulation)
+  // Simulate payment of 3 USDT: 1 USDT to Admin, 2 USDT to Refund Pool.
   partnerAdded = true;
-  partnerAddedTimestamp = new Date(); // store current time
-  partnerReferrals = 0; // initial referral count
-  // Hide the partner input and show partner info
+  partnerAddedTimestamp = new Date();
+  partnerReferrals = 0;  // initial count
   displayPartnerInfo();
   const partnerReferralLink = `https://moneyplant.com/ref?partner=${partnerAddress}`;
   alert(`Payment successful!
@@ -464,31 +451,33 @@ Note: Partner cannot use Quit or Replace Me and can only add users who have join
   hideMainButtons();
   closeModal();
 }
-
 function displayPartnerInfo() {
-  // Hide partner address input field
   document.getElementById('partnerAddress').style.display = 'none';
-  // Set the partner info text
   const partnerAddr = document.getElementById('partnerAddress').value;
   document.getElementById('currentPartner').textContent = partnerAddr;
   document.getElementById('partnerInfo').style.display = 'block';
 }
-
-// Remove Partner Functionality
+// Remove Partner Function
 function removePartner() {
-  if (!partnerAdded) {
+  if(!partnerAdded) {
     alert("No partner to remove.");
     return;
   }
   const currentTime = new Date();
   const diffTime = currentTime - partnerAddedTimestamp;
   const diffDays = diffTime / (1000 * 60 * 60 * 24);
-  if (diffDays < 45) {
+  if(diffDays < 45) {
     alert(`Partner cannot be removed before 45 days. (${Math.ceil(45 - diffDays)} day(s) remaining)`);
     return;
   }
-  if (partnerReferrals >= 3) {
+  if(partnerReferrals >= 3) {
     alert("Partner cannot be removed after 3 referrals.");
     return;
   }
-  // Reset par
+  // Remove partner
+  partnerAdded = false;
+  partnerAddedTimestamp = null;
+  partnerReferrals = 0;
+  document.getElementById('partnerAddress').value = "";
+  document.getElementById('partnerAddress').style.display = 'block';
+  document.getElementById('partnerInfo').style.display = 'none
