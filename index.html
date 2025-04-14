@@ -12,8 +12,9 @@
     <div class="header-title">
       <h1>🌿 Money Plant 🌿</h1>
       <p class="header-subtitle">100% Scam Free Project - Build Your Team Confidently</p>
-      <!-- Header Buttons: subtitle के ठीक नीचे -->
+      <!-- Header Buttons: Subtitle के ठीक नीचे -->
       <div class="header-buttons">
+        <!-- Connect Wallet बटन का रंग अब blue -->
         <button id="connectWalletBtn" class="disconnected">Connect Wallet</button>
         <button id="languageBtn">English / हिंदी</button>
       </div>
@@ -60,6 +61,7 @@
     <button class="btn-team" onclick="openModal('teamModal')">My team</button>
     <button class="btn-add-partner" onclick="openModal('addPartnerModal')">Add Partner</button>
     <button class="btn-replace" onclick="openModal('replaceModal')">Replace Me</button>
+    <!-- Quit Me बटन का रंग अब red -->
     <button class="btn-quit" id="quitBtn" onclick="handleQuit()">Quit Me</button>
   </div>
 
@@ -118,17 +120,13 @@
   <div id="replaceModal" class="modal">
     <div class="modal-content">
       <h2>🔁 Replace Account</h2>
-      <!-- Sponsor referral link display pre-loaded with userAccount -->
+      <!-- Pre-loaded sponsor link or user wallet -->
       <input type="text" id="sponsorLink" readonly value="">
-      <!-- Enlarged placeholder input, width adjusts to available space.
-           Pre-load the input with current userAccount -->
+      <!-- Enlarged input for user's wallet address -->
       <input type="text" placeholder="Enter New Wallet Address" id="newAddress" class="large-input" value="">
-      <!-- Replace Buttons: Submit (red, same size as back) -->
-      <div class="replace-buttons">
+      <!-- दोनों बटन एक ही लाइन में -->
+      <div class="replace-actions">
         <button class="submit-btn" onclick="replaceUser()">Submit</button>
-        <!-- Back button नीचे बटन समूह में रखा गया -->
-      </div>
-      <div class="modal-actions">
         <button class="close-btn" onclick="closeModal()">Back</button>
       </div>
     </div>
@@ -138,16 +136,16 @@
   <div id="addPartnerModal" class="modal">
     <div class="modal-content">
       <h2>Add a Partner</h2>
-      <!-- Display current user's wallet pre-loaded -->
-      <input type="text" id="yourWallet" readonly placeholder="Your Wallet Address" value="">
-      <!-- Enlarged partner wallet input -->
+      <!-- Enlarged input: User's wallet pre-loaded -->
+      <input type="text" id="yourWallet" readonly class="large-input" placeholder="Your Wallet Address" value="">
+      <!-- Enlarged input for partner wallet address -->
       <input type="text" id="partnerAddress" class="large-input" placeholder="Enter Partner Wallet Address">
-      <!-- Partner action buttons: Pay 3 USDT and Remove Partner in one row with similar sizing -->
-      <div class="partner-buttons">
-        <button class="submit-btn" onclick="addPartner()">Pay 3 USDT</button>
+      <!-- दोनों बटन एक ही पंक्ति में, Pay बटन अब green और Remove बटन red; साइज समान -->
+      <div class="partner-actions">
+        <button class="pay-btn" onclick="addPartner()">Pay 3 USDT</button>
         <button class="remove-btn" onclick="removePartner()">Remove Partner</button>
       </div>
-      <!-- Back button नीचे रखें -->
+      <!-- Back Button -->
       <div class="modal-actions">
         <button class="close-btn" onclick="closeModal()">Back</button>
       </div>
