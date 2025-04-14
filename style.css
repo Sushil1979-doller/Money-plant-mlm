@@ -15,12 +15,12 @@ body {
 /* सभी बटनों के लिए सामान्य स्टाइल: cylindrical आकार और raised effect */
 button {
   border-radius: 50px !important;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 8px rgba(0,0,0,0.3);
 }
 
 /* Header */
@@ -263,10 +263,10 @@ body.modal-open {
   margin-top: 20px;
 }
 
-/* Back Button */
+/* Back Button: सभी back बटनों का रंग पीला */
 .close-btn {
-  background: red !important;
-  color: white !important;
+  background: yellow !important;
+  color: #333 !important;
   font-size: 34px;
   padding: 20px 40px !important;
   cursor: pointer;
@@ -343,13 +343,31 @@ body.modal-open {
   margin-right: 15px;
 }
 
-/* Remove Partner Button Styling */
-.partner-remove {
-  margin-top: 25px;
+/* Large Input fields used in Replace and Add Partner Modals */
+.large-input {
+  width: 90%;
+  padding: 20px;
+  font-size: 34px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  margin: 20px auto;
 }
-.remove-btn {
-  background: #c0392b;
+
+/* Submit Button in Replace Modal should be same as Back's size and red */
+.submit-btn {
+  background: red;
   color: white;
+  padding: 20px 40px;
+  font-size: 34px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+/* Partner Buttons: making Pay 3 USDT button same size as Remove Partner button */
+.partner-buttons button {
   padding: 20px 40px;
   font-size: 34px;
   font-weight: bold;
