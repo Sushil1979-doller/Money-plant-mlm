@@ -3,6 +3,11 @@ let web3;
 let userAccount;
 let currentSponsor = "0x80e4CbEffc6D76E516FFe60392C39Af42132602A";
 
+// variables for Partner functionality
+let partnerAdded = false;
+let partnerAddedTimestamp = null;  // Timestamp when partner is added
+let partnerReferrals = 0;          // Simulated count of referrals for partner
+
 // Wallet Connection
 async function connectWallet() {
   if (window.ethereum) {
@@ -247,11 +252,11 @@ const faqData = [
   {
     en: {
       question: "21. How do I copy my referral link?",
-      answer: "Only activated users can copy their referral link. Click the Activate button and then the Distribute Funds button to display the option for copying your referral link."
+      answer: "Only activated users can copy their referral link. Click the Activate Me button and then the Distribute Funds button to display the option for copying your referral link."
     },
     hi: {
       question: "21. अपना रेफरल लिंक कैसे कॉपी करें?",
-      answer: "केवल एक्टिवेटेड यूज़र अपना रेफरल लिंक कॉपी कर सकते हैं। Activate बटन पर क्लिक करें और फिर Distribute Funds बटन पर, जिससे रेफरल लिंक कॉपी करने का विकल्प दिखाई देगा।"
+      answer: "केवल एक्टिवेटेड यूज़र अपना रेफरल लिंक कॉपी कर सकते हैं। Activate Me बटन पर क्लिक करें और फिर Distribute Funds बटन पर, जिससे रेफरल लिंक कॉपी करने का विकल्प दिखाई देगा।"
     }
   },
   {
@@ -338,6 +343,10 @@ function openModal(modalId) {
   if(modalId === 'teamModal'){
     loadTeamLevels();
   }
+  // यदि addPartnerModal खोल रहे हैं और partner पहले से added है, show partner info
+  if(modalId === 'addPartnerModal' && partnerAdded) {
+    displayPartnerInfo();
+  }
 }
 function closeModal() {
   document.body.classList.remove('modal-open');
@@ -394,6 +403,8 @@ function distributeFunds() {
       </div>
     </div>
   `;
+  // Action successful: hide main buttons
+  hideMainButtons();
 }
 
 // Copy Referral Link
@@ -418,6 +429,8 @@ function replaceUser() {
     }
     alert(`Replaced! New Link: https://moneyplant.com/ref?user=${newAddress}`);
     closeModal();
+    // Action successful: hide main buttons
+    hideMainButtons();
   } else {
     alert("Enter New Wallet!");
   }
@@ -425,26 +438,50 @@ function replaceUser() {
 
 // Add Partner Function
 function addPartner() {
+  if(partnerAdded) {
+    alert("You already have a partner added. Remove the current partner to add a new one.");
+    return;
+  }
   const partnerAddress = document.getElementById('partnerAddress').value.trim();
   if (partnerAddress === "") {
     alert("Please enter Partner Wallet Address!");
     return;
   }
   // Simulate payment of 3 USDT: 1 USDT to Admin, 2 USDT to Refund Pool.
-  // The deduction is assumed to be from the connected user (yourWallet).
+  // Assume deduction from the connected user's wallet (yourWallet).
+  partnerAdded = true;
+  partnerAddedTimestamp = new Date();  // store the current time
+  partnerReferrals = 0;  // initial referrals count is 0
+  // Update UI: hide the input fields and show partner info with Remove option
+  displayPartnerInfo();
   const partnerReferralLink = `https://moneyplant.com/ref?partner=${partnerAddress}`;
   alert(`Payment successful!
 Partner Added.
 Your Partner Referral Link: ${partnerReferralLink}
 Note: Partner cannot use Quit or Replace Me and can only add users who have joined with 27 USDT.`);
+  // Action successful: hide main buttons
+  hideMainButtons();
   closeModal();
 }
 
-// Quit Me
-function handleQuit() {
-  if (confirm('You will get up to 0.27 USDT daily. Confirm?')) {
-    alert('Refunds start tomorrow at 4 AM IST.');
-    const quitBtn = document.getElementById('quitBtn');
-    if (quitBtn) quitBtn.style.display = 'none';
+// Display Partner Info in Add Partner Modal
+function displayPartnerInfo() {
+  // Hide input fields
+  document.getElementById('partnerAddress').style.display = 'none';
+  // Show the partner info container with current partner wallet address
+  document.getElementById('currentPartner').textContent = document.getElementById('partnerAddress').value;
+  document.getElementById('partnerInfo').style.display = 'block';
+}
+
+// Remove Partner Function
+function removePartner() {
+  // Check if partner exists
+  if (!partnerAdded) {
+    alert("No partner to remove.");
+    return;
   }
-                                             }
+  // Calculate time difference in days
+  const currentTime = new Date();
+  const diffTime = currentTime - partnerAddedTimestamp;
+  const diffDays = diffTime / (1000 * 60 * 60 * 24); // convert ms to days
+  if (dif
