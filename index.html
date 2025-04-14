@@ -54,7 +54,7 @@
     </div>
   </section>
 
-  <!-- Main Buttons in the required order -->
+  <!-- Main Buttons in Required Order -->
   <div class="button-container">
     <button class="btn-activate" onclick="openModal('activateModal')">Activate me</button>
     <button class="btn-team" onclick="openModal('teamModal')">My team</button>
@@ -108,7 +108,9 @@
         <div class="stat-box"><span>Total Income:</span> <b>0 USDT</b></div>
         <div class="stat-box"><span>Bonus:</span> <b>0 USDT</b></div>
       </div>
-      <button class="close-btn" onclick="closeModal()">Back</button>
+      <div class="modal-actions">
+        <button class="close-btn" onclick="closeModal()">Back</button>
+      </div>
     </div>
   </div>
 
@@ -116,12 +118,17 @@
   <div id="replaceModal" class="modal">
     <div class="modal-content">
       <h2>🔁 Replace Account</h2>
-      <!-- Sponsor referral link display -->
-      <input type="text" id="sponsorLink" readonly>
-      <input type="text" placeholder="New User Wallet" id="newAddress">
-      <!-- Replace Buttons: Submit (green) and Back in one line -->
+      <!-- Sponsor referral link display pre-loaded with userAccount -->
+      <input type="text" id="sponsorLink" readonly value="">
+      <!-- Enlarged placeholder input, width adjusts to available space.
+           Pre-load the input with current userAccount -->
+      <input type="text" placeholder="Enter New Wallet Address" id="newAddress" class="large-input" value="">
+      <!-- Replace Buttons: Submit (red, same size as back) -->
       <div class="replace-buttons">
         <button class="submit-btn" onclick="replaceUser()">Submit</button>
+        <!-- Back button नीचे बटन समूह में रखा गया -->
+      </div>
+      <div class="modal-actions">
         <button class="close-btn" onclick="closeModal()">Back</button>
       </div>
     </div>
@@ -131,17 +138,18 @@
   <div id="addPartnerModal" class="modal">
     <div class="modal-content">
       <h2>Add a Partner</h2>
-      <!-- Display current user's wallet (from which 3 USDT will be deducted) -->
-      <input type="text" id="yourWallet" readonly placeholder="Your Wallet Address">
-      <!-- Input for partner's wallet address -->
-      <input type="text" id="partnerAddress" class="large-placeholder" placeholder="Enter Partner Wallet Address">
+      <!-- Display current user's wallet pre-loaded -->
+      <input type="text" id="yourWallet" readonly placeholder="Your Wallet Address" value="">
+      <!-- Enlarged partner wallet input -->
+      <input type="text" id="partnerAddress" class="large-input" placeholder="Enter Partner Wallet Address">
+      <!-- Partner action buttons: Pay 3 USDT and Remove Partner in one row with similar sizing -->
       <div class="partner-buttons">
         <button class="submit-btn" onclick="addPartner()">Pay 3 USDT</button>
-        <button class="close-btn" onclick="closeModal()">Back</button>
-      </div>
-      <!-- Remove Partner Button -->
-      <div class="partner-remove">
         <button class="remove-btn" onclick="removePartner()">Remove Partner</button>
+      </div>
+      <!-- Back button नीचे रखें -->
+      <div class="modal-actions">
+        <button class="close-btn" onclick="closeModal()">Back</button>
       </div>
     </div>
   </div>
