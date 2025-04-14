@@ -113,7 +113,7 @@ header {
   font-weight: bold;
   font-size: 36px;
 }
-/* बटन का क्रम जैसा निर्देशित है */
+/* बटन क्रम के अनुसार स्टाइल */
 .btn-activate { background: #2ECC71; }
 .btn-team    { background: #3498db; }
 .btn-add-partner { background: #8e44ad; }
@@ -232,7 +232,7 @@ body.modal-open {
   font-weight: bold;
 }
 
-/* Referral Actions in Activate Modal */
+/* Referral Actions in Modal */
 .referral-actions-container {
   margin-top: 25px;
 }
@@ -344,7 +344,7 @@ body.modal-open {
   margin-right: 15px;
 }
 
-/* Replace Me Modal */
+/* Replace Modal */
 #replaceModal .modal-content {
   font-size: 60px;
   padding: 50px;
@@ -393,7 +393,7 @@ body.modal-open {
   background: white;
   overflow-y: auto;
 }
-/* Style for input in Add Partner Modal: larger placeholder */
+/* Style for inputs in Add Partner Modal */
 #partnerAddress, #yourWallet {
   width: 80%;
   padding: 20px;
@@ -404,20 +404,10 @@ body.modal-open {
   border-radius: 50px;
   margin: 20px auto;
 }
-/* Optional: larger placeholder style */
 .large-placeholder::placeholder {
   font-size: 28px;
 }
-
-/* Partner Buttons (Add Partner Modal) */
-.partner-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  margin-top: 25px;
-}
-/* Style for partner info container */
+/* Partner Info Section */
 #partnerInfo {
   margin: 20px auto;
   width: 80%;
@@ -425,4 +415,12 @@ body.modal-open {
 .partner-text {
   font-size: 34px;
   font-weight: bold;
+}
+/* Partner Buttons in Modal */
+.partner-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 25px;
 }
