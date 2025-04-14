@@ -113,11 +113,12 @@ header {
   font-weight: bold;
   font-size: 36px;
 }
+/* बटन का क्रम जैसा निर्देशित है */
 .btn-activate { background: #2ECC71; }
 .btn-team    { background: #3498db; }
-.btn-quit    { background: #e74c3c; }
+.btn-add-partner { background: #8e44ad; }
 .btn-replace { background: #e67e22; }
-.btn-add-partner { background: #8e44ad; }  /* आप चाहें तो बदलाव करें */
+.btn-quit    { background: #e74c3c; }
 
 /* Download Links Section */
 .download-links {
@@ -415,4 +416,13 @@ body.modal-open {
   align-items: center;
   gap: 15px;
   margin-top: 25px;
-    }
+}
+/* Style for partner info container */
+#partnerInfo {
+  margin: 20px auto;
+  width: 80%;
+}
+.partner-text {
+  font-size: 34px;
+  font-weight: bold;
+}
