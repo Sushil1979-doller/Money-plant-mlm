@@ -12,7 +12,7 @@
     <div class="header-title">
       <h1>🌿 Money Plant 🌿</h1>
       <p class="header-subtitle">100% Scam Free Project - Build Your Team Confidently</p>
-      <!-- Header Buttons: subtitle के ठीक नीचे -->
+      <!-- Header Buttons: Subtitle के ठीक नीचे -->
       <div class="header-buttons">
         <button id="connectWalletBtn" class="disconnected">Connect Wallet</button>
         <button id="languageBtn">English / हिंदी</button>
@@ -56,14 +56,13 @@
     </div>
   </section>
 
-  <!-- Main Buttons -->
-  <div class="button-container">
-    <button class="btn-activate" onclick="openModal('activateModal')">Activate</button>
-    <button class="btn-team" onclick="openModal('teamModal')">Team View</button>
-    <button class="btn-quit" id="quitBtn" onclick="handleQuit()">Quit Me</button>
-    <button class="btn-replace" onclick="openReplaceModal()">Replace Me</button>
-    <!-- नया Add Partner बटन -->
+  <!-- Main Buttons (सही क्रम में: Activate Me, My Team, Add Partner, Replace Me, Quit Me) -->
+  <div class="button-container" id="mainButtons">
+    <button class="btn-activate" onclick="openModal('activateModal')">Activate Me</button>
+    <button class="btn-team" onclick="openModal('teamModal')">My Team</button>
     <button class="btn-add-partner" onclick="openModal('addPartnerModal')">Add Partner</button>
+    <button class="btn-replace" onclick="openReplaceModal()">Replace Me</button>
+    <button class="btn-quit" id="quitBtn" onclick="handleQuit()">Quit Me</button>
   </div>
 
   <!-- Activate Modal -->
@@ -86,7 +85,7 @@
         <input type="text" id="directSponsor" readonly>
         <span class="amount">9 USDT</span>
       </div>
-      <!-- Distribute Button -->
+      <!-- Distribute Funds Button -->
       <button class="distribute-btn" onclick="distributeFunds()">Distribute Funds</button>
       <!-- Referral Actions -->
       <div class="referral-actions-container"></div>
@@ -122,7 +121,7 @@
       <!-- Sponsor referral link display -->
       <input type="text" id="sponsorLink" readonly>
       <input type="text" placeholder="New User Wallet" id="newAddress">
-      <!-- Replace Buttons: Submit (green) and Back in one line -->
+      <!-- Replace Buttons: Submit (green) and Back (red) in one line -->
       <div class="replace-buttons">
         <button class="submit-btn" onclick="replaceUser()">Submit</button>
         <button class="close-btn" onclick="closeModal()">Back</button>
@@ -134,10 +133,15 @@
   <div id="addPartnerModal" class="modal">
     <div class="modal-content">
       <h2>Add a Partner</h2>
-      <!-- Display current user's wallet (from which 3 USDT will be deducted) -->
+      <!-- Your wallet (read-only) -->
       <input type="text" id="yourWallet" readonly placeholder="Your Wallet Address">
-      <!-- Input for partner's wallet address (placeholder enlarged via CSS class) -->
+      <!-- Input for partner wallet address, enlarged placeholder -->
       <input type="text" id="partnerAddress" class="large-placeholder" placeholder="Enter Partner Wallet Address">
+      <!-- Container to show added partner info with Remove option -->
+      <div id="partnerInfo" style="display: none;">
+        <p class="partner-text">Current Partner: <span id="currentPartner"></span></p>
+        <button class="close-btn" onclick="removePartner()">Remove Partner</button>
+      </div>
       <!-- Partner Buttons: Pay 3 USDT (green) and Back (red) in one line -->
       <div class="partner-buttons">
         <button class="submit-btn" onclick="addPartner()">Pay 3 USDT</button>
@@ -148,4 +152,4 @@
 
   <script src="script.js"></script>
 </body>
-</html>
+  </html>
