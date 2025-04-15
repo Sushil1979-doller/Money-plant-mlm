@@ -29,6 +29,11 @@ async function connectWallet() {
       if(newAddressField){
         newAddressField.value = userAccount;
       }
+      // Pre-load connected address in Replace Me modal (old address)
+      const sponsorLinkField = document.getElementById('sponsorLink');
+      if(sponsorLinkField) {
+        sponsorLinkField.value = userAccount;
+      }
       if(document.getElementById('directSponsor')){
          document.getElementById('directSponsor').value = currentSponsor;
       }
