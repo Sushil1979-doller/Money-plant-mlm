@@ -14,7 +14,7 @@
       <p class="header-subtitle">100% Scam Free Project - Build Your Team Confidently</p>
       <!-- Header Buttons: Subtitle के ठीक नीचे -->
       <div class="header-buttons">
-        <!-- Connect Wallet बटन का रंग अब blue -->
+        <!-- Connect Wallet बटन का कलर जैसा पहले था -->
         <button id="connectWalletBtn" class="disconnected">Connect Wallet</button>
         <button id="languageBtn">English / हिंदी</button>
       </div>
@@ -58,10 +58,10 @@
   <!-- Main Buttons in Required Order -->
   <div class="button-container">
     <button class="btn-activate" onclick="openModal('activateModal')">Activate me</button>
-    <button class="btn-team" onclick="openModal('teamModal')">My team</button>
+    <!-- My team text changed to My plant -->
+    <button class="btn-team" onclick="openModal('teamModal')">My plant</button>
     <button class="btn-add-partner" onclick="openModal('addPartnerModal')">Add Partner</button>
     <button class="btn-replace" onclick="openModal('replaceModal')">Replace Me</button>
-    <!-- Quit Me बटन का रंग अब red -->
     <button class="btn-quit" id="quitBtn" onclick="handleQuit()">Quit Me</button>
   </div>
 
@@ -96,7 +96,7 @@
     </div>
   </div>
 
-  <!-- Team View Modal -->
+  <!-- Team (My Plant) Modal -->
   <div id="teamModal" class="modal">
     <div class="modal-content">
       <h2>🌿 Team Structure</h2>
@@ -120,11 +120,11 @@
   <div id="replaceModal" class="modal">
     <div class="modal-content">
       <h2>🔁 Replace Account</h2>
-      <!-- Pre-loaded sponsor link or user wallet -->
-      <input type="text" id="sponsorLink" readonly value="">
-      <!-- Enlarged input for user's wallet address -->
+      <!-- Old user address input pre-loaded with connected address, enlarged -->
+      <input type="text" id="sponsorLink" readonly class="large-input" placeholder="Old Wallet Address" value="">
+      <!-- Enlarged input for New Wallet Address -->
       <input type="text" placeholder="Enter New Wallet Address" id="newAddress" class="large-input" value="">
-      <!-- दोनों बटन एक ही लाइन में -->
+      <!-- Both buttons in one row -->
       <div class="replace-actions">
         <button class="submit-btn" onclick="replaceUser()">Submit</button>
         <button class="close-btn" onclick="closeModal()">Back</button>
@@ -135,12 +135,13 @@
   <!-- Add Partner Modal -->
   <div id="addPartnerModal" class="modal">
     <div class="modal-content">
-      <h2>Add a Partner</h2>
+      <!-- Handshake emoji added in heading -->
+      <h2>🤝 Add a Partner</h2>
       <!-- Enlarged input: User's wallet pre-loaded -->
       <input type="text" id="yourWallet" readonly class="large-input" placeholder="Your Wallet Address" value="">
-      <!-- Enlarged input for partner wallet address -->
+      <!-- Enlarged input for Partner Wallet Address -->
       <input type="text" id="partnerAddress" class="large-input" placeholder="Enter Partner Wallet Address">
-      <!-- दोनों बटन एक ही पंक्ति में, Pay बटन अब green और Remove बटन red; साइज समान -->
+      <!-- Both buttons in one row with equal size -->
       <div class="partner-actions">
         <button class="pay-btn" onclick="addPartner()">Pay 3 USDT</button>
         <button class="remove-btn" onclick="removePartner()">Remove Partner</button>
