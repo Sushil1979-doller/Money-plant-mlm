@@ -12,7 +12,7 @@ body {
   padding: 20px;
 }
 
-/* सभी बटनों के लिए सामान्य स्टाइल: cylindrical आकार और raised effect */
+/* सामान्य बटन स्टाइल: cylindrical आकार और raised effect */
 button {
   border-radius: 50px !important;
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
@@ -65,9 +65,9 @@ header {
   font-size: 32px;
   font-weight: bold;
 }
-/* Connect Wallet अब blue */
+/* Connect Wallet का कलर जैसा पहले था */
 #connectWalletBtn.disconnected {
-  background: blue;
+  background: #e74c3c;
   color: white;
 }
 #connectWalletBtn.connected {
@@ -119,10 +119,10 @@ header {
 .btn-team    { background: #3498db; }
 .btn-add-partner { background: #8e44ad; }
 .btn-replace { background: #e67e22; }
-/* Quit Me now red */
+/* Quit Me अब red */
 .btn-quit    { background: red; }
 
-/* Download Links Section - All buttons brown and larger */
+/* Download Links Section */
 .download-links {
   display: flex;
   align-items: center;
@@ -130,8 +130,7 @@ header {
   flex-wrap: wrap;
   margin-top: 15px;
 }
-.download-links a,
-.download-links .btn-income-refund {
+.download-links a {
   padding: 20px 30px;
   border-radius: 50px;
   text-decoration: none;
@@ -139,6 +138,16 @@ header {
   font-size: 18px;
   font-weight: bold;
   background: brown;
+}
+.btn-income-refund {
+  padding: 20px 30px;
+  border-radius: 50px;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  background: yellow;
+  color: #333;
+  cursor: pointer;
 }
 
 /* Modals */
@@ -256,7 +265,7 @@ body.modal-open {
   margin-top: 20px;
 }
 
-/* Back Button: सभी back बटनों का रंग पीला */
+/* Back Button: सभी back बटनों का रंग yellow */
 .close-btn {
   background: yellow !important;
   color: #333 !important;
@@ -368,9 +377,9 @@ body.modal-open {
   background: red;
   color: white;
 }
-/* Back Button here is the same as .close-btn (yellow) */
+/* Back Button here is same as .close-btn */
 
-/* Partner Modal: Pay 3 USDT button and Remove Partner button with equal sizes */
+/* Partner Modal Actions: Pay 3 USDT and Remove Partner buttons in one row with equal size */
 .partner-actions {
   display: flex;
   justify-content: center;
@@ -385,7 +394,7 @@ body.modal-open {
   border: none;
   cursor: pointer;
 }
-/* Pay 3 USDT button: Green (same as distribute fund) */
+/* Pay 3 USDT button: Green as Distribute Funds */
 .pay-btn {
   background: #1a6b3a;
   color: white;
@@ -394,4 +403,4 @@ body.modal-open {
 .remove-btn {
   background: red;
   color: white;
-  }
+}
