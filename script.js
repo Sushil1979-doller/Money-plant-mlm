@@ -4,12 +4,12 @@ let userAccount;
 let currentSponsor = "0x80e4CbEffc6D76E516FFe60392C39Af42132602A";
 
 // Activation and Partner Flags
-let isActivated = false;         // True if activated with 27 USDT
-let isPartner = false;           // True if joined as a free partner
-let isPaidPartner = false;       // True if the user is added as a paid partner
-let isSelfActivated = false;     // True if the paid partner has self activated
-let partnerExists = false;       // Flag for free partner existence
-let paidPartnerCount = 0;        // Count of paid partners added by the current user
+let isActivated = false;    // True if activated with 27 USDT
+let isPartner = false;      // True if joined as a free partner
+let isPaidPartner = false;  // True if the user is added as a paid partner
+let isSelfActivated = false; // True if the paid partner has self activated
+let partnerExists = false;  // Flag for free partner existence
+let paidPartnerCount = 0;   // Count of paid partners added
 const MAX_PAID_PARTNERS = 10;
 
 // Wallet Connection
@@ -21,7 +21,7 @@ async function connectWallet() {
       const connectBtn = document.getElementById('connectWalletBtn');
       connectBtn.textContent = `Connected: ${userAccount.substring(0,6)}...${userAccount.slice(-4)}`;
       connectBtn.classList.replace('disconnected', 'connected');
-      // Pre-load wallet addresses
+      // Pre-load wallet addresses in input fields
       const yourWalletField = document.getElementById('yourWallet');
       if (yourWalletField) yourWalletField.value = userAccount;
       const newAddressField = document.getElementById('newAddress');
@@ -44,7 +44,7 @@ document.getElementById('connectWalletBtn').addEventListener('click', connectWal
 // Update UI for Paid Partner
 function updateUIForPaidPartner() {
   if (isPaidPartner) {
-    // Hide free partner buttons if user is a paid partner
+    // Hide free partner buttons
     const addBtn = document.querySelector('.btn-add-partner');
     const replaceBtn = document.querySelector('.btn-replace');
     const quitBtn = document.querySelector('.btn-quit');
@@ -52,7 +52,7 @@ function updateUIForPaidPartner() {
     if (replaceBtn) replaceBtn.style.display = 'none';
     if (quitBtn) quitBtn.style.display = 'none';
     
-    // If not self activated, show "Self Activate" button if not already added
+    // Show Self Activate button if not self activated
     if (!isSelfActivated && !document.querySelector('.btn-selfactivate')) {
       const container = document.querySelector('.button-container');
       const selfActBtn = document.createElement('button');
@@ -69,14 +69,7 @@ function updateUIForPaidPartner() {
 let currentLanguage = 'en';
 const englishWelcomeText = document.getElementById('welcomeText').innerHTML;
 const hindiWelcomeText = `
-  <b>मनी प्लांट एमएलएम</b> में आपका स्वागत है। यह एक पूरी तरह विकेंद्रीकृत प्रणाली है जहां मालिक का कोई नियंत्रण नहीं है और सिर्फ उपयोगकर्ता ही मालिक हैं।<br><br>
-  <b>यहां आप अपने पैसे को सुरक्षित रूप से बढ़ा सकते हैं और वित्तीय स्वतंत्रता प्राप्त कर सकते हैं!</b><br><br>
-  यह प्रणाली एक <b>स्मार्ट कॉन्ट्रैक्ट</b> पर काम करती है जो पारदर्शी तरीके से सीधे भुगतान करती है।<br><br>
-  🌟 <b>100% सुरक्षित</b> - कोई एडमिन नियंत्रण नहीं, पूरी तरह विकेंद्रीकृत।<br>
-  🌟 <b>तुरंत भुगतान</b> - तुरंत पैसा प्राप्त करें।<br>
-  🌟 <b>असीमित कमाई</b> - अपना नेटवर्क बढ़ाएं।<br><br>
-  <b>पारदर्शिता:</b> फंड बिना बिचौलिये के वितरित होते हैं।
-`;
+  <b>मनी प्लांट एमएलएम</b> में आपका स्वागत है। यह एक पूरी तरह विकेंद्रीकृत प्रणाली है...`;
 document.getElementById('languageBtn').addEventListener('click', () => {
   const isEng = document.getElementById('languageBtn').textContent.includes('English');
   if (isEng) {
@@ -102,14 +95,14 @@ const faqData = [
       question: "1. Money Plant MLM System क्या है?",
       answer: "Money Plant एक पूरी तरह से विकेंद्रीकृत MLM सिस्टम है..."
     }
-  },
+  }
   // ... अन्य FAQ items ...
 ];
 function renderFAQ() {
   const faqContainer = document.getElementById('faq-items');
   faqContainer.innerHTML = '';
   faqData.forEach(item => {
-    const langData = (currentLanguage === 'en') ? item.en : item.hi;
+    const langData = currentLanguage === 'en' ? item.en : item.hi;
     const details = document.createElement('details');
     const summary = document.createElement('summary');
     summary.textContent = langData.question;
@@ -122,7 +115,7 @@ function renderFAQ() {
 }
 renderFAQ();
 
-// Modal Open and Close Functions
+// Modal Open/Close
 function openModal(modalId) {
   document.body.classList.add('modal-open');
   document.getElementById(modalId).style.display = 'block';
@@ -225,23 +218,20 @@ function addPaidPartner() {
     alert("Please enter a valid Paid Partner Wallet Address!");
     return;
   }
-  // Simulate payment of 18 USDT and its distribution
+  // Simulate payment of 18 USDT with distribution
   alert(`18 USDT paid! Distribution:
 15 Uplines: 15 USDT (1 USDT each)
 Refund Pool: 2 USDT
 Admin: 1 USDT`);
-  
   paidPartnerCount++;
   isPaidPartner = true;
   alert(`Paid Partner ${paidPartnerAddr} added successfully!
-You will receive 50% of earnings generated by this Paid Partner.
-(The remaining 50% will be transferred to your wallet.)`);
-  
+You will receive 50% of earnings generated by this Paid Partner (the remaining 50% goes to your wallet).`);
   updateUIForPaidPartner();
   closeModal();
 }
 
-// Self Activate Function for Paid Partner
+// Self Activate Function for Paid Partners
 function selfActivatePaidPartner() {
   if (!isPaidPartner) {
     alert("Only Paid Partners can self activate!");
@@ -251,21 +241,20 @@ function selfActivatePaidPartner() {
     alert("You are already self activated.");
     return;
   }
-  // Simulate payment of 54 USDT and its distribution
+  // Simulate payment of 54 USDT with distribution
   alert(`54 USDT paid! Distribution:
 Sponsor: 36 USDT
 15 Uplines: 15 USDT (1 USDT each)
 Admin: 1 USDT
 Refund Pool: 2 USDT
-After this, all team earnings will be 100% yours.`);
-  
+After this, all team earnings will go 100% to you.`);
   isSelfActivated = true;
-  alert("You are now self activated. All your team earnings will go to you.");
+  alert("You are now self activated. All your team earnings will be yours.");
   updateUIForPaidPartner();
   closeModal();
 }
 
-// Replace Me (for free partners only)
+// Replace Me for free partners only
 function replaceUser() {
   if (isPartner) {
     alert("Partner cannot use Replace Me function!");
@@ -295,4 +284,4 @@ function handleQuit() {
     alert('Refunds start tomorrow at 4 AM IST.');
     hideAllButtons();
   }
-}
+      }
