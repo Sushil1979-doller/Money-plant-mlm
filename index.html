@@ -12,9 +12,8 @@
     <div class="header-title">
       <h1>🌿 Money Plant 🌿</h1>
       <p class="header-subtitle">100% Scam Free Project - Build Your Team Confidently</p>
-      <!-- Header Buttons: Subtitle के ठीक नीचे -->
       <div class="header-buttons">
-        <!-- Connect Wallet बटन का कलर जैसा पहले था -->
+        <!-- Connect Wallet का रंग जैसा पहले था -->
         <button id="connectWalletBtn" class="disconnected">Connect Wallet</button>
         <button id="languageBtn">English / हिंदी</button>
       </div>
@@ -40,7 +39,7 @@
   <section id="faq-plan-section">
     <h2>FAQ Section</h2>
     <div id="faq-items">
-      <!-- सभी 25 FAQ items script.js से render होंगे -->
+      <!-- FAQ items render via script.js -->
     </div>
     
     <!-- Plan Video & PDF Download Section -->
@@ -55,15 +54,16 @@
     </div>
   </section>
 
-  <!-- Main Buttons in Required Order -->
+  <!-- Main Buttons (Free Partner UI) -->
   <div class="button-container">
     <button class="btn-activate" onclick="openModal('activateModal')">Activate me</button>
-    <!-- My team text changed to My plant -->
     <button class="btn-team" onclick="openModal('teamModal')">My plant</button>
     <button class="btn-add-partner" onclick="openModal('addPartnerModal')">Add Partner</button>
     <button class="btn-replace" onclick="openModal('replaceModal')">Replace Me</button>
     <button class="btn-quit" id="quitBtn" onclick="handleQuit()">Quit Me</button>
   </div>
+
+  <!-- (If user is a Paid Partner and not self activated, a "Self Activate" button will be added via JS) -->
 
   <!-- Activate Modal -->
   <div id="activateModal" class="modal">
@@ -85,11 +85,8 @@
         <input type="text" id="directSponsor" readonly>
         <span class="amount">9 USDT</span>
       </div>
-      <!-- Distribute Button -->
       <button class="distribute-btn" onclick="distributeFunds()">Distribute Funds</button>
-      <!-- Referral Actions -->
       <div class="referral-actions-container"></div>
-      <!-- Back Button -->
       <div class="modal-actions">
         <button class="close-btn" onclick="closeModal()">Back</button>
       </div>
@@ -120,11 +117,10 @@
   <div id="replaceModal" class="modal">
     <div class="modal-content">
       <h2>🔁 Replace Account</h2>
-      <!-- Old user address input pre-loaded with connected address, enlarged -->
+      <!-- Old user address enlarged and pre-loaded -->
       <input type="text" id="sponsorLink" readonly class="large-input" placeholder="Old Wallet Address" value="">
-      <!-- Enlarged input for New Wallet Address -->
+      <!-- Enlarged new wallet address input -->
       <input type="text" placeholder="Enter New Wallet Address" id="newAddress" class="large-input" value="">
-      <!-- Both buttons in one row -->
       <div class="replace-actions">
         <button class="submit-btn" onclick="replaceUser()">Submit</button>
         <button class="close-btn" onclick="closeModal()">Back</button>
@@ -132,22 +128,61 @@
     </div>
   </div>
 
-  <!-- Add Partner Modal -->
+  <!-- Add Partner Modal (Free & Paid options) -->
   <div id="addPartnerModal" class="modal">
     <div class="modal-content">
-      <!-- Handshake emoji added in heading -->
-      <h2>🤝 Add a Partner</h2>
-      <!-- Enlarged input: User's wallet pre-loaded -->
-      <input type="text" id="yourWallet" readonly class="large-input" placeholder="Your Wallet Address" value="">
-      <!-- Enlarged input for Partner Wallet Address -->
-      <input type="text" id="partnerAddress" class="large-input" placeholder="Enter Partner Wallet Address">
-      <!-- Both buttons in one row with equal size -->
-      <div class="partner-actions">
-        <button class="pay-btn" onclick="addPartner()">Pay 3 USDT</button>
-        <button class="remove-btn" onclick="removePartner()">Remove Partner</button>
+      <h2>Add a Partner</h2>
+      
+      <!-- Free Partner Section -->
+      <div class="free-partner-section">
+        <h3>Free Partner</h3>
+        <input type="text" id="yourWallet" readonly class="large-input" placeholder="Your Wallet Address" value="">
+        <input type="text" id="partnerAddress" class="large-input" placeholder="Enter Partner Wallet Address">
+        <div class="partner-actions">
+          <button class="pay-btn" onclick="addPartner()">Pay 3 USDT</button>
+          <button class="remove-btn" onclick="removePartner()">Remove Partner</button>
+        </div>
       </div>
-      <!-- Back Button -->
+      
+      <hr>
+      
+      <!-- Paid Partner Section -->
+      <div class="paid-partner-section">
+        <h3>Paid Partner <span title="Paid Partner"><img src="handshake_icon.png" alt="🤝" class="icon"></span></h3>
+        <p class="info-text">
+          केवल 27 USDT से activated user ही इस विकल्प का उपयोग कर सकते हैं। Paid Partner के लिए 18 USDT का भुगतान होगा, जो ऑटोमेटिकली 15 uplines (1 USDT each), refund pool (2 USDT) और admin (1 USDT) में वितरित हो जाएगा।<br>
+          Paid Partner बनने के पश्चात, उस नए partner से होने वाली कमाई का 50% पुराना यूजर को और 50% नए partner को मिलेगा।<br>
+          यदि 30 दिन में 3 नए लोगों को जोड़ने में विफल, तो पुराना यूजर बिना अतिरिक्त भुगतान के partner को replace कर सकता है।<br>
+          अधिकतम 10 Paid Partner बनाए जा सकते हैं।<br>
+          Paid Partner को quit/refund की अनुमति नहीं होगी तथा paid partner बनने पर quit me और replace me के अधिकार बंद हो जाएंगे।
+        </p>
+        <input type="text" id="paidPartnerAddress" class="large-input" placeholder="Enter New Paid Partner Wallet Address">
+        <div class="partner-actions">
+          <button class="pay-btn" onclick="addPaidPartner()">Pay 18 USDT & Add Paid Partner</button>
+        </div>
+      </div>
+      
       <div class="modal-actions">
+        <button class="close-btn" onclick="closeModal()">Back</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Self Activate Modal for Paid Partners who wish to become self-owned -->
+  <div id="selfActivateModal" class="modal">
+    <div class="modal-content">
+      <h2>Self Activate</h2>
+      <p class="info-text">
+        If you wish to become fully self-owned and retain 100% of your team earnings (instead of the 50% share going to the old user), you can self activate by paying double.<br>
+        You will need to pay 54 USDT which will be distributed as follows:<br>
+        - 36 USDT to your sponsor<br>
+        - 15 USDT in total to all 15 uplines (1 USDT each)<br>
+        - 1 USDT to Admin<br>
+        - 2 USDT to the Refund Pool<br>
+        After this, you will receive 100% of your team earnings. Note: You will still not have Quit Me or Replace Me rights.
+      </p>
+      <div class="selfactivate-actions">
+        <button class="submit-btn" onclick="selfActivatePaidPartner()">Self Activate</button>
         <button class="close-btn" onclick="closeModal()">Back</button>
       </div>
     </div>
@@ -155,4 +190,4 @@
 
   <script src="script.js"></script>
 </body>
-</html>
+  </html>
