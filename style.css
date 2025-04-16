@@ -12,7 +12,7 @@ body {
   padding: 20px;
 }
 
-/* सामान्य बटन स्टाइल: cylindrical आकार और raised effect */
+/* सामान्य बटन स्टाइल */
 button {
   border-radius: 50px !important;
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
@@ -55,7 +55,6 @@ header {
   gap: 10px;
   justify-content: center;
 }
-/* Header Buttons */
 #connectWalletBtn, #languageBtn {
   padding: 24px 50px;
   border: none;
@@ -63,10 +62,18 @@ header {
   font-size: 32px;
   font-weight: bold;
 }
-/* Connect Wallet: पुराने कोड जैसा */
-#connectWalletBtn.disconnected { background: #e74c3c; color: white; }
-#connectWalletBtn.connected { background: #3498db; color: white; }
-#languageBtn { background: #9b59b6; color: white; }
+#connectWalletBtn.disconnected {
+  background: #e74c3c;
+  color: white;
+}
+#connectWalletBtn.connected {
+  background: #3498db;
+  color: white;
+}
+#languageBtn {
+  background: #9b59b6;
+  color: white;
+}
 
 /* Welcome Section */
 .welcome {
@@ -103,7 +110,6 @@ header {
   font-weight: bold;
   font-size: 36px;
 }
-/* Main Buttons Colors */
 .btn-activate { background: #2ECC71; }
 .btn-team    { background: #3498db; }
 .btn-add-partner { background: #8e44ad; }
@@ -138,7 +144,7 @@ header {
   cursor: pointer;
 }
 
-/* Modal Styles */
+/* Modals */
 .modal {
   display: none;
   position: fixed;
@@ -171,11 +177,9 @@ header {
   background: white;
   box-sizing: border-box;
 }
-body.modal-open {
-  overflow: hidden;
-}
+body.modal-open { overflow: hidden; }
 
-/* Beneficiary Items in Modal */
+/* Beneficiary Items */
 .beneficiary-item {
   display: flex;
   justify-content: space-between;
@@ -185,10 +189,7 @@ body.modal-open {
   background: #e8f5e9;
   border-radius: 50px;
 }
-.beneficiary-item span {
-  width: 40%;
-  font-size: 36px;
-}
+.beneficiary-item span { width: 40%; font-size: 36px; }
 .beneficiary-item input {
   width: 45%;
   padding: 12px;
@@ -197,10 +198,7 @@ body.modal-open {
   border-radius: 50px;
   margin-left: 15px;
 }
-.amount {
-  margin-left: 15px;
-  font-size: 36px;
-}
+.amount { margin-left: 15px; font-size: 36px; }
 
 /* Distribute Funds Button */
 .distribute-btn {
@@ -212,10 +210,8 @@ body.modal-open {
   font-weight: bold;
 }
 
-/* Referral Actions in Activate Modal */
-.referral-actions-container {
-  margin-top: 25px;
-}
+/* Referral Actions */
+.referral-actions-container { margin-top: 25px; }
 .referral-actions {
   display: flex;
   gap: 15px;
@@ -230,10 +226,8 @@ body.modal-open {
 .copy-btn { background: #3498db; color: white; }
 .telegram-btn { background: #0088cc; color: white; }
 
-/* Modal Actions Container */
+/* Modal Actions */
 .modal-actions { display: flex; justify-content: center; margin-top: 20px; }
-
-/* Back Button */
 .close-btn {
   background: yellow !important;
   color: #333 !important;
@@ -300,11 +294,9 @@ body.modal-open {
   padding-top: 15px;
   border-top: 1px solid #ddd;
 }
-#plan-download a, #plan-download .btn-income-refund {
-  margin-right: 15px;
-}
+#plan-download a, #plan-download .btn-income-refund { margin-right: 15px; }
 
-/* Large Input for Replace and Add Partner Modals */
+/* Large Input Fields */
 .large-input {
   width: 90%;
   padding: 20px;
@@ -366,7 +358,7 @@ body.modal-open {
   cursor: pointer;
 }
 
-/* Paid Partner Section */
+/* Paid Partner Section Styles */
 .paid-partner-section { margin-top: 40px; }
 .paid-partner-section h3 { font-size: 48px; margin-bottom: 20px; }
 .info-text { font-size: 28px; line-height: 1.5; margin: 20px; }
