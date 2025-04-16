@@ -1,4 +1,4 @@
-/* Reset and base styles remain unchanged */
+/* Reset and base styles */
 * {
   margin: 0;
   padding: 0;
@@ -26,7 +26,7 @@ button:hover {
 /* Header */
 header {
   background: #1a6b3a;
-  padding: 50px 50px;
+  padding: 50px;
   border-radius: 10px;
   margin-bottom: 30px;
   display: flex;
@@ -84,7 +84,7 @@ header {
   cursor: pointer;
 }
 
-/* Large Input */
+/* Large Input Fields */
 .large-input {
   width: 90%;
   padding: 20px;
@@ -94,6 +94,37 @@ header {
   border: 1px solid #ddd;
   border-radius: 50px;
   margin: 20px auto;
+}
+
+/* Modal Container */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255,255,255,0.95);
+  z-index: 9999;
+  padding: 0;
+}
+.modal::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.7);
+  z-index: -1;
+}
+.modal-content {
+  width: 100%;
+  max-height: 100vh;
+  overflow-y: auto;
+  padding: 50px;
+  text-align: center;
+  background: white;
 }
 
 /* Replace Me Modal Actions */
@@ -155,7 +186,8 @@ header {
   border: none;
   cursor: pointer;
 }
-/* Back Button */
+
+/* Back Button: All back buttons */
 .close-btn {
   background: yellow !important;
   color: #333 !important;
@@ -178,4 +210,4 @@ header {
   margin: 20px;
 }
 
-/* बाकी Modal और अन्य सेक्शन्स के स्टाइल पहले जैसा रखते हैं */
+/* Other modal and section styles remain unchanged */
