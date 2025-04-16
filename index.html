@@ -13,7 +13,6 @@
       <h1>🌿 Money Plant 🌿</h1>
       <p class="header-subtitle">100% Scam Free Project - Build Your Team Confidently</p>
       <div class="header-buttons">
-        <!-- Connect Wallet का कलर पुराने कोड जैसा (red/disconnected & blue/connected) -->
         <button id="connectWalletBtn" class="disconnected">Connect Wallet</button>
         <button id="languageBtn">English / हिंदी</button>
       </div>
@@ -39,9 +38,8 @@
   <section id="faq-plan-section">
     <h2>FAQ Section</h2>
     <div id="faq-items">
-      <!-- FAQ items will be rendered via script.js -->
+      <!-- FAQ items rendered via script.js -->
     </div>
-    
     <!-- Plan Video & PDF Download Section -->
     <div id="plan-download">
       <h3>Plan Video & PDF</h3>
@@ -60,10 +58,8 @@
     <button class="btn-team" onclick="openModal('teamModal')">My plant</button>
     <button class="btn-add-partner" onclick="openModal('addPartnerModal')">Add Partner</button>
     <button class="btn-replace" onclick="openModal('replaceModal')">Replace Me</button>
-    <button class="btn-quit" id="quitBtn" onclick="handleQuit()">Quit Me</button>
+    <button class="btn-quit" onclick="openModal('quitModal')">Quit Me</button>
   </div>
-
-  <!-- Paid Partner's Self Activate Button will be appended dynamically if needed -->
 
   <!-- Activate Modal -->
   <div id="activateModal" class="modal">
@@ -85,7 +81,7 @@
         <input type="text" id="directSponsor" readonly>
         <span class="amount">9 USDT</span>
       </div>
-      <button class="distribute-btn" onclick="distributeFunds()">Distribute Funds</button>
+      <button class="distribute-btn" onclick="distributeFunds()">Distribute 27 USDT</button>
       <div class="referral-actions-container"></div>
       <div class="modal-actions">
         <button class="close-btn" onclick="closeModal()">Back</button>
@@ -113,13 +109,21 @@
     </div>
   </div>
 
-  <!-- Replace Me Modal -->
+  <!-- Replace Me Modal with Numbered Disclaimer -->
   <div id="replaceModal" class="modal">
     <div class="modal-content">
       <h2>🔁 Replace Account</h2>
-      <!-- Enlarged pre-loaded old wallet address -->
+      <div class="disclaimer">
+        <p>
+          <strong>Disclaimer:</strong><br>
+          1. यदि आपने 27 USDT से अपनी id को activate किया था और अभी तक 1 भी रेफरल नहीं किया है, तभी आप Replace me का इस्तेमाल कर पाएंगे।<br>
+          2. नए यूजर से 27 USDT लेना आपकी जिम्मेदारी है; लेने के बाद उनकी id update कर दी जाएगी।<br>
+          3. आपके द्वारा introduce किया गया नया user भविष्य में निर्धारित शर्तों के अनुसार Replace me का उपयोग कर सकता है।<br>
+          4. यदि आपने खुद को replace कर दिया, तो आपकी जगह हमेशा के लिए नया user ले लेगा और आप सिस्टम से बाहर हो जाएंगे।<br>
+          5. एक बार replace करने के बाद आप इस स्थान को फिर से प्राप्त नहीं कर सकते; फिर से शुरुआत के लिए आपको नई id activate करनी पड़ेगी।
+        </p>
+      </div>
       <input type="text" id="sponsorLink" readonly class="large-input" placeholder="Old Wallet Address" value="">
-      <!-- Enlarged new wallet address input -->
       <input type="text" placeholder="Enter New Wallet Address" id="newAddress" class="large-input" value="">
       <div class="replace-actions">
         <button class="submit-btn" onclick="replaceUser()">Submit</button>
@@ -128,11 +132,32 @@
     </div>
   </div>
 
-  <!-- Add Partner Modal (Includes both Free and Paid Partner options) -->
+  <!-- Quit Me Modal with Numbered Disclaimer -->
+  <div id="quitModal" class="modal">
+    <div class="modal-content">
+      <h2>Quit Me</h2>
+      <div class="disclaimer">
+        <p>
+          <strong>Disclaimer:</strong><br>
+          1. यदि आपने 27 USDT से अपनी id को activate किया है और अभी तक 1 भी रेफरल नहीं किया है, तभी आप Quit me का इस्तेमाल कर पाएंगे।<br>
+          2. Quit करने पर आपकी id सिस्टम से पूरी तरह हट जाएगी और refund pool से refund आपके wallet में जमा होने लगेगा।<br>
+          3. Refund का वितरण quit करने वाले सभी यूज़र्स में समान रूप से किया जाएगा, जिसकी अधिकतम सीमा 0.27 USDT तय की गई है।<br>
+          4. Refund का निर्धारित समय 4 AM IST है।<br>
+          5. अगर refund pool में राशि कम है, तो उसी अनुपात में refund मिलेगा; यदि राशि न हो, तो इंतजार करना होगा।<br>
+          6. Refund तब तक जारी रहेगा जब तक आपका मूलधन 27 USDT वापस न मिल जाए।<br>
+          7. एक बार quit करने के बाद आपको फिर से शुरुआत करने के लिए नई id activate करनी पड़ेगी।
+        </p>
+      </div>
+      <div class="modal-actions">
+        <button class="close-btn" onclick="closeModal()">Back</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Partner Modal (Free & Paid Options) -->
   <div id="addPartnerModal" class="modal">
     <div class="modal-content">
       <h2>🤝 Add a Partner</h2>
-      
       <!-- Free Partner Section -->
       <div class="free-partner-section">
         <h3>Free Partner</h3>
@@ -143,25 +168,23 @@
           <button class="remove-btn" onclick="removePartner()">Remove Partner</button>
         </div>
       </div>
-      
       <hr>
-      
       <!-- Paid Partner Section -->
       <div class="paid-partner-section">
         <h3>Paid Partner <span title="Paid Partner"><img src="handshake_icon.png" alt="🤝" class="icon"></span></h3>
         <p class="info-text">
-          केवल 27 USDT से activated user ही इस विकल्प का उपयोग कर सकते हैं। Paid Partner के लिए 18 USDT का भुगतान होगा, जो ऑटोमेटिकली 15 uplines (1 USDT each), refund pool (2 USDT) और admin (1 USDT) में वितरित हो जाएगा।<br>
-          Paid Partner बनने के पश्चात, उस नए partner से होने वाली कमाई का 50% पुराना यूजर को और 50% नए partner को मिलेगा।<br>
-          यदि 30 दिन में 3 नए लोगों को जोड़ने में विफल, तो पुराना यूजर बिना अतिरिक्त भुगतान के partner को replace कर सकता है।<br>
-          अधिकतम 10 Paid Partner बनाए जा सकते हैं।<br>
-          Paid Partner को quit/refund की अनुमति नहीं होगी तथा paid partner बनने पर quit me और replace me के अधिकार बंद हो जाएंगे।
+          1. केवल 27 USDT से activated user ही इस विकल्प का उपयोग कर सकते हैं।<br>
+          2. Paid Partner के लिए 18 USDT का भुगतान होगा, जो ऑटोमेटिकली 15 uplines (1 USDT each), refund pool (2 USDT) और admin (1 USDT) में वितरित हो जाएगा।<br>
+          3. Paid Partner बनने के पश्चात, उस नए partner से होने वाली कमाई का 50% पुराना user को और 50% नए partner को मिलेगा।<br>
+          4. यदि 30 दिन में 3 नए लोगों को जोड़ने में विफल, तो पुराना user बिना अतिरिक्त भुगतान के partner को replace कर सकता है।<br>
+          5. अधिकतम 10 Paid Partner बनाए जा सकते हैं।<br>
+          6. Paid Partner को quit/refund की अनुमति नहीं होगी तथा paid partner बनने पर quit me और replace me के अधिकार बंद हो जाएंगे।
         </p>
         <input type="text" id="paidPartnerAddress" class="large-input" placeholder="Enter New Paid Partner Wallet Address">
         <div class="partner-actions">
           <button class="pay-btn" onclick="addPaidPartner()">Pay 18 USDT & Add Paid Partner</button>
         </div>
       </div>
-      
       <div class="modal-actions">
         <button class="close-btn" onclick="closeModal()">Back</button>
       </div>
@@ -172,16 +195,19 @@
   <div id="selfActivateModal" class="modal">
     <div class="modal-content">
       <h2>Self Activate</h2>
-      <p class="info-text">
-        यदि आप 50% शेयर नहीं चाहते और पूरी टीम की कमाई 100% अपने पास रखना चाहते हैं, तो Self Activate कर सकते हैं।<br>
-        इसके लिए आपको कुल 54 USDT का भुगतान करना होगा, जिसका वितरण निम्नलिखित होगा:<br>
-        - Sponsor: 36 USDT<br>
-        - 15 Uplines: 15 USDT (1 USDT each)<br>
-        - Admin: 1 USDT<br>
-        - Refund Pool: 2 USDT<br>
-        इस भुगतान के बाद, आपकी टीम से होने वाली सारी कमाई आपके पास आएगी।<br>
-        ध्यान दें: Self Activate के बाद Quit Me या Replace Me के अधिकार नहीं मिलेंगे।
-      </p>
+      <div class="disclaimer">
+        <p>
+          <strong>Disclaimer:</strong><br>
+          1. यदि आप 50% शेयर नहीं चाहते और पूरी टीम की कमाई 100% अपने पास रखना चाहते हैं, तो Self Activate करें।<br>
+          2. इसके लिए आपको कुल 54 USDT का भुगतान करना होगा, जिसका वितरण निम्न प्रकार होगा:<br>
+             &nbsp;&nbsp;a. Sponsor: 36 USDT<br>
+             &nbsp;&nbsp;b. 15 Uplines: 15 USDT (1 USDT each)<br>
+             &nbsp;&nbsp;c. Admin: 1 USDT<br>
+             &nbsp;&nbsp;d. Refund Pool: 2 USDT<br>
+          3. इसके बाद आपकी टीम की सभी कमाई 100% आपके पास जाएगी।<br>
+          4. Self Activate के बाद Quit Me और Replace Me के अधिकार उपलब्ध नहीं होंगे।
+        </p>
+      </div>
       <div class="selfactivate-actions">
         <button class="submit-btn" onclick="selfActivatePaidPartner()">Self Activate</button>
         <button class="close-btn" onclick="closeModal()">Back</button>
@@ -191,4 +217,4 @@
 
   <script src="script.js"></script>
 </body>
-</html>
+  </html>
