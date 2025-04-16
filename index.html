@@ -13,7 +13,7 @@
       <h1>🌿 Money Plant 🌿</h1>
       <p class="header-subtitle">100% Scam Free Project - Build Your Team Confidently</p>
       <div class="header-buttons">
-        <!-- Connect Wallet का रंग जैसा पहले था -->
+        <!-- Connect Wallet का कलर जैसा पहले था -->
         <button id="connectWalletBtn" class="disconnected">Connect Wallet</button>
         <button id="languageBtn">English / हिंदी</button>
       </div>
@@ -63,7 +63,7 @@
     <button class="btn-quit" id="quitBtn" onclick="handleQuit()">Quit Me</button>
   </div>
 
-  <!-- (If user is a Paid Partner and not self activated, a "Self Activate" button will be added via JS) -->
+  <!-- (If user is a Paid Partner and not self activated, a "Self Activate" button will be added dynamically) -->
 
   <!-- Activate Modal -->
   <div id="activateModal" class="modal">
@@ -168,18 +168,19 @@
     </div>
   </div>
 
-  <!-- Self Activate Modal for Paid Partners who wish to become self-owned -->
+  <!-- Self Activate Modal for Paid Partners -->
   <div id="selfActivateModal" class="modal">
     <div class="modal-content">
       <h2>Self Activate</h2>
       <p class="info-text">
-        If you wish to become fully self-owned and retain 100% of your team earnings (instead of the 50% share going to the old user), you can self activate by paying double.<br>
-        You will need to pay 54 USDT which will be distributed as follows:<br>
-        - 36 USDT to your sponsor<br>
-        - 15 USDT in total to all 15 uplines (1 USDT each)<br>
-        - 1 USDT to Admin<br>
-        - 2 USDT to the Refund Pool<br>
-        After this, you will receive 100% of your team earnings. Note: You will still not have Quit Me or Replace Me rights.
+        यदि आप 50% शेयर नहीं चाहते और पूरी टीम की कमाई 100% अपने पास रखना चाहते हैं, तो Self Activate कर सकते हैं।<br>
+        इसके लिए आपको कुल 54 USDT का भुगतान करना होगा, जिसमें वितरण होगा:<br>
+        - Sponsor: 36 USDT<br>
+        - 15 Uplines: 15 USDT (1 USDT each)<br>
+        - Admin: 1 USDT<br>
+        - Refund Pool: 2 USDT<br>
+        इस भुगतान के बाद, आपकी टीम से होने वाली सारी कमाई आपके पास आएगी।<br>
+        ध्यान दें: Self Activate के बाद भी आपको Quit Me या Replace Me का अधिकार नहीं मिलेगा।
       </p>
       <div class="selfactivate-actions">
         <button class="submit-btn" onclick="selfActivatePaidPartner()">Self Activate</button>
@@ -190,4 +191,4 @@
 
   <script src="script.js"></script>
 </body>
-  </html>
+</html>
