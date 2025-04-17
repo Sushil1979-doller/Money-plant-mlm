@@ -52,7 +52,7 @@ function updateUIForPaidPartner() {
     if (replaceBtn) replaceBtn.style.display = 'none';
     if (quitBtn) quitBtn.style.display = 'none';
     
-    // Show Self Activate button if not self activated
+    // If not self activated, show "Self Activate" button if not already added
     if (!isSelfActivated && !document.querySelector('.btn-selfactivate')) {
       const container = document.querySelector('.button-container');
       const selfActBtn = document.createElement('button');
@@ -101,7 +101,7 @@ function renderFAQ() {
   const faqContainer = document.getElementById('faq-items');
   faqContainer.innerHTML = '';
   faqData.forEach(item => {
-    const langData = currentLanguage === 'en' ? item.en : item.hi;
+    const langData = (currentLanguage === 'en') ? item.en : item.hi;
     const details = document.createElement('details');
     const summary = document.createElement('summary');
     summary.textContent = langData.question;
@@ -114,7 +114,7 @@ function renderFAQ() {
 }
 renderFAQ();
 
-// Modal Open/Close Functions
+// Modal Open/Close
 function openModal(modalId) {
   document.body.classList.add('modal-open');
   document.getElementById(modalId).style.display = 'block';
@@ -253,7 +253,7 @@ After this, all team earnings will go 100% to you.`);
   closeModal();
 }
 
-// Replace Me Functionality for free partners only
+// Replace Me Functionality (for free partners only)
 function replaceUser() {
   if (isPartner) {
     alert("Partner cannot use Replace Me function!");
@@ -275,7 +275,7 @@ function replaceUser() {
   }
 }
 
-// Quit Me Functionality: Opens Quit Modal
+// Quit Me Functionality
 function handleQuit() {
   if (isPartner) {
     alert("Partner cannot use Quit Me function!");
