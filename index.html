@@ -7,7 +7,7 @@
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Header Section -->
   <header>
     <div class="header-title">
       <h1>🌿 Money Plant 🌿</h1>
@@ -19,19 +19,31 @@
     </div>
   </header>
 
-  <!-- Welcome -->
+  <!-- Welcome Section -->
   <section class="welcome">
     <div class="border-symbol">🌿🌿🌿</div>
-    <p id="welcomeText"></p>
+    <p id="welcomeText">
+      Welcome to <b>Money Plant MLM System</b>. This is your own money plant, it's a fully decentralized system where the owner is renounced and only users are the owner.<br><br>
+      <b>Here you can grow your money securely and get financial freedom!</b><br><br>
+      This system works on a <b>smart contract</b> that automatically distributes rewards among participants in a fair and transparent way. Once you register, you will start earning commissions from direct and indirect referrals.<br><br>
+      🌟 <b>100% Safe & Secure</b> - No Admin Control, Fully Decentralized.<br>
+      🌟 <b>Instant Payments</b> - No Waiting, Get Paid Instantly.<br>
+      🌟 <b>Unlimited Earnings</b> - Grow Your Network, Increase Your Income.<br><br>
+      <b>Transparency:</b> Funds are distributed directly user-to-user without any mediator. Money Plant is a liability-free project and will remain forever with you all.
+    </p>
     <div class="border-symbol">🌿🌿🌿</div>
   </section>
 
-  <!-- FAQ & Downloads -->
+  <!-- FAQ & Plan Section -->
   <section id="faq-plan-section">
     <h2>FAQ Section</h2>
-    <div id="faq-items"></div>
+    <div id="faq-items">
+      <!-- FAQ items rendered via script.js -->
+    </div>
+    <!-- Plan Video & PDF Download Section -->
     <div id="plan-download">
       <h3>Plan Video & PDF</h3>
+      <p>Click the links below to download the plan video and PDF:</p>
       <div class="download-links">
         <a href="path_to_video.mp4" download>Download Video</a>
         <a href="path_to_plan.pdf" download>Download PDF</a>
@@ -40,7 +52,7 @@
     </div>
   </section>
 
-  <!-- Main Buttons -->
+  <!-- Main Buttons Container -->
   <div class="button-container">
     <button class="btn-activate" onclick="openModal('activateModal')">Activate me</button>
     <button class="btn-team" onclick="openModal('teamModal')">My plant</button>
@@ -53,7 +65,22 @@
   <div id="activateModal" class="modal">
     <div class="modal-content">
       <h2>💰 Beneficiary List</h2>
-      <!-- Beneficiaries... -->
+      <div class="beneficiary-item">
+        <span>🌝 Admin</span>
+        <input type="text" value="0x80e4CbEffc6D76E516FFe60392C39Af42132602A" readonly>
+        <span class="amount">1 USDT</span>
+      </div>
+      <div class="beneficiary-item">
+        <span>💰 Refund Pool</span>
+        <input type="text" value="0x60547abE7550e894e0fcCe43Adf36E4774e22d95" readonly>
+        <span class="amount">2 USDT</span>
+      </div>
+      <div id="uplineList"></div>
+      <div class="beneficiary-item">
+        <span>🧛🏻 Direct Sponsor</span>
+        <input type="text" id="directSponsor" readonly>
+        <span class="amount">9 USDT</span>
+      </div>
       <button class="distribute-btn" onclick="distributeFunds()">Distribute 27 USDT</button>
       <div class="referral-actions-container"></div>
       <div class="modal-actions">
@@ -62,31 +89,42 @@
     </div>
   </div>
 
-  <!-- Team Modal -->
+  <!-- Team (My Plant) Modal -->
   <div id="teamModal" class="modal">
     <div class="modal-content">
       <h2>🌿 Team Structure</h2>
-      <!-- Team details... -->
+      <div class="team-levels"></div>
+      <div class="team-total">
+        <span>Total Members:</span>
+        <b id="totalMembers">0</b>
+      </div>
+      <div class="income-stats">
+        <div class="stat-box"><span>Today's Income:</span> <b>0 USDT</b></div>
+        <div class="stat-box"><span>Total Income:</span> <b>0 USDT</b></div>
+        <div class="stat-box"><span>Bonus:</span> <b>0 USDT</b></div>
+      </div>
       <div class="modal-actions">
         <button class="close-btn" onclick="closeModal()">Back</button>
       </div>
     </div>
   </div>
 
-  <!-- Replace Me Modal -->
+  <!-- Replace Me Modal with Numbered Disclaimer -->
   <div id="replaceModal" class="modal">
     <div class="modal-content">
       <h2>🔁 Replace Account</h2>
       <div class="disclaimer">
-        <p><strong>Disclaimer:</strong></p>
-        <p>1. यदि आपने 27 USDT से अपनी id activate की है और अब तक 1 भी रेफरल नहीं किया है तभी आप Replace me कर पाएंगे।</p>
-        <p>2. नए यूजर से 27 USDT लेना आपकी जिम्मेदारी है; लेने के बाद उनकी id update हो जाएगी।</p>
-        <p>3. आपके द्वारा introduce नया user भविष्य में शर्तों के अनुसार Replace me कर सकता है।</p>
-        <p>4. Replace कर देने पर आप सिस्टम से बाहर हो जाएंगे; नई id से फिर शुरू करनी होगी।</p>
-        <p>5. एक बार Replace करने के बाद आप इस स्थान को वापस नहीं पा सकते।</p>
+        <p>
+          <strong>Disclaimer:</strong><br>
+          1. यदि आपने 27 USDT से अपनी id को activate किया था और अभी तक 1 भी रेफरल नहीं किया है, तभी आप Replace me का इस्तेमाल कर पाएंगे।<br>
+          2. नए यूजर से 27 USDT लेना आपकी जिम्मेदारी है; लेने के बाद उनकी id update कर दी जाएगी।<br>
+          3. आपके द्वारा introduce किया गया नया user भविष्य में निर्धारित शर्तों के अनुसार Replace me का उपयोग कर सकता है।<br>
+          4. यदि आपने खुद को replace कर दिया, तो आपकी जगह हमेशा के लिए नया user ले लेगा और आप सिस्टम से बाहर हो जाएंगे।<br>
+          5. एक बार replace करने के बाद आप इस स्थान को फिर से प्राप्त नहीं कर सकते; फिर से शुरुआत के लिए आपको नई id activate करनी पड़ेगी।
+        </p>
       </div>
-      <input id="sponsorLink" class="large-input" readonly placeholder="Old Wallet Address">
-      <input id="newAddress" class="large-input" placeholder="Enter New Wallet Address">
+      <input type="text" id="sponsorLink" readonly class="large-input" placeholder="Old Wallet Address" value="">
+      <input type="text" placeholder="Enter New Wallet Address" id="newAddress" class="large-input" value="">
       <div class="replace-actions">
         <button class="submit-btn" onclick="replaceUser()">Submit</button>
         <button class="close-btn" onclick="closeModal()">Back</button>
@@ -94,28 +132,88 @@
     </div>
   </div>
 
-  <!-- Quit Me Modal -->
+  <!-- Quit Me Modal with Numbered Disclaimer -->
   <div id="quitModal" class="modal">
     <div class="modal-content">
       <h2>Quit Me</h2>
       <div class="disclaimer">
-        <p><strong>Disclaimer:</strong></p>
-        <p>1. यदि आपने 27 USDT से अपनी id activate की है और अब तक 1 भी रेफरल नहीं किया है तभी आप Quit me कर पाएंगे।</p>
-        <p>2. Quit करने पर आपकी id सिस्टम से हट जाएगी और refund आपके wallet में शुरू होगा।</p>
-        <p>3. Refund सभी quitters में समान रूप से (अधिकतम 0.27 USDT दैनिक)।</p>
-        <p>4. Refund का समय 4 AM IST निर्धारित है।</p>
-        <p>5. राशि कम होने पर उसी अनुपात में मिलेगा; यदि पूल खाली है तो इंतजार करना होगा।</p>
-        <p>6. Refund तब तक जारी रहेगा जब तक आपका 27 USDT वापस न हो जाए।</p>
-        <p>7. एक बार Quit करने के बाद नई id activate करनी होगी।</p>
+        <p>
+          <strong>Disclaimer:</strong><br>
+          1. यदि आपने 27 USDT से अपनी id को activate किया है और अभी तक 1 भी रेफरल नहीं किया है, तभी आप Quit me का इस्तेमाल कर पाएंगे।<br>
+          2. Quit करने पर आपकी id सिस्टम से पूरी तरह हट जाएगी और refund pool से refund आपके wallet में जमा होने लगेगा।<br>
+          3. Refund का वितरण quit करने वाले सभी यूज़र्स में समान रूप से किया जाएगा, जिसकी अधिकतम सीमा 0.27 USDT तय की गई है।<br>
+          4. Refund का निर्धारित समय 4 AM IST है।<br>
+          5. अगर refund pool में राशि कम है, तो उसी अनुपात में refund मिलेगा; यदि राशि न हो, तो इंतजार करना होगा।<br>
+          6. Refund तब तक जारी रहेगा जब तक आपका मूलधन 27 USDT वापस न मिल जाए।<br>
+          7. एक बार quit करने के बाद आपको फिर से शुरुआत करने के लिए नई id activate करनी पड़ेगी।
+        </p>
       </div>
       <div class="modal-actions">
-        <button class="submit-btn quit-confirm" onclick="confirmQuit()">Confirm Quit</button>
         <button class="close-btn" onclick="closeModal()">Back</button>
       </div>
     </div>
   </div>
 
-  <!-- Add Partner & Self Activate Modals (same structure) -->
+  <!-- Add Partner Modal (Free & Paid Options) -->
+  <div id="addPartnerModal" class="modal">
+    <div class="modal-content">
+      <h2>🤝 Add a Partner</h2>
+      <!-- Free Partner Section -->
+      <div class="free-partner-section">
+        <h3>Free Partner</h3>
+        <input type="text" id="yourWallet" readonly class="large-input" placeholder="Your Wallet Address" value="">
+        <input type="text" id="partnerAddress" class="large-input" placeholder="Enter Partner Wallet Address">
+        <div class="partner-actions">
+          <button class="pay-btn" onclick="addPartner()">Pay 3 USDT</button>
+          <button class="remove-btn" onclick="removePartner()">Remove Partner</button>
+        </div>
+      </div>
+      <hr>
+      <!-- Paid Partner Section -->
+      <div class="paid-partner-section">
+        <h3>Paid Partner <span title="Paid Partner"><img src="handshake_icon.png" alt="🤝" class="icon"></span></h3>
+        <p class="info-text">
+          1. केवल 27 USDT से activated user ही इस विकल्प का उपयोग कर सकते हैं।<br>
+          2. Paid Partner के लिए 18 USDT का भुगतान होगा, जो ऑटोमेटिकली 15 uplines (1 USDT each), refund pool (2 USDT) और admin (1 USDT) में वितरित हो जाएगा।<br>
+          3. Paid Partner बनने के पश्चात, उस नए partner से होने वाली कमाई का 50% पुराना user को और 50% नए partner को मिलेगा।<br>
+          4. यदि 30 दिन में 3 नए लोगों को जोड़ने में विफल, तो पुराना user बिना अतिरिक्त भुगतान के partner को replace कर सकता है।<br>
+          5. अधिकतम 10 Paid Partner बनाए जा सकते हैं।<br>
+          6. Paid Partner को quit/refund की अनुमति नहीं होगी तथा paid partner बनने पर quit me और replace me के अधिकार बंद हो जाएंगे।
+        </p>
+        <input type="text" id="paidPartnerAddress" class="large-input" placeholder="Enter New Paid Partner Wallet Address">
+        <div class="partner-actions">
+          <button class="pay-btn" onclick="addPaidPartner()">Pay 18 USDT & Add Paid Partner</button>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="close-btn" onclick="closeModal()">Back</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Self Activate Modal for Paid Partners -->
+  <div id="selfActivateModal" class="modal">
+    <div class="modal-content">
+      <h2>Self Activate</h2>
+      <div class="disclaimer">
+        <p>
+          <strong>Disclaimer:</strong><br>
+          1. यदि आप 50% शेयर नहीं चाहते और पूरी टीम की कमाई 100% अपने पास रखना चाहते हैं, तो Self Activate करें।<br>
+          2. इसके लिए आपको कुल 54 USDT का भुगतान करना होगा, जिसका वितरण निम्न प्रकार होगा:<br>
+             &nbsp;&nbsp;a. Sponsor: 36 USDT<br>
+             &nbsp;&nbsp;b. 15 Uplines: 15 USDT (1 USDT each)<br>
+             &nbsp;&nbsp;c. Admin: 1 USDT<br>
+             &nbsp;&nbsp;d. Refund Pool: 2 USDT<br>
+          3. इसके बाद आपकी टीम की सभी कमाई 100% आपके पास जाएगी।<br>
+          4. Self Activate के बाद Quit Me और Replace Me के अधिकार उपलब्ध नहीं होंगे।
+        </p>
+      </div>
+      <div class="selfactivate-actions">
+        <button class="submit-btn" onclick="selfActivatePaidPartner()">Self Activate</button>
+        <button class="close-btn" onclick="closeModal()">Back</button>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
