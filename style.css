@@ -1,3 +1,4 @@
+/* style.css */
 /* Reset */
 * {
   margin: 0;
@@ -379,7 +380,7 @@ body.modal-open {
 }
 /* Back Button here is same as .close-btn */
 
-/* Partner Modal Actions: Pay 3 USDT and Remove Partner buttons in one row with equal size */
+/* Partner Modal Actions: Add Free Partner and Remove Partner buttons in one row with equal size */
 .partner-actions {
   display: flex;
   justify-content: center;
@@ -394,7 +395,7 @@ body.modal-open {
   border: none;
   cursor: pointer;
 }
-/* Pay 3 USDT button: Green as Distribute Funds */
+/* Add Free Partner button: Green as Distribute Funds */
 .pay-btn {
   background: #1a6b3a;
   color: white;
