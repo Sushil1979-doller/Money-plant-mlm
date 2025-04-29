@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,15 +6,12 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <!-- Header Section -->
   <header>
     <div class="header-title">
       <h1>🌿 Money Plant 🌿</h1>
       <p class="header-subtitle">100% Scam Free Project - Build Your Team Confidently</p>
-      <!-- Header Buttons: Subtitle के ठीक नीचे -->
       <div class="header-buttons">
-        <!-- Connect Wallet बटन का कलर जैसा पहले था -->
         <button id="connectWalletBtn" class="disconnected">Connect Wallet</button>
         <button id="languageBtn">English / हिंदी</button>
       </div>
@@ -25,26 +21,14 @@
   <!-- Welcome Section -->
   <section class="welcome">
     <div class="border-symbol">🌿🌿🌿</div>
-    <p id="welcomeText">
-      Welcome to <b>Money Plant MLM System</b>. This is your own money plant, it's a fully decentralized system where the owner is renounced and only users are the owner.<br><br>
-      <b>Here you can grow your money securely and get financial freedom!</b><br><br>
-      This system works on a <b>smart contract</b> that automatically distributes rewards among participants in a fair and transparent way. Once you register, you will start earning commissions from direct and indirect referrals.<br><br>
-      🌟 <b>100% Safe & Secure</b> - No Admin Control, Fully Decentralized.<br>
-      🌟 <b>Instant Payments</b> - No Waiting, Get Paid Instantly.<br>
-      🌟 <b>Unlimited Earnings</b> - Grow Your Network, Increase Your Income.<br><br>
-      <b>Transparency:</b> Funds are distributed directly user-to-user without any mediator. Money Plant is a liability-free project and will remain forever with you all.
-    </p>
+    <p id="welcomeText">Welcome to <b>Money Plant MLM System</b>. ...</p>
     <div class="border-symbol">🌿🌿🌿</div>
   </section>
 
   <!-- FAQ & Plan Section -->
   <section id="faq-plan-section">
     <h2>FAQ Section</h2>
-    <div id="faq-items">
-      <!-- सभी 25 FAQ items script.js से render होंगे -->
-    </div>
-    
-    <!-- Plan Video & PDF Download Section -->
+    <div id="faq-items"></div>
     <div id="plan-download">
       <h3>Plan Video & PDF</h3>
       <p>Click the links below to download the plan video and PDF:</p>
@@ -56,98 +40,27 @@
     </div>
   </section>
 
-  <!-- Main Buttons in Required Order -->
+  <!-- Main Buttons -->
   <div class="button-container">
     <button class="btn-activate" onclick="openModal('activateModal')">Activate me</button>
-    <!-- My team text changed to My plant -->
     <button class="btn-team" onclick="openModal('teamModal')">My plant</button>
     <button class="btn-add-partner" onclick="openModal('addPartnerModal')">Add Partner</button>
     <button class="btn-replace" onclick="openModal('replaceModal')">Replace Me</button>
     <button class="btn-quit" id="quitBtn" onclick="handleQuit()">Quit Me</button>
   </div>
 
-  <!-- Activate Modal -->
-  <div id="activateModal" class="modal">
-    <div class="modal-content">
-      <h2>💰 Beneficiary List</h2>
-      <div class="beneficiary-item">
-        <span>🌝 Admin</span>
-        <input type="text" value="0x80e4CbEffc6D76E516FFe60392C39Af42132602A" readonly>
-        <span class="amount">1 USDT</span>
-      </div>
-      <div class="beneficiary-item">
-        <span>💰 Refund Pool</span>
-        <input type="text" value="0x60547abE7550e894e0fcCe43Adf36E4774e22d95" readonly>
-        <span class="amount">2 USDT</span>
-      </div>
-      <div id="uplineList"></div>
-      <div class="beneficiary-item">
-        <span>🧛🏻 Direct Sponsor</span>
-        <input type="text" id="directSponsor" readonly>
-        <span class="amount">9 USDT</span>
-      </div>
-      <!-- Distribute Button -->
-      <button class="distribute-btn" onclick="distributeFunds()">Distribute Funds</button>
-      <!-- Referral Actions -->
-      <div class="referral-actions-container"></div>
-      <!-- Back Button -->
-      <div class="modal-actions">
-        <button class="close-btn" onclick="closeModal()">Back</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Team (My Plant) Modal -->
-  <div id="teamModal" class="modal">
-    <div class="modal-content">
-      <h2>🌿 Team Structure</h2>
-      <div class="team-levels"></div>
-      <div class="team-total">
-        <span>Total Members:</span>
-        <b id="totalMembers">0</b>
-      </div>
-      <div class="income-stats">
-        <div class="stat-box"><span>Today's Income:</span> <b>0 USDT</b></div>
-        <div class="stat-box"><span>Total Income:</span> <b>0 USDT</b></div>
-        <div class="stat-box"><span>Bonus:</span> <b>0 USDT</b></div>
-      </div>
-      <div class="modal-actions">
-        <button class="close-btn" onclick="closeModal()">Back</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Replace Me Modal -->
-  <div id="replaceModal" class="modal">
-    <div class="modal-content">
-      <h2>🔁 Replace Account</h2>
-      <!-- Old user address input pre-loaded with connected address, enlarged -->
-      <input type="text" id="sponsorLink" readonly class="large-input" placeholder="Old Wallet Address" value="">
-      <!-- Enlarged input for New Wallet Address -->
-      <input type="text" placeholder="Enter New Wallet Address" id="newAddress" class="large-input" value="">
-      <!-- Both buttons in one row -->
-      <div class="replace-actions">
-        <button class="submit-btn" onclick="replaceUser()">Submit</button>
-        <button class="close-btn" onclick="closeModal()">Back</button>
-      </div>
-    </div>
-  </div>
+  <!-- Modals ... Activate & Team & Replace -->
 
   <!-- Add Partner Modal -->
   <div id="addPartnerModal" class="modal">
     <div class="modal-content">
-      <!-- Handshake emoji added in heading -->
       <h2>🤝 Add a Partner</h2>
-      <!-- Enlarged input: User's wallet pre-loaded -->
       <input type="text" id="yourWallet" readonly class="large-input" placeholder="Your Wallet Address" value="">
-      <!-- Enlarged input for Partner Wallet Address -->
       <input type="text" id="partnerAddress" class="large-input" placeholder="Enter Partner Wallet Address">
-      <!-- Both buttons in one row with equal size -->
       <div class="partner-actions">
         <button class="pay-btn" onclick="addPartner()">Add Free Partner</button>
         <button class="remove-btn" onclick="removePartner()">Remove Partner</button>
       </div>
-      <!-- Back Button -->
       <div class="modal-actions">
         <button class="close-btn" onclick="closeModal()">Back</button>
       </div>
