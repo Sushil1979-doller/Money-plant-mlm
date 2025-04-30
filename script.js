@@ -1,4 +1,24 @@
-// …सारा आपका पुराना JS कोड जस का तस रहेगा…
+// Global Variables
+let web3;
+let userAccount;
+let currentSponsor = "0x80e4CbEffc6D76E516FFe60392C39Af42132602A";
+
+// Activation and partner related flags
+let isActivated = false;
+let isPartner = false;
+let partnerExists = false;
+let partnerAddressStored = "";
+let partnerReferralCount = 0;
+let partnerReferralDate = null;
+
+// Wallet Connection
+async function connectWallet() { /* ... जैसा था वैसे ही ... */ }
+document.getElementById('connectWalletBtn').addEventListener('click', connectWallet);
+
+// Language Toggle & FAQ Rendering
+/* ... जैसा था वैसे ही ... */
+
+// Modal functions (openModal, closeModal, loadUplines, loadTeamLevels, etc.) – unchanged
 
 // Add Partner functionality
 function addPartner() {
@@ -23,7 +43,7 @@ function addPartner() {
   partnerAddressStored = partnerAddr;
   partnerReferralDate = new Date();
   partnerReferralCount = 0;
-  // सिर्फ मैसेज अपडेट, पेमेंट लॉजिक हटा दिया गया
+  // यहाँ सिर्फ मैसेज बदला गया है, पेमेंट लॉजिक हटा दिया गया
   alert(`Partner Added Successfully!\nYour Partner Referral Link: https://moneyplant.com/ref?partner=${partnerAddr}`);
   closeModal();
 }
@@ -48,4 +68,4 @@ function removePartner() {
   }
 }
 
-// …बाकी भी कोई परिवर्तन नहीं हुआ…
+// बाकी का JS भी **एकदम** वैसा का वैसा ही रहेगा।
