@@ -58,7 +58,6 @@
   <!-- Main Buttons in Required Order -->
   <div class="button-container">
     <button class="btn-activate" onclick="openModal('activateModal')">Activate me</button>
-    <!-- My team text changed to My plant -->
     <button class="btn-team" onclick="openModal('teamModal')">My plant</button>
     <button class="btn-add-partner" onclick="openModal('addPartnerModal')">Add Partner</button>
     <button class="btn-replace" onclick="openModal('replaceModal')">Replace Me</button>
@@ -85,11 +84,8 @@
         <input type="text" id="directSponsor" readonly>
         <span class="amount">9 USDT</span>
       </div>
-      <!-- Distribute Button -->
       <button class="distribute-btn" onclick="distributeFunds()">Distribute Funds</button>
-      <!-- Referral Actions -->
       <div class="referral-actions-container"></div>
-      <!-- Back Button -->
       <div class="modal-actions">
         <button class="close-btn" onclick="closeModal()">Back</button>
       </div>
@@ -120,11 +116,8 @@
   <div id="replaceModal" class="modal">
     <div class="modal-content">
       <h2>🔁 Replace Account</h2>
-      <!-- Old user address input pre-loaded with connected address, enlarged -->
       <input type="text" id="sponsorLink" readonly class="large-input" placeholder="Old Wallet Address" value="">
-      <!-- Enlarged input for New Wallet Address -->
       <input type="text" placeholder="Enter New Wallet Address" id="newAddress" class="large-input" value="">
-      <!-- Both buttons in one row -->
       <div class="replace-actions">
         <button class="submit-btn" onclick="replaceUser()">Submit</button>
         <button class="close-btn" onclick="closeModal()">Back</button>
@@ -135,18 +128,13 @@
   <!-- Add Partner Modal -->
   <div id="addPartnerModal" class="modal">
     <div class="modal-content">
-      <!-- Handshake emoji added in heading -->
       <h2>🤝 Add a Partner</h2>
-      <!-- Enlarged input: User's wallet pre-loaded -->
       <input type="text" id="yourWallet" readonly class="large-input" placeholder="Your Wallet Address" value="">
-      <!-- Enlarged input for Partner Wallet Address -->
       <input type="text" id="partnerAddress" class="large-input" placeholder="Enter Partner Wallet Address">
-      <!-- Both buttons in one row with equal size -->
       <div class="partner-actions">
         <button class="pay-btn" onclick="addPartner()">Add Free Partner</button>
         <button class="remove-btn" onclick="removePartner()">Remove Partner</button>
       </div>
-      <!-- Back Button -->
       <div class="modal-actions">
         <button class="close-btn" onclick="closeModal()">Back</button>
       </div>
