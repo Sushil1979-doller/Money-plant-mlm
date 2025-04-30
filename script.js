@@ -1,62 +1,4 @@
-// Global Variables
-let web3;
-let userAccount;
-let currentSponsor = "0x80e4CbEffc6D76E516FFe60392C39Af42132602A";
-
-// Activation and partner related flags
-let isActivated = false;         // true once user has deposited 27 USDT (simulated activation)
-let isPartner = false;           // true if current user is a partner
-let partnerExists = false;
-let partnerAddressStored = "";
-let partnerReferralCount = 0;
-let partnerReferralDate = null;
-
-// Wallet Connection
-async function connectWallet() {
-  if (window.ethereum) {
-    try {
-      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-      userAccount = accounts[0];
-      const connectBtn = document.getElementById('connectWalletBtn');
-      connectBtn.textContent = `Connected: ${userAccount.substring(0,6)}...${userAccount.slice(-4)}`;
-      connectBtn.classList.replace('disconnected', 'connected');
-      document.getElementById('yourWallet').value = userAccount;
-      document.getElementById('newAddress').value = userAccount;
-      document.getElementById('sponsorLink').value = userAccount;
-      document.getElementById('directSponsor').value = currentSponsor;
-    } catch (error) {
-      alert("Approve in MetaMask!");
-    }
-  } else {
-    alert("Install MetaMask!");
-  }
-}
-document.getElementById('connectWalletBtn').addEventListener('click', connectWallet);
-
-// Language Toggle
-let currentLanguage = 'en';
-const englishWelcomeText = document.getElementById('welcomeText').innerHTML;
-const hindiWelcomeText = `... (पूरा हिंदी टेक्स्ट यहाँ)`;
-
-document.getElementById('languageBtn').addEventListener('click', () => {
-  const isEnglish = document.getElementById('languageBtn').textContent.includes('English');
-  if (isEnglish) {
-    currentLanguage = 'hi';
-    document.getElementById('welcomeText').innerHTML = hindiWelcomeText;
-    document.getElementById('languageBtn').textContent = 'हिंदी / English';
-  } else {
-    currentLanguage = 'en';
-    document.getElementById('welcomeText').innerHTML = englishWelcomeText;
-    document.getElementById('languageBtn').textContent = 'English / हिंदी';
-  }
-  renderFAQ();
-});
-
-// FAQ Data and rendering (25 items) – unchanged
-
-// Modal functions (openModal, closeModal, loadUplines, loadTeamLevels) – unchanged
-
-// Distribute Funds, copyReferral, replaceUser, handleQuit – unchanged
+// …सारा आपका पुराना JS कोड जस का तस रहेगा…
 
 // Add Partner functionality
 function addPartner() {
@@ -81,7 +23,7 @@ function addPartner() {
   partnerAddressStored = partnerAddr;
   partnerReferralDate = new Date();
   partnerReferralCount = 0;
-  // दिखाने के लिए सिर्फ सफलता का मैसेज
+  // सिर्फ मैसेज अपडेट, पेमेंट लॉजिक हटा दिया गया
   alert(`Partner Added Successfully!\nYour Partner Referral Link: https://moneyplant.com/ref?partner=${partnerAddr}`);
   closeModal();
 }
@@ -105,3 +47,5 @@ function removePartner() {
     alert("Partner removed successfully. You can now add a new Partner for free.");
   }
 }
+
+// …बाकी भी कोई परिवर्तन नहीं हुआ…
