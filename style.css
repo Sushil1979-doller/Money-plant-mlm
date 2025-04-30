@@ -79,4 +79,328 @@ header {
   color: white;
 }
 
-/* ... और बाकी आपकी पुरानी CSS बिल्कुल वैसी की वैसी ... */
+/* Welcome Section */
+.welcome {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.border-symbol {
+  font-size: 24px;
+  text-align: center;
+  margin: 20px 0;
+  color: #2ECC71;
+}
+.welcome p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* Button Container */
+.button-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+.button-container button {
+  padding: 18px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  font-size: 36px;
+}
+/* Main Buttons Colors */
+.btn-activate { background: #2ECC71; }
+.btn-team    { background: #3498db; }
+.btn-add-partner { background: #8e44ad; }
+.btn-replace { background: #e67e22; }
+/* Quit Me अब red */
+.btn-quit    { background: red; }
+
+/* Download Links Section */
+.download-links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+.download-links a {
+  padding: 20px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  background: brown;
+}
+.btn-income-refund {
+  padding: 20px 30px;
+  border-radius: 50px;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  background: yellow;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Modals */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  z-index: 9999;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.modal::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.7);
+  z-index: -1;
+}
+/* सभी modals में modal-content scrollable */
+#activateModal .modal-content,
+#teamModal .modal-content,
+#replaceModal .modal-content,
+#addPartnerModal .modal-content {
+  font-size: 60px;
+  padding: 50px;
+  line-height: 1.6;
+  text-align: center;
+  max-height: 100vh;
+  background: white;
+  overflow-y: auto;
+}
+.modal-content {
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+}
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Beneficiary Items in Modal */
+.beneficiary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  padding: 20px;
+  background: #e8f5e9;
+  border-radius: 50px;
+}
+.beneficiary-item span {
+  width: 40%;
+  font-size: 36px;
+}
+.beneficiary-item input {
+  width: 45%;
+  padding: 12px;
+  font-size: 34px;
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  margin-left: 15px;
+}
+.amount {
+  margin-left: 15px;
+  font-size: 36px;
+}
+
+/* Distribute Funds Button */
+.distribute-btn {
+  background: #1a6b3a;
+  margin-top: 25px;
+  width: 100%;
+  padding: 20px;
+  font-size: 34px;
+  font-weight: bold;
+}
+
+/* Referral Actions in Activate Modal */
+.referral-actions-container {
+  margin-top: 25px;
+}
+.referral-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+.copy-btn,
+.telegram-btn {
+  padding: 15px 25px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-right: 20px;
+}
+.copy-btn {
+  background: #3498db;
+  color: white;
+}
+.telegram-btn {
+  background: #0088cc;
+  color: white;
+}
+
+/* Modal Actions Container */
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Back Button: सभी back बटनों का रंग yellow */
+.close-btn {
+  background: yellow !important;
+  color: #333 !important;
+  font-size: 34px;
+  padding: 20px 40px !important;
+  cursor: pointer;
+}
+
+/* Team View */
+.team-levels {
+  margin: 20px 0;
+}
+.team-levels div {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 5px 0;
+  background: #f8f9fa;
+  border-radius: 50px;
+  font-size: 60px;
+}
+.team-total {
+  background: #e8f5e9;
+  padding: 30px;
+  margin: 20px 0;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 60px;
+}
+.income-stats .stat-box {
+  margin-bottom: 20px;
+  font-size: 60px;
+}
+
+/* FAQ & Plan Section */
+#faq-plan-section {
+  margin: 20px 0;
+  padding: 15px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+#faq-plan-section h2,
+#faq-plan-section h3 {
+  color: #2ECC71;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+#faq-plan-section details {
+  margin-bottom: 15px;
+}
+#faq-plan-section summary {
+  font-weight: bold;
+  color: #FF9800;
+  cursor: pointer;
+  padding: 15px;
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  font-size: 18px;
+}
+#faq-plan-section p {
+  padding: 15px 20px;
+  color: #555;
+  margin: 0;
+  border-left: 3px solid #2ECC71;
+  background: #fff;
+  font-size: 18px;
+}
+#plan-download {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+}
+#plan-download a,
+#plan-download .btn-income-refund {
+  margin-right: 15px;
+}
+
+/* Large Input fields used in Replace and Add Partner Modals */
+.large-input {
+  width: 90%;
+  padding: 20px;
+  font-size: 34px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  margin: 20px auto;
+}
+
+/* Replace Me Modal Actions: दोनों बटन एक ही लाइन में और समान साइज */
+.replace-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+.replace-actions button {
+  flex: 1;
+  padding: 20px 40px;
+  font-size: 34px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+/* Submit Button in Replace Modal should be red */
+.submit-btn {
+  background: red;
+  color: white;
+}
+/* Back Button here is same as .close-btn */
+
+/* Partner Modal Actions: Pay 3 USDT and Remove Partner buttons in one row with equal size */
+.partner-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+.partner-actions button {
+  flex: 1;
+  padding: 20px 40px;
+  font-size: 34px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+/* Pay 3 USDT button: Green as Distribute Funds */
+.pay-btn {
+  background: #1a6b3a;
+  color: white;
+}
+/* Remove Partner button: Red */
+.remove-btn {
+  background: red;
+  color: white;
+  }
