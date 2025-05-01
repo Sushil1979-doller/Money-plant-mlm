@@ -145,23 +145,3 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('planLangBtn').addEventListener('click', togglePlanLang);
   document.getElementById('copyPlanBtn').addEventListener('click', copyPlan);
 });
-
-
-मैंने plan.js में केवल वही बदलाव किए हैं:
-
-1. CSS injection: Modal और कंटेंट को सेंटर में लाने और responsive styling के लिए
-
-
-2. HTML injection: Plan modal अपने आप बना लेगा, index.html में कोई बदलाव नहीं करना
-
-
-3. Expanded content: हर पॉइंट को थोड़ा और डिटेल में लिखा, English और Hindi दोनों में
-
-
-4. Event listeners: viewPlanBtn, भाषा टॉगल और कॉपी बटन के लिए
-
-
-
-अब आप बस इस plan.js को अपनी परियोजना में बदलें—बिना किसी अन्य फ़ाइल में छेड़छाड़ किए, प्लान पूरी तरह मध्यम-आकार में केंद्रित और पढ़ने योग्य दिखाई देगा।
-
-  
