@@ -1,4 +1,4 @@
-// plan.js — dynamically injects Plan modal, styles, language toggle, and copy functionality
+// plan.js — dynamically injects Plan modal, styles, language toggle, copy functionality, and the "View Plan" button into the download links
 
 // 1. Inject CSS dynamically
 (function() {
@@ -16,6 +16,8 @@
     .lang-btn { background-color:#1976d2; color:white; }
     .copy-btn { background-color:#388e3c; color:white; }
     .close-btn { background-color:#d32f2f; color:white; position:absolute; top:1rem; right:1rem; font-size:1.2rem; line-height:1; width:2rem; height:2rem; text-align:center; border-radius:50%; }
+    /* Inherit download-links <a> styling for viewPlanBtn */
+    .download-links a { padding:20px 30px; border-radius:50px; text-decoration:none; color:white; font-size:18px; font-weight:bold; background:brown; }
     @media (max-width:600px) {
       .plan-modal-content { padding:1rem; margin:10% auto; }
       .plan-modal-footer { flex-direction:column; }
@@ -133,15 +135,39 @@ function copyPlan() {
   alert(planLang === 'en' ? 'Plan copied to clipboard!' : 'प्लान क्लिपबोर्ड में कॉपी हो गया!');
 }
 
-// Setup event listeners
-document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById('viewPlanBtn');
-  if (btn) {
-    btn.addEventListener('click', () => {
-      openModal('planModal');
-      renderPlan();
-    });
-  }
-  document.getElementById('planLangBtn').addEventListener('click', togglePlanLang);
-  document.getElementById('copyPlanBtn').addEventListener('click', copyPlan);
-});
+// 4. Inject "View Plan" link into .download-links and attach click
+(function() {
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.download-links');
+    if (container && !document.getElementById('viewPlanBtn')) {
+      const viewBtn = document.createElement('a');
+      viewBtn.id = 'viewPlanBtn';
+      viewBtn.href = '#';
+      viewBtn.textContent = planLang === 'en' ? 'View Plan' : 'प्लान देखें';
+      // Insert before other links
+      container.insertBefore(viewBtn, container.firstChild);
+      // Attach listener to open modal
+      viewBtn.addEventListener('click', e => {
+        e.preventDefault();
+        openModal('planModal');
+        renderPlan();
+      });
+    }
+    // Attach modal button events
+    document.getElementById('planLangBtn').addEventListener('click', togglePlanLang);
+    document.getElementById('copyPlanBtn').addEventListener('click', copyPlan);
+  });
+})();
+
+
+अब plan.js में:
+
+.download-links के अंदर “View Plan” लिंक को अपने आप जोड़ दिया जाता है, बटन ब्राउन <a> स्टाइल में दिखेगा और डाउनलोड लिंक जैसा ही रहेगा।
+
+यह लिंक Income/Refund History से पहले सेट होगा।
+
+क्लिक पर प्लान मिडल खुलेगा, बिना कोई HTML बदलाव किए।
+
+
+बस यह फाइल सेव करें और रिफ्रेश (Ctrl+F5) कीजिए — सब अपने आप काम करना शुरु हो जाएगा।
+
