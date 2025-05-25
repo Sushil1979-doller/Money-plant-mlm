@@ -13,7 +13,6 @@ let partnerReferralCount = 0;
 let partnerReferralDate  = null;
 
 let currentLanguage = 'en';
-
 const englishWelcomeText = `
   Welcome to <b>Money Plant MLM System</b>. This is your own money plant, it's a fully decentralized system where the owner is renounced and only users are the owner.<br><br>
   <b>Here you can grow your money securely and get financial freedom!</b><br><br>
@@ -46,7 +45,8 @@ async function connectWallet() {
   try {
     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
     userAccount = accounts[0];
-    document.getElementById('connectWalletBtn').textContent = `Connected: ${userAccount.substring(0,6)}...${userAccount.slice(-4)}`;
+    document.getElementById('connectWalletBtn').textContent =
+      `Connected: ${userAccount.substring(0,6)}...${userAccount.slice(-4)}`;
     document.getElementById('connectWalletBtn').classList.replace('disconnected','connected');
     document.getElementById('yourWallet').value = userAccount;
     document.getElementById('newAddress').value  = userAccount;
@@ -94,12 +94,10 @@ function openModal(id) {
   if (id === 'activateModal') loadUplines();
   if (id === 'teamModal')    loadTeamLevels();
 }
-
 function closeModal() {
   document.body.classList.remove('modal-open');
   document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
 }
-
 function loadUplines() {
   const list = document.getElementById('uplineList');
   list.innerHTML = '';
@@ -112,7 +110,6 @@ function loadUplines() {
       </div>`;
   }
 }
-
 function loadTeamLevels() {
   const levels = document.querySelector('.team-levels');
   let total = 0;
@@ -142,7 +139,6 @@ function distributeFunds() {
     </div>`;
   isActivated = true;
 }
-
 function copyReferral() {
   navigator.clipboard.writeText(`https://moneyplant.com/ref?user=${userAccount}`);
   alert('Link Copied!');
@@ -150,80 +146,57 @@ function copyReferral() {
 
 // Replace & Quit
 function replaceUser() {
-  if (isPartner) {
-    alert("Partner cannot use Replace Me!");
-    return;
-  }
+  if (isPartner) { alert("Partner cannot use Replace Me!"); return; }
   const newAddr = document.getElementById('newAddress').value.trim();
-  if (!newAddr) {
-    alert("Enter New Wallet!");
-    return;
-  }
+  if (!newAddr) { alert("Enter New Wallet!"); return; }
   currentSponsor = userAccount;
   userAccount = newAddr;
-  document.getElementById('connectWalletBtn').textContent = `Connected: ${newAddr.slice(0,6)}...${newAddr.slice(-4)}`;
-  if (document.getElementById('directSponsor')) document.getElementById('directSponsor').value = currentSponsor;
+  document.getElementById('connectWalletBtn').textContent =
+    `Connected: ${newAddr.slice(0,6)}...${newAddr.slice(-4)}`;
+  if (document.getElementById('directSponsor'))
+    document.getElementById('directSponsor').value = currentSponsor;
   alert(`Replaced! New Link: https://moneyplant.com/ref?user=${newAddr}`);
-  hideAllButtons();
-  closeModal();
+  hideAllButtons(); closeModal();
 }
 
 function handleQuit() {
-  if (isPartner) {
-    alert("Partner cannot use Quit Me!");
-    return;
-  }
+  if (isPartner) { alert("Partner cannot use Quit Me!"); return; }
   if (confirm('You will get up to 0.27 USDT daily. Confirm?')) {
     alert('Refunds start tomorrow at 4 AM IST.');
     hideAllButtons();
   }
 }
-
 function hideAllButtons() {
   document.querySelector('.button-container').style.display = 'none';
 }
 
 // Add / Remove Partner
 function addPartner() {
-  if (!isActivated) {
-    alert("Activate first!");
-    return;
-  }
-  if (isPartner)   {
-    alert("Already a Partner!");
-    return;
-  }
+  if (!isActivated) { alert("Activate first!"); return; }
+  if (isPartner)   { alert("Already a Partner!"); return; }
   if (partnerExists) {
-    alert("Remove existing partner first.");
-    return;
+    alert("Remove existing partner first."); return;
   }
   const addr = document.getElementById('partnerAddress').value.trim();
-  if (!addr) {
-    alert("Enter Partner Wallet Address!");
-    return;
-  }
-  partnerExists = true;
-  partnerAddressStored = addr;
-  partnerReferralDate = new Date();
-  partnerReferralCount = 0;
-  alert(`Successful! Partner Added. Your Partner Referral Link: https://moneyplant.com/ref?partner=${addr} Note: As an activated user, you can remove and add a new Partner if needed.`);
+  if (!addr) { alert("Enter Partner Wallet Address!"); return; }
+  partnerExists = true; partnerAddressStored = addr;
+  partnerReferralDate = new Date(); partnerReferralCount = 0;
+  alert(`Successful!
+Partner Added.
+Your Partner Referral Link: https://moneyplant.com/ref?partner=${addr}
+Note: As an activated user, you can remove and add a new Partner if needed.`);
   closeModal();
 }
-
 function removePartner() {
   if (!partnerExists) {
-    alert("No Partner exists to remove!");
-    return;
+    alert("No Partner exists to remove!"); return;
   }
   if (partnerReferralCount >= 2) {
-    alert("This Partner has ≥2 referrals in last 30 days. Cannot remove.");
-    return;
+    alert("This Partner has ≥2 referrals in last 30 days. Cannot remove."); return;
   }
   if (confirm("Remove current Partner?")) {
-    partnerExists = false;
-    partnerAddressStored = "";
-    partnerReferralCount = 0;
-    partnerReferralDate = null;
+    partnerExists = false; partnerAddressStored = "";
+    partnerReferralCount = 0; partnerReferralDate = null;
     document.getElementById('partnerAddress').value = "";
     alert("Partner removed successfully.");
   }
@@ -237,13 +210,13 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('languageBtn').addEventListener('click', toggleLanguage);
 
   document.querySelectorAll('.btn-activate')
-    .forEach(b => b.addEventListener('click', () => openModal('activateModal')));
+          .forEach(b=>b.addEventListener('click', ()=>openModal('activateModal')));
   document.querySelectorAll('.btn-team')
-    .forEach(b => b.addEventListener('click', () => openModal('teamModal')));
+          .forEach(b=>b.addEventListener('click', ()=>openModal('teamModal')));
   document.querySelectorAll('.btn-replace')
-    .forEach(b => b.addEventListener('click', () => openModal('replaceModal')));
+          .forEach(b=>b.addEventListener('click', ()=>openModal('replaceModal')));
   document.querySelectorAll('.btn-quit')
-    .forEach(b => b.addEventListener('click', handleQuit));
+          .forEach(b=>b.addEventListener('click', handleQuit));
 
   renderFAQ();
 });
