@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Money Plant</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <!-- Header Section -->
   <header>
     <div class="header-title">
       <h1>🌿 Money Plant 🌿</h1>
       <p class="header-subtitle">100% Scam Free Project - Build Your Team Confidently</p>
+      <!-- Header Buttons: Subtitle के ठीक नीचे -->
       <div class="header-buttons">
+        <!-- Connect Wallet बटन का कलर जैसा पहले था -->
         <button id="connectWalletBtn" class="disconnected">Connect Wallet</button>
         <button id="languageBtn">English / हिंदी</button>
       </div>
@@ -40,6 +42,8 @@
     <div id="faq-items">
       <!-- सभी 25 FAQ items script.js से render होंगे -->
     </div>
+    
+    <!-- Plan Video & PDF Download Section -->
     <div id="plan-download">
       <h3>Plan Video & PDF</h3>
       <p>Click the links below to download the plan video and PDF:</p>
@@ -47,12 +51,11 @@
         <a href="path_to_video.mp4" download>Download Video</a>
         <a href="path_to_plan.pdf" download>Download PDF</a>
         <button class="btn-income-refund" onclick="window.open('https://bscscan.com')">Income/Refund History</button>
-        <!-- “View Plan” link will be injected by plan.js -->
       </div>
     </div>
   </section>
 
-  <!-- Main Buttons -->
+  <!-- Main Buttons in Required Order -->
   <div class="button-container">
     <button class="btn-activate" onclick="openModal('activateModal')">Activate me</button>
     <button class="btn-team" onclick="openModal('teamModal')">My plant</button>
@@ -89,7 +92,7 @@
     </div>
   </div>
 
-  <!-- Team Modal -->
+  <!-- Team (My Plant) Modal -->
   <div id="teamModal" class="modal">
     <div class="modal-content">
       <h2>🌿 Team Structure</h2>
@@ -109,12 +112,12 @@
     </div>
   </div>
 
-  <!-- Replace Modal -->
+  <!-- Replace Me Modal -->
   <div id="replaceModal" class="modal">
     <div class="modal-content">
       <h2>🔁 Replace Account</h2>
       <input type="text" id="sponsorLink" readonly class="large-input" placeholder="Old Wallet Address" value="">
-      <input type="text" id="newAddress" class="large-input" placeholder="Enter New Wallet Address" value="">
+      <input type="text" placeholder="Enter New Wallet Address" id="newAddress" class="large-input" value="">
       <div class="replace-actions">
         <button class="submit-btn" onclick="replaceUser()">Submit</button>
         <button class="close-btn" onclick="closeModal()">Back</button>
@@ -138,19 +141,6 @@
     </div>
   </div>
 
-  <!-- Plan Modal -->
-  <div id="planModal" class="modal">
-    <div class="modal-content">
-      <div class="modal-actions" style="justify-content: flex-end; gap: 15px;">
-        <button id="planLangBtn" class="close-btn">हिंदी</button>
-        <button id="copyPlanBtn" class="copy-btn">Copy</button>
-        <button class="close-btn" onclick="closeModal()">Back</button>
-      </div>
-      <div id="planContent" style="text-align:left;"></div>
-    </div>
-  </div>
-
   <script src="script.js"></script>
-  <script src="plan.js"></script>
 </body>
 </html>
