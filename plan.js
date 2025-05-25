@@ -1,42 +1,119 @@
-// plan.js — dynamically injects Plan modal, styles, language toggle, copy functionality, and the "View Plan" button into the download links
-
-// 1. Inject CSS dynamically
+// -----------------------------
+// 1. Inject CSS for Plan Modal
+// -----------------------------
 (function() {
   const style = document.createElement('style');
   style.textContent = `
     /* Plan Modal Styles */
-    .modal { display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); z-index:10000; }
-    .plan-modal-content { max-width:800px; margin:5% auto; background:#fff; padding:2rem; border-radius:12px; font-family:'Segoe UI',sans-serif; line-height:1.6; position:relative; }
-    .plan-modal-content h2 { color:#2e7d32; text-align:center; margin-bottom:1rem; }
-    .plan-modal-content ul, .plan-modal-content ol { padding-left:1.2rem; margin-bottom:1rem; }
-    .plan-modal-content li { margin-bottom:0.75rem; }
-    .plan-modal-content p { margin-bottom:1rem; }
-    .plan-modal-footer { display:flex; justify-content:space-between; margin-top:1.5rem; flex-wrap:wrap; gap:0.5rem; }
-    .plan-btn { padding:0.5rem 1rem; font-weight:bold; border:none; border-radius:5px; cursor:pointer; }
-    .lang-btn { background-color:#1976d2; color:white; }
-    .copy-btn { background-color:#388e3c; color:white; }
-    .close-btn { background-color:#d32f2f; color:white; position:absolute; top:1rem; right:1rem; font-size:1.2rem; line-height:1; width:2rem; height:2rem; text-align:center; border-radius:50%; }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 10000;
+    }
+    .plan-modal-content {
+      max-width: 800px;
+      margin: 5% auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      position: relative;
+    }
+    .plan-modal-content h2 {
+      color: #2e7d32;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .plan-modal-content ul,
+    .plan-modal-content ol {
+      padding-left: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .plan-modal-content li {
+      margin-bottom: 0.75rem;
+    }
+    .plan-modal-content p {
+      margin-bottom: 1rem;
+    }
+    .plan-modal-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .plan-btn {
+      padding: 0.5rem 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .lang-btn {
+      background-color: #1976d2;
+      color: white;
+    }
+    .copy-plan-btn {
+      background-color: #388e3c;
+      color: white;
+    }
+    .close-plan-btn {
+      background-color: #d32f2f;
+      color: white;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.2rem;
+      line-height: 1;
+      width: 2rem;
+      height: 2rem;
+      text-align: center;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     /* Inherit download-links <a> styling for viewPlanBtn */
-    .download-links a { padding:20px 30px; border-radius:50px; text-decoration:none; color:white; font-size:18px; font-weight:bold; background:brown; }
-    @media (max-width:600px) {
-      .plan-modal-content { padding:1rem; margin:10% auto; }
-      .plan-modal-footer { flex-direction:column; }
+    .download-links a.view-plan-link {
+      padding: 20px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      background: brown;
+    }
+    @media (max-width: 600px) {
+      .plan-modal-content {
+        padding: 1rem;
+        margin: 10% auto;
+      }
+      .plan-modal-footer {
+        flex-direction: column;
+      }
     }
   `;
   document.head.appendChild(style);
 })();
 
+// -----------------------------
 // 2. Inject Plan Modal HTML
+// -----------------------------
 (function() {
   const modalHTML = `
     <div id="planModal" class="modal">
       <div class="plan-modal-content">
-        <button class="close-btn" onclick="closeModal()">&times;</button>
+        <button class="close-plan-btn" id="closePlanModalBtn">&times;</button>
         <div id="planContent"></div>
         <div class="plan-modal-footer">
           <button class="plan-btn lang-btn" id="planLangBtn">हिंदी</button>
-          <button class="plan-btn copy-btn" id="copyPlanBtn">Copy Plan</button>
-          <button class="plan-btn close-btn" onclick="closeModal()">Close</button>
+          <button class="plan-btn copy-plan-btn" id="copyPlanBtn">Copy Plan</button>
         </div>
       </div>
     </div>
@@ -44,7 +121,9 @@
   document.body.insertAdjacentHTML('beforeend', modalHTML);
 })();
 
-// 3. Detailed Plan Content
+// -----------------------------
+// 3. Plan Content (EN & HI)
+// -----------------------------
 const planContent = {
   en: `
     <h2>🌿 Money Plant Plan</h2>
@@ -112,7 +191,7 @@ const planContent = {
   `
 };
 
-// Plain-text fallback for clipboard copy
+// Plain-text fallback for clipboard copy (strip HTML tags)
 const planText = {
   en: planContent.en.replace(/<[^>]+>/g, '').trim(),
   hi: planContent.hi.replace(/<[^>]+>/g, '').trim()
@@ -120,6 +199,9 @@ const planText = {
 
 let planLang = 'en';
 
+// -----------------------------
+// 4. Render Plan & Handlers
+// -----------------------------
 function renderPlan() {
   document.getElementById('planContent').innerHTML = planContent[planLang];
   document.getElementById('planLangBtn').textContent = planLang === 'en' ? 'हिंदी' : 'English';
@@ -132,42 +214,56 @@ function togglePlanLang() {
 
 function copyPlan() {
   navigator.clipboard.writeText(planText[planLang]);
-  alert(planLang === 'en' ? 'Plan copied to clipboard!' : 'प्लान क्लिपबोर्ड में कॉपी हो गया!');
+  alert(planLang === 'en'
+    ? 'Plan copied to clipboard!'
+    : 'प्लान क्लिपबोर्ड में कॉपी हो गया!'
+  );
 }
 
-// 4. Inject "View Plan" link into .download-links and attach click
-(function() {
-  document.addEventListener('DOMContentLoaded', () => {
-    const container = document.querySelector('.download-links');
-    if (container && !document.getElementById('viewPlanBtn')) {
-      const viewBtn = document.createElement('a');
-      viewBtn.id = 'viewPlanBtn';
-      viewBtn.href = '#';
-      viewBtn.textContent = planLang === 'en' ? 'View Plan' : 'प्लान देखें';
-      // Insert before other links
-      container.insertBefore(viewBtn, container.firstChild);
-      // Attach listener to open modal
-      viewBtn.addEventListener('click', e => {
-        e.preventDefault();
-        openModal('planModal');
-        renderPlan();
-      });
+// -----------------------------
+// 5. Open & Close Modal Helpers
+// -----------------------------
+function openPlanModal() {
+  document.getElementById('planModal').style.display = 'block';
+  document.body.classList.add('modal-open');
+  renderPlan();
+}
+
+function closePlanModal() {
+  document.getElementById('planModal').style.display = 'none';
+  document.body.classList.remove('modal-open');
+}
+
+// -----------------------------
+// 6. Inject “View Plan” Link & Listeners
+// -----------------------------
+document.addEventListener('DOMContentLoaded', () => {
+  // 6.1. Inject “View Plan” link into .download-links if not already present
+  const container = document.querySelector('.download-links');
+  if (container && !document.querySelector('a.view-plan-link')) {
+    const viewBtn = document.createElement('a');
+    viewBtn.id = 'viewPlanBtn';
+    viewBtn.href = '#';
+    viewBtn.classList.add('view-plan-link');
+    viewBtn.textContent = planLang === 'en' ? 'View Plan' : 'प्लान देखें';
+    container.insertBefore(viewBtn, container.firstChild);
+
+    viewBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openPlanModal();
+    });
+  }
+
+  // 6.2. Attach Plan Modal button listeners
+  document.getElementById('planLangBtn').addEventListener('click', togglePlanLang);
+  document.getElementById('copyPlanBtn').addEventListener('click', copyPlan);
+  document.getElementById('closePlanModalBtn').addEventListener('click', closePlanModal);
+
+  // 6.3. Close modal when clicking outside the modal content
+  const planModal = document.getElementById('planModal');
+  planModal.addEventListener('click', (e) => {
+    if (e.target === planModal) {
+      closePlanModal();
     }
-    // Attach modal button events
-    document.getElementById('planLangBtn').addEventListener('click', togglePlanLang);
-    document.getElementById('copyPlanBtn').addEventListener('click', copyPlan);
   });
-})();
-
-
-अब plan.js में:
-
-.download-links के अंदर “View Plan” लिंक को अपने आप जोड़ दिया जाता है, बटन ब्राउन <a> स्टाइल में दिखेगा और डाउनलोड लिंक जैसा ही रहेगा।
-
-यह लिंक Income/Refund History से पहले सेट होगा।
-
-क्लिक पर प्लान मिडल खुलेगा, बिना कोई HTML बदलाव किए।
-
-
-बस यह फाइल सेव करें और रिफ्रेश (Ctrl+F5) कीजिए — सब अपने आप काम करना शुरु हो जाएगा।
-
+});
