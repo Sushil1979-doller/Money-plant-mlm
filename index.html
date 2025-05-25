@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Money Plant</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <!-- Header Section -->
   <header>
     <div class="header-title">
@@ -23,12 +23,12 @@
   <section class="welcome">
     <div class="border-symbol">🌿🌿🌿</div>
     <p id="welcomeText">
-      Welcome to <b>Money Plant MLM System</b>. This is your own money plant, it's a fully decentralized system where the owner is renounced and only users are the owner.<br><br>
-      <b>Here you can grow your money securely and get financial freedom!</b><br><br>
-      This system works on a <b>smart contract</b> that automatically distributes rewards among participants in a fair and transparent way. Once you register, you will start earning commissions from direct and indirect referrals.<br><br>
-      🌟 <b>100% Safe & Secure</b> - No Admin Control, Fully Decentralized.<br>
-      🌟 <b>Instant Payments</b> - No Waiting, Get Paid Instantly.<br>
-      🌟 <b>Unlimited Earnings</b> - Grow Your Network, Increase Your Income.<br><br>
+      Welcome to <b>Money Plant MLM System</b>. This is your own money plant, it's a fully decentralized system where the owner is renounced and only users are the owner.<br /><br />
+      <b>Here you can grow your money securely and get financial freedom!</b><br /><br />
+      This system works on a <b>smart contract</b> that automatically distributes rewards among participants in a fair and transparent way. Once you register, you will start earning commissions from direct and indirect referrals.<br /><br />
+      🌟 <b>100% Safe & Secure</b> – No Admin Control, Fully Decentralized.<br />
+      🌟 <b>Instant Payments</b> – No Waiting, Get Paid Instantly.<br />
+      🌟 <b>Unlimited Earnings</b> – Grow Your Network, Increase Your Income.<br /><br />
       <b>Transparency:</b> Funds are distributed directly user-to-user without any mediator. Money Plant is a liability-free project and will remain forever with you all.
     </p>
     <div class="border-symbol">🌿🌿🌿</div>
@@ -47,7 +47,7 @@
         <a href="path_to_video.mp4" download>Download Video</a>
         <a href="path_to_plan.pdf" download>Download PDF</a>
         <button class="btn-income-refund" onclick="window.open('https://bscscan.com')">Income/Refund History</button>
-        <button id="viewPlanBtn" class="btn-income-refund">View Plan</button>
+        <!-- “View Plan” link will be injected by plan.js -->
       </div>
     </div>
   </section>
@@ -67,18 +67,18 @@
       <h2>💰 Beneficiary List</h2>
       <div class="beneficiary-item">
         <span>🌝 Admin</span>
-        <input type="text" value="0x80e4CbEffc6D76E516FFe60392C39Af42132602A" readonly>
+        <input type="text" value="0x80e4CbEffc6D76E516FFe60392C39Af42132602A" readonly />
         <span class="amount">1 USDT</span>
       </div>
       <div class="beneficiary-item">
         <span>💰 Refund Pool</span>
-        <input type="text" value="0x60547abE7550e894e0fcCe43Adf36E4774e22d95" readonly>
+        <input type="text" value="0x60547abE7550e894e0fcCe43Adf36E4774e22d95" readonly />
         <span class="amount">2 USDT</span>
       </div>
       <div id="uplineList"></div>
       <div class="beneficiary-item">
         <span>🧛🏻 Direct Sponsor</span>
-        <input type="text" id="directSponsor" readonly>
+        <input type="text" id="directSponsor" readonly />
         <span class="amount">9 USDT</span>
       </div>
       <button class="distribute-btn" onclick="distributeFunds()">Distribute Funds</button>
@@ -113,8 +113,21 @@
   <div id="replaceModal" class="modal">
     <div class="modal-content">
       <h2>🔁 Replace Account</h2>
-      <input type="text" id="sponsorLink" readonly class="large-input" placeholder="Old Wallet Address" value="">
-      <input type="text" id="newAddress" class="large-input" placeholder="Enter New Wallet Address" value="">
+      <input
+        type="text"
+        id="sponsorLink"
+        readonly
+        class="large-input"
+        placeholder="Old Wallet Address"
+        value=""
+      />
+      <input
+        type="text"
+        id="newAddress"
+        class="large-input"
+        placeholder="Enter New Wallet Address"
+        value=""
+      />
       <div class="replace-actions">
         <button class="submit-btn" onclick="replaceUser()">Submit</button>
         <button class="close-btn" onclick="closeModal()">Back</button>
@@ -126,8 +139,20 @@
   <div id="addPartnerModal" class="modal">
     <div class="modal-content">
       <h2>🤝 Add a Partner</h2>
-      <input type="text" id="yourWallet" readonly class="large-input" placeholder="Your Wallet Address" value="">
-      <input type="text" id="partnerAddress" class="large-input" placeholder="Enter Partner Wallet Address">
+      <input
+        type="text"
+        id="yourWallet"
+        readonly
+        class="large-input"
+        placeholder="Your Wallet Address"
+        value=""
+      />
+      <input
+        type="text"
+        id="partnerAddress"
+        class="large-input"
+        placeholder="Enter Partner Wallet Address"
+      />
       <div class="partner-actions">
         <button class="pay-btn" onclick="addPartner()">Add Free Partner</button>
         <button class="remove-btn" onclick="removePartner()">Remove Partner</button>
@@ -138,17 +163,8 @@
     </div>
   </div>
 
-  <!-- Plan Modal -->
-  <div id="planModal" class="modal">
-    <div class="modal-content">
-      <div class="modal-actions" style="justify-content: flex-end; gap: 15px;">
-        <button id="planLangBtn" class="close-btn">हिंदी</button>
-        <button id="copyPlanBtn" class="copy-btn">Copy</button>
-        <button class="close-btn" onclick="closeModal()">Back</button>
-      </div>
-      <div id="planContent" style="text-align:left;"></div>
-    </div>
-  </div>
+  <!-- Plan Modal (Injected by plan.js) -->
+  <!-- <div id="planModal" class="modal"> ... </div> -->
 
   <script src="script.js"></script>
   <script src="plan.js"></script>
