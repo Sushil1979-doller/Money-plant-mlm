@@ -7,7 +7,7 @@ let currentSponsor = "0x80e4CbEffc6D76E516FFe60392C39Af42132602A";
 
 let isActivated = false;
 // यह flag बताएगा कि user ने कभी भी Add Partner उपयोग किया है या नहीं:
-// अगर एक बार उपयोग कर लिया, तो Replace/ Quit हमेशा ही disabled रहेगा।
+// एक बार जोड़ा, तो Replace/Quit दोनों बटन हमेशा disabled रहेंगी।
 let hasUsedAddPartnerOption = false;
 
 let partnerExists = false;
@@ -23,8 +23,8 @@ const englishWelcomeText = `
   <b>Here you can grow your money securely and get financial freedom!</b><br><br>
   This system works on a <b>smart contract</b> that automatically distributes rewards among participants in a fair and transparent way. Once you register, you will start earning commissions from direct and indirect referrals.<br><br>
   🌟 <b>100% Safe & Secure</b> - No Admin Control, Fully Decentralized.<br>
-  🌟 <b>Instant Payments</b> - No Waiting, Get Paid Instantly.<br>
-  🌟 <b>Unlimited Earnings</b> - Grow Your Network, Increase Your Income.<br><br>
+  🌟 <b>Instant Payments</b> - No Waiting, Get Paid Instantly.<br />
+  🌟 <b>Unlimited Earnings</b> - Grow Your Network, Increase Your Income.<br /><br>
   <b>Transparency:</b> Funds are distributed directly user-to-user without any mediator. Money Plant is a liability-free project and will remain forever with you all.
 `;
 const hindiWelcomeText = `
@@ -33,7 +33,7 @@ const hindiWelcomeText = `
   यह प्रणाली एक <b>स्मार्ट कॉन्ट्रैक्ट</b> पर काम करती है जो पारदर्शी तरीके से सीधे यूजर से यूजर भुगतान करती है। एक बार पंजीकरण करने के बाद, आप सीधे और अप्रत्यक्ष रेफरल से कमीशन कमाना शुरू कर देंगे।<br><br>
   🌟 <b>100% सुरक्षित</b> - कोई एडमिन नियंत्रण नहीं, पूरी तरह विकेंद्रीकृत।<br />
   🌟 <b>तुरंत भुगतान</b> - प्रतीक्षा नहीं, तुरंत पैसा प्राप्त करें।<br />
-  🌟 <b>असीमित कमाई</b> - अपना नेटवर्क बढ़ाएं, आय बढ़ाएं।<br /><br />
+  🌟 <b>असीमित कमाई</b> - अपना नेटवर्क बढ़ाएं, आय बढ़ाएं।<br /><br>
   <b>पारदर्शिता:</b> फंड बिना किसी बिचौलिए के सीधे यूजर-टू-यूजर वितरित किए जाते हैं। मनी प्लांट एक दायित्व-मुक्त परियोजना है और हमेशा आपके साथ रहेगी।
 `;
 
@@ -41,25 +41,63 @@ const faqData = [
   /* आपकी 25 FAQ आइटम्स वैसे ही रखें */
 ];
 
-// Rules Data दोनों भाषाओं में
+// Rules Data for Add Partner (दो भाषाओं में)
 const partnerRulesData = {
   en: [
-    "Only an activated user can add one free partner.",
-    "If the free partner does not bring any new joining within 21 days, then the activated user can remove that partner. Only after removal can a new partner be added.",
-    "50% of the free partner’s earnings will be shared with the activated user, and 50% will go to the free partner.",
-    "If the free partner brings even 1 joining, the activated user cannot remove the free partner at any cost.",
-    "A free partner can activate themselves at any time by distributing 27 USDT. Once activated, they will receive 100% income from their own team starting that day.",
-    "If the free partner activates themselves, then their (original) partner can add a new partner again.",
-    "If any user adds their partner, they will permanently lose the right to use the Replace Me and Quit Me buttons."
+    "A. Any user who has activated their ID with 27 USDT can use the Add Partner feature.",
+    "B. Each user can create only one free partner.",
+    "C. If your partner does not perform any business activity within 30 days, you can remove them so your earnings do not stop, and add another new partner in their place.",
+    "D. If your partner adds even one new ID within the 30-day timeframe, then you will never be able to remove them.",
+    "E. Your partner can, at any time, distribute 27 USDT to become the owner of their own system and from that day onward receive 100% of the profit. However, if they leave you to join another user's referral link, the team they previously built will remain under you.",
+    "F. If your partner creates their own ID, they will be considered a member of your team, and they can also add their own partner; at that point, you can again add a new partner."
   ],
   hi: [
-    "सिर्फ activated user ही 1 free partner add कर सकता है।",
-    "अगर free पार्टनर 21 दिन के अंदर कोई नई joining नहीं करवाता है तो activated user अपने पार्टनर को remove कर सकता है। और remove करने के बाद ही एक दूसरा नया partner बना सकता है।",
-    "Free partner की कमाई का 50% शेयर activated user को जाएगा और 50% free partner को जाएगा।",
-    "अगर free partner ने 1 भी joining करवा दी है तो activated user किसी भी कीमत पर free पार्टनर को remove नहीं कर सकता।",
-    "Free partner कभी भी 27 USDT distribute कर के खुद को activate कर सकता है और activate होने के बाद उस दिन से वो अपनी टीम से 100% इनकम प्राप्त कर सकता है।",
-    "अगर free partner खुद को activate कर लेता है तो उसका पार्टनर फिर से एक नया partner add कर पाएगा।",
-    "अगर कोई user अपना पार्टनर add करता है तो फिर वो Replace Me और Quit Me के बटन का इस्तेमाल करने का हक हमेशा के लिए खो देगा।"
+    "A. Add partner का फायदा कोई भी यूजर ले सकता है जिसने 27 USDT से अपनी ID एक्टिवेट की हो।",
+    "B. कोई भी यूजर सिर्फ़ एक ही फ्री पार्टनर बना सकता है।",
+    "C. यदि आपका पार्टनर 30 दिनों के भीतर कोई बिज़नेस एक्टिविटी नहीं करता है, तो आप उन्हें हटा सकते हैं ताकि आपकी कमाई न रुके, और उनकी जगह एक नया पार्टनर जोड़ सकते हैं।",
+    "D. यदि आपका पार्टनर 30-दिन की समयसीमा में एक भी नई ID जोड़ देता है, तो आप उन्हें कभी नहीं हटा पाएंगे।",
+    "E. आपका पार्टनर किसी भी समय 27 USDT डिस्ट्रीब्यूट करके अपने सिस्टम का मालिक बन सकता है और उस दिन से 100% प्रॉफिट पा सकता है। मगर यदि वह आपको छोड़कर किसी दूसरे यूजर के रेफ़रल लिंक से जुड़ता है, तो उसने जो टीम बनायी थी वह आपके अधीन ही रहेगी।",
+    "F. यदि आपका पार्टनर अपनी खुद की ID बनाता है, तो उसे आपकी टीम का सदस्य माना जाएगा, और वह अपना पार्टनर भी जोड़ सकेगा; उस समय आप फिर से एक नया पार्टनर जोड़ सकते हैं।"
+  ]
+};
+
+// Rules Data for Replace Me (दो भाषाओं में)
+const replaceRulesData = {
+  en: [
+    "A. Only the user who activated their ID with 27 USDT and no longer wants to work with the system can sell their ID.",
+    "B. Before selling the ID, taking 27 USDT from the new user is solely your responsibility; the system has no involvement in this transaction.",
+    "C. Only the user who has zero referrals under them and no partners can use the Replace Me button.",
+    "D. Once a user replaces their ID, the old wallet address will be removed from the system, and the new user they bring in will become the owner of the system.",
+    "E. The old user's direct sponsor will remain as the new user's direct sponsor. The entire upline team will also remain the same as before.",
+    "F. A user who has replaced themselves can, at any time, take a new ID and rejoin Money Plant to work again."
+  ],
+  hi: [
+    "A. सिर्फ वही यूजर अपनी ID बेच सकता है जिसने 27 USDT डिस्ट्रीब्यूट करके अपनी ID एक्टिवेट की हो और अब इस सिस्टम के साथ काम नहीं करना चाहता हो।",
+    "B. ID बेचने से पहले नए यूजर से 27 USDT लेना सिर्फ आपकी जिम्मेदारी होगी; इस लेन-देन में सिस्टम का कोई लेना-देना नहीं होगा।",
+    "C. सिर्फ वही यूजर Replace Me बटन का उपयोग कर सकता है जिनके नीचे एक भी रेफ़रल न हो और न कोई पार्टनर हो।",
+    "D. अगर किसी यूजर ने अपनी ID एक बार रिप्लेस कर दी, तो पुराने यूजर का वॉलेट एड्रेस सिस्टम से हट जाएगा और नए यूजर को ही सिस्टम का मालिक माना जाएगा।",
+    "E. पुराने यूजर का डायरेक्ट स्पॉन्सर ही नए यूजर का डायरेक्ट स्पॉन्सर माना जाएगा। Upline टीम भी पहले जैसी ही रहेगी।",
+    "F. कोई यूजर जिसने खुद को रिप्लेस कर लिया हो, वह अगर चाहे तो कभी भी नया ID लेकर फिर से Money Plant के साथ जुड़कर काम कर सकता है।"
+  ]
+};
+
+// Rules Data for Quit Me (दो भाषाओं में, इमेज के अनुसार)
+const quitRulesData = {
+  en: [
+    "A. Only the user who activated their ID with 27 USDT can quit and take their principal back from the refund pool.",
+    "B. Only a user with zero referrals under them and no partners can quit and claim the refund from the pool.",
+    "C. The total amount in the refund pool will be divided equally among all quitters; each quitter will receive that share every 24 hours.",
+    "D. Each quitter can claim from the refund pool only once in 24 hours, up to a maximum of 0.27 USDT per claim.",
+    "E. Each quitter will get a refund once per day, until their entire 27 USDT principal is 100% returned. After full refund, they will not get any further payments.",
+    "F. If a user has quit and wants to rejoin Money Plant later, they can create a new ID and start working again."
+  ],
+  hi: [
+    "A. सिर्फ वही यूजर quit कर के refund pool से अपना मूलधन वापस ले सकता है जिसने 27 USDT distribute कर के अपनी ID activate की हो।",
+    "B. सिर्फ वो ही यूजर quit कर के refund pool से मूलधन वापस ले सकता है जिनके नीचे न कोई referral हो और न ही कोई partner हो।",
+    "C. Refund pool में कुल जमा राशि को quitters की कुल संख्या से भाग देने पर जो राशि निकल कर आएगी, प्रत्येक quitter को 24 घंटे में उतनी ही दी जाएगी।",
+    "D. Refund pool से प्रत्येक quitter को 24 घंटे में सिर्फ 1 बार ही refund राशि दी जाएगी, जिसकी अधिकतम सीमा 0.27 USDT तय है।",
+    "E. प्रत्येक quitter को refund राशि प्रत्येक दिन 1 बार दी जाएगी, मगर जब तक उनका मूलधन 27 USDT 100% वापस नहीं मिल जाता, तब तक उन्हें daily refund मिलता रहेगा।",
+    "F. यदि कोई यूजर quit कर चुका है और फिर से Money Plant के साथ काम करना चाहता है, तो वह नई ID बनाकर फिर से काम शुरू कर सकता है।"
   ]
 };
 
@@ -106,9 +144,12 @@ function toggleLanguage() {
     document.getElementById("languageBtn").textContent = "English / हिंदी";
   }
   renderFAQ();
-  renderPartnerRules(); // भाषा बदलते समय rules भी अपडेट हों
+  renderPartnerRules();  // Add Partner के नियम अपडेट होंगे
+  renderReplaceRules();  // Replace Me के नियम अपडेट होंगे
+  // Quit Me के नियम अपडेट नहीं हैं तभी तक जब Quit Me Modal खुलेगा
 }
 
+// FAQ Render (पहले जैसा ही)
 function renderFAQ() {
   const container = document.getElementById("faq-items");
   container.innerHTML = "";
@@ -124,12 +165,25 @@ function renderFAQ() {
   });
 }
 
+// Render Add Partner के Rules
 function renderPartnerRules() {
   const rulesContainer = document.getElementById("partnerRules");
-  rulesContainer.innerHTML = ""; // पुराने को हटाएं
-
+  rulesContainer.innerHTML = ""; 
   const ul = document.createElement("ul");
   partnerRulesData[currentLanguage].forEach((ruleText) => {
+    const li = document.createElement("li");
+    li.textContent = ruleText;
+    ul.appendChild(li);
+  });
+  rulesContainer.appendChild(ul);
+}
+
+// Render Replace Me के Rules
+function renderReplaceRules() {
+  const rulesContainer = document.getElementById("replaceRules");
+  rulesContainer.innerHTML = "";
+  const ul = document.createElement("ul");
+  replaceRulesData[currentLanguage].forEach((ruleText) => {
     const li = document.createElement("li");
     li.textContent = ruleText;
     ul.appendChild(li);
@@ -145,6 +199,7 @@ function openModal(id) {
   if (id === "activateModal") loadUplines();
   if (id === "teamModal") loadTeamLevels();
   if (id === "addPartnerModal") renderPartnerRules();
+  if (id === "replaceModal") renderReplaceRules();
 }
 
 function closeModal() {
@@ -181,7 +236,6 @@ function loadTeamLevels() {
   }
   document.getElementById("totalMembers").textContent = total;
 
-  // आप चाहें तो इन इन्‍कम IDs में नेटवर्क से डेटा भर सकते हैं
   document.getElementById("todaysIncome").textContent = "0 USDT";
   document.getElementById("totalIncome").textContent = "0 USDT";
 }
@@ -212,8 +266,9 @@ function copyReferral() {
 }
 
 // Replace & Quit
+
 function replaceUser() {
-  // अगर user ने कभी Add Partner बटन use किया है, तो Replace/Quit हमेशा disabled रहेगा
+  // अगर user ने कभी Add Partner बटन use किया है, तो Replace/Quit always disabled
   if (hasUsedAddPartnerOption) {
     alert("You cannot use Replace Me after using Add Partner.");
     return;
@@ -236,17 +291,38 @@ function replaceUser() {
 }
 
 function handleQuit() {
-  // अगर user ने कभी Add Partner बटन use किया है, तो Replace/Quit हमेशा disabled रहेगा
+  // अगर user ने कभी Add Partner बटन use किया है, तो Replace/Quit always disabled
   if (hasUsedAddPartnerOption) {
     alert("You cannot use Quit Me after using Add Partner.");
     return;
   }
-  if (confirm("You will get up to 0.27 USDT daily. Confirm?")) {
-    alert("Refunds start tomorrow at 4 AM IST.");
-    hideAllButtons();
-  }
+
+  // 1) सबसे पहले नियम (Rules) display करें
+  const rulesArray = quitRulesData[currentLanguage]; // इस array में नियम दोनों भाषाओं में हैं
+  let combinedText = "";
+  rulesArray.forEach((rule, idx) => {
+    combinedText += `${idx + 1}. ${rule}\n\n`;
+  });
+  alert(combinedText.trim()); // पहला पॉपअप: सिर्फ़ नियम
+
+  // 2) एक बार confirmation पूछें
+  const userConfirm = confirm(
+    currentLanguage === "en"
+      ? "Are you sure you want to quit and claim your refund?"
+      : "क्या आप सच में quit करके refund लेना चाहते हैं?"
+  );
+  if (!userConfirm) return;
+
+  // 3) अगर user Confirm करता है, तो अंतिम सूचना दिखाएँ
+  alert(
+    currentLanguage === "en"
+      ? "Refunds start tomorrow at 4 AM IST."
+      : "Refund अगले दिन सुबह 4 बजे IST से शुरू होगा।"
+  );
+  hideAllButtons();
 }
 
+// Helper: सभी बटन छिपाएं
 function hideAllButtons() {
   document.querySelector(".button-container").style.display = "none";
 }
@@ -271,9 +347,9 @@ function addPartner() {
   partnerAddressStored = addr;
   partnerReferralDate = new Date();
   partnerReferralCount = 0;
-  hasUsedAddPartnerOption = true; // एक बार जोड़ा, तो Replace/Quit हमेशा disabled होंगी
+  hasUsedAddPartnerOption = true; // एक बार जोड़ा, तो Replace/Quit दोनों बटन हमेशा disabled रहेंगी
 
-  // अब Replace & Quit दोनों बटन पूरी तरह hide कर देते हैं
+  // Replace/Quit दोनों बटन पूरी तरह से hide कर देते हैं
   document.querySelectorAll(".btn-replace, .btn-quit").forEach((btn) => {
     btn.style.display = "none";
   });
@@ -301,7 +377,7 @@ function removePartner() {
     partnerReferralDate = null;
     document.getElementById("partnerAddress").value = "";
     alert("Partner removed successfully.");
-    // लेकिन hasUsedAddPartnerOption पहले true हुआ था, तो Replace/Quit फिर भी disabled ही रहेगा
+    // लेकिन hasUsedAddPartnerOption पहले true हुआ था, तो Replace/Quit दोनों बटन फिर भी disabled ही रहेंगी
   }
 }
 
